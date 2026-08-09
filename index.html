@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CalcQI | High-Precision Multi-Tool Calculator Hub</title>
-  <meta name="description" content="20 free, high-precision dark-mode calculators for creators, makers, athletes, and investors: 3D Print Cost, Pizza Dough, CNC Laser, Sourdough, Resin Mold, Video Bitrate, DOF Optics, ND Exposure, Timelapse, Light Drop-off, TDEE Macros, 1RM Strength, FFMI, Wilks DOTS, Karvonen HR, Stock Avg Down, Dividend DRIP, Position Size, Compound Savings, and Crypto ROI.">
+  <title>CalcQI | 20 Guided High-Precision Calculators</title>
+  <meta name="description" content="20 free, high-precision dark-mode calculators with guided visual results for creators, makers, athletes, and investors: 3D Print Cost, Pizza Dough, CNC Laser, Sourdough, Resin Mold, Video Bitrate, DOF Optics, ND Exposure, Timelapse, Light Drop-off, TDEE Macros, 1RM Strength, FFMI, Wilks DOTS, Karvonen HR, Stock Avg Down, Dividend DRIP, Position Size, Compound Savings, and Crypto ROI.">
   <meta name="author" content="CalcQI">
   <link rel="canonical" href="https://calcqi.com">
   
-  <meta property="og:title" content="CalcQI - High-Precision Utility Suite">
-  <meta property="og:description" content="20 high-precision micro-calculators for engineering, media production, athletic performance, and investment finance.">
+  <meta property="og:title" content="CalcQI - 20 Guided High-Precision Calculators">
+  <meta property="og:description" content="20 calculators with instant visual results, ratings, and breakdowns for engineering, media production, athletic performance, and investment finance.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://calcqi.com">
   <meta property="og:image" content="og-preview.png">
@@ -37,13 +37,16 @@
     a { color: var(--accent-indigo); text-decoration: none; transition: var(--transition); }
     a:hover { color: var(--accent-violet); }
     .container { width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 1.25rem; }
+    input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+    input[type=number] { -moz-appearance: textfield; }
+    select.form-control { appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%2364748b'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 0.8rem center; padding-right: 2rem; cursor: pointer; }
 
     .app-header { position: sticky; top: 0; z-index: 100; background: rgba(11, 15, 25, 0.88); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border-subtle); padding: 0.75rem 0; }
     .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 1.25rem; }
     .brand-logo { display: flex; align-items: center; gap: 0.75rem; font-weight: 800; font-size: 1.35rem; color: var(--text-main); }
     .logo-icon { width: 38px; height: 38px; background: linear-gradient(135deg, var(--accent-indigo), var(--accent-violet)); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-glow); }
     .logo-icon svg { width: 22px; height: 22px; fill: #ffffff; }
-    .brand-badge { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; background: rgba(99, 102, 241, 0.15); color: var(--accent-indigo); border: 1px solid rgba(99, 102, 241, 0.3); padding: 0.15rem 0.45rem; border-radius: var(--radius-full); }
+    .brand-badge { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; background: rgba(99, 102, 241, 0.15); color: var(--accent-indigo); border: 1px solid rgba(99, 102, 241, 0.3); padding: 0.15rem 0.45rem; border-radius: var(--radius-full); white-space: nowrap; }
     
     .cat-nav-menu { display: flex; align-items: center; gap: 0.5rem; }
     .nav-cat-group { position: relative; }
@@ -66,6 +69,7 @@
     .btn-secondary { background: var(--bg-surface); color: var(--text-muted); border-color: var(--border-subtle); }
     .btn-secondary:hover { background: var(--bg-card-alt); color: var(--text-main); }
     .btn-primary { background: linear-gradient(135deg, var(--accent-indigo), var(--accent-violet)); color: #ffffff; box-shadow: 0 4px 14px rgba(99, 102, 241, 0.3); }
+    .btn-row { display: flex; gap: 0.5rem; }
 
     .calc-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
     @media (min-width: 992px) { .calc-grid { grid-template-columns: 1.15fr 0.85fr; } }
@@ -96,6 +100,35 @@
     .data-table th, .data-table td { padding: 0.55rem 0.75rem; text-align: left; border-bottom: 1px solid var(--border-subtle); }
     .data-table th { background: var(--bg-input); color: var(--text-muted); font-family: var(--font-sans); }
 
+    /* ===== NEW GUIDED-RESULT COMPONENTS ===== */
+    .rating-badge { display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.25rem 0.7rem; border-radius: var(--radius-full); font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
+    .rating-excellent { background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.35); }
+    .rating-good { background: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.35); }
+    .rating-mid { background: rgba(99, 102, 241, 0.15); color: #a5b4fc; border: 1px solid rgba(99, 102, 241, 0.35); }
+    .rating-low { background: rgba(244, 63, 94, 0.15); color: #fb7185; border: 1px solid rgba(244, 63, 94, 0.35); }
+    .mini-card { background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 0.9rem 1rem; }
+    .mini-title { font-size: 0.82rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-main); }
+    .gauge-track { height: 8px; background: var(--bg-input); border-radius: var(--radius-full); overflow: hidden; margin: 0.35rem 0; }
+    .gauge-fill { height: 100%; border-radius: var(--radius-full); background: linear-gradient(90deg, var(--accent-indigo), var(--accent-violet)); transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
+    .gauge-labels { display: flex; justify-content: space-between; font-size: 0.68rem; color: var(--text-dim); font-family: var(--font-mono); }
+    .insight-card { display: flex; gap: 0.6rem; background: rgba(6, 182, 212, 0.06); border: 1px solid rgba(6, 182, 212, 0.2); border-radius: var(--radius-md); padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--text-muted); line-height: 1.55; }
+    .insight-icon { font-size: 1rem; flex-shrink: 0; }
+    .split-bar { display: flex; height: 10px; border-radius: var(--radius-full); overflow: hidden; margin: 0.35rem 0; background: var(--bg-input); }
+    .split-seg { height: 100%; transition: width 0.5s ease; }
+    .legend-row { display: flex; gap: 1rem; flex-wrap: wrap; font-size: 0.72rem; color: var(--text-muted); }
+    .legend-item { display: flex; align-items: center; gap: 0.35rem; }
+    .legend-item b { color: var(--text-main); font-family: var(--font-mono); }
+    .legend-swatch { width: 10px; height: 10px; border-radius: 3px; flex-shrink: 0; }
+    .zone-list { display: flex; flex-direction: column; gap: 0.45rem; }
+    .zone-line { display: flex; align-items: center; gap: 0.5rem; font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); }
+    .zone-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+    .zone-name { flex: 1; }
+    .zone-bpm { color: var(--text-main); font-weight: 700; }
+    .zone-pct { color: var(--text-dim); width: 5.5rem; text-align: right; }
+    .chart-bars { display: flex; align-items: flex-end; gap: 4px; height: 90px; margin: 0.4rem 0 0.2rem; }
+    .chart-bar { flex: 1; background: linear-gradient(180deg, var(--accent-indigo), rgba(99, 102, 241, 0.35)); border-radius: 3px 3px 0 0; min-height: 3px; transition: height 0.6s ease; }
+    .chart-meta { display: flex; justify-content: space-between; font-size: 0.68rem; color: var(--text-dim); font-family: var(--font-mono); }
+
     .history-card { margin-top: 1.5rem; }
     .btn-delete { background: transparent; border: 1px solid rgba(244, 63, 94, 0.3); color: var(--accent-rose); padding: 0.2rem 0.5rem; font-size: 0.7rem; border-radius: var(--radius-sm); cursor: pointer; }
     .cheat-sheet-grid, .seo-2col-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 1.5rem; }
@@ -104,12 +137,17 @@
     .faq-item { background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); margin-bottom: 0.65rem; }
     .faq-question { padding: 0.85rem 1.1rem; font-size: 0.9rem; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; }
     .faq-answer { padding: 0 1.1rem 0.85rem 1.1rem; font-size: 0.85rem; color: var(--text-muted); }
+    details.faq-item summary { list-style: none; }
+    details.faq-item summary::-webkit-details-marker { display: none; }
+    details.faq-item summary::after { content: '+'; color: var(--text-dim); font-family: var(--font-mono); }
+    details.faq-item[open] summary::after { content: '−'; }
 
     /* PORTAL STYLES */
     .hero-portal { text-align: center; padding: 2.5rem 1.25rem 2rem 1.25rem; max-width: 850px; margin: 0 auto; background: radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.18) 0%, transparent 70%); border-radius: var(--radius-lg); }
     .hero-headline { font-size: 2.35rem; font-weight: 800; line-height: 1.25; margin-bottom: 0.85rem; background: linear-gradient(135deg, #ffffff 40%, var(--text-muted) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     .search-box-wrapper { position: relative; max-width: 580px; margin: 0 auto 1.25rem auto; }
     .search-input { width: 100%; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-full); padding: 0.85rem 6.5rem 0.85rem 2.8rem; font-size: 0.95rem; color: var(--text-main); outline: none; transition: var(--transition); }
+    .search-input:focus { border-color: var(--border-focus); box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2); }
     .search-icon-svg { position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); width: 18px; height: 18px; stroke: var(--text-dim); fill: none; stroke-width: 2; }
     .search-shortcut-badge { position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); font-size: 0.7rem; font-family: var(--font-mono); color: var(--text-dim); background: var(--bg-card); border: 1px solid var(--border-subtle); padding: 0.15rem 0.45rem; border-radius: var(--radius-sm); pointer-events: none; }
     .hero-badges { display: inline-flex; align-items: center; gap: 0.75rem; background: var(--bg-surface); border: 1px solid var(--border-subtle); padding: 0.45rem 1.25rem; border-radius: var(--radius-full); font-size: 0.8rem; color: var(--text-muted); flex-wrap: wrap; justify-content: center; }
@@ -135,15 +173,12 @@
     .cat-maker .bento-card { border-top: 3px solid var(--accent-violet); }
     .cat-maker .bento-tag { background: rgba(139, 92, 246, 0.15); color: var(--accent-violet); border: 1px solid rgba(139, 92, 246, 0.3); }
     .cat-maker .bento-card:hover { border-color: var(--accent-violet); box-shadow: 0 8px 30px rgba(139, 92, 246, 0.25); }
-
     .cat-creator .bento-card { border-top: 3px solid var(--accent-cyan); }
     .cat-creator .bento-tag { background: rgba(6, 182, 212, 0.15); color: var(--accent-cyan); border: 1px solid rgba(6, 182, 212, 0.3); }
     .cat-creator .bento-card:hover { border-color: var(--accent-cyan); box-shadow: 0 8px 30px rgba(6, 182, 212, 0.25); }
-
     .cat-fitness .bento-card { border-top: 3px solid var(--accent-emerald); }
     .cat-fitness .bento-tag { background: rgba(16, 185, 129, 0.15); color: var(--accent-emerald); border: 1px solid rgba(16, 185, 129, 0.3); }
     .cat-fitness .bento-card:hover { border-color: var(--accent-emerald); box-shadow: 0 8px 30px rgba(16, 185, 129, 0.25); }
-
     .cat-finance .bento-card { border-top: 3px solid var(--accent-amber); }
     .cat-finance .bento-tag { background: rgba(245, 158, 11, 0.15); color: var(--accent-amber); border: 1px solid rgba(245, 158, 11, 0.3); }
     .cat-finance .bento-card:hover { border-color: var(--accent-amber); box-shadow: 0 8px 30px rgba(245, 158, 11, 0.25); }
@@ -154,6 +189,16 @@
     .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.25rem; }
     .footer-text { font-size: 0.825rem; color: var(--text-dim); }
     .footer-links { display: flex; gap: 0.85rem; font-size: 0.8rem; flex-wrap: wrap; }
+    .back-top { position: fixed; bottom: 1.5rem; left: 1.5rem; width: 42px; height: 42px; border-radius: var(--radius-full); background: var(--bg-card-alt); border: 1px solid var(--border-subtle); color: var(--text-muted); font-size: 1.1rem; cursor: pointer; transition: var(--transition); z-index: 500; box-shadow: var(--shadow-md); }
+    .back-top:hover { color: #ffffff; border-color: var(--accent-indigo); transform: translateY(-2px); }
+
+    .modal-overlay { position: fixed; inset: 0; background: rgba(2, 6, 23, 0.75); display: none; align-items: center; justify-content: center; z-index: 4000; padding: 1rem; backdrop-filter: blur(4px); }
+    .modal-overlay.show { display: flex; }
+    .modal-card { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); max-width: 560px; width: 100%; padding: 1.5rem; box-shadow: var(--shadow-md); }
+    .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; }
+    .modal-close-btn { background: var(--bg-surface); border: 1px solid var(--border-subtle); color: var(--text-muted); width: 32px; height: 32px; border-radius: var(--radius-sm); cursor: pointer; font-size: 1.1rem; line-height: 1; }
+    .modal-close-btn:hover { color: #ffffff; border-color: var(--accent-rose); }
+    .modal-body { font-size: 0.85rem; color: var(--text-muted); line-height: 1.7; }
   </style>
 </head>
 <body>
@@ -165,7 +210,7 @@
         <a href="#tab-home" onclick="switchTab('tab-home')" class="brand-logo">
           <div class="logo-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg></div>
           <span>Calc<span style="color: var(--accent-indigo);">QI</span></span>
-          <span class="brand-badge">20-TOOL REBUILD</span>
+          <span class="brand-badge">★ 20 Pro Tools</span>
         </a>
 
         <nav class="cat-nav-menu">
@@ -259,7 +304,7 @@
       <section id="tab-home" class="tab-panel active">
         <div class="hero-portal">
           <h1 class="hero-headline">High-Precision Micro-Utility Suite for Makers, Creators, Athletes & Investors</h1>
-          <p class="hero-subtitle">20 instant, privacy-first, zero-bloat calculators designed for real-world workflows.</p>
+          <p class="hero-subtitle">20 guided calculators with instant visual results — ratings, gauges & breakdowns. Privacy-first, zero bloat.</p>
 
           <div class="search-box-wrapper">
             <svg class="search-icon-svg" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
@@ -270,6 +315,7 @@
           <div class="hero-badges">
             <span>⚡ Zero Server Latency</span> • 
             <span>🔒 100% Client-Side Privacy</span> • 
+            <span>✨ Guided Results & Ratings</span> • 
             <span>📋 Markdown Copy</span>
           </div>
         </div>
@@ -282,15 +328,15 @@
               <div>
                 <div class="bento-card-header"><span class="bento-tag">FLAGSHIP TOOL</span><svg class="bento-arrow" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div>
                 <div class="bento-title">3D Print Cost & Commercial Pricing Estimator</div>
-                <div class="bento-desc">Calculate spool $/g, power wattage, machine wear & retail profit margins.</div>
+                <div class="bento-desc">Cost breakdown bar, power & wear, profit margin rating — know exactly what to charge.</div>
               </div>
-              <div class="bento-preview-badge">🔍 Spec Preview: Filament, Power & Labor Amortization</div>
+              <div class="bento-preview-badge">🔍 Spec Preview: Filament, Power & Labor Breakdown</div>
             </div>
             <div class="bento-card" onclick="switchTab('tab-baker')">
               <div>
                 <div class="bento-card-header"><span class="bento-tag">DOUGH MATH</span><svg class="bento-arrow" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div>
                 <div class="bento-title">Baker's Pizza Dough Math</div>
-                <div class="bento-desc">Scale flour, hydration %, yeast & salt baker's percentages.</div>
+                <div class="bento-desc">Full ingredient scale-out with hydration gauge & dough-style rating.</div>
               </div>
               <div class="bento-preview-badge">🔍 Hydration & Yeast Ratios</div>
             </div>
@@ -298,7 +344,7 @@
               <div>
                 <div class="bento-card-header"><span class="bento-tag">CNC MACHINING</span><svg class="bento-arrow" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div>
                 <div class="bento-title">Laser Cutting & CNC Machining Cost</div>
-                <div class="bento-desc">Runtime, feed rates, material cost & job quote pricing.</div>
+                <div class="bento-desc">Runtime, feed rates, machine $/hr & quote with markup breakdown.</div>
               </div>
               <div class="bento-preview-badge">🔍 Machine $/hr & Cut Speed</div>
             </div>
@@ -306,7 +352,7 @@
               <div>
                 <div class="bento-card-header"><span class="bento-tag">BAKING</span><svg class="bento-arrow" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div>
                 <div class="bento-title">Sourdough Levain & Fermentation</div>
-                <div class="bento-desc">Levain build ratios (1:2:2), inoculation % & baker timeline.</div>
+                <div class="bento-desc">1:2:2 levain builds, inoculation %, salt & hydration split with visual.</div>
               </div>
               <div class="bento-preview-badge">🔍 Starter, Flour & Water Build</div>
             </div>
@@ -314,7 +360,7 @@
               <div>
                 <div class="bento-card-header"><span class="bento-tag">CASTING</span><svg class="bento-arrow" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div>
                 <div class="bento-title">Resin Casting & Mold Volume</div>
-                <div class="bento-desc">Calculate epoxy resin volume & Part A:B mix ratios.</div>
+                <div class="bento-desc">Volume in cm³, mL & oz with 2:1 Part A:B mix and 10% waste buffer.</div>
               </div>
               <div class="bento-preview-badge">🔍 Volume cm³ & Mix Grams</div>
             </div>
@@ -329,7 +375,7 @@
               <div>
                 <div class="bento-card-header"><span class="bento-tag">FLAGSHIP TOOL</span><svg class="bento-arrow" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div>
                 <div class="bento-title">Video Export Bitrate & File Size Forecast</div>
-                <div class="bento-desc">Forecast export MB/GB file sizes across H.264, H.265 & ProRes codecs.</div>
+                <div class="bento-desc">File size with codec-tier rating — instantly see if it fits upload or delivery targets.</div>
               </div>
               <div class="bento-preview-badge">🔍 Spec Preview: 4K, 1080p & Bitrate Density</div>
             </div>
@@ -337,7 +383,7 @@
               <div>
                 <div class="bento-card-header"><span class="bento-tag">OPTICS</span><svg class="bento-arrow" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div>
                 <div class="bento-title">Depth of Field & Optics</div>
-                <div class="bento-desc">Calculate hyperfocal distance & focus limits.</div>
+                <div class="bento-desc">Hyperfocal, near/far focus limits & total DOF range in focus.</div>
               </div>
               <div class="bento-preview-badge">🔍 Crop Factor & CoC</div>
             </div>
@@ -345,7 +391,7 @@
               <div>
                 <div class="bento-card-header"><span class="bento-tag">EXPOSURE</span><svg class="bento-arrow" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div>
                 <div class="bento-title">ND Filter & Camera Exposure</div>
-                <div class="bento-desc">Compensate shutter speeds across 1-15 ND stops.</div>
+                <div class="bento-desc">Target shutter speed, EV shift & ND density name (e.g. ND1000).</div>
               </div>
               <div class="bento-preview-badge">🔍 Long Exposure & EV</div>
             </div>
@@ -353,7 +399,7 @@
               <div>
                 <div class="bento-card-header"><span class="bento-tag">TIMELAPSE</span><svg class="bento-arrow" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div>
                 <div class="bento-title">Timelapse Interval & Duration</div>
-                <div class="bento-desc">Shooting interval (sec/photo), shot count & card storage.</div>
+                <div class="bento-desc">Shots needed, playback speed-multiplier & card storage estimate.</div>
               </div>
               <div class="bento-preview-badge">🔍 FPS & Event Duration</div>
             </div>
@@ -361,7 +407,7 @@
               <div>
                 <div class="bento-card-header"><span class="bento-tag">LIGHTING</span><svg class="bento-arrow" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div>
                 <div class="bento-title">Inverse Square Light Drop-Off</div>
-                <div class="bento-desc">Calculate light intensity Lux & f-stop exposure loss with distance.</div>
+                <div class="bento-desc">Lux falloff, f-stop loss & intensity ratio — visualize why distance kills light.</div>
               </div>
               <div class="bento-preview-badge">🔍 Lux & EV Falloff</div>
             </div>
@@ -376,15 +422,15 @@
               <div>
                 <div class="bento-card-header"><span class="bento-tag">FLAGSHIP TOOL</span><svg class="bento-arrow" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div>
                 <div class="bento-title">TDEE & Recomp Macro Splitter</div>
-                <div class="bento-desc">Calculate BMR, TDEE, surplus/deficit calorie targets & protein splits.</div>
+                <div class="bento-desc">BMR, maintenance, cut & bulk targets with a live protein/carb/fat macro bar.</div>
               </div>
-              <div class="bento-preview-badge">🔍 Spec Preview: Mifflin-St Jeor & Protein Synthesis</div>
+              <div class="bento-preview-badge">🔍 Mifflin-St Jeor & Macro Split</div>
             </div>
             <div class="bento-card" onclick="switchTab('tab-1rm')">
               <div>
                 <div class="bento-card-header"><span class="bento-tag">STRENGTH</span><svg class="bento-arrow" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div>
                 <div class="bento-title">1RM Strength Matrix</div>
-                <div class="bento-desc">Estimated 1-rep max & percentage tables.</div>
+                <div class="bento-desc">Epley + Brzycki estimates with bodyweight ratio & strength-level rating.</div>
               </div>
               <div class="bento-preview-badge">🔍 Epley & Brzycki Avg</div>
             </div>
@@ -392,7 +438,7 @@
               <div>
                 <div class="bento-card-header"><span class="bento-tag">COMPOSITION</span><svg class="bento-arrow" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div>
                 <div class="bento-title">FFMI & Muscular Potential</div>
-                <div class="bento-desc">Fat-Free Mass Index & height-normalized natural limits.</div>
+                <div class="bento-desc">Normalized FFMI with a 16–25 natural-ceiling gauge & classification rating.</div>
               </div>
               <div class="bento-preview-badge">🔍 Normalized Score Ceiling</div>
             </div>
@@ -400,7 +446,7 @@
               <div>
                 <div class="bento-card-header"><span class="bento-tag">POWERLIFTING</span><svg class="bento-arrow" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div>
                 <div class="bento-title">Wilks 2.0 & DOTS Powerlifting Score</div>
-                <div class="bento-desc">Compare relative strength pound-for-pound across weight classes.</div>
+                <div class="bento-desc">DOTS classification rating (Novice → Elite) plus classic Wilks coefficient.</div>
               </div>
               <div class="bento-preview-badge">🔍 DOTS Polynomial Score</div>
             </div>
@@ -408,7 +454,7 @@
               <div>
                 <div class="bento-card-header"><span class="bento-tag">CARDIO</span><svg class="bento-arrow" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div>
                 <div class="bento-title">Karvonen Heart Rate Zones</div>
-                <div class="bento-desc">Heart rate reserve (HRR) & 5 target training zones.</div>
+                <div class="bento-desc">5 color-coded training zones with exact BPM ranges from your HRR.</div>
               </div>
               <div class="bento-preview-badge">🔍 Zone 1-5 BPM Targets</div>
             </div>
@@ -423,15 +469,15 @@
               <div>
                 <div class="bento-card-header"><span class="bento-tag">FLAGSHIP TOOL</span><svg class="bento-arrow" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div>
                 <div class="bento-title">Stock Average Down & Break-Even</div>
-                <div class="bento-desc">Calculate combined average share price basis & total capital invested.</div>
+                <div class="bento-desc">New basis price, total invested, shares held & exactly how far you've DCA'd down.</div>
               </div>
-              <div class="bento-preview-badge">🔍 Spec Preview: Multi-Tranche Cost Basis</div>
+              <div class="bento-preview-badge">🔍 Multi-Tranche Cost Basis</div>
             </div>
             <div class="bento-card" onclick="switchTab('tab-drip')">
               <div>
                 <div class="bento-card-header"><span class="bento-tag">INVESTING</span><svg class="bento-arrow" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div>
                 <div class="bento-title">Dividend DRIP Compounding Forecast</div>
-                <div class="bento-desc">Compound interest growth & passive annual income.</div>
+                <div class="bento-desc">10-year growth chart with contributions vs reinvested-growth split.</div>
               </div>
               <div class="bento-preview-badge">🔍 Yield & Growth Forecast</div>
             </div>
@@ -439,7 +485,7 @@
               <div>
                 <div class="bento-card-header"><span class="bento-tag">RISK MGT</span><svg class="bento-arrow" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div>
                 <div class="bento-title">Trading Position Size & Risk/Reward</div>
-                <div class="bento-desc">Calculate max shares to buy based on account risk % & stop loss.</div>
+                <div class="bento-desc">Max shares, $ risked, R:R ratio rating & potential profit at target.</div>
               </div>
               <div class="bento-preview-badge">🔍 1:R Ratio & Max Shares</div>
             </div>
@@ -447,7 +493,7 @@
               <div>
                 <div class="bento-card-header"><span class="bento-tag">SAVINGS</span><svg class="bento-arrow" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div>
                 <div class="bento-title">Compound Interest & Savings Growth</div>
-                <div class="bento-desc">Project wealth growth with monthly contributions & interest.</div>
+                <div class="bento-desc">10-year wealth chart showing exactly how much is contributions vs interest.</div>
               </div>
               <div class="bento-preview-badge">🔍 Multi-Year Growth</div>
             </div>
@@ -455,7 +501,7 @@
               <div>
                 <div class="bento-card-header"><span class="bento-tag">PROFIT ROI</span><svg class="bento-arrow" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div>
                 <div class="bento-title">Crypto & Stock Profit ROI</div>
-                <div class="bento-desc">Net profit $, ROI % & exchange trading fees calculator.</div>
+                <div class="bento-desc">Net profit after buy/sell exchange fees, ROI % & units held.</div>
               </div>
               <div class="bento-preview-badge">🔍 Buy/Sell Fee Deductions</div>
             </div>
@@ -465,12 +511,12 @@
       </section>
 
       <!-- ======================================================================
-           20 FULLY ENGINE-DRIVEN CALCULATOR PANELS
+           20 FULLY ENGINE-DRIVEN CALCULATOR PANELS (v2 — Guided Results)
            ====================================================================== -->
 
       <!-- 1. 3D PRINT COST -->
       <section id="tab-3dprint" class="tab-panel">
-        <div class="tool-header"><div class="tool-title-group"><h1>3D Print Cost Estimator</h1><p>Filament, power wattage, machine wear, labor & retail markup.</p></div><button class="btn btn-secondary" onclick="resetForm3D()">Reset</button></div>
+        <div class="tool-header"><div class="tool-title-group"><h1>3D Print Cost Estimator</h1><p>Filament, power, machine wear, labor & retail markup — with cost breakdown.</p></div><button class="btn btn-secondary" onclick="resetTool('tab-3dprint', calc3DPrint)">Reset</button></div>
         <div class="calc-grid">
           <div class="card">
             <div class="card-header"><span class="card-title">Print Parameters</span></div>
@@ -493,20 +539,36 @@
             <div class="form-group"><label class="form-label">Retail Markup %</label><input type="number" id="p3d-markup" class="form-control" value="60" oninput="calc3DPrint()"/></div>
           </div>
           <div class="results-deck">
-            <div class="hero-stat-card"><div class="stat-label">Recommended Sale Price</div><div class="stat-value-huge" id="p3d-res-price">$16.88 <span class="unit">USD</span></div><div class="stat-subtext" id="p3d-res-subtext">Includes net profit</div></div>
+            <div class="hero-stat-card">
+              <div class="stat-label">Recommended Sale Price</div>
+              <div class="stat-value-huge" id="p3d-res-price">$16.88 <span class="unit">USD</span></div>
+              <div class="stat-subtext" style="margin-top:0.6rem;"><span class="rating-badge rating-mid" id="p3d-res-rating">—</span></div>
+            </div>
             <div class="metrics-grid">
               <div class="metric-card"><div class="m-label">Net Production Cost</div><div class="m-val" id="p3d-res-cost">$9.77</div></div>
               <div class="metric-card"><div class="m-label">Filament Cost</div><div class="m-val" id="p3d-res-fil-cost">$3.12</div></div>
+              <div class="metric-card"><div class="m-label">Electricity</div><div class="m-val" id="p3d-res-power-cost">$0.12</div></div>
+              <div class="metric-card"><div class="m-label">Wear + Labor</div><div class="m-val" id="p3d-res-wear-labor">$6.50</div></div>
             </div>
-            <div style="display:flex; gap:0.5rem;"><button class="btn btn-primary" style="flex:1;" onclick="copySummary3D()">Copy Quote</button><button class="btn btn-secondary" onclick="saveRun('3dprint')">Save Run</button></div>
+            <div class="mini-card">
+              <div class="mini-title">Where the cost goes</div>
+              <div class="split-bar" id="p3d-breakdown-fill"><div class="split-seg" style="width:32%;background:#8b5cf6"></div><div class="split-seg" style="width:1%;background:#06b6d4"></div><div class="split-seg" style="width:67%;background:#6366f1"></div></div>
+              <div class="legend-row">
+                <span class="legend-item"><span class="legend-swatch" style="background:#8b5cf6"></span>Filament</span>
+                <span class="legend-item"><span class="legend-swatch" style="background:#06b6d4"></span>Power</span>
+                <span class="legend-item"><span class="legend-swatch" style="background:#6366f1"></span>Wear+Labor</span>
+              </div>
+            </div>
+            <div class="insight-card"><span class="insight-icon">💡</span><span id="p3d-insight">You profit $X per print — Y% margin.</span></div>
+            <div class="btn-row"><button class="btn btn-primary" style="flex:1;" onclick="copySummary3D()">Copy Quote</button><button class="btn btn-secondary" onclick="saveRun('3dprint')">Save Run</button></div>
           </div>
         </div>
-        <div class="seo-2col-grid"><div class="card"><h2>Formula Guide</h2><div class="formula-card">Total Cost = (Filament g × $/g) + (kWh × Rate) + Wear + Labor</div></div><div class="card"><h2>FAQs</h2><details class="faq-item"><summary class="faq-question">What markup is standard?</summary><div class="faq-answer">50% to 150% is standard for custom 3D printed parts.</div></details></div></div>
+        <div class="seo-2col-grid"><div class="card"><h2 style="font-size:1rem;margin-bottom:0.5rem;">Formula Guide</h2><div class="formula-card">Total Cost = (Filament g × $/g) + (kWh × Rate) + Wear + Labor</div><p style="font-size:0.8rem;">Recommended price = production cost &times; (1 + markup).</p></div><div class="card"><h2 style="font-size:1rem;margin-bottom:0.5rem;">FAQs</h2><details class="faq-item"><summary class="faq-question">What markup is standard?</summary><div class="faq-answer">50% to 150% is standard for custom 3D printed parts. The 60% default is a healthy mid-point.</div></details><details class="faq-item"><summary class="faq-question">Should I count setup time?</summary><div class="faq-answer">Yes — model prep and post-processing are often 2-3x the print time. Add them to labor hours.</div></details></div></div>
       </section>
 
       <!-- 2. BAKER PIZZA DOUGH -->
       <section id="tab-baker" class="tab-panel">
-        <div class="tool-header"><div class="tool-title-group"><h1>Baker's Pizza Dough Math</h1><p>Scale dough flour, hydration %, yeast & salt.</p></div><button class="btn btn-secondary" onclick="calcBaker()">Reset</button></div>
+        <div class="tool-header"><div class="tool-title-group"><h1>Baker's Pizza Dough Math</h1><p>Scale flour, hydration %, yeast, salt & oil for consistent dough.</p></div><button class="btn btn-secondary" onclick="resetTool('tab-baker', calcBaker)">Reset</button></div>
         <div class="calc-grid">
           <div class="card">
             <div class="form-group-grid"><div class="form-group"><label class="form-label">Dough Balls</label><input type="number" id="baker-balls" class="form-control" value="4" oninput="calcBaker()"/></div><div class="form-group"><label class="form-label">Ball Weight (g)</label><input type="number" id="baker-ball-weight" class="form-control" value="250" oninput="calcBaker()"/></div></div>
@@ -514,319 +576,591 @@
             <div class="form-group-grid"><div class="form-group"><label class="form-label">Yeast %</label><input type="number" id="baker-yeast" class="form-control" value="0.2" step="0.05" oninput="calcBaker()"/></div><div class="form-group"><label class="form-label">Oil %</label><input type="number" id="baker-oil" class="form-control" value="1.5" step="0.5" oninput="calcBaker()"/></div></div>
           </div>
           <div class="results-deck">
-            <div class="hero-stat-card"><div class="stat-label">Total Flour Needed</div><div class="stat-value-huge" id="baker-res-flour">590 <span class="unit">g</span></div></div>
-            <div class="metrics-grid">
-              <div class="metric-card"><div class="m-label">Water Needed</div><div class="m-val" id="baker-res-water">383 g</div></div>
-              <div class="metric-card"><div class="m-label">Salt Needed</div><div class="m-val" id="baker-res-salt">16.5 g</div></div>
+            <div class="hero-stat-card">
+              <div class="stat-label">Total Flour Needed</div>
+              <div class="stat-value-huge" id="baker-res-flour">590 <span class="unit">g</span></div>
+              <div class="stat-subtext" style="margin-top:0.6rem;"><span class="rating-badge rating-mid" id="baker-res-rating">—</span></div>
             </div>
-            <div style="display:flex; gap:0.5rem;"><button class="btn btn-primary" style="flex:1;" onclick="copySummaryBaker()">Copy Recipe</button><button class="btn btn-secondary" onclick="saveRun('baker')">Save Run</button></div>
+            <div class="mini-card">
+              <div class="mini-title">Hydration Level</div>
+              <div class="gauge-track"><div class="gauge-fill" id="baker-hyd-gauge" style="width:65%"></div></div>
+              <div class="gauge-labels"><span>50% (crispy)</span><span>70%+ (airy)</span></div>
+            </div>
+            <div class="metrics-grid">
+              <div class="metric-card"><div class="m-label">Water</div><div class="m-val" id="baker-res-water">383 g</div></div>
+              <div class="metric-card"><div class="m-label">Salt</div><div class="m-val" id="baker-res-salt">16.5 g</div></div>
+              <div class="metric-card"><div class="m-label">Yeast</div><div class="m-val" id="baker-res-yeast">1.2 g</div></div>
+              <div class="metric-card"><div class="m-label">Oil</div><div class="m-val" id="baker-res-oil">8.9 g</div></div>
+              <div class="metric-card"><div class="m-label">Total Dough</div><div class="m-val" id="baker-res-total">1000 g</div></div>
+              <div class="metric-card"><div class="m-label">Per Ball</div><div class="m-val" id="baker-res-perball">250 g</div></div>
+            </div>
+            <div class="insight-card"><span class="insight-icon">💡</span><span id="baker-insight">Flour is always 100% — every ingredient scales against it.</span></div>
+            <div class="btn-row"><button class="btn btn-primary" style="flex:1;" onclick="copySummaryBaker()">Copy Recipe</button><button class="btn btn-secondary" onclick="saveRun('baker')">Save Run</button></div>
           </div>
         </div>
-        <div class="seo-2col-grid"><div class="card"><h2>Baker % Formula</h2><div class="formula-card">Flour = Total Weight / (1 + Hydration% + Salt% + Yeast% + Oil%)</div></div><div class="card"><h2>FAQs</h2><details class="faq-item"><summary class="faq-question">Why use baker's %?</summary><div class="faq-answer">Flour is 100%. All ingredients scale relative to flour mass.</div></details></div></div>
+        <div class="seo-2col-grid"><div class="card"><h2 style="font-size:1rem;margin-bottom:0.5rem;">Baker % Formula</h2><div class="formula-card">Flour = Total Weight / (1 + Hydration% + Salt% + Yeast% + Oil%)</div></div><div class="card"><h2 style="font-size:1rem;margin-bottom:0.5rem;">FAQs</h2><details class="faq-item"><summary class="faq-question">Why use baker's %?</summary><div class="faq-answer">Flour is 100%. All ingredients scale relative to flour mass, so recipes are easy to scale up or down.</div></details><details class="faq-item"><summary class="faq-question">What hydration for Neapolitan?</summary><div class="faq-answer">Classic Neapolitan is 60–65%. Higher hydration (65–70%+) gives a lighter, airier crumb but is harder to shape.</div></details></div></div>
       </section>
 
       <!-- 3. LASER CNC -->
       <section id="tab-laser-cnc" class="tab-panel">
-        <div class="tool-header"><div class="tool-title-group"><h1>Laser Cutting & CNC Machining Cost</h1><p>Cut time, feed rate, machine rate ($/hr) & job quote.</p></div><button class="btn btn-secondary" onclick="calcLaserCNC()">Reset</button></div>
+        <div class="tool-header"><div class="tool-title-group"><h1>Laser Cutting & CNC Machining Cost</h1><p>Cut time, machine rate ($/hr), setup & job quote breakdown.</p></div><button class="btn btn-secondary" onclick="resetTool('tab-laser-cnc', calcLaserCNC)">Reset</button></div>
         <div class="calc-grid">
           <div class="card">
             <div class="form-group-grid"><div class="form-group"><label class="form-label">Cut Length (mm)</label><input type="number" id="cnc-cut-len" class="form-control" value="2500" oninput="calcLaserCNC()"/></div><div class="form-group"><label class="form-label">Feed Rate (mm/min)</label><input type="number" id="cnc-feed-rate" class="form-control" value="500" oninput="calcLaserCNC()"/></div></div>
             <div class="form-group-grid"><div class="form-group"><label class="form-label">Machine Rate ($/hr)</label><input type="number" id="cnc-machine-rate" class="form-control" value="65.00" oninput="calcLaserCNC()"/></div><div class="form-group"><label class="form-label">Setup Labor ($)</label><input type="number" id="cnc-setup-cost" class="form-control" value="15.00" oninput="calcLaserCNC()"/></div></div>
           </div>
           <div class="results-deck">
-            <div class="hero-stat-card"><div class="stat-label">Calculated Job Quote</div><div class="stat-value-huge" id="cnc-res-quote">$32.50 <span class="unit">USD</span></div></div>
+            <div class="hero-stat-card">
+              <div class="stat-label">Calculated Job Quote</div>
+              <div class="stat-value-huge" id="cnc-res-quote">$32.50 <span class="unit">USD</span></div>
+              <div class="stat-subtext" style="margin-top:0.6rem;"><span class="rating-badge rating-mid" id="cnc-res-rating">—</span></div>
+            </div>
             <div class="metrics-grid">
               <div class="metric-card"><div class="m-label">Runtime</div><div class="m-val" id="cnc-res-runtime">5.00 min</div></div>
               <div class="metric-card"><div class="m-label">Machine Expense</div><div class="m-val" id="cnc-res-cost">$5.42</div></div>
+              <div class="metric-card"><div class="m-label">Setup Labor</div><div class="m-val" id="cnc-res-setup">$15.00</div></div>
+              <div class="metric-card"><div class="m-label">Built-in Markup (50%)</div><div class="m-val" id="cnc-res-markup">$10.21</div></div>
             </div>
-            <div style="display:flex; gap:0.5rem;"><button class="btn btn-primary" style="flex:1;" onclick="copySummaryLaserCNC()">Copy CNC Quote</button><button class="btn btn-secondary" onclick="saveRun('laser-cnc')">Save Run</button></div>
+            <div class="insight-card"><span class="insight-icon">💡</span><span id="cnc-insight">Quote includes a built-in 50% margin over machine + setup cost.</span></div>
+            <div class="btn-row"><button class="btn btn-primary" style="flex:1;" onclick="copySummaryLaserCNC()">Copy CNC Quote</button><button class="btn btn-secondary" onclick="saveRun('laser-cnc')">Save Run</button></div>
           </div>
         </div>
-        <div class="seo-2col-grid"><div class="card"><h2>Formula</h2><div class="formula-card">Cut Time (mins) = Cut Length (mm) / Feed Rate (mm/min)</div></div><div class="card"><h2>FAQs</h2><details class="faq-item"><summary class="faq-question">How to set feed rate?</summary><div class="faq-answer">Adjust based on material density and cutter tooth count.</div></details></div></div>
+        <div class="seo-2col-grid"><div class="card"><h2 style="font-size:1rem;margin-bottom:0.5rem;">Formula</h2><div class="formula-card">Cut Time (mins) = Cut Length (mm) / Feed Rate (mm/min)</div></div><div class="card"><h2 style="font-size:1rem;margin-bottom:0.5rem;">FAQs</h2><details class="faq-item"><summary class="faq-question">How to set feed rate?</summary><div class="faq-answer">Adjust based on material density and cutter tooth count. Start conservative and step up until edge quality drops.</div></details></div></div>
       </section>
 
       <!-- 4. SOURDOUGH -->
       <section id="tab-sourdough" class="tab-panel">
-        <div class="tool-header"><div class="tool-title-group"><h1>Sourdough Levain & Fermentation</h1><p>Levain build ratios (1:2:2), starter & hydration splits.</p></div><button class="btn btn-secondary" onclick="calcSourdough()">Reset</button></div>
+        <div class="tool-header"><div class="tool-title-group"><h1>Sourdough Levain & Fermentation</h1><p>Levain builds (1:2:2), inoculation %, salt & water split.</p></div><button class="btn btn-secondary" onclick="resetTool('tab-sourdough', calcSourdough)">Reset</button></div>
         <div class="calc-grid">
           <div class="card">
             <div class="form-group-grid"><div class="form-group"><label class="form-label">Main Flour (g)</label><input type="number" id="sd-flour" class="form-control" value="1000" oninput="calcSourdough()"/></div><div class="form-group"><label class="form-label">Inoculation %</label><input type="number" id="sd-inoc" class="form-control" value="20" oninput="calcSourdough()"/></div></div>
             <div class="form-group-grid"><div class="form-group"><label class="form-label">Hydration %</label><input type="number" id="sd-hyd" class="form-control" value="75" oninput="calcSourdough()"/></div><div class="form-group"><label class="form-label">Salt %</label><input type="number" id="sd-salt" class="form-control" value="2.0" oninput="calcSourdough()"/></div></div>
           </div>
           <div class="results-deck">
-            <div class="hero-stat-card"><div class="stat-label">Levain Target Mass</div><div class="stat-value-huge" id="sd-res-levain">200 <span class="unit">g</span></div></div>
-            <div class="metrics-grid">
-              <div class="metric-card"><div class="m-label">Starter Portion</div><div class="m-val" id="sd-res-starter">40 g</div></div>
-              <div class="metric-card"><div class="m-label">Main Water</div><div class="m-val" id="sd-res-water">670 g</div></div>
+            <div class="hero-stat-card">
+              <div class="stat-label">Levain Target Mass</div>
+              <div class="stat-value-huge" id="sd-res-levain">200 <span class="unit">g</span></div>
+              <div class="stat-subtext" style="margin-top:0.6rem;"><span class="rating-badge rating-excellent" id="sd-res-rating">1:2:2 Build</span></div>
             </div>
-            <div style="display:flex; gap:0.5rem;"><button class="btn btn-primary" style="flex:1;" onclick="copySummarySourdough()">Copy Recipe</button><button class="btn btn-secondary" onclick="saveRun('sourdough')">Save Run</button></div>
+            <div class="mini-card">
+              <div class="mini-title">Levain Composition</div>
+              <div class="split-bar" id="sd-levain-fill"><div class="split-seg" style="width:20%;background:#f43f5e"></div><div class="split-seg" style="width:40%;background:#8b5cf6"></div><div class="split-seg" style="width:40%;background:#06b6d4"></div></div>
+              <div class="legend-row">
+                <span class="legend-item"><span class="legend-swatch" style="background:#f43f5e"></span>Starter <b id="sd-res-starter">40 g</b></span>
+                <span class="legend-item"><span class="legend-swatch" style="background:#8b5cf6"></span>Flour <b id="sd-res-levain-flour">80 g</b></span>
+                <span class="legend-item"><span class="legend-swatch" style="background:#06b6d4"></span>Water <b id="sd-res-levain-water">80 g</b></span>
+              </div>
+            </div>
+            <div class="metrics-grid">
+              <div class="metric-card"><div class="m-label">Main Water</div><div class="m-val" id="sd-res-water">670 g</div></div>
+              <div class="metric-card"><div class="m-label">Salt</div><div class="m-val" id="sd-res-salt">20.0 g</div></div>
+            </div>
+            <div class="insight-card"><span class="insight-icon">💡</span><span id="sd-insight">20% inoculation with a 1:2:2 build matures in 6–10 hrs at ~24°C.</span></div>
+            <div class="btn-row"><button class="btn btn-primary" style="flex:1;" onclick="copySummarySourdough()">Copy Recipe</button><button class="btn btn-secondary" onclick="saveRun('sourdough')">Save Run</button></div>
           </div>
         </div>
-        <div class="seo-2col-grid"><div class="card"><h2>Formula</h2><div class="formula-card">Levain Mass = Main Flour × (Inoculation % / 100)</div></div><div class="card"><h2>FAQs</h2><details class="faq-item"><summary class="faq-question">What is inoculation %?</summary><div class="faq-answer">Percentage of levain relative to main flour.</div></details></div></div>
+        <div class="seo-2col-grid"><div class="card"><h2 style="font-size:1rem;margin-bottom:0.5rem;">Formula</h2><div class="formula-card">Levain Mass = Main Flour × (Inoculation % / 100)</div></div><div class="card"><h2 style="font-size:1rem;margin-bottom:0.5rem;">FAQs</h2><details class="faq-item"><summary class="faq-question">What is inoculation %?</summary><div class="faq-answer">Percentage of levain relative to main flour. Higher = faster fermentation, more tang.</div></details></div></div>
       </section>
 
       <!-- 5. RESIN MOLD -->
       <section id="tab-resin-mold" class="tab-panel">
-        <div class="tool-header"><div class="tool-title-group"><h1>Resin Casting & Mold Volume</h1><p>Epoxy resin volume cm³ & Part A:B mix ratios.</p></div><button class="btn btn-secondary" onclick="calcResin()">Reset</button></div>
+        <div class="tool-header"><div class="tool-title-group"><h1>Resin Casting & Mold Volume</h1><p>Epoxy volume in cm³/mL/oz & 2:1 Part A:B mix with waste buffer.</p></div><button class="btn btn-secondary" onclick="resetTool('tab-resin-mold', calcResin)">Reset</button></div>
         <div class="calc-grid">
           <div class="card">
             <div class="form-group-grid"><div class="form-group"><label class="form-label">Length (cm)</label><input type="number" id="res-len" class="form-control" value="20" oninput="calcResin()"/></div><div class="form-group"><label class="form-label">Width (cm)</label><input type="number" id="res-wid" class="form-control" value="10" oninput="calcResin()"/></div><div class="form-group"><label class="form-label">Depth (cm)</label><input type="number" id="res-dep" class="form-control" value="5" oninput="calcResin()"/></div></div>
           </div>
           <div class="results-deck">
-            <div class="hero-stat-card"><div class="stat-label">Total Resin Mass</div><div class="stat-value-huge" id="res-res-total">1,100 <span class="unit">g</span></div></div>
-            <div class="metrics-grid">
-              <div class="metric-card"><div class="m-label">Part A (Resin)</div><div class="m-val" id="res-res-parta">733 g</div></div>
-              <div class="metric-card"><div class="m-label">Part B (Hardener)</div><div class="m-val" id="res-res-partb">367 g</div></div>
+            <div class="hero-stat-card">
+              <div class="stat-label">Total Resin Mass (with 10% buffer)</div>
+              <div class="stat-value-huge" id="res-res-total">1,210 <span class="unit">g</span></div>
+              <div class="stat-subtext" style="margin-top:0.6rem;"><span class="rating-badge rating-good" id="res-res-rating">2:1 Mix Ratio</span></div>
             </div>
-            <div style="display:flex; gap:0.5rem;"><button class="btn btn-primary" style="flex:1;" onclick="copySummaryResin()">Copy Mix</button><button class="btn btn-secondary" onclick="saveRun('resin-mold')">Save Run</button></div>
+            <div class="metrics-grid">
+              <div class="metric-card"><div class="m-label">Part A (Resin)</div><div class="m-val" id="res-res-parta">807 g</div></div>
+              <div class="metric-card"><div class="m-label">Part B (Hardener)</div><div class="m-val" id="res-res-partb">403 g</div></div>
+              <div class="metric-card"><div class="m-label">Net Volume</div><div class="m-val" id="res-res-vol">1,000 mL</div></div>
+              <div class="metric-card"><div class="m-label">Net Volume</div><div class="m-val" id="res-res-vol-oz">33.8 fl oz</div></div>
+            </div>
+            <div class="insight-card"><span class="insight-icon">💡</span><span id="res-insight">The 10% buffer accounts for mixing-container cling and spillage.</span></div>
+            <div class="btn-row"><button class="btn btn-primary" style="flex:1;" onclick="copySummaryResin()">Copy Mix</button><button class="btn btn-secondary" onclick="saveRun('resin-mold')">Save Run</button></div>
           </div>
         </div>
-        <div class="seo-2col-grid"><div class="card"><h2>Formula</h2><div class="formula-card">Volume (cm³) = Length × Width × Depth</div></div><div class="card"><h2>FAQs</h2><details class="faq-item"><summary class="faq-question">Why 10% waste buffer?</summary><div class="faq-answer">Accounts for mixing container cling.</div></details></div></div>
+        <div class="seo-2col-grid"><div class="card"><h2 style="font-size:1rem;margin-bottom:0.5rem;">Formula</h2><div class="formula-card">Volume (cm³) = Length × Width × Depth &nbsp;·&nbsp; Mass ≈ Vol × 1.1 g/cm³</div></div><div class="card"><h2 style="font-size:1rem;margin-bottom:0.5rem;">FAQs</h2><details class="faq-item"><summary class="faq-question">Why the 10% waste buffer?</summary><div class="faq-answer">Accounts for mixing container cling and unavoidable spillage. Always mix a little extra.</div></details></div></div>
       </section>
 
       <!-- 6. VIDEO BITRATE -->
       <section id="tab-video" class="tab-panel">
-        <div class="tool-header"><div class="tool-title-group"><h1>Video Export Bitrate & File Size</h1><p>Forecast MB/GB file sizes across H.264 & ProRes.</p></div><button class="btn btn-secondary" onclick="calcVideo()">Reset</button></div>
+        <div class="tool-header"><div class="tool-title-group"><h1>Video Export Bitrate & File Size</h1><p>Forecast MB/GB file sizes & see which delivery tier your bitrate matches.</p></div><button class="btn btn-secondary" onclick="resetTool('tab-video', calcVideo)">Reset</button></div>
         <div class="calc-grid">
           <div class="card">
             <div class="form-group-grid"><div class="form-group"><label class="form-label">Duration (sec)</label><input type="number" id="vid-secs" class="form-control" value="750" oninput="calcVideo()"/></div><div class="form-group"><label class="form-label">Bitrate (Mbps)</label><input type="number" id="vid-bitrate" class="form-control" value="55" oninput="calcVideo()"/></div></div>
           </div>
           <div class="results-deck">
-            <div class="hero-stat-card"><div class="stat-label">Output File Size</div><div class="stat-value-huge" id="vid-res-filesize">5.16 <span class="unit">GB</span></div></div>
-            <div style="display:flex; gap:0.5rem;"><button class="btn btn-primary" style="flex:1;" onclick="copySummaryVideo()">Copy Specs</button><button class="btn btn-secondary" onclick="saveRun('video')">Save Run</button></div>
+            <div class="hero-stat-card">
+              <div class="stat-label">Output File Size</div>
+              <div class="stat-value-huge" id="vid-res-filesize">5.16 <span class="unit">GB</span></div>
+              <div class="stat-subtext" style="margin-top:0.6rem;"><span class="rating-badge rating-good" id="vid-res-rating">—</span></div>
+            </div>
+            <div class="mini-card">
+              <div class="mini-title">Size in context</div>
+              <div class="metrics-grid" style="grid-template-columns:1fr 1fr;">
+                <div class="metric-card"><div class="m-label">Megabytes</div><div class="m-val" id="vid-res-mb">5,156 MB</div></div>
+                <div class="metric-card"><div class="m-label">~ Music CDs</div><div class="m-val" id="vid-res-cds">~7 CDs</div></div>
+              </div>
+            </div>
+            <div class="insight-card"><span class="insight-icon">💡</span><span id="vid-insight">Match the bitrate to the codec and delivery platform.</span></div>
+            <div class="btn-row"><button class="btn btn-primary" style="flex:1;" onclick="copySummaryVideo()">Copy Specs</button><button class="btn btn-secondary" onclick="saveRun('video')">Save Run</button></div>
           </div>
         </div>
-        <div class="seo-2col-grid"><div class="card"><h2>Formula</h2><div class="formula-card">File Size (GB) = (Mbps × Secs) / 8 / 1000</div></div><div class="card"><h2>FAQs</h2><details class="faq-item"><summary class="faq-question">Why use H.265?</summary><div class="faq-answer">50% higher efficiency than H.264.</div></details></div></div>
+        <div class="seo-2col-grid"><div class="card"><h2 style="font-size:1rem;margin-bottom:0.5rem;">Formula</h2><div class="formula-card">File Size (GB) = (Mbps × Secs) / 8 / 1000</div></div><div class="card"><h2 style="font-size:1rem;margin-bottom:0.5rem;">FAQs</h2><details class="faq-item"><summary class="faq-question">Why use H.265?</summary><div class="faq-answer">H.265/HEVC delivers ~50% higher efficiency than H.264 — the same quality at half the bitrate.</div></details></div></div>
       </section>
 
       <!-- 7. DOF OPTICS -->
       <section id="tab-dof" class="tab-panel">
-        <div class="tool-header"><div class="tool-title-group"><h1>Depth of Field & Optics</h1><p>Hyperfocal distance & focus limits.</p></div><button class="btn btn-secondary" onclick="calcDOF()">Reset</button></div>
+        <div class="tool-header"><div class="tool-title-group"><h1>Depth of Field & Optics</h1><p>Hyperfocal distance, near/far focus limits & total in-focus range.</p></div><button class="btn btn-secondary" onclick="resetTool('tab-dof', calcDOF)">Reset</button></div>
         <div class="calc-grid">
           <div class="card">
-            <div class="form-group-grid"><div class="form-group"><label class="form-label">Focal (mm)</label><input type="number" id="dof-focal" class="form-control" value="50" oninput="calcDOF()"/></div><div class="form-group"><label class="form-label">Aperture f/</label><input type="number" id="dof-aperture" class="form-control" value="2.8" step="0.1" oninput="calcDOF()"/></div><div class="form-group"><label class="form-label">Distance (m)</label><input type="number" id="dof-distance" class="form-control" value="3.0" oninput="calcDOF()"/></div></div>
+            <div class="form-group-grid"><div class="form-group"><label class="form-label">Focal Length (mm)</label><input type="number" id="dof-focal" class="form-control" value="50" oninput="calcDOF()"/></div><div class="form-group"><label class="form-label">Aperture f/</label><input type="number" id="dof-aperture" class="form-control" value="2.8" step="0.1" oninput="calcDOF()"/></div><div class="form-group"><label class="form-label">Focus Distance (m)</label><input type="number" id="dof-distance" class="form-control" value="3.0" oninput="calcDOF()"/></div></div>
+            <p style="font-size:0.75rem;color:var(--text-dim);">Assumes full-frame sensor (CoC 0.029 mm).</p>
           </div>
           <div class="results-deck">
-            <div class="hero-stat-card"><div class="stat-label">Hyperfocal Distance</div><div class="stat-value-huge" id="dof-res-hyperfocal">30.86 <span class="unit">m</span></div></div>
-            <div style="display:flex; gap:0.5rem;"><button class="btn btn-primary" style="flex:1;" onclick="copySummaryDOF()">Copy Optics</button><button class="btn btn-secondary" onclick="saveRun('dof')">Save Run</button></div>
+            <div class="hero-stat-card">
+              <div class="stat-label">Hyperfocal Distance</div>
+              <div class="stat-value-huge" id="dof-res-hyperfocal">30.86 <span class="unit">m</span></div>
+              <div class="stat-subtext">Focus at this distance → everything from half of it to infinity is sharp.</div>
+            </div>
+            <div class="metrics-grid">
+              <div class="metric-card"><div class="m-label">Near Limit</div><div class="m-val" id="dof-res-near">2.57 m</div></div>
+              <div class="metric-card"><div class="m-label">Far Limit</div><div class="m-val" id="dof-res-far">3.60 m</div></div>
+              <div class="metric-card"><div class="m-label">In-Focus Range</div><div class="m-val" id="dof-res-total">1.03 m</div></div>
+            </div>
+            <div class="mini-card" id="dof-visual" style="background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--radius-md);padding:0.9rem 1rem;"></div>
+            <div class="insight-card"><span class="insight-icon">💡</span><span id="dof-insight">Wider apertures and longer lenses shrink DOF — great for portraits, tricky for landscapes.</span></div>
+            <div class="btn-row"><button class="btn btn-primary" style="flex:1;" onclick="copySummaryDOF()">Copy Optics</button><button class="btn btn-secondary" onclick="saveRun('dof')">Save Run</button></div>
           </div>
         </div>
-        <div class="seo-2col-grid"><div class="card"><h2>Formula</h2><div class="formula-card">H = (focal² / (aperture × CoC)) + focal</div></div><div class="card"><h2>FAQs</h2><details class="faq-item"><summary class="faq-question">What is CoC?</summary><div class="faq-answer">Circle of Confusion standard for sensor sizes.</div></details></div></div>
+        <div class="seo-2col-grid"><div class="card"><h2 style="font-size:1rem;margin-bottom:0.5rem;">Formula</h2><div class="formula-card">H = (focal² / (aperture × CoC)) + focal</div></div><div class="card"><h2 style="font-size:1rem;margin-bottom:0.5rem;">FAQs</h2><details class="faq-item"><summary class="faq-question">What is CoC?</summary><div class="faq-answer">Circle of Confusion — the largest blur spot perceived as a point. Full-frame ≈ 0.029 mm, APS-C ≈ 0.019 mm.</div></details></div></div>
       </section>
 
       <!-- 8. ND FILTER -->
       <section id="tab-nd-filter" class="tab-panel">
-        <div class="tool-header"><div class="tool-title-group"><h1>ND Filter & Camera Exposure</h1><p>Compensate shutter speeds across 1-15 ND stops.</p></div><button class="btn btn-secondary" onclick="calcNDFilter()">Reset</button></div>
+        <div class="tool-header"><div class="tool-title-group"><h1>ND Filter & Camera Exposure</h1><p>Compensate shutter speeds across 1–15 ND stops with density naming.</p></div><button class="btn btn-secondary" onclick="resetTool('tab-nd-filter', calcNDFilter)">Reset</button></div>
         <div class="calc-grid">
           <div class="card">
             <div class="form-group-grid"><div class="form-group"><label class="form-label">Base Speed (s)</label><input type="number" id="nd-base-val" class="form-control" value="0.004" step="0.001" oninput="calcNDFilter()"/></div><div class="form-group"><label class="form-label">ND Stops</label><input type="number" id="nd-stops-val" class="form-control" value="10" oninput="calcNDFilter()"/></div></div>
           </div>
           <div class="results-deck">
-            <div class="hero-stat-card"><div class="stat-label">Target Exposure</div><div class="stat-value-huge" id="nd-res-speed">4.10 <span class="unit">sec</span></div></div>
-            <div style="display:flex; gap:0.5rem;"><button class="btn btn-primary" style="flex:1;" onclick="copySummaryNDFilter()">Copy Exposure</button><button class="btn btn-secondary" onclick="saveRun('nd-filter')">Save Run</button></div>
+            <div class="hero-stat-card">
+              <div class="stat-label">Target Exposure</div>
+              <div class="stat-value-huge" id="nd-res-speed">4.10 <span class="unit">sec</span></div>
+              <div class="stat-subtext" style="margin-top:0.6rem;"><span class="rating-badge rating-mid" id="nd-res-rating">—</span></div>
+            </div>
+            <div class="mini-card">
+              <div class="mini-title">Stop Ladder</div>
+              <div class="gauge-track"><div class="gauge-fill" id="nd-stops-gauge" style="width:67%"></div></div>
+              <div class="gauge-labels"><span>1 stop</span><span id="nd-res-density">ND1000</span><span>15 stops</span></div>
+            </div>
+            <div class="metrics-grid">
+              <div class="metric-card"><div class="m-label">EV Shift</div><div class="m-val" id="nd-res-ev">−10 EV</div></div>
+              <div class="metric-card"><div class="m-label">Filter Density</div><div class="m-val" id="nd-res-factor">×1024</div></div>
+            </div>
+            <div class="insight-card"><span class="insight-icon">💡</span><span id="nd-insight">10 stops = ND1000 — the classic daylight long-exposure filter.</span></div>
+            <div class="btn-row"><button class="btn btn-primary" style="flex:1;" onclick="copySummaryNDFilter()">Copy Exposure</button><button class="btn btn-secondary" onclick="saveRun('nd-filter')">Save Run</button></div>
           </div>
         </div>
-        <div class="seo-2col-grid"><div class="card"><h2>Formula</h2><div class="formula-card">Target Speed = Base Speed × (2 ^ ND_Stops)</div></div><div class="card"><h2>FAQs</h2><details class="faq-item"><summary class="faq-question">When to use ND1000?</summary><div class="faq-answer">Smooths water motion in daylight.</div></details></div></div>
+        <div class="seo-2col-grid"><div class="card"><h2 style="font-size:1rem;margin-bottom:0.5rem;">Formula</h2><div class="formula-card">Target Speed = Base Speed × (2 ^ ND_Stops)</div></div><div class="card"><h2 style="font-size:1rem;margin-bottom:0.5rem;">FAQs</h2><details class="faq-item"><summary class="faq-question">When to use ND1000?</summary><div class="faq-answer">Smooths water motion and streaky clouds in bright daylight — typically 8–10 stops.</div></details></div></div>
       </section>
 
       <!-- 9. TIMELAPSE -->
       <section id="tab-timelapse" class="tab-panel">
-        <div class="tool-header"><div class="tool-title-group"><h1>Timelapse Interval & Duration</h1><p>Shooting interval (sec/photo), shot count & card memory.</p></div><button class="btn btn-secondary" onclick="calcTimelapse()">Reset</button></div>
+        <div class="tool-header"><div class="tool-title-group"><h1>Timelapse Interval & Duration</h1><p>Shooting interval, total shots, playback speed & card storage.</p></div><button class="btn btn-secondary" onclick="resetTool('tab-timelapse', calcTimelapse)">Reset</button></div>
         <div class="calc-grid">
           <div class="card">
-            <div class="form-group-grid"><div class="form-group"><label class="form-label">Clip Secs</label><input type="number" id="tl-clip-sec" class="form-control" value="10" oninput="calcTimelapse()"/></div><div class="form-group"><label class="form-label">FPS</label><input type="number" id="tl-fps" class="form-control" value="30" oninput="calcTimelapse()"/></div><div class="form-group"><label class="form-label">Event Mins</label><input type="number" id="tl-event-min" class="form-control" value="60" oninput="calcTimelapse()"/></div></div>
+            <div class="form-group-grid"><div class="form-group"><label class="form-label">Clip Duration (sec)</label><input type="number" id="tl-clip-sec" class="form-control" value="10" oninput="calcTimelapse()"/></div><div class="form-group"><label class="form-label">Playback FPS</label><input type="number" id="tl-fps" class="form-control" value="30" oninput="calcTimelapse()"/></div><div class="form-group"><label class="form-label">Event Length (mins)</label><input type="number" id="tl-event-min" class="form-control" value="60" oninput="calcTimelapse()"/></div></div>
+            <p style="font-size:0.75rem;color:var(--text-dim);">Storage estimate assumes ~25 MB per RAW image.</p>
           </div>
           <div class="results-deck">
-            <div class="hero-stat-card"><div class="stat-label">Shooting Interval</div><div class="stat-value-huge" id="tl-res-interval">12.0 <span class="unit">sec / shot</span></div></div>
-            <div style="display:flex; gap:0.5rem;"><button class="btn btn-primary" style="flex:1;" onclick="copySummaryTimelapse()">Copy Plan</button><button class="btn btn-secondary" onclick="saveRun('timelapse')">Save Run</button></div>
+            <div class="hero-stat-card">
+              <div class="stat-label">Shooting Interval</div>
+              <div class="stat-value-huge" id="tl-res-interval">12.0 <span class="unit">sec / shot</span></div>
+              <div class="stat-subtext" style="margin-top:0.6rem;"><span class="rating-badge rating-good" id="tl-res-rating">—</span></div>
+            </div>
+            <div class="metrics-grid">
+              <div class="metric-card"><div class="m-label">Total Shots</div><div class="m-val" id="tl-res-shots">300</div></div>
+              <div class="metric-card"><div class="m-label">Speed Multiplier</div><div class="m-val" id="tl-res-playback">360×</div></div>
+              <div class="metric-card"><div class="m-label">Card Space (RAW)</div><div class="m-val" id="tl-res-storage">7.3 GB</div></div>
+            </div>
+            <div class="insight-card"><span class="insight-icon">💡</span><span id="tl-insight">Clouds move fast: use 1–3 sec intervals. Stars need 25–30 sec and wider motion blur tolerance.</span></div>
+            <div class="btn-row"><button class="btn btn-primary" style="flex:1;" onclick="copySummaryTimelapse()">Copy Plan</button><button class="btn btn-secondary" onclick="saveRun('timelapse')">Save Run</button></div>
           </div>
         </div>
-        <div class="seo-2col-grid"><div class="card"><h2>Formula</h2><div class="formula-card">Interval = Event Secs / (Clip Secs × FPS)</div></div><div class="card"><h2>FAQs</h2><details class="faq-item"><summary class="faq-question">Cloud interval?</summary><div class="faq-answer">1 to 3 seconds for fast storm clouds.</div></details></div></div>
+        <div class="seo-2col-grid"><div class="card"><h2 style="font-size:1rem;margin-bottom:0.5rem;">Formula</h2><div class="formula-card">Interval = Event Secs / (Clip Secs × FPS)</div></div><div class="card"><h2 style="font-size:1rem;margin-bottom:0.5rem;">FAQs</h2><details class="faq-item"><summary class="faq-question">What interval for clouds?</summary><div class="faq-answer">1–3 seconds for fast storm clouds; 5–10 seconds for gentle cloud drift.</div></details></div></div>
       </section>
 
       <!-- 10. LIGHT INVERSE -->
       <section id="tab-light-inverse" class="tab-panel">
-        <div class="tool-header"><div class="tool-title-group"><h1>Inverse Square Light Drop-Off</h1><p>Light intensity Lux & f-stop exposure loss.</p></div><button class="btn btn-secondary" onclick="calcLightInverse()">Reset</button></div>
+        <div class="tool-header"><div class="tool-title-group"><h1>Inverse Square Light Drop-Off</h1><p>Lux falloff, f-stop loss & intensity ratio as distance changes.</p></div><button class="btn btn-secondary" onclick="resetTool('tab-light-inverse', calcLightInverse)">Reset</button></div>
         <div class="calc-grid">
           <div class="card">
             <div class="form-group-grid"><div class="form-group"><label class="form-label">Initial Lux</label><input type="number" id="lux-init" class="form-control" value="1000" oninput="calcLightInverse()"/></div><div class="form-group"><label class="form-label">Dist 1 (m)</label><input type="number" id="lux-d1" class="form-control" value="2.0" oninput="calcLightInverse()"/></div><div class="form-group"><label class="form-label">Dist 2 (m)</label><input type="number" id="lux-d2" class="form-control" value="4.0" oninput="calcLightInverse()"/></div></div>
+            <p style="font-size:0.75rem;color:var(--text-dim);">Lux is measured at Dist 1 and projected to Dist 2.</p>
           </div>
           <div class="results-deck">
-            <div class="hero-stat-card"><div class="stat-label">Target Intensity</div><div class="stat-value-huge" id="lux-res-target">250 <span class="unit">Lux</span></div></div>
-            <div style="display:flex; gap:0.5rem;"><button class="btn btn-primary" style="flex:1;" onclick="copySummaryLightInverse()">Copy Light Drop</button><button class="btn btn-secondary" onclick="saveRun('light-inverse')">Save Run</button></div>
+            <div class="hero-stat-card">
+              <div class="stat-label">Intensity at Dist 2</div>
+              <div class="stat-value-huge" id="lux-res-target">250 <span class="unit">Lux</span></div>
+              <div class="stat-subtext" style="margin-top:0.6rem;"><span class="rating-badge rating-low" id="lux-res-rating">−2.0 stops</span></div>
+            </div>
+            <div class="mini-card">
+              <div class="mini-title">Relative light remaining</div>
+              <div class="gauge-track"><div class="gauge-fill" id="lux-gauge" style="width:25%"></div></div>
+              <div class="gauge-labels"><span id="lux-res-ratio">25% of D1</span><span>100% at D1</span></div>
+            </div>
+            <div class="insight-card"><span class="insight-icon">💡</span><span id="lux-insight">Doubling distance = 4× less light (−2 stops). Move lights closer, don't just crank power.</span></div>
+            <div class="btn-row"><button class="btn btn-primary" style="flex:1;" onclick="copySummaryLightInverse()">Copy Light Drop</button><button class="btn btn-secondary" onclick="saveRun('light-inverse')">Save Run</button></div>
           </div>
         </div>
-        <div class="seo-2col-grid"><div class="card"><h2>Formula</h2><div class="formula-card">Intensity₂ = Intensity₁ × (Dist₁ / Dist₂)²</div></div><div class="card"><h2>FAQs</h2><details class="faq-item"><summary class="faq-question">Why 4x drop?</summary><div class="faq-answer">Light spreads over a 2D surface area.</div></details></div></div>
+        <div class="seo-2col-grid"><div class="card"><h2 style="font-size:1rem;margin-bottom:0.5rem;">Formula</h2><div class="formula-card">Intensity₂ = Intensity₁ × (Dist₁ / Dist₂)²</div></div><div class="card"><h2 style="font-size:1rem;margin-bottom:0.5rem;">FAQs</h2><details class="faq-item"><summary class="faq-question">Why the 4× drop?</summary><div class="faq-answer">Light spreads over a 2D surface area, so doubling distance quadruples the area the light must cover.</div></details></div></div>
       </section>
 
       <!-- 11. TDEE MACROS -->
       <section id="tab-tdee" class="tab-panel">
-        <div class="tool-header"><div class="tool-title-group"><h1>TDEE & Recomp Macro Splitter</h1><p>BMR, TDEE & macro targets.</p></div><button class="btn btn-secondary" onclick="calcTDEE()">Reset</button></div>
+        <div class="tool-header"><div class="tool-title-group"><h1>TDEE & Recomp Macro Splitter</h1><p>BMR, maintenance, cut/bulk targets & full macro split.</p></div><button class="btn btn-secondary" onclick="resetTool('tab-tdee', calcTDEE)">Reset</button></div>
         <div class="calc-grid">
           <div class="card">
             <div class="form-group-grid"><div class="form-group"><label class="form-label">Age</label><input type="number" id="tdee-age" class="form-control" value="28" oninput="calcTDEE()"/></div><div class="form-group"><label class="form-label">Height (cm)</label><input type="number" id="tdee-height" class="form-control" value="178" oninput="calcTDEE()"/></div><div class="form-group"><label class="form-label">Weight (kg)</label><input type="number" id="tdee-weight" class="form-control" value="78" oninput="calcTDEE()"/></div></div>
+            <div class="form-group"><label class="form-label">Activity Level</label><select id="tdee-activity" class="form-control" value="1.55" onchange="calcTDEE()">
+              <option value="1.2">Sedentary (little exercise) ×1.2</option>
+              <option value="1.375">Light (1–3 days/wk) ×1.375</option>
+              <option value="1.55" selected>Moderate (3–5 days/wk) ×1.55</option>
+              <option value="1.725">Active (6–7 days/wk) ×1.725</option>
+              <option value="1.9">Athlete (2×/day) ×1.9</option>
+            </select></div>
           </div>
           <div class="results-deck">
-            <div class="hero-stat-card"><div class="stat-label">Target Calories</div><div class="stat-value-huge" id="tdee-res-calories">2,485 <span class="unit">kcal</span></div></div>
-            <div style="display:flex; gap:0.5rem;"><button class="btn btn-primary" style="flex:1;" onclick="copySummaryTDEE()">Copy Plan</button><button class="btn btn-secondary" onclick="saveRun('tdee')">Save Run</button></div>
+            <div class="hero-stat-card">
+              <div class="stat-label">TDEE (Maintenance)</div>
+              <div class="stat-value-huge" id="tdee-res-calories">2,485 <span class="unit">kcal</span></div>
+              <div class="stat-subtext" style="margin-top:0.6rem;"><span class="rating-badge rating-good" id="tdee-res-method">Mifflin-St Jeor</span></div>
+            </div>
+            <div class="mini-card">
+              <div class="mini-title">Calorie Targets</div>
+              <div class="metrics-grid" style="grid-template-columns:1fr 1fr;">
+                <div class="metric-card"><div class="m-label">BMR</div><div class="m-val" id="tdee-res-bmr">1,603 kcal</div></div>
+                <div class="metric-card"><div class="m-label">Cut (−20%)</div><div class="m-val" id="tdee-res-cut">1,988 kcal</div></div>
+                <div class="metric-card"><div class="m-label">Bulk (+10%)</div><div class="m-val" id="tdee-res-bulk">2,734 kcal</div></div>
+              </div>
+            </div>
+            <div class="mini-card">
+              <div class="mini-title">Macro Split (2g/kg protein · 25% fat)</div>
+              <div class="split-bar" id="tdee-macro-fill"><div class="split-seg" style="width:32%;background:#f43f5e"></div><div class="split-seg" style="width:48%;background:#06b6d4"></div><div class="split-seg" style="width:20%;background:#f59e0b"></div></div>
+              <div class="legend-row">
+                <span class="legend-item"><span class="legend-swatch" style="background:#f43f5e"></span>Protein <b id="tdee-res-protein">0 g</b></span>
+                <span class="legend-item"><span class="legend-swatch" style="background:#06b6d4"></span>Carbs <b id="tdee-res-carbs">0 g</b></span>
+                <span class="legend-item"><span class="legend-swatch" style="background:#f59e0b"></span>Fat <b id="tdee-res-fat">0 g</b></span>
+              </div>
+            </div>
+            <div class="insight-card"><span class="insight-icon">💡</span><span id="tdee-insight">Recomp works best at maintenance or a small deficit while keeping protein high.</span></div>
+            <div class="btn-row"><button class="btn btn-primary" style="flex:1;" onclick="copySummaryTDEE()">Copy Plan</button><button class="btn btn-secondary" onclick="saveRun('tdee')">Save Run</button></div>
           </div>
         </div>
-        <div class="seo-2col-grid"><div class="card"><h2>Formula</h2><div class="formula-card">BMR = (10 × W) + (6.25 × H) - (5 × A) + 5</div></div><div class="card"><h2>FAQs</h2><details class="faq-item"><summary class="faq-question">What is recomp?</summary><div class="faq-answer">Building muscle while losing fat.</div></details></div></div>
+        <div class="seo-2col-grid"><div class="card"><h2 style="font-size:1rem;margin-bottom:0.5rem;">Formula</h2><div class="formula-card">BMR = (10 × W) + (6.25 × H) − (5 × A) + 5 &nbsp;·&nbsp; TDEE = BMR × Activity</div></div><div class="card"><h2 style="font-size:1rem;margin-bottom:0.5rem;">FAQs</h2><details class="faq-item"><summary class="faq-question">What is recomp?</summary><div class="faq-answer">Building muscle while losing fat — usually at maintenance or a slight deficit with high protein.</div></details></div></div>
       </section>
 
       <!-- 12. 1RM STRENGTH -->
       <section id="tab-1rm" class="tab-panel">
-        <div class="tool-header"><div class="tool-title-group"><h1>1RM Strength Matrix</h1><p>Estimated 1-rep max & percentage matrix.</p></div><button class="btn btn-secondary" onclick="calc1RM()">Reset</button></div>
+        <div class="tool-header"><div class="tool-title-group"><h1>1RM Strength Matrix</h1><p>Epley + Brzycki estimates with bodyweight ratio & strength rating.</p></div><button class="btn btn-secondary" onclick="resetTool('tab-1rm', calc1RM)">Reset</button></div>
         <div class="calc-grid">
           <div class="card">
-            <div class="form-group-grid"><div class="form-group"><label class="form-label">Weight (kg)</label><input type="number" id="rm-weight" class="form-control" value="100" oninput="calc1RM()"/></div><div class="form-group"><label class="form-label">Reps</label><input type="number" id="rm-reps" class="form-control" value="5" oninput="calc1RM()"/></div></div>
+            <div class="form-group-grid"><div class="form-group"><label class="form-label">Weight Lifted (kg)</label><input type="number" id="rm-weight" class="form-control" value="100" oninput="calc1RM()"/></div><div class="form-group"><label class="form-label">Reps</label><input type="number" id="rm-reps" class="form-control" value="5" oninput="calc1RM()"/></div><div class="form-group"><label class="form-label">Bodyweight (kg)</label><input type="number" id="rm-bw" class="form-control" value="80" oninput="calc1RM()"/></div></div>
           </div>
           <div class="results-deck">
-            <div class="hero-stat-card"><div class="stat-label">Estimated 1RM</div><div class="stat-value-huge" id="rm-res-1rm">116.3 <span class="unit">kg</span></div></div>
-            <div style="display:flex; gap:0.5rem;"><button class="btn btn-primary" style="flex:1;" onclick="copySummary1RM()">Copy 1RM</button><button class="btn btn-secondary" onclick="saveRun('1rm')">Save Run</button></div>
+            <div class="hero-stat-card">
+              <div class="stat-label">Estimated 1RM (avg)</div>
+              <div class="stat-value-huge" id="rm-res-1rm">116.3 <span class="unit">kg</span></div>
+              <div class="stat-subtext" style="margin-top:0.6rem;"><span class="rating-badge rating-mid" id="rm-res-rating">—</span></div>
+            </div>
+            <div class="metrics-grid">
+              <div class="metric-card"><div class="m-label">Epley Formula</div><div class="m-val" id="rm-res-epley">116.7 kg</div></div>
+              <div class="metric-card"><div class="m-label">Brzycki Formula</div><div class="m-val" id="rm-res-brzycki">115.6 kg</div></div>
+              <div class="metric-card"><div class="m-label">vs Bodyweight</div><div class="m-val" id="rm-res-ratio">1.45× BW</div></div>
+            </div>
+            <div class="mini-card">
+              <div class="mini-title">Strength Scale (vs bodyweight)</div>
+              <div class="gauge-track"><div class="gauge-fill" id="rm-gauge" style="width:48%"></div></div>
+              <div class="gauge-labels"><span>1× Beginner</span><span>1.5× Intermediate</span><span>2× Elite</span></div>
+            </div>
+            <div class="insight-card"><span class="insight-icon">💡</span><span id="rm-insight">Most accurate under 6 reps. Use test-day values, not fatigued sets.</span></div>
+            <div class="btn-row"><button class="btn btn-primary" style="flex:1;" onclick="copySummary1RM()">Copy 1RM</button><button class="btn btn-secondary" onclick="saveRun('1rm')">Save Run</button></div>
           </div>
         </div>
-        <div class="seo-2col-grid"><div class="card"><h2>Formula</h2><div class="formula-card">1RM = Weight × (1 + Reps/30)</div></div><div class="card"><h2>FAQs</h2><details class="faq-item"><summary class="faq-question">Accuracy?</summary><div class="faq-answer">Most accurate under 6 reps.</div></details></div></div>
+        <div class="seo-2col-grid"><div class="card"><h2 style="font-size:1rem;margin-bottom:0.5rem;">Formula</h2><div class="formula-card">Epley: 1RM = W × (1 + Reps/30) &nbsp;·&nbsp; Brzycki: 1RM = W × 36/(37 − Reps)</div></div><div class="card"><h2 style="font-size:1rem;margin-bottom:0.5rem;">FAQs</h2><details class="faq-item"><summary class="faq-question">How accurate are these?</summary><div class="faq-answer">Both formulas are most accurate for sets under 6 reps; averaging them reduces error.</div></details></div></div>
       </section>
 
       <!-- 13. FFMI -->
       <section id="tab-ffmi" class="tab-panel">
-        <div class="tool-header"><div class="tool-title-group"><h1>FFMI & Muscular Potential</h1><p>Fat-Free Mass Index & natural ceilings.</p></div><button class="btn btn-secondary" onclick="calcFFMI()">Reset</button></div>
+        <div class="tool-header"><div class="tool-title-group"><h1>FFMI & Muscular Potential</h1><p>Fat-Free Mass Index with a natural-ceiling gauge & classification.</p></div><button class="btn btn-secondary" onclick="resetTool('tab-ffmi', calcFFMI)">Reset</button></div>
         <div class="calc-grid">
           <div class="card">
             <div class="form-group-grid"><div class="form-group"><label class="form-label">Height (cm)</label><input type="number" id="ffmi-height" class="form-control" value="180" oninput="calcFFMI()"/></div><div class="form-group"><label class="form-label">Weight (kg)</label><input type="number" id="ffmi-weight" class="form-control" value="82" oninput="calcFFMI()"/></div><div class="form-group"><label class="form-label">Body Fat %</label><input type="number" id="ffmi-bf" class="form-control" value="14" oninput="calcFFMI()"/></div></div>
+            <p style="font-size:0.75rem;color:var(--text-dim);">Normalized to a height of 1.8 m so results compare across athletes.</p>
           </div>
           <div class="results-deck">
-            <div class="hero-stat-card"><div class="stat-label">Normalized FFMI</div><div class="stat-value-huge" id="ffmi-res-score">21.8 <span class="unit">Score</span></div></div>
-            <div style="display:flex; gap:0.5rem;"><button class="btn btn-primary" style="flex:1;" onclick="copySummaryFFMI()">Copy Report</button><button class="btn btn-secondary" onclick="saveRun('ffmi')">Save Run</button></div>
+            <div class="hero-stat-card">
+              <div class="stat-label">Normalized FFMI</div>
+              <div class="stat-value-huge" id="ffmi-res-score">21.8 <span class="unit">Score</span></div>
+              <div class="stat-subtext" style="margin-top:0.6rem;"><span class="rating-badge rating-good" id="ffmi-res-rating">—</span></div>
+            </div>
+            <div class="mini-card">
+              <div class="mini-title">Where you sit on the natural scale</div>
+              <div class="gauge-track"><div class="gauge-fill" id="ffmi-gauge" style="width:64%"></div></div>
+              <div class="gauge-labels"><span>16 Below Avg</span><span>20 Average</span><span>25 Natural Limit</span></div>
+            </div>
+            <div class="metrics-grid">
+              <div class="metric-card"><div class="m-label">Lean Body Mass</div><div class="m-val" id="ffmi-res-lbm">70.5 kg</div></div>
+              <div class="metric-card"><div class="m-label">Raw FFMI</div><div class="m-val" id="ffmi-res-raw">21.8</div></div>
+            </div>
+            <div class="insight-card"><span class="insight-icon">💡</span><span id="ffmi-insight">25 is the widely-cited natural ceiling. Elite drug-free bodybuilders have approached ~28.</span></div>
+            <div class="btn-row"><button class="btn btn-primary" style="flex:1;" onclick="copySummaryFFMI()">Copy Report</button><button class="btn btn-secondary" onclick="saveRun('ffmi')">Save Run</button></div>
           </div>
         </div>
-        <div class="seo-2col-grid"><div class="card"><h2>Formula</h2><div class="formula-card">Normalized FFMI = [LBM / H²] + 6.1 × (1.8 - H)</div></div><div class="card"><h2>FAQs</h2><details class="faq-item"><summary class="faq-question">Natural ceiling?</summary><div class="faq-answer">Normalized FFMI 25.0 is natural limit.</div></details></div></div>
+        <div class="seo-2col-grid"><div class="card"><h2 style="font-size:1rem;margin-bottom:0.5rem;">Formula</h2><div class="formula-card">Normalized FFMI = [LBM / H²] + 6.1 × (1.8 − H)</div></div><div class="card"><h2 style="font-size:1rem;margin-bottom:0.5rem;">FAQs</h2><details class="faq-item"><summary class="faq-question">What is a good FFMI?</summary><div class="faq-answer">~20 is typical for active lifters, 22 is excellent, and 25 is the recognized natural limit.</div></details></div></div>
       </section>
 
       <!-- 14. WILKS DOTS -->
       <section id="tab-wilks-dots" class="tab-panel">
-        <div class="tool-header"><div class="tool-title-group"><h1>Wilks 2.0 & DOTS Powerlifting Score</h1><p>Relative strength scores across weight classes.</p></div><button class="btn btn-secondary" onclick="calcWilksDOTS()">Reset</button></div>
+        <div class="tool-header"><div class="tool-title-group"><h1>Wilks 2.0 & DOTS Powerlifting Score</h1><p>Relative strength across weight classes with classification rating.</p></div><button class="btn btn-secondary" onclick="resetTool('tab-wilks-dots', calcWilksDOTS)">Reset</button></div>
         <div class="calc-grid">
           <div class="card">
             <div class="form-group-grid"><div class="form-group"><label class="form-label">Bodyweight (kg)</label><input type="number" id="dots-bw" class="form-control" value="83" oninput="calcWilksDOTS()"/></div><div class="form-group"><label class="form-label">Total Lifted (kg)</label><input type="number" id="dots-total" class="form-control" value="600" oninput="calcWilksDOTS()"/></div></div>
+            <div class="form-group"><label class="form-label">Sex</label><select id="dots-sex" class="form-control" value="m" onchange="calcWilksDOTS()">
+              <option value="m" selected>Male</option>
+              <option value="f">Female</option>
+            </select></div>
           </div>
           <div class="results-deck">
-            <div class="hero-stat-card"><div class="stat-label">DOTS Score</div><div class="stat-value-huge" id="dots-res-score">412.5 <span class="unit">Pts</span></div></div>
-            <div style="display:flex; gap:0.5rem;"><button class="btn btn-primary" style="flex:1;" onclick="copySummaryWilksDOTS()">Copy Score</button><button class="btn btn-secondary" onclick="saveRun('wilks-dots')">Save Run</button></div>
+            <div class="hero-stat-card">
+              <div class="stat-label">DOTS Score</div>
+              <div class="stat-value-huge" id="dots-res-score">412.5 <span class="unit">Pts</span></div>
+              <div class="stat-subtext" style="margin-top:0.6rem;"><span class="rating-badge rating-mid" id="dots-res-rating">—</span></div>
+            </div>
+            <div class="mini-card">
+              <div class="mini-title">Classification</div>
+              <div class="gauge-track"><div class="gauge-fill" id="dots-gauge" style="width:56%"></div></div>
+              <div class="gauge-labels"><span>300 Novice</span><span>400 Advanced</span><span>500+ Elite</span></div>
+            </div>
+            <div class="metrics-grid">
+              <div class="metric-card"><div class="m-label">Classic Wilks</div><div class="m-val" id="dots-res-wilks">404.7</div></div>
+            </div>
+            <div class="insight-card"><span class="insight-icon">💡</span><span id="dots-insight">DOTS removes the bodyweight bias of older systems — you can compare fairly across weight classes.</span></div>
+            <div class="btn-row"><button class="btn btn-primary" style="flex:1;" onclick="copySummaryWilksDOTS()">Copy Score</button><button class="btn btn-secondary" onclick="saveRun('wilks-dots')">Save Run</button></div>
           </div>
         </div>
-        <div class="seo-2col-grid"><div class="card"><h2>Formula</h2><div class="formula-card">DOTS = (Total × 500) / Polynomial(Bodyweight)</div></div><div class="card"><h2>FAQs</h2><details class="faq-item"><summary class="faq-question">Why DOTS over Wilks?</summary><div class="faq-answer">Removes bodyweight bias for light/heavy lifters.</div></details></div></div>
+        <div class="seo-2col-grid"><div class="card"><h2 style="font-size:1rem;margin-bottom:0.5rem;">Formula</h2><div class="formula-card">DOTS = (Total × 500) / Polynomial(Bodyweight)</div></div><div class="card"><h2 style="font-size:1rem;margin-bottom:0.5rem;">FAQs</h2><details class="faq-item"><summary class="faq-question">Why DOTS over Wilks?</summary><div class="faq-answer">DOTS was recalibrated to remove bodyweight bias for lighter and heavier lifters.</div></details></div></div>
       </section>
 
       <!-- 15. KARVONEN HR -->
       <section id="tab-karvonen-hr" class="tab-panel">
-        <div class="tool-header"><div class="tool-title-group"><h1>Karvonen Heart Rate Zones</h1><p>Heart rate reserve (HRR) & 5 target training zones.</p></div><button class="btn btn-secondary" onclick="calcKarvonenHR()">Reset</button></div>
+        <div class="tool-header"><div class="tool-title-group"><h1>Karvonen Heart Rate Zones</h1><p>Heart rate reserve (HRR) & 5 exact target training zones.</p></div><button class="btn btn-secondary" onclick="resetTool('tab-karvonen-hr', calcKarvonenHR)">Reset</button></div>
         <div class="calc-grid">
           <div class="card">
             <div class="form-group-grid"><div class="form-group"><label class="form-label">Age</label><input type="number" id="hr-age" class="form-control" value="30" oninput="calcKarvonenHR()"/></div><div class="form-group"><label class="form-label">Resting HR (BPM)</label><input type="number" id="hr-rest" class="form-control" value="60" oninput="calcKarvonenHR()"/></div></div>
+            <p style="font-size:0.75rem;color:var(--text-dim);">Max HR estimated as 220 − age. Take resting HR first thing in the morning.</p>
           </div>
           <div class="results-deck">
-            <div class="hero-stat-card"><div class="stat-label">Heart Rate Reserve</div><div class="stat-value-huge" id="hr-res-hrr">130 <span class="unit">BPM</span></div></div>
-            <div style="display:flex; gap:0.5rem;"><button class="btn btn-primary" style="flex:1;" onclick="copySummaryKarvonenHR()">Copy HR Zones</button><button class="btn btn-secondary" onclick="saveRun('karvonen-hr')">Save Run</button></div>
+            <div class="hero-stat-card">
+              <div class="stat-label">Heart Rate Reserve</div>
+              <div class="stat-value-huge" id="hr-res-hrr">130 <span class="unit">BPM</span></div>
+              <div class="stat-subtext">Max HR: <b id="hr-res-max-hr" style="color:var(--text-main);">190 BPM</b></div>
+            </div>
+            <div class="mini-card">
+              <div class="mini-title">Your 5 Training Zones</div>
+              <div class="zone-list" id="zone-list">
+                <div class="zone-line"><span class="zone-dot" style="background:#10b981"></span><span class="zone-name">Z1 · Recuperation</span><span class="zone-bpm" id="zone-bpm-0">125–138</span><span class="zone-pct">50–60%</span></div>
+                <div class="zone-line"><span class="zone-dot" style="background:#06b6d4"></span><span class="zone-name">Z2 · Endurance</span><span class="zone-bpm" id="zone-bpm-1">138–151</span><span class="zone-pct">60–70%</span></div>
+                <div class="zone-line"><span class="zone-dot" style="background:#6366f1"></span><span class="zone-name">Z3 · Tempo</span><span class="zone-bpm" id="zone-bpm-2">151–164</span><span class="zone-pct">70–80%</span></div>
+                <div class="zone-line"><span class="zone-dot" style="background:#f59e0b"></span><span class="zone-name">Z4 · Threshold</span><span class="zone-bpm" id="zone-bpm-3">164–177</span><span class="zone-pct">80–90%</span></div>
+                <div class="zone-line"><span class="zone-dot" style="background:#f43f5e"></span><span class="zone-name">Z5 · Max Effort</span><span class="zone-bpm" id="zone-bpm-4">177–190</span><span class="zone-pct">90–100%</span></div>
+              </div>
+            </div>
+            <div class="insight-card"><span class="insight-icon">💡</span><span id="hr-insight">Zone 2 builds aerobic base and fat oxidation. Z4–Z5 build lactate tolerance. Easy days easy, hard days hard.</span></div>
+            <div class="btn-row"><button class="btn btn-primary" style="flex:1;" onclick="copySummaryKarvonenHR()">Copy HR Zones</button><button class="btn btn-secondary" onclick="saveRun('karvonen-hr')">Save Run</button></div>
           </div>
         </div>
-        <div class="seo-2col-grid"><div class="card"><h2>Formula</h2><div class="formula-card">Target HR = ((Max HR - Rest HR) × Intensity%) + Rest HR</div></div><div class="card"><h2>FAQs</h2><details class="faq-item"><summary class="faq-question">Zone 2 endurance?</summary><div class="faq-answer">Builds mitochondrial efficiency.</div></details></div></div>
+        <div class="seo-2col-grid"><div class="card"><h2 style="font-size:1rem;margin-bottom:0.5rem;">Formula</h2><div class="formula-card">Target HR = ((Max HR − Rest HR) × Intensity%) + Rest HR</div></div><div class="card"><h2 style="font-size:1rem;margin-bottom:0.5rem;">FAQs</h2><details class="faq-item"><summary class="faq-question">Why Zone 2?</summary><div class="faq-answer">60–70% HRR builds mitochondrial efficiency — the foundation of endurance.</div></details></div></div>
       </section>
 
       <!-- 16. STOCK AVG -->
       <section id="tab-stock-avg" class="tab-panel">
-        <div class="tool-header"><div class="tool-title-group"><h1>Stock Average Down Calculator</h1><p>Combined share cost basis & total capital.</p></div><button class="btn btn-secondary" onclick="calcStockAvg()">Reset</button></div>
+        <div class="tool-header"><div class="tool-title-group"><h1>Stock Average Down Calculator</h1><p>Combined cost basis, total invested & how far you've DCA'd down.</p></div><button class="btn btn-secondary" onclick="resetTool('tab-stock-avg', calcStockAvg)">Reset</button></div>
         <div class="calc-grid">
           <div class="card">
-            <div class="form-group-grid"><div class="form-group"><label class="form-label">P1 Shares</label><input type="number" id="stock-p1-shares" class="form-control" value="100" oninput="calcStockAvg()"/></div><div class="form-group"><label class="form-label">P1 Price ($)</label><input type="number" id="stock-p1-price" class="form-control" value="150" oninput="calcStockAvg()"/></div></div>
-            <div class="form-group-grid"><div class="form-group"><label class="form-label">P2 Shares</label><input type="number" id="stock-p2-shares" class="form-control" value="100" oninput="calcStockAvg()"/></div><div class="form-group"><label class="form-label">P2 Price ($)</label><input type="number" id="stock-p2-price" class="form-control" value="100" oninput="calcStockAvg()"/></div></div>
+            <div class="form-group-grid"><div class="form-group"><label class="form-label">Position 1 Shares</label><input type="number" id="stock-p1-shares" class="form-control" value="100" oninput="calcStockAvg()"/></div><div class="form-group"><label class="form-label">Position 1 Price ($)</label><input type="number" id="stock-p1-price" class="form-control" value="150" oninput="calcStockAvg()"/></div></div>
+            <div class="form-group-grid"><div class="form-group"><label class="form-label">Position 2 Shares</label><input type="number" id="stock-p2-shares" class="form-control" value="100" oninput="calcStockAvg()"/></div><div class="form-group"><label class="form-label">Position 2 Price ($)</label><input type="number" id="stock-p2-price" class="form-control" value="100" oninput="calcStockAvg()"/></div></div>
           </div>
           <div class="results-deck">
-            <div class="hero-stat-card"><div class="stat-label">New Average Price</div><div class="stat-value-huge" id="rm-stock-new-avg">$125.00 <span class="unit">USD</span></div></div>
-            <div style="display:flex; gap:0.5rem;"><button class="btn btn-primary" style="flex:1;" onclick="copySummaryStockAvg()">Copy Position</button><button class="btn btn-secondary" onclick="saveRun('stock-avg')">Save Run</button></div>
+            <div class="hero-stat-card">
+              <div class="stat-label">New Average Price (Break-Even)</div>
+              <div class="stat-value-huge" id="rm-stock-new-avg">$125.00 <span class="unit">USD</span></div>
+              <div class="stat-subtext" style="margin-top:0.6rem;"><span class="rating-badge rating-good" id="stock-res-rating">—</span></div>
+            </div>
+            <div class="mini-card">
+              <div class="mini-title">Basis improvement</div>
+              <div class="gauge-track"><div class="gauge-fill" id="stock-gauge" style="width:50%"></div></div>
+              <div class="gauge-labels"><span id="stock-res-dca-pct">↓ 16.7%</span><span>Lower price</span></div>
+            </div>
+            <div class="metrics-grid">
+              <div class="metric-card"><div class="m-label">Total Shares</div><div class="m-val" id="stock-res-total-shares">200</div></div>
+              <div class="metric-card"><div class="m-label">Total Invested</div><div class="m-val" id="stock-res-total-invested">$25,000</div></div>
+              <div class="metric-card"><div class="m-label">Avg Reduction</div><div class="m-val" id="stock-res-savings">$25.00</div></div>
+            </div>
+            <div class="insight-card"><span class="insight-icon">💡</span><span id="stock-insight">Dollar-cost averaging lowers your break-even, but only if you believe in the thesis — averaging down a bad stock doubles the mistake.</span></div>
+            <div class="btn-row"><button class="btn btn-primary" style="flex:1;" onclick="copySummaryStockAvg()">Copy Position</button><button class="btn btn-secondary" onclick="saveRun('stock-avg')">Save Run</button></div>
           </div>
         </div>
-        <div class="seo-2col-grid"><div class="card"><h2>Formula</h2><div class="formula-card">New Avg = Total Capital / Total Shares</div></div><div class="card"><h2>FAQs</h2><details class="faq-item"><summary class="faq-question">What is DCA?</summary><div class="faq-answer">Dollar-cost averaging lowers break-even cost basis.</div></details></div></div>
+        <div class="seo-2col-grid"><div class="card"><h2 style="font-size:1rem;margin-bottom:0.5rem;">Formula</h2><div class="formula-card">New Avg = Total Capital / Total Shares</div></div><div class="card"><h2 style="font-size:1rem;margin-bottom:0.5rem;">FAQs</h2><details class="faq-item"><summary class="faq-question">What is DCA?</summary><div class="faq-answer">Dollar-cost averaging — buying fixed amounts on a schedule to lower the average cost basis over time.</div></details></div></div>
       </section>
 
       <!-- 17. DRIP DIVIDENDS -->
       <section id="tab-drip" class="tab-panel">
-        <div class="tool-header"><div class="tool-title-group"><h1>Dividend DRIP Compounding</h1><p>Project portfolio compound growth.</p></div><button class="btn btn-secondary" onclick="calcDRIP()">Reset</button></div>
+        <div class="tool-header"><div class="tool-title-group"><h1>Dividend DRIP Compounding</h1><p>10-year portfolio forecast with contributions vs growth split.</p></div><button class="btn btn-secondary" onclick="resetTool('tab-drip', calcDRIP)">Reset</button></div>
         <div class="calc-grid">
           <div class="card">
-            <div class="form-group-grid"><div class="form-group"><label class="form-label">Initial ($)</label><input type="number" id="drip-initial" class="form-control" value="10000" oninput="calcDRIP()"/></div><div class="form-group"><label class="form-label">Monthly ($)</label><input type="number" id="drip-monthly" class="form-control" value="500" oninput="calcDRIP()"/></div></div>
+            <div class="form-group-grid"><div class="form-group"><label class="form-label">Initial Investment ($)</label><input type="number" id="drip-initial" class="form-control" value="10000" oninput="calcDRIP()"/></div><div class="form-group"><label class="form-label">Monthly Contribution ($)</label><input type="number" id="drip-monthly" class="form-control" value="500" oninput="calcDRIP()"/></div></div>
+            <p style="font-size:0.75rem;color:var(--text-dim);">Assumes 7% annualized return with dividends reinvested monthly.</p>
           </div>
           <div class="results-deck">
-            <div class="hero-stat-card"><div class="stat-label">Projected Portfolio</div><div class="stat-value-huge" id="drip-res-portfolio">$104,280 <span class="unit">USD</span></div></div>
-            <div style="display:flex; gap:0.5rem;"><button class="btn btn-primary" style="flex:1;" onclick="copySummaryDRIP()">Copy Forecast</button><button class="btn btn-secondary" onclick="saveRun('drip')">Save Run</button></div>
+            <div class="hero-stat-card">
+              <div class="stat-label">Projected Portfolio (10 yrs)</div>
+              <div class="stat-value-huge" id="drip-res-portfolio">$104,280 <span class="unit">USD</span></div>
+              <div class="stat-subtext" style="margin-top:0.6rem;"><span class="rating-badge rating-good" id="drip-res-rating">7% Annualized</span></div>
+            </div>
+            <div class="mini-card">
+              <div class="mini-title">Growth over 10 years</div>
+              <div class="chart-bars" id="drip-chart"></div>
+              <div class="chart-meta"><span>Year 1</span><span>Year 10</span></div>
+            </div>
+            <div class="metrics-grid">
+              <div class="metric-card"><div class="m-label">Total Contributions</div><div class="m-val" id="drip-res-contrib">$70,000</div></div>
+              <div class="metric-card"><div class="m-label">Reinvested Growth</div><div class="m-val" id="drip-res-growth">$34,280</div></div>
+            </div>
+            <div class="insight-card"><span class="insight-icon">💡</span><span id="drip-insight">Reinvested dividends are why long-term portfolios outpace the money you actually put in.</span></div>
+            <div class="btn-row"><button class="btn btn-primary" style="flex:1;" onclick="copySummaryDRIP()">Copy Forecast</button><button class="btn btn-secondary" onclick="saveRun('drip')">Save Run</button></div>
           </div>
         </div>
-        <div class="seo-2col-grid"><div class="card"><h2>Formula</h2><div class="formula-card">Portfolio = (Prev + Contrib + Divs) × (1 + Growth%)</div></div><div class="card"><h2>FAQs</h2><details class="faq-item"><summary class="faq-question">Why DRIP?</summary><div class="faq-answer">Reinvesting dividends compounds share accumulation.</div></details></div></div>
+        <div class="seo-2col-grid"><div class="card"><h2 style="font-size:1rem;margin-bottom:0.5rem;">Formula</h2><div class="formula-card">Monthⁿ⁺¹ = (Value + Contribution) × (1 + 7%/12)</div></div><div class="card"><h2 style="font-size:1rem;margin-bottom:0.5rem;">FAQs</h2><details class="faq-item"><summary class="faq-question">Why DRIP?</summary><div class="faq-answer">Reinvesting dividends compounds share accumulation — your income snowballs over decades.</div></details></div></div>
       </section>
 
       <!-- 18. POSITION RISK -->
       <section id="tab-position-risk" class="tab-panel">
-        <div class="tool-header"><div class="tool-title-group"><h1>Trading Position Size & Risk/Reward</h1><p>Max shares to buy based on account risk % & stop loss.</p></div><button class="btn btn-secondary" onclick="calcPositionRisk()">Reset</button></div>
+        <div class="tool-header"><div class="tool-title-group"><h1>Trading Position Size & Risk/Reward</h1><p>Max shares, $ risked, R:R ratio & potential profit at target.</p></div><button class="btn btn-secondary" onclick="resetTool('tab-position-risk', calcPositionRisk)">Reset</button></div>
         <div class="calc-grid">
           <div class="card">
-            <div class="form-group-grid"><div class="form-group"><label class="form-label">Balance ($)</label><input type="number" id="risk-balance" class="form-control" value="25000" oninput="calcPositionRisk()"/></div><div class="form-group"><label class="form-label">Risk %</label><input type="number" id="risk-pct" class="form-control" value="1.5" step="0.1" oninput="calcPositionRisk()"/></div></div>
-            <div class="form-group-grid"><div class="form-group"><label class="form-label">Entry ($)</label><input type="number" id="risk-entry" class="form-control" value="150" oninput="calcPositionRisk()"/></div><div class="form-group"><label class="form-label">Stop ($)</label><input type="number" id="risk-stop" class="form-control" value="145" oninput="calcPositionRisk()"/></div><div class="form-group"><label class="form-label">Target ($)</label><input type="number" id="risk-target" class="form-control" value="165" oninput="calcPositionRisk()"/></div></div>
+            <div class="form-group-grid"><div class="form-group"><label class="form-label">Account Balance ($)</label><input type="number" id="risk-balance" class="form-control" value="25000" oninput="calcPositionRisk()"/></div><div class="form-group"><label class="form-label">Risk %</label><input type="number" id="risk-pct" class="form-control" value="1.5" step="0.1" oninput="calcPositionRisk()"/></div></div>
+            <div class="form-group-grid"><div class="form-group"><label class="form-label">Entry ($)</label><input type="number" id="risk-entry" class="form-control" value="150" oninput="calcPositionRisk()"/></div><div class="form-group"><label class="form-label">Stop Loss ($)</label><input type="number" id="risk-stop" class="form-control" value="145" oninput="calcPositionRisk()"/></div><div class="form-group"><label class="form-label">Target ($)</label><input type="number" id="risk-target" class="form-control" value="165" oninput="calcPositionRisk()"/></div></div>
           </div>
           <div class="results-deck">
-            <div class="hero-stat-card"><div class="stat-label">Max Position Shares</div><div class="stat-value-huge" id="risk-res-shares">75 <span class="unit">shares</span></div></div>
-            <div style="display:flex; gap:0.5rem;"><button class="btn btn-primary" style="flex:1;" onclick="copySummaryPositionRisk()">Copy Risk Plan</button><button class="btn btn-secondary" onclick="saveRun('position-risk')">Save Run</button></div>
+            <div class="hero-stat-card">
+              <div class="stat-label">Max Position Size</div>
+              <div class="stat-value-huge" id="risk-res-shares">75 <span class="unit">shares</span></div>
+              <div class="stat-subtext" style="margin-top:0.6rem;"><span class="rating-badge rating-good" id="risk-res-rating">—</span></div>
+            </div>
+            <div class="mini-card">
+              <div class="mini-title">Reward-to-Risk</div>
+              <div class="gauge-track"><div class="gauge-fill" id="risk-gauge" style="width:60%"></div></div>
+              <div class="gauge-labels"><span id="risk-res-rr">1 : 3.0</span><span>1R risk</span></div>
+            </div>
+            <div class="metrics-grid">
+              <div class="metric-card"><div class="m-label">$ Risked</div><div class="m-val" id="risk-res-risk-amount">$375</div></div>
+              <div class="metric-card"><div class="m-label">Potential Profit</div><div class="m-val" id="risk-res-profit">$1,125</div></div>
+              <div class="metric-card"><div class="m-label">Position Value</div><div class="m-val" id="risk-res-position">$11,250</div></div>
+            </div>
+            <div class="insight-card"><span class="insight-icon">💡</span><span id="risk-insight">Never risk more than 1–2% per trade. Consistent 2R+ setups make winners out of 40% win rates.</span></div>
+            <div class="btn-row"><button class="btn btn-primary" style="flex:1;" onclick="copySummaryPositionRisk()">Copy Risk Plan</button><button class="btn btn-secondary" onclick="saveRun('position-risk')">Save Run</button></div>
           </div>
         </div>
-        <div class="seo-2col-grid"><div class="card"><h2>Formula</h2><div class="formula-card">Shares = (Balance × Risk%) / |Entry - Stop|</div></div><div class="card"><h2>FAQs</h2><details class="faq-item"><summary class="faq-question">What is 1:3 R:R?</summary><div class="faq-answer">Risking $1 to make $3 profit.</div></details></div></div>
+        <div class="seo-2col-grid"><div class="card"><h2 style="font-size:1rem;margin-bottom:0.5rem;">Formula</h2><div class="formula-card">Shares = (Balance × Risk%) / |Entry − Stop| &nbsp;·&nbsp; R:R = (Target − Entry) / (Entry − Stop)</div></div><div class="card"><h2 style="font-size:1rem;margin-bottom:0.5rem;">FAQs</h2><details class="faq-item"><summary class="faq-question">What is 1:3 R:R?</summary><div class="faq-answer">Risking $1 to make $3 — you can be wrong 2 out of 3 times and still break even.</div></details></div></div>
       </section>
 
       <!-- 19. COMPOUND SAVINGS -->
       <section id="tab-compound-savings" class="tab-panel">
-        <div class="tool-header"><div class="tool-title-group"><h1>Compound Interest & Savings Growth</h1><p>Project long-term compound wealth growth.</p></div><button class="btn btn-secondary" onclick="calcCompoundSavings()">Reset</button></div>
+        <div class="tool-header"><div class="tool-title-group"><h1>Compound Interest & Savings Growth</h1><p>10-year wealth projection with contributions vs interest split.</p></div><button class="btn btn-secondary" onclick="resetTool('tab-compound-savings', calcCompoundSavings)">Reset</button></div>
         <div class="calc-grid">
           <div class="card">
-            <div class="form-group-grid"><div class="form-group"><label class="form-label">Initial ($)</label><input type="number" id="sav-init" class="form-control" value="5000" oninput="calcCompoundSavings()"/></div><div class="form-group"><label class="form-label">Monthly ($)</label><input type="number" id="sav-monthly" class="form-control" value="300" oninput="calcCompoundSavings()"/></div></div>
+            <div class="form-group-grid"><div class="form-group"><label class="form-label">Initial Balance ($)</label><input type="number" id="sav-init" class="form-control" value="5000" oninput="calcCompoundSavings()"/></div><div class="form-group"><label class="form-label">Monthly Deposit ($)</label><input type="number" id="sav-monthly" class="form-control" value="300" oninput="calcCompoundSavings()"/></div></div>
+            <p style="font-size:0.75rem;color:var(--text-dim);">Assumes 6% annualized return, compounding monthly.</p>
           </div>
           <div class="results-deck">
-            <div class="hero-stat-card"><div class="stat-label">Future Value</div><div class="stat-value-huge" id="sav-res-total">$74,850 <span class="unit">USD</span></div></div>
-            <div style="display:flex; gap:0.5rem;"><button class="btn btn-primary" style="flex:1;" onclick="copySummaryCompoundSavings()">Copy Growth</button><button class="btn btn-secondary" onclick="saveRun('compound-savings')">Save Run</button></div>
+            <div class="hero-stat-card">
+              <div class="stat-label">Future Value (10 yrs)</div>
+              <div class="stat-value-huge" id="sav-res-total">$74,850 <span class="unit">USD</span></div>
+              <div class="stat-subtext" style="margin-top:0.6rem;"><span class="rating-badge rating-good" id="sav-res-rating">6% Annualized</span></div>
+            </div>
+            <div class="mini-card">
+              <div class="mini-title">Growth over 10 years</div>
+              <div class="chart-bars" id="sav-chart"></div>
+              <div class="chart-meta"><span>Year 1</span><span>Year 10</span></div>
+            </div>
+            <div class="metrics-grid">
+              <div class="metric-card"><div class="m-label">Total Deposits</div><div class="m-val" id="sav-res-contrib">$41,000</div></div>
+              <div class="metric-card"><div class="m-label">Interest Earned</div><div class="m-val" id="sav-res-interest">$33,850</div></div>
+            </div>
+            <div class="insight-card"><span class="insight-icon">💡</span><span id="sav-insight">Rule of 72: at 6%, your money doubles every 12 years. Time in the market beats timing the market.</span></div>
+            <div class="btn-row"><button class="btn btn-primary" style="flex:1;" onclick="copySummaryCompoundSavings()">Copy Growth</button><button class="btn btn-secondary" onclick="saveRun('compound-savings')">Save Run</button></div>
           </div>
         </div>
-        <div class="seo-2col-grid"><div class="card"><h2>Formula</h2><div class="formula-card">FV = P(1 + r/n)^(nt) + PMT Math</div></div><div class="card"><h2>FAQs</h2><details class="faq-item"><summary class="faq-question">Rule of 72?</summary><div class="faq-answer">72 / Rate = years to double money.</div></details></div></div>
+        <div class="seo-2col-grid"><div class="card"><h2 style="font-size:1rem;margin-bottom:0.5rem;">Formula</h2><div class="formula-card">FV = P(1 + r/n)^(nt) + monthly contributions</div></div><div class="card"><h2 style="font-size:1rem;margin-bottom:0.5rem;">FAQs</h2><details class="faq-item"><summary class="faq-question">What is the Rule of 72?</summary><div class="faq-answer">Divide 72 by your annual rate to estimate years to double: 72 / 6 = 12 years.</div></details></div></div>
       </section>
 
       <!-- 20. CRYPTO ROI -->
       <section id="tab-crypto-roi" class="tab-panel">
-        <div class="tool-header"><div class="tool-title-group"><h1>Crypto & Stock Profit ROI</h1><p>Net profit $, ROI % & exchange fee deductions.</p></div><button class="btn btn-secondary" onclick="calcCryptoROI()">Reset</button></div>
+        <div class="tool-header"><div class="tool-title-group"><h1>Crypto & Stock Profit ROI</h1><p>Net profit after buy/sell exchange fees, ROI % & units held.</p></div><button class="btn btn-secondary" onclick="resetTool('tab-crypto-roi', calcCryptoROI)">Reset</button></div>
         <div class="calc-grid">
           <div class="card">
-            <div class="form-group-grid"><div class="form-group"><label class="form-label">Buy Price ($)</label><input type="number" id="roi-buy" class="form-control" value="100" oninput="calcCryptoROI()"/></div><div class="form-group"><label class="form-label">Sell Price ($)</label><input type="number" id="roi-sell" class="form-control" value="150" oninput="calcCryptoROI()"/></div><div class="form-group"><label class="form-label">Capital ($)</label><input type="number" id="roi-capital" class="form-control" value="1000" oninput="calcCryptoROI()"/></div></div>
+            <div class="form-group-grid"><div class="form-group"><label class="form-label">Buy Price ($)</label><input type="number" id="roi-buy" class="form-control" value="100" oninput="calcCryptoROI()"/></div><div class="form-group"><label class="form-label">Sell Price ($)</label><input type="number" id="roi-sell" class="form-control" value="150" oninput="calcCryptoROI()"/></div></div>
+            <div class="form-group-grid"><div class="form-group"><label class="form-label">Capital ($)</label><input type="number" id="roi-capital" class="form-control" value="1000" oninput="calcCryptoROI()"/></div><div class="form-group"><label class="form-label">Buy Fee %</label><input type="number" id="roi-buy-fee" class="form-control" value="0.1" step="0.05" oninput="calcCryptoROI()"/></div><div class="form-group"><label class="form-label">Sell Fee %</label><input type="number" id="roi-sell-fee" class="form-control" value="0.1" step="0.05" oninput="calcCryptoROI()"/></div></div>
           </div>
           <div class="results-deck">
-            <div class="hero-stat-card"><div class="stat-label">Net Profit</div><div class="stat-value-huge" id="roi-res-profit">$500.00 <span class="unit">+50.0%</span></div></div>
-            <div style="display:flex; gap:0.5rem;"><button class="btn btn-primary" style="flex:1;" onclick="copySummaryCryptoROI()">Copy ROI</button><button class="btn btn-secondary" onclick="saveRun('crypto-roi')">Save Run</button></div>
+            <div class="hero-stat-card">
+              <div class="stat-label">Net Profit (after fees)</div>
+              <div class="stat-value-huge" id="roi-res-profit">$498.50 <span class="unit">+49.9%</span></div>
+              <div class="stat-subtext" style="margin-top:0.6rem;"><span class="rating-badge rating-excellent" id="roi-res-rating">In Profit</span></div>
+            </div>
+            <div class="metrics-grid">
+              <div class="metric-card"><div class="m-label">Gross Profit</div><div class="m-val" id="roi-res-gross-profit">$500.00</div></div>
+              <div class="metric-card"><div class="m-label">Units Held</div><div class="m-val" id="roi-res-units">10.0000</div></div>
+              <div class="metric-card"><div class="m-label">Total Fees Paid</div><div class="m-val" id="roi-res-fees">$1.50</div></div>
+            </div>
+            <div class="insight-card"><span class="insight-icon">💡</span><span id="roi-insight">Fees silently eat returns. On a $1,000 trade, 0.1% buy + 0.1% sell costs $1.50 — trivial here, huge on big positions.</span></div>
+            <div class="btn-row"><button class="btn btn-primary" style="flex:1;" onclick="copySummaryCryptoROI()">Copy ROI</button><button class="btn btn-secondary" onclick="saveRun('crypto-roi')">Save Run</button></div>
           </div>
         </div>
-        <div class="seo-2col-grid"><div class="card"><h2>Formula</h2><div class="formula-card">ROI % = [(Sell - Buy) / Buy] × 100</div></div><div class="card"><h2>FAQs</h2><details class="faq-item"><summary class="faq-question">Why factor fees?</summary><div class="faq-answer">Deducts exchange trading fee costs.</div></details></div></div>
+        <div class="seo-2col-grid"><div class="card"><h2 style="font-size:1rem;margin-bottom:0.5rem;">Formula</h2><div class="formula-card">Net = (Units × Sell) − Capital − BuyFee − SellFee &nbsp;·&nbsp; ROI % = Net / Capital × 100</div></div><div class="card"><h2 style="font-size:1rem;margin-bottom:0.5rem;">FAQs</h2><details class="faq-item"><summary class="faq-question">Why factor fees?</summary><div class="faq-answer">Exchange trading fees reduce your net return — always verify with the fee-adjusted number, not the headline gain.</div></details></div></div>
       </section>
 
     </div>
   </main>
 
+  <!-- PRIVACY MODAL -->
   <div id="privacy-modal" class="modal-overlay">
     <div class="modal-card">
       <div class="modal-header"><h2>Privacy Policy & Ad Compliance</h2><button class="modal-close-btn" onclick="closePrivacyModal()">&times;</button></div>
-      <div class="modal-body"><p>CalcQI provides free client-side calculators. We store zero personal data.</p></div>
+      <div class="modal-body">
+        <p>CalcQI provides free, client-side calculators. <strong style="color:var(--text-main);">We store zero personal data.</strong></p>
+        <p style="margin-top:0.75rem;">All calculations run in your browser. No inputs are transmitted to any server. Optional "Save Run" history uses your browser's local storage only and never leaves your device.</p>
+        <p style="margin-top:0.75rem;">No cookies, no trackers, no analytics, no advertising identifiers.</p>
+      </div>
     </div>
   </div>
 
   <div id="toast" class="toast"><span id="toast-message">Copied!</span></div>
 
+  <button class="back-top" onclick="window.scrollTo({top:0, behavior:'smooth'})" title="Back to top" aria-label="Back to top">↑</button>
+
   <footer class="app-footer">
     <div class="container">
       <div class="footer-inner">
-        <div class="footer-text">&copy; <span id="footer-year">2026</span> CalcQI. High-Precision 20-Tool Utility Suite.</div>
+        <div class="footer-text">&copy; <span id="footer-year">2026</span> CalcQI. 20-Tool Guided Utility Suite.</div>
         <div class="footer-links">
           <a href="#tab-home" onclick="switchTab('tab-home')">Home Portal</a>
           <a href="#" onclick="openPrivacyModal(event)">Privacy Policy</a>
@@ -837,9 +1171,35 @@
 
   <!-- DYNAMIC JS CALCULATION ENGINES -->
   <script>
+    /* ===== SHARED HELPERS ===== */
     function safeNum(v, min=0, max=Infinity, fb=0) { let n=parseFloat(v); return (isNaN(n)||!isFinite(n))?fb:(n<min?min:(n>max?max:n)); }
-    function showToast(m) { const t=document.getElementById('toast'); document.getElementById('toast-message').textContent=m; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),3000); }
+    function $id(id) { return document.getElementById(id); }
+    function setText(id, txt) { const el=$id(id); if(el) el.textContent=txt; }
+    function setHTML(id, html) { const el=$id(id); if(el) el.innerHTML=html; }
+    function setGauge(id, pct) { const el=$id(id); if(el) el.style.width = Math.min(100, Math.max(0, pct)) + '%'; }
+    function setRating(id, level, label) { const el=$id(id); if(el) { el.textContent = label; el.className = 'rating-badge rating-' + level; } }
+    function fmtUSD(n) { return '$' + n.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2}); }
+    function fmtInt(n) { return Math.round(n).toLocaleString(); }
+    function fmtNum(n, d=0) { return n.toLocaleString(undefined, {minimumFractionDigits: d, maximumFractionDigits: d}); }
+    function showToast(m) { const t=$id('toast'); $id('toast-message').textContent=m; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),3000); }
     function copyToClipboard(txt, msg) { navigator.clipboard.writeText(txt).then(()=>showToast(msg)).catch(()=>{}); }
+    function setChart(id, values) {
+      const el = $id(id); if (!el) return;
+      const max = Math.max.apply(null, values.concat([1]));
+      el.innerHTML = values.map(v => `<div class="chart-bar" style="height:${Math.max(3, Math.round((v / max) * 100))}%"></div>`).join('');
+    }
+    function resetTool(panelId, calcFn) {
+      document.querySelectorAll('#' + panelId + ' input, #' + panelId + ' select').forEach(el => {
+        const def = el.getAttribute('value');
+        if (def !== null && def !== '') {
+          el.value = def;
+        } else if (el.tagName === 'SELECT') {
+          const first = el.querySelector('option[selected]');
+          if (first) el.value = first.value;
+        }
+      });
+      calcFn();
+    }
 
     function switchTab(id) {
       document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
@@ -855,10 +1215,15 @@
       });
     }
 
+    function openPrivacyModal(e) { if(e) e.preventDefault(); $id('privacy-modal').classList.add('show'); }
+    function closePrivacyModal() { $id('privacy-modal').classList.remove('show'); }
+    $id('privacy-modal').addEventListener('click', function(e) { if (e.target === this) closePrivacyModal(); });
+
     window.addEventListener('keydown', e => {
       if(e.key==='/' && !['INPUT','SELECT','TEXTAREA'].includes(document.activeElement.tagName)) {
-        e.preventDefault(); switchTab('tab-home'); document.getElementById('home-search-input').focus();
+        e.preventDefault(); switchTab('tab-home'); $id('home-search-input').focus();
       }
+      if(e.key==='Escape') closePrivacyModal();
     });
 
     function saveRun(key) {
@@ -871,15 +1236,15 @@
 
     /* 1. 3D PRINT COST ENGINE */
     function calc3DPrint() {
-      const spoolCost = safeNum(document.getElementById('p3d-spool-cost').value, 0, 1000, 24.99);
-      const spoolWeight = safeNum(document.getElementById('p3d-spool-weight').value, 1, 10000, 1000);
-      const printWeight = safeNum(document.getElementById('p3d-print-weight').value, 0, 10000, 125);
-      const hours = safeNum(document.getElementById('p3d-hours').value, 0, 1000, 5);
-      const wattage = safeNum(document.getElementById('p3d-wattage').value, 0, 5000, 150);
-      const elecRate = safeNum(document.getElementById('p3d-elec-rate').value, 0, 10, 0.16);
-      const laborRate = safeNum(document.getElementById('p3d-labor-rate').value, 0, 500, 25.00);
-      const wearRate = safeNum(document.getElementById('p3d-wear-rate').value, 0, 50, 0.40);
-      const markup = safeNum(document.getElementById('p3d-markup').value, 0, 1000, 60);
+      const spoolCost = safeNum($id('p3d-spool-cost').value, 0, 1000, 24.99);
+      const spoolWeight = safeNum($id('p3d-spool-weight').value, 1, 10000, 1000);
+      const printWeight = safeNum($id('p3d-print-weight').value, 0, 10000, 125);
+      const hours = safeNum($id('p3d-hours').value, 0, 1000, 5);
+      const wattage = safeNum($id('p3d-wattage').value, 0, 5000, 150);
+      const elecRate = safeNum($id('p3d-elec-rate').value, 0, 10, 0.16);
+      const laborRate = safeNum($id('p3d-labor-rate').value, 0, 500, 25);
+      const wearRate = safeNum($id('p3d-wear-rate').value, 0, 50, 0.40);
+      const markup = safeNum($id('p3d-markup').value, 0, 1000, 60);
 
       const filCost = (spoolCost / spoolWeight) * printWeight;
       const elecCost = (wattage / 1000) * hours * elecRate;
@@ -887,241 +1252,499 @@
       const laborCost = hours * laborRate;
       const baseCost = filCost + elecCost + wearCost + laborCost;
       const totalPrice = baseCost * (1 + markup / 100);
+      const profit = totalPrice - baseCost;
+      const margin = baseCost > 0 ? (profit / totalPrice) * 100 : 0;
 
-      document.getElementById('p3d-res-price').innerHTML = `$${totalPrice.toFixed(2)} <span class="unit">USD</span>`;
-      document.getElementById('p3d-res-subtext').textContent = `Includes $${(totalPrice - baseCost).toFixed(2)} net profit`;
-      document.getElementById('p3d-res-cost').textContent = `$${baseCost.toFixed(2)}`;
-      document.getElementById('p3d-res-fil-cost').textContent = `$${filCost.toFixed(2)}`;
+      setHTML('p3d-res-price', `${fmtUSD(totalPrice)} <span class="unit">USD</span>`);
+      setText('p3d-res-cost', fmtUSD(baseCost));
+      setText('p3d-res-fil-cost', fmtUSD(filCost));
+      setText('p3d-res-power-cost', fmtUSD(elecCost));
+      setText('p3d-res-wear-labor', fmtUSD(wearCost + laborCost));
+
+      const pFil = baseCost > 0 ? filCost / baseCost * 100 : 0;
+      const pElec = baseCost > 0 ? elecCost / baseCost * 100 : 0;
+      const pWL = Math.max(0, 100 - pFil - pElec);
+      setHTML('p3d-breakdown-fill', `<div class="split-seg" style="width:${pFil}%;background:#8b5cf6"></div><div class="split-seg" style="width:${pElec}%;background:#06b6d4"></div><div class="split-seg" style="width:${pWL}%;background:#6366f1"></div>`);
+
+      setRating('p3d-res-rating', margin >= 50 ? 'excellent' : (margin >= 30 ? 'good' : (margin >= 15 ? 'mid' : 'low')), `${margin.toFixed(0)}% margin`);
+      setText('p3d-insight', `You profit ${fmtUSD(profit)} per print — a ${margin.toFixed(0)}% margin. ${margin < 30 ? 'Consider raising markup or reducing print time.' : 'Healthy margin for a side-business.'}`);
     }
-    function resetForm3D() { document.getElementById('p3d-print-weight').value = 125; calc3DPrint(); }
-    function copySummary3D() { copyToClipboard(`--- 3D PRINT QUOTE ---\nPrice: ${document.getElementById('p3d-res-price').innerText}\nCalculated via CalcQI (https://calcqi.com)`, "Quote copied!"); }
 
     /* 2. BAKER MATH ENGINE */
     function calcBaker() {
-      const b = safeNum(document.getElementById('baker-balls').value, 1, 100, 4);
-      const w = safeNum(document.getElementById('baker-ball-weight').value, 10, 2000, 250);
-      const hyd = safeNum(document.getElementById('baker-hydration').value, 30, 100, 65);
-      const salt = safeNum(document.getElementById('baker-salt').value, 0, 10, 2.8);
-      const yeast = safeNum(document.getElementById('baker-yeast').value, 0, 5, 0.2);
-      const oil = safeNum(document.getElementById('baker-oil').value, 0, 20, 1.5);
+      const b = safeNum($id('baker-balls').value, 1, 100, 4);
+      const w = safeNum($id('baker-ball-weight').value, 10, 2000, 250);
+      const hyd = safeNum($id('baker-hydration').value, 30, 100, 65);
+      const salt = safeNum($id('baker-salt').value, 0, 10, 2.8);
+      const yeast = safeNum($id('baker-yeast').value, 0, 5, 0.2);
+      const oil = safeNum($id('baker-oil').value, 0, 20, 1.5);
 
       const totMass = b * w;
       const totPct = 100 + hyd + salt + yeast + oil;
       const flour = totMass / (totPct / 100);
       const water = flour * (hyd / 100);
       const saltG = flour * (salt / 100);
+      const yeastG = flour * (yeast / 100);
+      const oilG = flour * (oil / 100);
 
-      document.getElementById('baker-res-flour').innerHTML = `${Math.round(flour)} <span class="unit">g</span>`;
-      document.getElementById('baker-res-water').textContent = `${Math.round(water)} g`;
-      document.getElementById('baker-res-salt').textContent = `${saltG.toFixed(1)} g`;
+      setHTML('baker-res-flour', `${fmtInt(flour)} <span class="unit">g</span>`);
+      setText('baker-res-water', `${fmtInt(water)} g`);
+      setText('baker-res-salt', `${saltG.toFixed(1)} g`);
+      setText('baker-res-yeast', `${yeastG.toFixed(1)} g`);
+      setText('baker-res-oil', `${oilG.toFixed(1)} g`);
+      setText('baker-res-total', `${fmtInt(totMass)} g`);
+      setText('baker-res-perball', `${fmtInt(w)} g`);
+      setGauge('baker-hyd-gauge', ((hyd - 50) / 25) * 100);
+
+      let level, label;
+      if (hyd < 55) { level='low'; label='Low Hydration · Crispy'; }
+      else if (hyd <= 65) { level='good'; label='Classic Neapolitan'; }
+      else { level='excellent'; label='High Hydration · Airy'; }
+      setRating('baker-res-rating', level, label);
+      setText('baker-insight', `With ${hyd}% hydration and ${salt}% salt, this dough is ${hyd < 55 ? 'firm and crisp — great for cracker-style thin crust.' : (hyd <= 65 ? 'a balanced Neapolitan-style dough — easy to shape and stretch.' : 'sticky but rewarding — expect a light, open crumb with longer fermentation.')}`);
     }
-    function copySummaryBaker() { copyToClipboard(`--- DOUGH RECIPE ---\nFlour: ${document.getElementById('baker-res-flour').innerText}\nCalculated via CalcQI (https://calcqi.com)`, "Recipe copied!"); }
 
     /* 3. LASER CNC ENGINE */
     function calcLaserCNC() {
-      const len = safeNum(document.getElementById('cnc-cut-len').value, 10, 1e6, 2500);
-      const feed = safeNum(document.getElementById('cnc-feed-rate').value, 10, 1e5, 500);
-      const rate = safeNum(document.getElementById('cnc-machine-rate').value, 0, 1000, 65);
-      const setup = safeNum(document.getElementById('cnc-setup-cost').value, 0, 1000, 15);
+      const len = safeNum($id('cnc-cut-len').value, 10, 1e6, 2500);
+      const feed = safeNum($id('cnc-feed-rate').value, 10, 1e5, 500);
+      const rate = safeNum($id('cnc-machine-rate').value, 0, 1000, 65);
+      const setup = safeNum($id('cnc-setup-cost').value, 0, 1000, 15);
       const mins = len / feed;
       const mCost = (mins / 60) * rate;
-      const total = (mCost + setup) * 1.5;
+      const subtotal = mCost + setup;
+      const total = subtotal * 1.5;
+      const markupAmt = total - subtotal;
 
-      document.getElementById('cnc-res-quote').innerHTML = `$${total.toFixed(2)} <span class="unit">USD</span>`;
-      document.getElementById('cnc-res-runtime').textContent = `${mins.toFixed(2)} min`;
-      document.getElementById('cnc-res-cost').textContent = `$${mCost.toFixed(2)}`;
+      setHTML('cnc-res-quote', `${fmtUSD(total)} <span class="unit">USD</span>`);
+      setText('cnc-res-runtime', `${mins.toFixed(2)} min`);
+      setText('cnc-res-cost', fmtUSD(mCost));
+      setText('cnc-res-setup', fmtUSD(setup));
+      setText('cnc-res-markup', fmtUSD(markupAmt));
+      setRating('cnc-res-rating', markupAmt >= 50 ? 'excellent' : (markupAmt >= 20 ? 'good' : 'mid'), `+50% margin`);
+      setText('cnc-insight', `Quote includes ${fmtUSD(markupAmt)} profit over machine + setup. ${setup > mCost ? 'Setup dominates — batch multiple parts to amortize it.' : 'Machine time dominates — optimize feed rate or nesting.'}`);
     }
-    function copySummaryLaserCNC() { copyToClipboard(`--- CNC QUOTE ---\nQuote: ${document.getElementById('cnc-res-quote').innerText}\nCalculated via CalcQI (https://calcqi.com)`, "CNC Quote copied!"); }
 
     /* 4. SOURDOUGH ENGINE */
     function calcSourdough() {
-      const flour = safeNum(document.getElementById('sd-flour').value, 100, 10000, 1000);
-      const inoc = safeNum(document.getElementById('sd-inoc').value, 1, 50, 20);
-      const hyd = safeNum(document.getElementById('sd-hyd').value, 50, 100, 75);
+      const flour = safeNum($id('sd-flour').value, 100, 10000, 1000);
+      const inoc = safeNum($id('sd-inoc').value, 1, 50, 20);
+      const hyd = safeNum($id('sd-hyd').value, 50, 100, 75);
+      const saltP = safeNum($id('sd-salt').value, 0, 5, 2.0);
+
       const levain = flour * (inoc / 100);
       const starter = levain / 5;
-      const water = (flour * (hyd / 100)) - (levain * 0.4);
+      const levainFlour = levain * 2 / 5;
+      const levainWater = levain * 2 / 5;
+      const water = (flour * (hyd / 100)) - levainWater;
+      const saltG = flour * (saltP / 100);
 
-      document.getElementById('sd-res-levain').innerHTML = `${Math.round(levain)} <span class="unit">g</span>`;
-      document.getElementById('sd-res-starter').textContent = `${Math.round(starter)} g`;
-      document.getElementById('sd-res-water').textContent = `${Math.round(water)} g`;
+      setHTML('sd-res-levain', `${fmtInt(levain)} <span class="unit">g</span>`);
+      setText('sd-res-starter', `${fmtInt(starter)} g`);
+      setText('sd-res-levain-flour', `${fmtInt(levainFlour)} g`);
+      setText('sd-res-levain-water', `${fmtInt(levainWater)} g`);
+      setText('sd-res-water', `${fmtInt(water)} g`);
+      setText('sd-res-salt', `${saltG.toFixed(1)} g`);
+      setHTML('sd-levain-fill', `<div class="split-seg" style="width:20%;background:#f43f5e"></div><div class="split-seg" style="width:40%;background:#8b5cf6"></div><div class="split-seg" style="width:40%;background:#06b6d4"></div>`);
+      setText('sd-insight', `${inoc}% inoculation with a 1:2:2 build matures in roughly ${Math.round(10 / (inoc / 20))}–${Math.round(14 / (inoc / 20))} hrs at ~24°C.`);
     }
-    function copySummarySourdough() { copyToClipboard(`--- SOURDOUGH LEVAIN ---\nLevain: ${document.getElementById('sd-res-levain').innerText}\nCalculated via CalcQI (https://calcqi.com)`, "Levain copied!"); }
 
     /* 5. RESIN MOLD ENGINE */
     function calcResin() {
-      const l = safeNum(document.getElementById('res-len').value, 1, 500, 20);
-      const w = safeNum(document.getElementById('res-wid').value, 1, 500, 10);
-      const d = safeNum(document.getElementById('res-dep').value, 1, 500, 5);
+      const l = safeNum($id('res-len').value, 1, 500, 20);
+      const w = safeNum($id('res-wid').value, 1, 500, 10);
+      const d = safeNum($id('res-dep').value, 1, 500, 5);
       const vol = l * w * d;
-      const totalGrams = vol * 1.1;
+      const grossVol = vol * 1.1;
+      const totalGrams = Math.round(grossVol * 1.1);
+      const partA = Math.round(totalGrams * 2 / 3);
+      const partB = totalGrams - partA;
 
-      document.getElementById('res-res-total').innerHTML = `${Math.round(totalGrams)} <span class="unit">g</span>`;
-      document.getElementById('res-res-parta').textContent = `${Math.round(totalGrams * 0.6667)} g`;
-      document.getElementById('res-res-partb').textContent = `${Math.round(totalGrams * 0.3333)} g`;
+      setHTML('res-res-total', `${fmtInt(totalGrams)} <span class="unit">g</span>`);
+      setText('res-res-parta', `${partA} g`);
+      setText('res-res-partb', `${partB} g`);
+      setText('res-res-vol', `${fmtInt(vol)} mL`);
+      setText('res-res-vol-oz', `${(vol * 0.033814).toFixed(1)} fl oz`);
+      setRating('res-res-rating', 'good', '2:1 Mix Ratio');
+      setText('res-insight', `Net volume ${fmtInt(vol)} mL; with the 10% buffer you'll mix ${fmtInt(totalGrams)} g total (Part A ${Math.round(2/3*100)}% / Part B ${Math.round(1/3*100)}%).`);
     }
-    function copySummaryResin() { copyToClipboard(`--- RESIN MIX ---\nTotal: ${document.getElementById('res-res-total').innerText}\nCalculated via CalcQI (https://calcqi.com)`, "Resin mix copied!"); }
 
     /* 6. VIDEO ENGINE */
     function calcVideo() {
-      const secs = safeNum(document.getElementById('vid-secs').value, 1, 1e6, 750);
-      const mbps = safeNum(document.getElementById('vid-bitrate').value, 0.1, 2000, 55);
-      const sizeGb = (mbps * secs) / 8 / 1000;
-      document.getElementById('vid-res-filesize').innerHTML = `${sizeGb.toFixed(2)} <span class="unit">GB</span>`;
+      const secs = safeNum($id('vid-secs').value, 1, 1e6, 750);
+      const mbps = safeNum($id('vid-bitrate').value, 0.1, 2000, 55);
+      const sizeMB = (mbps * secs) / 8;
+      const sizeGb = sizeMB / 1000;
+
+      setHTML('vid-res-filesize', `${sizeGb >= 1 ? sizeGb.toFixed(2) : sizeMB.toFixed(1)} <span class="unit">${sizeGb >= 1 ? 'GB' : 'MB'}</span>`);
+      setText('vid-res-mb', `${fmtInt(sizeMB)} MB`);
+      setText('vid-res-cds', `~${Math.max(1, Math.round(sizeMB / 700))} CDs`);
+
+      let level, label, note;
+      if (mbps >= 45 && mbps <= 68) { level='good'; label='4K 60fps Tier'; note='Matched to YouTube 4K 60fps recommendations (45–68 Mbps).'; }
+      else if (mbps >= 35 && mbps < 45) { level='good'; label='4K 30fps Tier'; note='Typical for 4K 30fps delivery on major platforms.'; }
+      else if (mbps >= 8 && mbps < 35) { level='mid'; label='1080p Tier'; note='In the 1080p delivery range — efficient and safe for streaming.'; }
+      else if (mbps < 8) { level='low'; label='Low Bitrate'; note='Below 8 Mbps — expect compression artifacts at 1080p.'; }
+      else { level='excellent'; label='ProRes / High-end'; note='Above 68 Mbps — ProRes 422 or high-end master territory.'; }
+      setRating('vid-res-rating', level, label);
+      setText('vid-insight', note + ' H.265 can deliver the same quality at ~half this bitrate.');
     }
-    function copySummaryVideo() { copyToClipboard(`--- VIDEO SPECS ---\nFile Size: ${document.getElementById('vid-res-filesize').innerText}\nCalculated via CalcQI (https://calcqi.com)`, "Specs copied!"); }
 
     /* 7. DOF ENGINE */
     function calcDOF() {
-      const focal = safeNum(document.getElementById('dof-focal').value, 5, 1000, 50);
-      const ap = safeNum(document.getElementById('dof-aperture').value, 0.7, 64, 2.8);
-      const dist = safeNum(document.getElementById('dof-distance').value, 0.1, 500, 3.0);
-      const hM = ((focal * focal) / (ap * 0.029)) / 1000;
-      document.getElementById('dof-res-hyperfocal').innerHTML = `${hM.toFixed(2)} <span class="unit">m</span>`;
+      const focal = safeNum($id('dof-focal').value, 5, 1000, 50);
+      const ap = safeNum($id('dof-aperture').value, 0.7, 64, 2.8);
+      const dist = safeNum($id('dof-distance').value, 0.1, 500, 3.0);
+      const coc = 0.029;
+      const hM = ((focal * focal) / (ap * coc)) / 1000 + focal / 1000;
+      const f = focal / 1000;
+      const near = (hM * dist) / (hM + (dist - f));
+      const farDen = hM - (dist - f);
+      const far = farDen > 0 ? (hM * dist) / farDen : Infinity;
+      const dof = far === Infinity ? Infinity : far - near;
+
+      setHTML('dof-res-hyperfocal', `${hM.toFixed(2)} <span class="unit">m</span>`);
+      setText('dof-res-near', near.toFixed(2) + ' m');
+      setText('dof-res-far', far === Infinity ? '∞' : far.toFixed(2) + ' m');
+      setText('dof-res-total', dof === Infinity ? '∞ to infinity' : dof.toFixed(2) + ' m');
+
+      const pct = Math.min(100, (dist / hM) * 100);
+      const barW = Math.max(4, Math.min(100, 100 - pct * 0.7));
+      setHTML('dof-visual', `<div class="mini-title">Focus range (not to scale)</div><div style="display:flex;align-items:center;gap:0.5rem;"><span style="font-size:0.7rem;color:var(--text-dim);font-family:var(--font-mono);">NEAR ${near.toFixed(1)}m</span><div style="flex:1;height:12px;background:var(--bg-input);border-radius:var(--radius-full);position:relative;overflow:hidden;"><div style="position:absolute;left:${Math.max(2, 50 - barW/2)}%;width:${barW}%;height:100%;background:linear-gradient(90deg, rgba(16,185,129,0.4), rgba(16,185,129,0.9));border-radius:var(--radius-full);"></div></div><span style="font-size:0.7rem;color:var(--text-dim);font-family:var(--font-mono);">${far === Infinity ? '∞' : far.toFixed(1) + 'm'} FAR</span></div>`);
+      setText('dof-insight', `Focusing at ${dist.toFixed(1)} m keeps ${near.toFixed(2)} m to ${far === Infinity ? 'infinity' : far.toFixed(2) + ' m'} sharp. ${dist > hM ? 'You are past hyperfocal — everything from ' + (hM/2).toFixed(2) + ' m to infinity is sharp.' : ''}`);
     }
-    function copySummaryDOF() { copyToClipboard(`--- DOF OPTICS ---\nHyperfocal: ${document.getElementById('dof-res-hyperfocal').innerText}\nCalculated via CalcQI (https://calcqi.com)`, "DOF copied!"); }
 
     /* 8. ND FILTER ENGINE */
     function calcNDFilter() {
-      const base = safeNum(document.getElementById('nd-base-val').value, 0.0001, 100, 0.004);
-      const stops = safeNum(document.getElementById('nd-stops-val').value, 1, 15, 10);
+      const base = safeNum($id('nd-base-val').value, 0.0001, 100, 0.004);
+      const stops = safeNum($id('nd-stops-val').value, 1, 15, 10);
       const targetSecs = base * Math.pow(2, stops);
-      document.getElementById('nd-res-speed').innerHTML = `${targetSecs.toFixed(2)} <span class="unit">sec</span>`;
+      const factor = Math.pow(2, stops);
+      const density = stops === 10 ? 'ND1000' : (factor >= 1000 ? `ND${Math.round(factor).toLocaleString()}` : `ND${Math.round(factor)}`);
+
+      setHTML('nd-res-speed', `${targetSecs.toFixed(2)} <span class="unit">sec</span>`);
+      setText('nd-res-ev', `−${fmtNum(stops, 0)} EV`);
+      setText('nd-res-density', density);
+      setText('nd-res-factor', `×${fmtInt(factor)}`);
+      setGauge('nd-stops-gauge', (stops / 15) * 100);
+
+      let level, label;
+      if (targetSecs < 1) { level='mid'; label='Short Exposure'; }
+      else if (targetSecs < 8) { level='good'; label='Classic Blur'; }
+      else if (targetSecs < 60) { level='excellent'; label='Long Exposure'; }
+      else { level='excellent'; label='Ultra Long'; }
+      setRating('nd-res-rating', level, label);
+      setText('nd-insight', `${stops} stops = ${density} (×${fmtInt(factor)} light reduction). ${targetSecs < 1 ? 'Still fast — you\'d need a stronger filter for daylight motion blur.' : (targetSecs < 8 ? 'Ideal for smoothing water and clouds in daylight.' : 'Perfect for silky seas, streaky skies, or removing crowds.')}`);
     }
-    function copySummaryNDFilter() { copyToClipboard(`--- ND EXPOSURE ---\nTarget Speed: ${document.getElementById('nd-res-speed').innerText}\nCalculated via CalcQI (https://calcqi.com)`, "ND copied!"); }
 
     /* 9. TIMELAPSE ENGINE */
     function calcTimelapse() {
-      const clipSecs = safeNum(document.getElementById('tl-clip-sec').value, 1, 600, 10);
-      const fps = safeNum(document.getElementById('tl-fps').value, 1, 120, 30);
-      const eventMins = safeNum(document.getElementById('tl-event-min').value, 1, 1440, 60);
-      const intervalSec = (eventMins * 60) / (clipSecs * fps);
-      document.getElementById('tl-res-interval').innerHTML = `${intervalSec.toFixed(1)} <span class="unit">sec / shot</span>`;
+      const clipSecs = safeNum($id('tl-clip-sec').value, 1, 600, 10);
+      const fps = safeNum($id('tl-fps').value, 1, 120, 30);
+      const eventMins = safeNum($id('tl-event-min').value, 1, 1440, 60);
+
+      const eventSecs = eventMins * 60;
+      const totalShots = clipSecs * fps;
+      const intervalSec = eventSecs / totalShots;
+      const speedMult = eventSecs / clipSecs;
+      const storageGB = (totalShots * 25) / 1024;
+
+      setHTML('tl-res-interval', `${intervalSec.toFixed(1)} <span class="unit">sec / shot</span>`);
+      setText('tl-res-shots', fmtInt(totalShots));
+      setText('tl-res-playback', `${fmtInt(speedMult)}×`);
+      setText('tl-res-storage', `${storageGB.toFixed(1)} GB`);
+
+      let level, label;
+      if (intervalSec < 1) { level='low'; label='Very Fast'; }
+      else if (intervalSec <= 5) { level='good'; label='Fast Motion'; }
+      else if (intervalSec <= 30) { level='mid'; label='Medium Motion'; }
+      else { level='low'; label='Slow Motion'; }
+      setRating('tl-res-rating', level, label);
+      setText('tl-insight', `${eventMins} min of real time plays back in ${clipSecs} sec — ${fmtInt(speedMult)}× speed. ${intervalSec < 1 ? 'Interval under 1s — consider burst mode or higher event length.' : (intervalSec >= 25 && intervalSec <= 35 ? '25–30s intervals suit star trails.' : '')}`);
     }
-    function copySummaryTimelapse() { copyToClipboard(`--- TIMELAPSE PLAN ---\nInterval: ${document.getElementById('tl-res-interval').innerText}\nCalculated via CalcQI (https://calcqi.com)`, "Plan copied!"); }
 
     /* 10. LIGHT INVERSE ENGINE */
     function calcLightInverse() {
-      const init = safeNum(document.getElementById('lux-init').value, 1, 1e6, 1000);
-      const d1 = safeNum(document.getElementById('lux-d1').value, 0.1, 100, 2.0);
-      const d2 = safeNum(document.getElementById('lux-d2').value, 0.1, 100, 4.0);
-      const targetLux = init * Math.pow(d1 / d2, 2);
-      document.getElementById('lux-res-target').innerHTML = `${Math.round(targetLux)} <span class="unit">Lux</span>`;
+      const init = safeNum($id('lux-init').value, 1, 1e6, 1000);
+      const d1 = safeNum($id('lux-d1').value, 0.1, 100, 2.0);
+      const d2 = safeNum($id('lux-d2').value, 0.1, 100, 4.0);
+      const ratio = Math.pow(d1 / d2, 2);
+      const targetLux = init * ratio;
+      const stopsLoss = 2 * Math.log2(Math.max(d2, 0.0001) / Math.max(d1, 0.0001));
+
+      setHTML('lux-res-target', `${Math.round(targetLux).toLocaleString()} <span class="unit">Lux</span>`);
+      setText('lux-res-ratio', `${Math.round(ratio * 100)}% of D1`);
+      setGauge('lux-gauge', ratio * 100);
+      setRating('lux-res-rating', Math.abs(stopsLoss) < 0.5 ? 'low' : (Math.abs(stopsLoss) < 1.5 ? 'mid' : 'low'), `${stopsLoss >= 0 ? '−' : '+'}${Math.abs(stopsLoss).toFixed(1)} stops`);
+      setText('lux-insight', `Moving from ${d1} m to ${d2} m leaves only ${Math.round(ratio * 100)}% of the light — a ${Math.abs(stopsLoss).toFixed(1)}-stop ${stopsLoss >= 0 ? 'loss' : 'gain'}. ${stopsLoss >= 2 ? 'Move the light closer instead of fighting the falloff.' : ''}`);
     }
-    function copySummaryLightInverse() { copyToClipboard(`--- LIGHT DROP-OFF ---\nTarget Lux: ${document.getElementById('lux-res-target').innerText}\nCalculated via CalcQI (https://calcqi.com)`, "Light drop copied!"); }
 
     /* 11. TDEE ENGINE */
     function calcTDEE() {
-      const age = safeNum(document.getElementById('tdee-age').value, 15, 100, 28);
-      const h = safeNum(document.getElementById('tdee-height').value, 100, 230, 178);
-      const w = safeNum(document.getElementById('tdee-weight').value, 30, 300, 78);
+      const age = safeNum($id('tdee-age').value, 15, 100, 28);
+      const h = safeNum($id('tdee-height').value, 100, 230, 178);
+      const w = safeNum($id('tdee-weight').value, 30, 300, 78);
+      const act = safeNum($id('tdee-activity').value, 1.0, 2.5, 1.55);
       const bmr = (10 * w) + (6.25 * h) - (5 * age) + 5;
-      const cals = bmr * 1.55;
-      document.getElementById('tdee-res-calories').innerHTML = `${Math.round(cals)} <span class="unit">kcal</span>`;
+      const tdee = bmr * act;
+      const cut = tdee * 0.8;
+      const bulk = tdee * 1.1;
+
+      const protein = w * 2;
+      const fat = (tdee * 0.25) / 9;
+      const carbs = (tdee - protein * 4 - fat * 9) / 4;
+      const pCals = protein * 4, cCals = carbs * 4, fCals = fat * 9;
+      const sumCals = pCals + cCals + fCals;
+
+      setHTML('tdee-res-calories', `${fmtInt(tdee)} <span class="unit">kcal</span>`);
+      setText('tdee-res-bmr', `${fmtInt(bmr)} kcal`);
+      setText('tdee-res-cut', `${fmtInt(cut)} kcal`);
+      setText('tdee-res-bulk', `${fmtInt(bulk)} kcal`);
+      setText('tdee-res-protein', `${fmtInt(protein)} g`);
+      setText('tdee-res-carbs', `${Math.max(0, Math.round(carbs))} g`);
+      setText('tdee-res-fat', `${Math.max(0, Math.round(fat))} g`);
+      setHTML('tdee-macro-fill', `<div class="split-seg" style="width:${pCals/sumCals*100}%;background:#f43f5e"></div><div class="split-seg" style="width:${cCals/sumCals*100}%;background:#06b6d4"></div><div class="split-seg" style="width:${fCals/sumCals*100}%;background:#f59e0b"></div>`);
+      setText('tdee-insight', `Maintenance ${fmtInt(tdee)} kcal · Cut ${fmtInt(cut)} · Bulk ${fmtInt(bulk)}. Protein set at 2g/kg (${fmtInt(protein)}g) to preserve muscle in a deficit.`);
     }
-    function copySummaryTDEE() { copyToClipboard(`--- TDEE MACROS ---\nCalories: ${document.getElementById('tdee-res-calories').innerText}\nCalculated via CalcQI (https://calcqi.com)`, "Macros copied!"); }
 
     /* 12. 1RM ENGINE */
     function calc1RM() {
-      const w = safeNum(document.getElementById('rm-weight').value, 1, 1000, 100);
-      const r = safeNum(document.getElementById('rm-reps').value, 1, 12, 5);
+      const w = safeNum($id('rm-weight').value, 1, 1000, 100);
+      const r = safeNum($id('rm-reps').value, 1, 12, 5);
+      const bw = safeNum($id('rm-bw').value, 30, 300, 80);
       const epley = w * (1 + r / 30);
-      document.getElementById('rm-res-1rm').innerHTML = `${epley.toFixed(1)} <span class="unit">kg</span>`;
+      const brzycki = w * 36 / (37 - r);
+      const avg = (epley + brzycki) / 2;
+      const ratio = avg / bw;
+
+      setHTML('rm-res-1rm', `${avg.toFixed(1)} <span class="unit">kg</span>`);
+      setText('rm-res-epley', `${epley.toFixed(1)} kg`);
+      setText('rm-res-brzycki', `${brzycki.toFixed(1)} kg`);
+      setText('rm-res-ratio', `${ratio.toFixed(2)}× BW`);
+      setGauge('rm-gauge', ((Math.min(ratio, 2.5) - 0.8) / 1.7) * 100);
+
+      let level, label;
+      if (ratio < 1.0) { level='low'; label='Beginner'; }
+      else if (ratio < 1.25) { level='mid'; label='Novice'; }
+      else if (ratio < 1.5) { level='mid'; label='Intermediate'; }
+      else if (ratio < 1.75) { level='good'; label='Advanced'; }
+      else if (ratio < 2.0) { level='excellent'; label='Elite'; }
+      else { level='excellent'; label='Elite+'; }
+      setRating('rm-res-rating', level, label);
+      setText('rm-insight', `Your lift is ${ratio.toFixed(2)}× bodyweight — a ${label.toLowerCase()} level. ${ratio >= 1.5 ? 'Elite territory for most gym-goers.' : 'Keep a structured progressive overload program to push past plateaus.'}`);
     }
-    function copySummary1RM() { copyToClipboard(`--- 1RM STRENGTH ---\n1RM: ${document.getElementById('rm-res-1rm').innerText}\nCalculated via CalcQI (https://calcqi.com)`, "1RM copied!"); }
 
     /* 13. FFMI ENGINE */
     function calcFFMI() {
-      const h = safeNum(document.getElementById('ffmi-height').value, 100, 230, 180);
-      const w = safeNum(document.getElementById('ffmi-weight').value, 30, 300, 82);
-      const bf = safeNum(document.getElementById('ffmi-bf').value, 3, 50, 14);
+      const h = safeNum($id('ffmi-height').value, 100, 230, 180);
+      const w = safeNum($id('ffmi-weight').value, 30, 300, 82);
+      const bf = safeNum($id('ffmi-bf').value, 3, 50, 14);
       const lbm = w * (1 - bf / 100);
       const hM = h / 100;
-      const normFFMI = (lbm / (hM * hM)) + 6.1 * (1.8 - hM);
-      document.getElementById('ffmi-res-score').innerHTML = `${normFFMI.toFixed(1)} <span class="unit">Score</span>`;
+      const raw = lbm / (hM * hM);
+      const norm = raw + 6.1 * (1.8 - hM);
+
+      setHTML('ffmi-res-score', `${norm.toFixed(1)} <span class="unit">Score</span>`);
+      setText('ffmi-res-lbm', `${lbm.toFixed(1)} kg`);
+      setText('ffmi-res-raw', raw.toFixed(1));
+      setGauge('ffmi-gauge', ((Math.min(norm, 25) - 16) / 9) * 100);
+
+      let level, label;
+      if (norm < 18) { level='low'; label='Below Average'; }
+      else if (norm < 20) { level='mid'; label='Average'; }
+      else if (norm < 22) { level='good'; label='Above Average'; }
+      else if (norm < 25) { level='excellent'; label='Excellent'; }
+      else { level='excellent'; label='Natural Ceiling'; }
+      setRating('ffmi-res-rating', level, label);
+      setText('ffmi-insight', norm >= 25
+        ? 'A normalized FFMI of 25+ sits at the recognized natural muscular ceiling — elite drug-free athletes have approached ~28.'
+        : `For context: 20 is typical for active lifters, 22 is excellent, 25 is the natural limit. You have room to build ${Math.max(0, 25 - norm).toFixed(1)} points of lean-mass index before hitting the ceiling.`);
     }
-    function copySummaryFFMI() { copyToClipboard(`--- FFMI REPORT ---\nNormalized FFMI: ${document.getElementById('ffmi-res-score').innerText}\nCalculated via CalcQI (https://calcqi.com)`, "FFMI copied!"); }
 
     /* 14. WILKS DOTS ENGINE */
     function calcWilksDOTS() {
-      const bw = safeNum(document.getElementById('dots-bw').value, 30, 300, 83);
-      const tot = safeNum(document.getElementById('dots-total').value, 50, 1500, 600);
-      const b = -307.75076, c = 24.0900756, d = -0.1918759, e = 0.00073957, f = -0.000001093;
-      const denom = b + c*bw + d*Math.pow(bw,2) + e*Math.pow(bw,3) + f*Math.pow(bw,4);
+      const bw = safeNum($id('dots-bw').value, 30, 300, 83);
+      const tot = safeNum($id('dots-total').value, 50, 1500, 600);
+      const sex = $id('dots-sex').value || 'm';
+
+      const mD = [-307.75076, 24.0900756, -0.1918759211, 0.0007391293, -0.000001093];
+      const fD = [-57.96288, 13.6170418, -0.3193545455, 0.003470192, -0.000014078];
+      const d = sex === 'm' ? mD : fD;
+      const denom = d[0] + d[1]*bw + d[2]*Math.pow(bw,2) + d[3]*Math.pow(bw,3) + d[4]*Math.pow(bw,4);
       const dots = (tot * 500) / denom;
-      document.getElementById('dots-res-score').innerHTML = `${dots.toFixed(1)} <span class="unit">Pts</span>`;
+
+      const mW = [-216.0475144, 16.2606339, -0.002388645, -0.00113732, 7.01863e-6, -1.291e-8];
+      const fW = [594.31747775582, -27.23842536447, 0.82112226871, -0.00930733913, 0.00004731582, -0.00000009054];
+      const wc = sex === 'm' ? mW : fW;
+      const wDenom = wc[0] + wc[1]*bw + wc[2]*Math.pow(bw,2) + wc[3]*Math.pow(bw,3) + wc[4]*Math.pow(bw,4) + wc[5]*Math.pow(bw,5);
+      const wilks = (tot * 500) / wDenom;
+
+      setHTML('dots-res-score', `${dots.toFixed(1)} <span class="unit">Pts</span>`);
+      setText('dots-res-wilks', wilks.toFixed(1));
+      setGauge('dots-gauge', ((Math.min(Math.max(dots, 250), 550) - 250) / 300) * 100);
+
+      let level, label;
+      if (dots < 300) { level='low'; label='Novice'; }
+      else if (dots < 350) { level='mid'; label='Intermediate'; }
+      else if (dots < 400) { level='mid'; label='Advanced'; }
+      else if (dots < 450) { level='good'; label='Elite'; }
+      else if (dots < 500) { level='excellent'; label='World Class'; }
+      else { level='excellent'; label='Record Level'; }
+      setRating('dots-res-rating', level, label);
+      setText('dots-insight', `A DOTS of ${dots.toFixed(0)} is ${label.toLowerCase()} for ${sex === 'm' ? 'men' : 'women'}. ${dots >= 450 ? 'You\'re in competitive national territory — great work!' : 'Consistent training with a proven program will keep pushing this number up.'}`);
     }
-    function copySummaryWilksDOTS() { copyToClipboard(`--- POWERLIFTING SCORE ---\nDOTS: ${document.getElementById('dots-res-score').innerText}\nCalculated via CalcQI (https://calcqi.com)`, "DOTS copied!"); }
 
     /* 15. KARVONEN HR ENGINE */
     function calcKarvonenHR() {
-      const age = safeNum(document.getElementById('hr-age').value, 10, 100, 30);
-      const rest = safeNum(document.getElementById('hr-rest').value, 30, 120, 60);
+      const age = safeNum($id('hr-age').value, 10, 100, 30);
+      const rest = safeNum($id('hr-rest').value, 30, 120, 60);
       const maxHr = 220 - age;
       const hrr = maxHr - rest;
-      document.getElementById('hr-res-hrr').innerHTML = `${hrr} <span class="unit">BPM</span>`;
+
+      setHTML('hr-res-hrr', `${hrr} <span class="unit">BPM</span>`);
+      setText('hr-res-max-hr', `${maxHr} BPM`);
+
+      const zones = [[50,60],[60,70],[70,80],[80,90],[90,100]];
+      document.querySelectorAll('#zone-list .zone-line').forEach((row, i) => {
+        const lo = Math.round(((maxHr - rest) * zones[i][0] / 100) + rest);
+        const hi = Math.round(((maxHr - rest) * zones[i][1] / 100) + rest);
+        row.querySelector('.zone-bpm').textContent = `${lo}–${hi} BPM`;
+      });
+      setText('hr-insight', `Max ${maxHr} BPM − resting ${rest} = ${hrr} BPM reserve. Zone 2 (60–70%) is ${Math.round(((maxHr-rest)*0.6/100)+rest)}–${Math.round(((maxHr-rest)*0.7/100)+rest)} BPM — your aerobic sweet spot.`);
     }
-    function copySummaryKarvonenHR() { copyToClipboard(`--- KARVONEN HR ZONES ---\nHRR: ${document.getElementById('hr-res-hrr').innerText}\nCalculated via CalcQI (https://calcqi.com)`, "Zones copied!"); }
 
     /* 16. STOCK AVG ENGINE */
     function calcStockAvg() {
-      const s1 = safeNum(document.getElementById('stock-p1-shares').value, 0, 1e6, 100);
-      const p1 = safeNum(document.getElementById('stock-p1-price').value, 0, 1e6, 150);
-      const s2 = safeNum(document.getElementById('stock-p2-shares').value, 0, 1e6, 100);
-      const p2 = safeNum(document.getElementById('stock-p2-price').value, 0, 1e6, 100);
+      const s1 = safeNum($id('stock-p1-shares').value, 0, 1e6, 100);
+      const p1 = safeNum($id('stock-p1-price').value, 0, 1e6, 150);
+      const s2 = safeNum($id('stock-p2-shares').value, 0, 1e6, 100);
+      const p2 = safeNum($id('stock-p2-price').value, 0, 1e6, 100);
       const totS = s1 + s2;
-      const avgP = totS > 0 ? ((s1*p1) + (s2*p2)) / totS : 0;
-      document.getElementById('rm-stock-new-avg').innerHTML = `$${avgP.toFixed(2)} <span class="unit">USD</span>`;
+      const totCap = (s1 * p1) + (s2 * p2);
+      const avgP = totS > 0 ? totCap / totS : 0;
+      const savings = p1 - avgP;
+      const dcaPct = p1 > 0 ? (savings / p1) * 100 : 0;
+
+      setHTML('rm-stock-new-avg', `${fmtUSD(avgP)} <span class="unit">USD</span>`);
+      setText('stock-res-total-shares', fmtInt(totS));
+      setText('stock-res-total-invested', fmtUSD(totCap));
+      setText('stock-res-savings', fmtUSD(savings));
+      setText('stock-res-dca-pct', `↓ ${dcaPct.toFixed(1)}%`);
+
+      const range = Math.max(p1 - p2, 0.01);
+      setGauge('stock-gauge', ((avgP - p2) / range) * 100);
+
+      let level, label;
+      if (dcaPct >= 20) { level='excellent'; label='Deep DCA'; }
+      else if (dcaPct >= 10) { level='good'; label='Solid DCA'; }
+      else if (dcaPct > 0) { level='mid'; label='Light DCA'; }
+      else { level='low'; label='No Reduction'; }
+      setRating('stock-res-rating', level, label);
+      setText('stock-insight', `Your break-even fell from ${fmtUSD(p1)} to ${fmtUSD(avgP)} — a ${dcaPct.toFixed(1)}% reduction. ${totCap.toLocaleString(undefined, {style:'currency', currency:'USD'})} total capital at work.`);
     }
-    function copySummaryStockAvg() { copyToClipboard(`--- STOCK AVERAGE DOWN ---\nNew Avg: ${document.getElementById('rm-stock-new-avg').innerText}\nCalculated via CalcQI (https://calcqi.com)`, "Position copied!"); }
 
     /* 17. DRIP ENGINE */
     function calcDRIP() {
-      const init = safeNum(document.getElementById('drip-initial').value, 0, 1e8, 10000);
-      const mo = safeNum(document.getElementById('drip-monthly').value, 0, 1e6, 500);
+      const init = safeNum($id('drip-initial').value, 0, 1e8, 10000);
+      const mo = safeNum($id('drip-monthly').value, 0, 1e6, 500);
+      const rate = 0.07;
       let val = init;
-      for (let i = 0; i < 120; i++) { val = (val + mo) * (1 + 0.07/12); }
-      document.getElementById('drip-res-portfolio').innerHTML = `$${Math.round(val).toLocaleString()} <span class="unit">USD</span>`;
+      const yearly = [];
+      for (let y = 0; y < 10; y++) {
+        for (let m = 0; m < 12; m++) { val = (val + mo) * (1 + rate / 12); }
+        yearly.push(val);
+      }
+      const contrib = init + mo * 120;
+      const growth = val - contrib;
+
+      setHTML('drip-res-portfolio', `${fmtUSD(val)} <span class="unit">USD</span>`);
+      setText('drip-res-contrib', fmtUSD(contrib));
+      setText('drip-res-growth', fmtUSD(growth));
+      setChart('drip-chart', yearly);
+      setText('drip-insight', `Of the ${fmtUSD(val)} total, ${fmtUSD(contrib)} is what you deposited — reinvested growth added ${fmtUSD(growth)} (${Math.round(growth/val*100)}%).`);
     }
-    function copySummaryDRIP() { copyToClipboard(`--- DRIP FORECAST ---\nPortfolio: ${document.getElementById('drip-res-portfolio').innerText}\nCalculated via CalcQI (https://calcqi.com)`, "Forecast copied!"); }
 
     /* 18. POSITION RISK ENGINE */
     function calcPositionRisk() {
-      const bal = safeNum(document.getElementById('risk-balance').value, 100, 1e8, 25000);
-      const pct = safeNum(document.getElementById('risk-pct').value, 0.1, 10, 1.5);
-      const entry = safeNum(document.getElementById('risk-entry').value, 0.01, 1e6, 150);
-      const stop = safeNum(document.getElementById('risk-stop').value, 0.01, 1e6, 145);
+      const bal = safeNum($id('risk-balance').value, 100, 1e8, 25000);
+      const pct = safeNum($id('risk-pct').value, 0.1, 10, 1.5);
+      const entry = safeNum($id('risk-entry').value, 0.01, 1e6, 150);
+      const stop = safeNum($id('risk-stop').value, 0.01, 1e6, 145);
+      const target = safeNum($id('risk-target').value, 0.01, 1e6, 165);
+
       const riskAmt = bal * (pct / 100);
       const riskPerShare = Math.abs(entry - stop);
       const shares = riskPerShare > 0 ? Math.floor(riskAmt / riskPerShare) : 0;
-      document.getElementById('risk-res-shares').innerHTML = `${shares} <span class="unit">shares</span>`;
+      const rr = riskPerShare > 0 ? (target - entry) / riskPerShare : 0;
+      const profit = shares * (target - entry);
+      const position = shares * entry;
+
+      setHTML('risk-res-shares', `${fmtInt(shares)} <span class="unit">shares</span>`);
+      setText('risk-res-risk-amount', fmtUSD(Math.min(riskAmt, shares * riskPerShare)));
+      setText('risk-res-rr', `1 : ${rr.toFixed(1)}`);
+      setText('risk-res-profit', fmtUSD(profit));
+      setText('risk-res-position', fmtUSD(position));
+
+      const actualRisk = shares * riskPerShare;
+      setGauge('risk-gauge', ((Math.min(Math.max(rr, 1), 5) - 1) / 4) * 100);
+
+      let level, label;
+      if (rr >= 3) { level='excellent'; label='Excellent R:R'; }
+      else if (rr >= 2) { level='good'; label='Good R:R'; }
+      else if (rr >= 1.5) { level='mid'; label='Fair R:R'; }
+      else { level='low'; label='Poor R:R'; }
+      setRating('risk-res-rating', level, label);
+      setText('risk-insight', `Risking ${fmtUSD(actualRisk)} (${pct}% of account) to make ${fmtUSD(profit)} at target — a ${rr.toFixed(1)}R setup. ${rr < 1.5 ? 'Consider widening your target or skipping this trade.' : 'Respect the stop loss — it defines the risk.'}`);
     }
-    function copySummaryPositionRisk() { copyToClipboard(`--- POSITION RISK ---\nShares: ${document.getElementById('risk-res-shares').innerText}\nCalculated via CalcQI (https://calcqi.com)`, "Risk plan copied!"); }
 
     /* 19. COMPOUND SAVINGS ENGINE */
     function calcCompoundSavings() {
-      const init = safeNum(document.getElementById('sav-init').value, 0, 1e8, 5000);
-      const mo = safeNum(document.getElementById('sav-monthly').value, 0, 1e6, 300);
+      const init = safeNum($id('sav-init').value, 0, 1e8, 5000);
+      const mo = safeNum($id('sav-monthly').value, 0, 1e6, 300);
+      const rate = 0.06;
       let val = init;
-      for (let i = 0; i < 120; i++) { val = (val + mo) * (1 + 0.06/12); }
-      document.getElementById('sav-res-total').innerHTML = `$${Math.round(val).toLocaleString()} <span class="unit">USD</span>`;
+      const yearly = [];
+      for (let y = 0; y < 10; y++) {
+        for (let m = 0; m < 12; m++) { val = (val + mo) * (1 + rate / 12); }
+        yearly.push(val);
+      }
+      const contrib = init + mo * 120;
+      const interest = val - contrib;
+
+      setHTML('sav-res-total', `${fmtUSD(val)} <span class="unit">USD</span>`);
+      setText('sav-res-contrib', fmtUSD(contrib));
+      setText('sav-res-interest', fmtUSD(interest));
+      setChart('sav-chart', yearly);
+      setText('sav-insight', `Deposits account for ${fmtUSD(contrib)}; compound interest adds ${fmtUSD(interest)} (${Math.round(interest/val*100)}% of your total). Rule of 72: at 6%, money doubles every 12 years.`);
     }
-    function copySummaryCompoundSavings() { copyToClipboard(`--- COMPOUND SAVINGS ---\nFuture Value: ${document.getElementById('sav-res-total').innerText}\nCalculated via CalcQI (https://calcqi.com)`, "Savings copied!"); }
 
     /* 20. CRYPTO ROI ENGINE */
     function calcCryptoROI() {
-      const buy = safeNum(document.getElementById('roi-buy').value, 0.01, 1e6, 100);
-      const sell = safeNum(document.getElementById('roi-sell').value, 0.01, 1e6, 150);
-      const cap = safeNum(document.getElementById('roi-capital').value, 1, 1e8, 1000);
+      const buy = safeNum($id('roi-buy').value, 0.01, 1e6, 100);
+      const sell = safeNum($id('roi-sell').value, 0.01, 1e6, 150);
+      const cap = safeNum($id('roi-capital').value, 1, 1e8, 1000);
+      const feeBuyPct = safeNum($id('roi-buy-fee').value, 0, 10, 0.1) / 100;
+      const feeSellPct = safeNum($id('roi-sell-fee').value, 0, 10, 0.1) / 100;
+
       const units = cap / buy;
       const grossSell = units * sell;
-      const profit = grossSell - cap;
-      document.getElementById('roi-res-profit').innerHTML = `$${profit.toFixed(2)} <span class="unit">+${((profit/cap)*100).toFixed(1)}%</span>`;
+      const buyFee = cap * feeBuyPct;
+      const sellFee = grossSell * feeSellPct;
+      const totalFees = buyFee + sellFee;
+      const grossProfit = grossSell - cap;
+      const net = grossProfit - totalFees;
+      const pct = (net / cap) * 100;
+
+      setHTML('roi-res-profit', `${fmtUSD(Math.max(net, 0))} <span class="unit">${pct >= 0 ? '+' : ''}${pct.toFixed(1)}%</span>`);
+      setText('roi-res-gross-profit', fmtUSD(grossProfit));
+      setText('roi-res-units', units.toFixed(4));
+      setText('roi-res-fees', fmtUSD(totalFees));
+      setRating('roi-res-rating', net >= 0 ? 'excellent' : 'low', net >= 0 ? 'In Profit' : 'At a Loss');
+      setText('roi-insight', `Gross gain ${fmtUSD(grossProfit)}, fees ${fmtUSD(totalFees)} → net ${fmtUSD(net)}. ${feeBuyPct === 0 && feeSellPct === 0 ? 'Add your exchange fee % to see the real number.' : 'Fees always matter — especially for frequent trading.'}`);
     }
-    function copySummaryCryptoROI() { copyToClipboard(`--- CRYPTO ROI ---\nNet Profit: ${document.getElementById('roi-res-profit').innerText}\nCalculated via CalcQI (https://calcqi.com)`, "ROI copied!"); }
 
     window.addEventListener('load', () => {
-      document.getElementById('footer-year').textContent = new Date().getFullYear();
+      $id('footer-year').textContent = new Date().getFullYear();
       calc3DPrint(); calcBaker(); calcLaserCNC(); calcSourdough(); calcResin();
       calcVideo(); calcDOF(); calcNDFilter(); calcTimelapse(); calcLightInverse();
       calcTDEE(); calc1RM(); calcFFMI(); calcWilksDOTS(); calcKarvonenHR();
