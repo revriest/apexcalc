@@ -21,13 +21,13 @@
 
   <style>
     :root {
-      --bg-dark: #0b0f19; --bg-surface: #131b2e; --bg-card: #1a233a; --bg-card-alt: #212d4a; --bg-input: #0f172a;
-      --border-subtle: #263352; --border-focus: #6366f1; --text-main: #f8fafc; --text-muted: #94a3b8; --text-dim: #64748b;
-      --accent-indigo: #6366f1; --accent-violet: #8b5cf6; --accent-cyan: #06b6d4; --accent-emerald: #10b981; --accent-amber: #f59e0b; --accent-rose: #f43f5e;
-      --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.5); --shadow-glow: 0 0 25px rgba(99, 102, 241, 0.25);
-      --radius-sm: 6px; --radius-md: 10px; --radius-lg: 16px; --radius-full: 9999px;
+      --bg-dark: #0b0e14; --bg-surface: #10141c; --bg-card: #141923; --bg-card-alt: #181f2b; --bg-card-hover: #181f2b; --bg-input: #0d1117;
+      --border-subtle: #20262f; --border-strong: #2e3946; --border-focus: #6e8bff; --text-main: #f2f5f9; --text-muted: #9aa4b2; --text-dim: #5c6675;
+      --accent-indigo: #6e8bff; --accent-violet: #8b5cf6; --accent-cyan: #22d3ee; --accent-emerald: #34d399; --accent-amber: #fbbf24; --accent-rose: #fb7185;
+      --shadow-md: 0 1px 2px rgba(0, 0, 0, 0.3), 0 10px 30px rgba(0, 0, 0, 0.22); --shadow-glow: 0 0 25px rgba(110, 139, 255, 0.18);
+      --radius-sm: 6px; --radius-md: 10px; --radius-lg: 14px; --radius-full: 9999px;
       --font-sans: 'Inter', sans-serif; --font-mono: 'JetBrains Mono', monospace;
-      --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition: all 0.2s ease;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; color-scheme: dark; }
@@ -41,12 +41,12 @@
     input[type=number] { -moz-appearance: textfield; }
     select.form-control { appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%2364748b'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 0.8rem center; padding-right: 2rem; cursor: pointer; }
 
-    .app-header { position: sticky; top: 0; z-index: 100; background: rgba(11, 15, 25, 0.88); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border-subtle); padding: 0.75rem 0; }
+    .app-header { position: sticky; top: 0; z-index: 100; background: rgba(11, 14, 20, 0.85); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border-subtle); padding: 0.75rem 0; }
     .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 1.25rem; }
     .brand-logo { display: flex; align-items: center; gap: 0.75rem; font-weight: 800; font-size: 1.35rem; color: var(--text-main); }
-    .logo-icon { width: 38px; height: 38px; background: linear-gradient(135deg, var(--accent-indigo), var(--accent-violet)); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-glow); }
+    .logo-icon { width: 38px; height: 38px; background: var(--accent-indigo); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; }
     .logo-icon svg { width: 22px; height: 22px; fill: #ffffff; }
-    .brand-badge { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; background: rgba(99, 102, 241, 0.15); color: var(--accent-indigo); border: 1px solid rgba(99, 102, 241, 0.3); padding: 0.15rem 0.45rem; border-radius: var(--radius-full); white-space: nowrap; }
+    .brand-badge { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; background: rgba(110, 139, 255, 0.15); color: var(--accent-indigo); border: 1px solid rgba(110, 139, 255, 0.3); padding: 0.15rem 0.45rem; border-radius: var(--radius-full); white-space: nowrap; }
     
     .cat-nav-menu { display: flex; align-items: center; gap: 0.5rem; }
     .nav-cat-group { position: relative; }
@@ -64,31 +64,31 @@
     .tab-panel { display: none; opacity: 0; transform: translateY(8px); transition: all 0.3s ease; }
     .tab-panel.active { display: block; opacity: 1; transform: translateY(0); }
     .tool-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; gap: 1rem; flex-wrap: wrap; }
-    .tool-title-group h1 { font-size: 1.75rem; background: linear-gradient(135deg, #ffffff 30%, var(--text-muted) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .tool-title-group h1 { font-size: 1.75rem; font-weight: 800; letter-spacing: -0.03em; color: var(--text-main); }
 
     /* ===== CATEGORY-COLORED TOOL THEMING ===== */
-    .tab-panel[data-cat="maker"] .tool-title-group h1 { background: linear-gradient(135deg, #ffffff 30%, #c4b5fd); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .tab-panel[data-cat="maker"] .card-header { border-bottom-color: rgba(139, 92, 246, 0.4); }
-    .tab-panel[data-cat="creator"] .tool-title-group h1 { background: linear-gradient(135deg, #ffffff 30%, #67e8f9); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .tab-panel[data-cat="creator"] .card-header { border-bottom-color: rgba(6, 182, 212, 0.4); }
-    .tab-panel[data-cat="fitness"] .tool-title-group h1 { background: linear-gradient(135deg, #ffffff 30%, #6ee7b7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .tab-panel[data-cat="fitness"] .card-header { border-bottom-color: rgba(16, 185, 129, 0.4); }
-    .tab-panel[data-cat="finance"] .tool-title-group h1 { background: linear-gradient(135deg, #ffffff 30%, #fcd34d); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .tab-panel[data-cat="finance"] .card-header { border-bottom-color: rgba(245, 158, 11, 0.4); }
+    .tab-panel[data-cat="maker"] .tool-title-group h1 { color: #c7d2fe; }
+    .tab-panel[data-cat="maker"] .card-header { border-bottom-color: rgba(139, 92, 246, 0.35); }
+    .tab-panel[data-cat="creator"] .tool-title-group h1 { color: #a5f3fc; }
+    .tab-panel[data-cat="creator"] .card-header { border-bottom-color: rgba(34, 211, 238, 0.35); }
+    .tab-panel[data-cat="fitness"] .tool-title-group h1 { color: #a7f3d0; }
+    .tab-panel[data-cat="fitness"] .card-header { border-bottom-color: rgba(52, 211, 153, 0.35); }
+    .tab-panel[data-cat="finance"] .tool-title-group h1 { color: #fde68a; }
+    .tab-panel[data-cat="finance"] .card-header { border-bottom-color: rgba(251, 191, 36, 0.35); }
 
-    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem; padding: 0.5rem 0.85rem; font-size: 0.8rem; font-weight: 600; border-radius: var(--radius-md); border: 1px solid transparent; cursor: pointer; transition: var(--transition); }
-    .btn:active { transform: scale(0.96); }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem; padding: 0.55rem 1rem; font-size: 0.82rem; font-weight: 600; border-radius: var(--radius-md); border: 1px solid transparent; cursor: pointer; transition: var(--transition); }
+    .btn:active { transform: scale(0.97); }
     .btn-secondary { background: var(--bg-surface); color: var(--text-muted); border-color: var(--border-subtle); }
-    .btn-secondary:hover { background: var(--bg-card-alt); color: var(--text-main); }
-    .btn-primary { background: linear-gradient(135deg, var(--accent-indigo), var(--accent-violet)); color: #ffffff; box-shadow: 0 4px 14px rgba(99, 102, 241, 0.3); }
-    .btn-primary:hover { box-shadow: 0 6px 20px rgba(99, 102, 241, 0.45); transform: translateY(-1px); }
-    .btn-copied { background: #10b981 !important; box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35) !important; }
+    .btn-secondary:hover { background: var(--bg-card-alt); color: var(--text-main); border-color: var(--border-strong); }
+    .btn-primary { background: var(--accent-indigo); color: #ffffff; }
+    .btn-primary:hover { background: #7d97ff; transform: translateY(-1px); }
+    .btn-copied { background: #34d399 !important; }
     .btn-row { display: flex; gap: 0.5rem; }
 
     .calc-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
     @media (min-width: 992px) { .calc-grid { grid-template-columns: 1.15fr 0.85fr; } }
-    .card { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.35rem; box-shadow: var(--shadow-md); margin-bottom: 1.5rem; transition: border-color 0.3s ease, box-shadow 0.3s ease; }
-    .card:hover { border-color: #2e3f63; }
+    .card { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.4rem; box-shadow: var(--shadow-md); margin-bottom: 1.5rem; transition: border-color 0.2s ease; }
+    .card:hover { border-color: var(--border-strong); }
     .card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.1rem; padding-bottom: 0.65rem; border-bottom: 1px solid var(--border-subtle); }
     .card-title { font-size: 1.05rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem; }
     .form-group-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; }
@@ -102,9 +102,7 @@
     .has-prefix { padding-left: 2rem; } .has-suffix { padding-right: 2.2rem; }
 
     .results-deck { display: flex; flex-direction: column; gap: 1.1rem; }
-    .hero-stat-card { background: linear-gradient(135deg, rgba(99, 102, 241, 0.12), rgba(139, 92, 246, 0.08)); border: 1px solid rgba(99, 102, 241, 0.3); border-radius: var(--radius-lg); padding: 1.35rem; transition: border-color 0.4s ease, box-shadow 0.4s ease; position: relative; overflow: hidden; }
-    .hero-stat-card::after { content:''; position:absolute; top:0; left:-40%; width:30%; height:100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent); transform: skewX(-20deg); animation: shine 5s ease-in-out infinite; }
-    @keyframes shine { 0%, 60% { left:-40%; } 100% { left: 130%; } }
+    .hero-stat-card { background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.4rem; transition: border-color 0.3s ease; }
     .stat-label { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 0.3rem; }
     .stat-value-huge { font-size: 2.3rem; font-weight: 800; font-family: var(--font-mono); color: #ffffff; line-height: 1.1; display: flex; align-items: baseline; gap: 0.3rem; }
     .stat-value-huge .unit { font-size: 1.1rem; font-weight: 600; color: var(--accent-indigo); }
@@ -112,8 +110,8 @@
     @keyframes statPulse { 0% { transform: scale(1); } 40% { transform: scale(1.045); } 100% { transform: scale(1); } }
     .stat-subtext { font-size: 0.8rem; color: var(--text-muted); margin-top: 0.4rem; }
     .metrics-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
-    .metric-card { background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 0.85rem 0.95rem; transition: border-color 0.3s ease; }
-    .metric-card:hover { border-color: #2e3f63; }
+    .metric-card { background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 0.85rem 0.95rem; transition: border-color 0.2s ease; }
+    .metric-card:hover { border-color: var(--border-strong); }
     .metric-card .m-label { font-size: 0.725rem; font-weight: 600; color: var(--text-dim); }
     .metric-card .m-val { font-size: 1.1rem; font-weight: 700; font-family: var(--font-mono); color: var(--text-main); }
     .data-table { width: 100%; border-collapse: collapse; font-size: 0.8rem; font-family: var(--font-mono); margin-top: 0.5rem; }
@@ -127,14 +125,14 @@
     .rating-good { background: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.35); }
     .rating-mid { background: rgba(99, 102, 241, 0.15); color: #a5b4fc; border: 1px solid rgba(99, 102, 241, 0.35); }
     .rating-low { background: rgba(244, 63, 94, 0.15); color: #fb7185; border: 1px solid rgba(244, 63, 94, 0.35); }
-    .mini-card { background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 0.9rem 1rem; transition: border-color 0.3s ease; }
-    .mini-card:hover { border-color: #2e3f63; }
+    .mini-card { background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 0.9rem 1rem; transition: border-color 0.2s ease; }
+    .mini-card:hover { border-color: var(--border-strong); }
     .mini-title { font-size: 0.82rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-main); }
     .gauge-track { height: 8px; background: var(--bg-input); border-radius: var(--radius-full); overflow: hidden; margin: 0.35rem 0; }
-    .gauge-fill { height: 100%; border-radius: var(--radius-full); background: linear-gradient(90deg, var(--accent-indigo), var(--accent-violet)); transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
+    .gauge-fill { height: 100%; border-radius: var(--radius-full); background: var(--accent-indigo); transition: width 0.5s ease; }
     .gauge-labels { display: flex; justify-content: space-between; font-size: 0.68rem; color: var(--text-dim); font-family: var(--font-mono); }
     .insight-card { display: flex; gap: 0.6rem; background: rgba(6, 182, 212, 0.06); border: 1px solid rgba(6, 182, 212, 0.2); border-radius: var(--radius-md); padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--text-muted); line-height: 1.55; }
-    .insight-icon { font-size: 1rem; flex-shrink: 0; }
+    .insight-icon { display: none; }
     .split-bar { display: flex; height: 10px; border-radius: var(--radius-full); overflow: hidden; margin: 0.35rem 0; background: var(--bg-input); }
     .split-seg { height: 100%; transition: width 0.5s ease; }
     .legend-row { display: flex; gap: 1rem; flex-wrap: wrap; font-size: 0.72rem; color: var(--text-muted); }
@@ -148,8 +146,9 @@
     .zone-bpm { color: var(--text-main); font-weight: 700; }
     .zone-pct { color: var(--text-dim); width: 5.5rem; text-align: right; }
     .chart-bars { display: flex; align-items: flex-end; gap: 4px; height: 90px; margin: 0.4rem 0 0.2rem; }
-    .chart-bar { flex: 1; background: linear-gradient(180deg, var(--accent-indigo), rgba(99, 102, 241, 0.35)); border-radius: 3px 3px 0 0; min-height: 3px; transition: height 0.6s ease; }
-    .chart-active { background: linear-gradient(180deg, #f59e0b, rgba(245, 158, 11, 0.35)); }
+    .chart-bar { flex: 1; background: var(--accent-indigo); opacity: 0.8; border-radius: 2px 2px 0 0; min-height: 3px; transition: height 0.5s ease; }
+    .chart-bar:last-child { opacity: 1; }
+    .chart-active { background: var(--accent-amber); }
     .chart-meta { display: flex; justify-content: space-between; font-size: 0.68rem; color: var(--text-dim); font-family: var(--font-mono); }
 
     .history-card { margin-top: 1.5rem; }
@@ -165,74 +164,38 @@
     details.faq-item summary::after { content: '+'; color: var(--text-dim); font-family: var(--font-mono); }
     details.faq-item[open] summary::after { content: '−'; }
 
-    /* ===== ANIMATED HERO ===== */
-    .hero-portal { position: relative; overflow: hidden; text-align: center; padding: 2.5rem 1.25rem 2rem 1.25rem; max-width: 850px; margin: 0 auto; border-radius: var(--radius-lg); background:
-      radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.18) 0%, transparent 70%),
-      radial-gradient(rgba(99, 102, 241, 0.12) 1px, transparent 1px);
-      background-size: auto, 26px 26px; }
-    .hero-portal::before, .hero-portal::after { content:''; position:absolute; border-radius:50%; filter:blur(70px); opacity:0.35; z-index:-0; pointer-events:none; }
-    .hero-portal::before { width: 380px; height: 380px; background: rgba(99,102,241,0.5); top: -130px; left: -90px; animation: floatBlob 9s ease-in-out infinite; }
-    .hero-portal::after { width: 300px; height: 300px; background: rgba(139,92,246,0.45); bottom: -100px; right: -70px; animation: floatBlob 11s ease-in-out infinite reverse; }
-    @keyframes floatBlob { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(30px, -20px) scale(1.15); } }
-    .hero-content { position: relative; z-index: 1; }
-    .hero-headline { font-size: 2.35rem; font-weight: 800; line-height: 1.25; margin-bottom: 0.85rem; background: linear-gradient(135deg, #ffffff 40%, var(--text-muted) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .search-box-wrapper { position: relative; max-width: 580px; margin: 0 auto 1.25rem auto; }
-    .search-input { width: 100%; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-full); padding: 0.85rem 6.5rem 0.85rem 2.8rem; font-size: 0.95rem; color: var(--text-main); outline: none; transition: var(--transition); }
-    .search-input:focus { border-color: var(--border-focus); box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2), 0 0 30px rgba(99, 102, 241, 0.25); }
-    .search-icon-svg { position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); width: 18px; height: 18px; stroke: var(--text-dim); fill: none; stroke-width: 2; }
-    .search-shortcut-badge { position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); font-size: 0.7rem; font-family: var(--font-mono); color: var(--text-dim); background: var(--bg-card); border: 1px solid var(--border-subtle); padding: 0.15rem 0.45rem; border-radius: var(--radius-sm); pointer-events: none; }
-    .hero-badges { display: inline-flex; align-items: center; gap: 0.75rem; background: var(--bg-surface); border: 1px solid var(--border-subtle); padding: 0.45rem 1.25rem; border-radius: var(--radius-full); font-size: 0.8rem; color: var(--text-muted); flex-wrap: wrap; justify-content: center; }
+    /* ===== HERO ===== */
+    .hero-portal { text-align: center; padding: 3rem 1.25rem 2.5rem 1.25rem; max-width: 760px; margin: 0 auto; }
+    .hero-headline { font-size: 2.25rem; font-weight: 800; letter-spacing: -0.03em; line-height: 1.25; margin-bottom: 0.9rem; color: var(--text-main); }
+    .hero-sub { font-size: 1rem; color: var(--text-muted); margin-bottom: 1.75rem; }
+    .search-box-wrapper { position: relative; max-width: 560px; margin: 0 auto; }
+    .search-input { width: 100%; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 0.8rem 5.5rem 0.8rem 2.6rem; font-size: 0.92rem; color: var(--text-main); outline: none; transition: var(--transition); }
+    .search-input:focus { border-color: var(--border-focus); box-shadow: 0 0 0 3px rgba(110, 139, 255, 0.15); }
+    .search-icon-svg { position: absolute; left: 0.95rem; top: 50%; transform: translateY(-50%); width: 16px; height: 16px; stroke: var(--text-dim); fill: none; stroke-width: 2; }
+    .search-shortcut-badge { position: absolute; right: 0.9rem; top: 50%; transform: translateY(-50%); font-size: 0.68rem; font-family: var(--font-mono); color: var(--text-dim); background: var(--bg-card); border: 1px solid var(--border-subtle); padding: 0.15rem 0.45rem; border-radius: var(--radius-sm); pointer-events: none; }
 
     /* ===== BENTO CARDS ===== */
     .home-cat-section { margin-top: 2.25rem; }
-    .home-cat-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.85rem; color: var(--text-main); display: flex; align-items: center; gap: 0.5rem; }
+    .home-cat-title { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem; color: var(--text-dim); }
     .bento-grid { display: grid; grid-template-columns: repeat(1, 1fr); gap: 1rem; }
     @media (min-width: 768px) {
       .bento-grid { grid-template-columns: repeat(3, 1fr); }
       .bento-card-feature { grid-column: span 2; }
     }
-    .bento-card { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.25rem; transition: all 0.25s ease; cursor: pointer; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; }
-    .bento-card:hover { transform: translateY(-4px); }
-    .bento-card:active { transform: scale(0.98); }
-    .bento-card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.65rem; }
-    .bento-ic { width: 40px; height: 40px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; background: var(--bg-surface); border: 1px solid var(--border-subtle); box-shadow: var(--shadow-md); }
-    .bento-tag { font-size: 0.675rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 0.2rem 0.6rem; border-radius: var(--radius-full); }
-    .bento-arrow { width: 18px; height: 18px; stroke: var(--text-dim); stroke-width: 2; fill: none; transition: transform 0.2s ease; }
-    .bento-card:hover .bento-arrow { transform: translate(3px, -3px); stroke: var(--text-main); }
-    .bento-title { font-size: 1.1rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.35rem; }
-    .bento-card-feature .bento-title { font-size: 1.3rem; }
-    .bento-desc { font-size: 0.825rem; color: var(--text-muted); line-height: 1.5; }
-    .bento-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 0.85rem; }
-    .bento-preview-badge { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.725rem; font-family: var(--font-mono); color: var(--text-dim); background: var(--bg-surface); padding: 0.25rem 0.6rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); width: fit-content; }
-    .bento-spark { display: inline-flex; align-items: flex-end; gap: 2px; height: 16px; }
-    .bento-spark i { width: 3px; border-radius: 2px; background: currentColor; opacity: 0.7; animation: sparkPulse 1.6s ease-in-out infinite; }
-    .bento-spark i:nth-child(1) { height: 40%; animation-delay: 0s; }
-    .bento-spark i:nth-child(2) { height: 80%; animation-delay: 0.2s; }
-    .bento-spark i:nth-child(3) { height: 60%; animation-delay: 0.4s; }
-    .bento-spark i:nth-child(4) { height: 100%; animation-delay: 0.6s; }
-    .bento-spark i:nth-child(5) { height: 70%; animation-delay: 0.8s; }
-    @keyframes sparkPulse { 0%,100% { transform: scaleY(0.6); opacity: 0.4; } 50% { transform: scaleY(1); opacity: 0.9; } }
+    .bento-card { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 1.25rem 1.35rem; transition: border-color 0.2s ease, background-color 0.2s ease; cursor: pointer; display: flex; flex-direction: column; justify-content: space-between; }
+    .bento-card:hover { background: var(--bg-card-alt); border-color: var(--border-strong); }
+    .bento-title { font-size: 1.05rem; font-weight: 700; letter-spacing: -0.01em; color: var(--text-main); margin-bottom: 0.4rem; }
+    .bento-card-feature .bento-title { font-size: 1.2rem; }
+    .bento-desc { font-size: 0.84rem; color: var(--text-muted); line-height: 1.55; }
+    .bento-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 1rem; }
+    .bento-tag { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.02em; color: var(--text-dim); }
+    .bento-arrow { width: 16px; height: 16px; stroke: var(--text-dim); stroke-width: 2; fill: none; transition: stroke 0.2s ease; }
+    .bento-card:hover .bento-arrow { stroke: var(--accent-indigo); }
 
-    .cat-maker .bento-card { border-top: 3px solid var(--accent-violet); }
-    .cat-maker .bento-tag { background: rgba(139, 92, 246, 0.15); color: var(--accent-violet); border: 1px solid rgba(139, 92, 246, 0.3); }
-    .cat-maker .bento-card:hover { border-color: var(--accent-violet); box-shadow: 0 8px 30px rgba(139, 92, 246, 0.25); }
-    .cat-maker .bento-ic { color: var(--accent-violet); border-color: rgba(139, 92, 246, 0.3); }
-    .cat-maker .bento-spark { color: var(--accent-violet); }
-    .cat-creator .bento-card { border-top: 3px solid var(--accent-cyan); }
-    .cat-creator .bento-tag { background: rgba(6, 182, 212, 0.15); color: var(--accent-cyan); border: 1px solid rgba(6, 182, 212, 0.3); }
-    .cat-creator .bento-card:hover { border-color: var(--accent-cyan); box-shadow: 0 8px 30px rgba(6, 182, 212, 0.25); }
-    .cat-creator .bento-ic { color: var(--accent-cyan); border-color: rgba(6, 182, 212, 0.3); }
-    .cat-creator .bento-spark { color: var(--accent-cyan); }
-    .cat-fitness .bento-card { border-top: 3px solid var(--accent-emerald); }
-    .cat-fitness .bento-tag { background: rgba(16, 185, 129, 0.15); color: var(--accent-emerald); border: 1px solid rgba(16, 185, 129, 0.3); }
-    .cat-fitness .bento-card:hover { border-color: var(--accent-emerald); box-shadow: 0 8px 30px rgba(16, 185, 129, 0.25); }
-    .cat-fitness .bento-ic { color: var(--accent-emerald); border-color: rgba(16, 185, 129, 0.3); }
-    .cat-fitness .bento-spark { color: var(--accent-emerald); }
-    .cat-finance .bento-card { border-top: 3px solid var(--accent-amber); }
-    .cat-finance .bento-tag { background: rgba(245, 158, 11, 0.15); color: var(--accent-amber); border: 1px solid rgba(245, 158, 11, 0.3); }
-    .cat-finance .bento-card:hover { border-color: var(--accent-amber); box-shadow: 0 8px 30px rgba(245, 158, 11, 0.25); }
-    .cat-finance .bento-ic { color: var(--accent-amber); border-color: rgba(245, 158, 11, 0.3); }
-    .cat-finance .bento-spark { color: var(--accent-amber); }
+    .cat-maker .bento-tag { color: #a5b4fc; }
+    .cat-creator .bento-tag { color: #67e8f9; }
+    .cat-fitness .bento-tag { color: #6ee7b7; }
+    .cat-finance .bento-tag { color: #fcd34d; }
 
     .toast { position: fixed; bottom: 2rem; right: 2rem; background: var(--bg-card-alt); color: var(--text-main); border: 1px solid var(--accent-indigo); border-radius: var(--radius-md); padding: 0.8rem 1.25rem; font-size: 0.85rem; font-weight: 600; box-shadow: var(--shadow-md); display: flex; align-items: center; gap: 0.5rem; transform: translateY(100px); opacity: 0; transition: all 0.3s ease; z-index: 3000; }
     .toast.show { transform: translateY(0); opacity: 1; }
@@ -364,313 +327,136 @@
       <!-- HOMEPAGE PORTAL -->
       <section id="tab-home" class="tab-panel active">
         <div class="hero-portal">
-          <div class="hero-content">
-            <h1 class="hero-headline">High-Precision Micro-Utility Suite for Makers, Creators, Athletes & Investors</h1>
-            <p style="margin-bottom:1.25rem;">24 guided calculators with instant visual results — ratings, gauges, charts & breakdowns. Privacy-first, zero bloat.</p>
+          <h1 class="hero-headline">Makers · Creators · Athletes · Investors</h1>
+          <p class="hero-sub">24 calculators with instant visual results — ratings, gauges, charts and breakdowns for real-world decisions.</p>
 
-            <div class="search-box-wrapper">
-              <svg class="search-icon-svg" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-              <input type="text" id="home-search-input" class="search-input" placeholder="Search 24 calculators (e.g., NY pizza, FOV, pace, mortgage, 3D print...)..." oninput="filterHomeTools(this.value)">
-              <span class="search-shortcut-badge">[ Press / to search ]</span>
-            </div>
-
-            <div class="hero-badges">
-              <span>⚡ Zero Server Latency</span> • 
-              <span>🔒 100% Client-Side Privacy</span> • 
-              <span>✨ Guided Results & Ratings</span> • 
-              <span>📋 Markdown Copy</span>
-            </div>
+          <div class="search-box-wrapper">
+            <svg class="search-icon-svg" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="text" id="home-search-input" class="search-input" placeholder="Search 24 calculators…" oninput="filterHomeTools(this.value)">
+            <span class="search-shortcut-badge">/ to search</span>
           </div>
         </div>
 
         <!-- MAKER & CRAFT -->
         <div class="home-cat-section cat-maker tool-card-item" data-title="3d print cost baker pizza dough ny new york style laser cnc cutting sourdough levain resin mold maker craft">
-          <h2 class="home-cat-title">🛠️ Maker & Craft Utilities</h2>
+          <h2 class="home-cat-title">Maker & Craft</h2>
           <div class="bento-grid">
             <div class="bento-card bento-card-feature" onclick="switchTab('tab-3dprint')">
-              <div>
-                <div class="bento-card-header"><div class="bento-ic">🖨️</div><span class="bento-tag">FLAGSHIP TOOL</span></div>
-                <div class="bento-title">3D Print Cost & Commercial Pricing Estimator</div>
-                <div class="bento-desc">Cost breakdown bar, power & wear, profit margin rating — know exactly what to charge.</div>
-              </div>
-              <div class="bento-footer">
-                <div class="bento-preview-badge">🔍 Filament · Power · Labor</div>
-                <div class="bento-spark"><i></i><i></i><i></i><i></i><i></i></div>
-              </div>
+              <div><div class="bento-title">3D Print Cost Estimator</div><div class="bento-desc">Filament, power, wear and labor — with a production-cost breakdown and margin rating.</div></div>
+              <div class="bento-footer"><span class="bento-tag">Flagship</span><svg class="bento-arrow" viewBox="0 0 24 24"><line x1="5" y1="19" x2="19" y2="5"></line><polyline points="12 5 19 5 19 12"></polyline></svg></div>
             </div>
             <div class="bento-card" onclick="switchTab('tab-baker')">
-              <div>
-                <div class="bento-card-header"><div class="bento-ic">🍕</div><span class="bento-tag">DOUGH MATH</span></div>
-                <div class="bento-title">Baker's Pizza Dough Math</div>
-                <div class="bento-desc">Neapolitan-style scaling with hydration gauge & dough rating.</div>
-              </div>
-              <div class="bento-footer">
-                <div class="bento-preview-badge">🔍 Hydration & Baker %</div>
-                <div class="bento-spark"><i></i><i></i><i></i><i></i><i></i></div>
-              </div>
+              <div><div class="bento-title">Baker's Pizza Dough Math</div><div class="bento-desc">Scale hydration, yeast, salt and oil for consistent dough.</div></div>
+              <div class="bento-footer"><span class="bento-tag">Dough Math</span><svg class="bento-arrow" viewBox="0 0 24 24"><line x1="5" y1="19" x2="19" y2="5"></line><polyline points="12 5 19 5 19 12"></polyline></svg></div>
             </div>
             <div class="bento-card" onclick="switchTab('tab-ny-pizza')">
-              <div>
-                <div class="bento-card-header"><div class="bento-ic">🗽</div><span class="bento-tag">NEW</span></div>
-                <div class="bento-title">NY-Style Pizza Dough Recipe</div>
-                <div class="bento-desc">60% hydration, high-gluten flour & cold-ferment guidance for 12–16" pies.</div>
-              </div>
-              <div class="bento-footer">
-                <div class="bento-preview-badge">🔍 NY Classic · Cold Ferment</div>
-                <div class="bento-spark"><i></i><i></i><i></i><i></i><i></i></div>
-              </div>
+              <div><div class="bento-title">NY-Style Pizza Dough</div><div class="bento-desc">Classic 60% hydration recipe with high-gluten flour and cold-ferment guidance.</div></div>
+              <div class="bento-footer"><span class="bento-tag">New</span><svg class="bento-arrow" viewBox="0 0 24 24"><line x1="5" y1="19" x2="19" y2="5"></line><polyline points="12 5 19 5 19 12"></polyline></svg></div>
             </div>
             <div class="bento-card" onclick="switchTab('tab-laser-cnc')">
-              <div>
-                <div class="bento-card-header"><div class="bento-ic">⚙️</div><span class="bento-tag">CNC MACHINING</span></div>
-                <div class="bento-title">Laser Cutting & CNC Machining Cost</div>
-                <div class="bento-desc">Runtime, feed rates, machine $/hr & quote with markup breakdown.</div>
-              </div>
-              <div class="bento-footer">
-                <div class="bento-preview-badge">🔍 Machine $/hr & Cut Speed</div>
-                <div class="bento-spark"><i></i><i></i><i></i><i></i><i></i></div>
-              </div>
+              <div><div class="bento-title">Laser Cutting & CNC Cost</div><div class="bento-desc">Cut time, machine rate and setup — with an itemized job quote.</div></div>
+              <div class="bento-footer"><span class="bento-tag">Machining</span><svg class="bento-arrow" viewBox="0 0 24 24"><line x1="5" y1="19" x2="19" y2="5"></line><polyline points="12 5 19 5 19 12"></polyline></svg></div>
             </div>
             <div class="bento-card" onclick="switchTab('tab-sourdough')">
-              <div>
-                <div class="bento-card-header"><div class="bento-ic">🥖</div><span class="bento-tag">BAKING</span></div>
-                <div class="bento-title">Sourdough Levain & Fermentation</div>
-                <div class="bento-desc">1:2:2 levain builds, inoculation %, salt & hydration split with visual.</div>
-              </div>
-              <div class="bento-footer">
-                <div class="bento-preview-badge">🔍 Starter · Flour · Water</div>
-                <div class="bento-spark"><i></i><i></i><i></i><i></i><i></i></div>
-              </div>
+              <div><div class="bento-title">Sourdough Levain & Fermentation</div><div class="bento-desc">1:2:2 levain builds, inoculation percent and hydration split.</div></div>
+              <div class="bento-footer"><span class="bento-tag">Baking</span><svg class="bento-arrow" viewBox="0 0 24 24"><line x1="5" y1="19" x2="19" y2="5"></line><polyline points="12 5 19 5 19 12"></polyline></svg></div>
             </div>
             <div class="bento-card" onclick="switchTab('tab-resin-mold')">
-              <div>
-                <div class="bento-card-header"><div class="bento-ic">🧪</div><span class="bento-tag">CASTING</span></div>
-                <div class="bento-title">Resin Casting & Mold Volume</div>
-                <div class="bento-desc">Volume in cm³, mL & oz with 2:1 Part A:B mix and 10% waste buffer.</div>
-              </div>
-              <div class="bento-footer">
-                <div class="bento-preview-badge">🔍 mL · fl oz · Mix Ratio</div>
-                <div class="bento-spark"><i></i><i></i><i></i><i></i><i></i></div>
-              </div>
+              <div><div class="bento-title">Resin Casting & Mold Volume</div><div class="bento-desc">Epoxy volume in mL and ounces with a 2:1 Part A:B mix.</div></div>
+              <div class="bento-footer"><span class="bento-tag">Casting</span><svg class="bento-arrow" viewBox="0 0 24 24"><line x1="5" y1="19" x2="19" y2="5"></line><polyline points="12 5 19 5 19 12"></polyline></svg></div>
             </div>
           </div>
         </div>
 
         <!-- CREATOR & MEDIA -->
         <div class="home-cat-section cat-creator tool-card-item" data-title="video export bitrate dof depth of field optics camera field of view crop factor fov nd filter exposure timelapse inverse square light creator media">
-          <h2 class="home-cat-title">🎬 Creator & Media Utilities</h2>
+          <h2 class="home-cat-title">Creator & Media</h2>
           <div class="bento-grid">
             <div class="bento-card bento-card-feature" onclick="switchTab('tab-video')">
-              <div>
-                <div class="bento-card-header"><div class="bento-ic">🎞️</div><span class="bento-tag">FLAGSHIP TOOL</span></div>
-                <div class="bento-title">Video Export Bitrate & File Size Forecast</div>
-                <div class="bento-desc">File size with codec-tier rating — instantly see if it fits upload or delivery targets.</div>
-              </div>
-              <div class="bento-footer">
-                <div class="bento-preview-badge">🔍 4K · 1080p · Codecs</div>
-                <div class="bento-spark"><i></i><i></i><i></i><i></i><i></i></div>
-              </div>
+              <div><div class="bento-title">Video Export Bitrate & File Size</div><div class="bento-desc">File size with a delivery-tier rating — see if it fits upload or platform targets.</div></div>
+              <div class="bento-footer"><span class="bento-tag">Flagship</span><svg class="bento-arrow" viewBox="0 0 24 24"><line x1="5" y1="19" x2="19" y2="5"></line><polyline points="12 5 19 5 19 12"></polyline></svg></div>
             </div>
             <div class="bento-card" onclick="switchTab('tab-dof')">
-              <div>
-                <div class="bento-card-header"><div class="bento-ic">🔭</div><span class="bento-tag">OPTICS</span></div>
-                <div class="bento-title">Depth of Field & Optics</div>
-                <div class="bento-desc">Hyperfocal, near/far focus limits & total in-focus range visual.</div>
-              </div>
-              <div class="bento-footer">
-                <div class="bento-preview-badge">🔍 Focus Range Visual</div>
-                <div class="bento-spark"><i></i><i></i><i></i><i></i><i></i></div>
-              </div>
+              <div><div class="bento-title">Depth of Field & Optics</div><div class="bento-desc">Hyperfocal distance, focus limits and in-focus range.</div></div>
+              <div class="bento-footer"><span class="bento-tag">Optics</span><svg class="bento-arrow" viewBox="0 0 24 24"><line x1="5" y1="19" x2="19" y2="5"></line><polyline points="12 5 19 5 19 12"></polyline></svg></div>
             </div>
             <div class="bento-card" onclick="switchTab('tab-camera-fov')">
-              <div>
-                <div class="bento-card-header"><div class="bento-ic">📷</div><span class="bento-tag">NEW</span></div>
-                <div class="bento-title">Camera Field of View & Crop Factor</div>
-                <div class="bento-desc">FOV in degrees for any lens/sensor + 35mm-equivalent focal length.</div>
-              </div>
-              <div class="bento-footer">
-                <div class="bento-preview-badge">🔍 FOV° · Crop Factor</div>
-                <div class="bento-spark"><i></i><i></i><i></i><i></i><i></i></div>
-              </div>
+              <div><div class="bento-title">Camera Field of View & Crop Factor</div><div class="bento-desc">FOV in degrees for any lens and sensor, plus 35mm-equivalent focal length.</div></div>
+              <div class="bento-footer"><span class="bento-tag">New</span><svg class="bento-arrow" viewBox="0 0 24 24"><line x1="5" y1="19" x2="19" y2="5"></line><polyline points="12 5 19 5 19 12"></polyline></svg></div>
             </div>
             <div class="bento-card" onclick="switchTab('tab-nd-filter')">
-              <div>
-                <div class="bento-card-header"><div class="bento-ic">🌗</div><span class="bento-tag">EXPOSURE</span></div>
-                <div class="bento-title">ND Filter & Camera Exposure</div>
-                <div class="bento-desc">Target shutter speed, EV shift & ND density name (e.g. ND1000).</div>
-              </div>
-              <div class="bento-footer">
-                <div class="bento-preview-badge">🔍 Long Exposure & EV</div>
-                <div class="bento-spark"><i></i><i></i><i></i><i></i><i></i></div>
-              </div>
+              <div><div class="bento-title">ND Filter & Camera Exposure</div><div class="bento-desc">Shutter speed compensation and ND density naming across stops.</div></div>
+              <div class="bento-footer"><span class="bento-tag">Exposure</span><svg class="bento-arrow" viewBox="0 0 24 24"><line x1="5" y1="19" x2="19" y2="5"></line><polyline points="12 5 19 5 19 12"></polyline></svg></div>
             </div>
             <div class="bento-card" onclick="switchTab('tab-timelapse')">
-              <div>
-                <div class="bento-card-header"><div class="bento-ic">⏳</div><span class="bento-tag">TIMELAPSE</span></div>
-                <div class="bento-title">Timelapse Interval & Duration</div>
-                <div class="bento-desc">Shots needed, playback speed-multiplier & card storage estimate.</div>
-              </div>
-              <div class="bento-footer">
-                <div class="bento-preview-badge">🔍 FPS · Shots · Storage</div>
-                <div class="bento-spark"><i></i><i></i><i></i><i></i><i></i></div>
-              </div>
+              <div><div class="bento-title">Timelapse Interval & Duration</div><div class="bento-desc">Shooting interval, shot count, playback speed and card storage.</div></div>
+              <div class="bento-footer"><span class="bento-tag">Timelapse</span><svg class="bento-arrow" viewBox="0 0 24 24"><line x1="5" y1="19" x2="19" y2="5"></line><polyline points="12 5 19 5 19 12"></polyline></svg></div>
             </div>
             <div class="bento-card" onclick="switchTab('tab-light-inverse')">
-              <div>
-                <div class="bento-card-header"><div class="bento-ic">💡</div><span class="bento-tag">LIGHTING</span></div>
-                <div class="bento-title">Inverse Square Light Drop-Off</div>
-                <div class="bento-desc">Lux falloff, f-stop loss & intensity ratio — see why distance kills light.</div>
-              </div>
-              <div class="bento-footer">
-                <div class="bento-preview-badge">🔍 Lux & EV Falloff</div>
-                <div class="bento-spark"><i></i><i></i><i></i><i></i><i></i></div>
-              </div>
+              <div><div class="bento-title">Inverse Square Light Drop-Off</div><div class="bento-desc">Lux falloff and f-stop loss as distance changes.</div></div>
+              <div class="bento-footer"><span class="bento-tag">Lighting</span><svg class="bento-arrow" viewBox="0 0 24 24"><line x1="5" y1="19" x2="19" y2="5"></line><polyline points="12 5 19 5 19 12"></polyline></svg></div>
             </div>
           </div>
         </div>
 
         <!-- FITNESS & BODY -->
         <div class="home-cat-section cat-fitness tool-card-item" data-title="tdee recomp macro 1rm strength ffmi muscle potential wilks dots powerlifting karvonen heart rate running pace splits marathon 5k 10k fitness body">
-          <h2 class="home-cat-title">🏋️ Fitness & Body Utilities</h2>
+          <h2 class="home-cat-title">Fitness & Body</h2>
           <div class="bento-grid">
             <div class="bento-card bento-card-feature" onclick="switchTab('tab-tdee')">
-              <div>
-                <div class="bento-card-header"><div class="bento-ic">🔥</div><span class="bento-tag">FLAGSHIP TOOL</span></div>
-                <div class="bento-title">TDEE & Recomp Macro Splitter</div>
-                <div class="bento-desc">BMR, maintenance, cut & bulk targets with a live protein/carb/fat macro bar.</div>
-              </div>
-              <div class="bento-footer">
-                <div class="bento-preview-badge">🔍 Mifflin-St Jeor & Macros</div>
-                <div class="bento-spark"><i></i><i></i><i></i><i></i><i></i></div>
-              </div>
+              <div><div class="bento-title">TDEE & Recomp Macro Splitter</div><div class="bento-desc">BMR, maintenance, cut and bulk targets with a protein/carb/fat breakdown.</div></div>
+              <div class="bento-footer"><span class="bento-tag">Flagship</span><svg class="bento-arrow" viewBox="0 0 24 24"><line x1="5" y1="19" x2="19" y2="5"></line><polyline points="12 5 19 5 19 12"></polyline></svg></div>
             </div>
             <div class="bento-card" onclick="switchTab('tab-1rm')">
-              <div>
-                <div class="bento-card-header"><div class="bento-ic">🏋️</div><span class="bento-tag">STRENGTH</span></div>
-                <div class="bento-title">1RM Strength Matrix</div>
-                <div class="bento-desc">Epley + Brzycki estimates with bodyweight ratio & strength-level rating.</div>
-              </div>
-              <div class="bento-footer">
-                <div class="bento-preview-badge">🔍 Epley & Brzycki Avg</div>
-                <div class="bento-spark"><i></i><i></i><i></i><i></i><i></i></div>
-              </div>
+              <div><div class="bento-title">1RM Strength Matrix</div><div class="bento-desc">Epley and Brzycki estimates with a bodyweight strength rating.</div></div>
+              <div class="bento-footer"><span class="bento-tag">Strength</span><svg class="bento-arrow" viewBox="0 0 24 24"><line x1="5" y1="19" x2="19" y2="5"></line><polyline points="12 5 19 5 19 12"></polyline></svg></div>
             </div>
             <div class="bento-card" onclick="switchTab('tab-ffmi')">
-              <div>
-                <div class="bento-card-header"><div class="bento-ic">💪</div><span class="bento-tag">COMPOSITION</span></div>
-                <div class="bento-title">FFMI & Muscular Potential</div>
-                <div class="bento-desc">Normalized FFMI with a 16–25 natural-ceiling gauge & classification rating.</div>
-              </div>
-              <div class="bento-footer">
-                <div class="bento-preview-badge">🔍 Natural Ceiling Gauge</div>
-                <div class="bento-spark"><i></i><i></i><i></i><i></i><i></i></div>
-              </div>
+              <div><div class="bento-title">FFMI & Muscular Potential</div><div class="bento-desc">Normalized FFMI on the natural-ceiling scale with classification.</div></div>
+              <div class="bento-footer"><span class="bento-tag">Composition</span><svg class="bento-arrow" viewBox="0 0 24 24"><line x1="5" y1="19" x2="19" y2="5"></line><polyline points="12 5 19 5 19 12"></polyline></svg></div>
             </div>
             <div class="bento-card" onclick="switchTab('tab-wilks-dots')">
-              <div>
-                <div class="bento-card-header"><div class="bento-ic">🏆</div><span class="bento-tag">POWERLIFTING</span></div>
-                <div class="bento-title">Wilks 2.0 & DOTS Powerlifting Score</div>
-                <div class="bento-desc">DOTS classification rating (Novice → Elite) plus classic Wilks coefficient.</div>
-              </div>
-              <div class="bento-footer">
-                <div class="bento-preview-badge">🔍 DOTS Polynomial Score</div>
-                <div class="bento-spark"><i></i><i></i><i></i><i></i><i></i></div>
-              </div>
+              <div><div class="bento-title">Wilks & DOTS Powerlifting Score</div><div class="bento-desc">Relative strength across weight classes with a rating from Novice to Elite.</div></div>
+              <div class="bento-footer"><span class="bento-tag">Powerlifting</span><svg class="bento-arrow" viewBox="0 0 24 24"><line x1="5" y1="19" x2="19" y2="5"></line><polyline points="12 5 19 5 19 12"></polyline></svg></div>
             </div>
             <div class="bento-card" onclick="switchTab('tab-karvonen-hr')">
-              <div>
-                <div class="bento-card-header"><div class="bento-ic">❤️</div><span class="bento-tag">CARDIO</span></div>
-                <div class="bento-title">Karvonen Heart Rate Zones</div>
-                <div class="bento-desc">5 color-coded training zones with exact BPM ranges from your HRR.</div>
-              </div>
-              <div class="bento-footer">
-                <div class="bento-preview-badge">🔍 Zone 1-5 BPM Targets</div>
-                <div class="bento-spark"><i></i><i></i><i></i><i></i><i></i></div>
-              </div>
+              <div><div class="bento-title">Karvonen Heart Rate Zones</div><div class="bento-desc">Five training zones with exact BPM ranges from your heart-rate reserve.</div></div>
+              <div class="bento-footer"><span class="bento-tag">Cardio</span><svg class="bento-arrow" viewBox="0 0 24 24"><line x1="5" y1="19" x2="19" y2="5"></line><polyline points="12 5 19 5 19 12"></polyline></svg></div>
             </div>
             <div class="bento-card" onclick="switchTab('tab-running-pace')">
-              <div>
-                <div class="bento-card-header"><div class="bento-ic">🏃</div><span class="bento-tag">NEW</span></div>
-                <div class="bento-title">Running Pace & Split Calculator</div>
-                <div class="bento-desc">Pace per km/mi, speed & predicted finish times for 5K, 10K, half & full marathon.</div>
-              </div>
-              <div class="bento-footer">
-                <div class="bento-preview-badge">🔍 Splits · 5K → Marathon</div>
-                <div class="bento-spark"><i></i><i></i><i></i><i></i><i></i></div>
-              </div>
+              <div><div class="bento-title">Running Pace & Split Calculator</div><div class="bento-desc">Pace per km and mile, plus predicted 5K to marathon finish times.</div></div>
+              <div class="bento-footer"><span class="bento-tag">New</span><svg class="bento-arrow" viewBox="0 0 24 24"><line x1="5" y1="19" x2="19" y2="5"></line><polyline points="12 5 19 5 19 12"></polyline></svg></div>
             </div>
           </div>
         </div>
 
         <!-- FINANCE & TRADING -->
         <div class="home-cat-section cat-finance tool-card-item" data-title="stock average down drip dividend trading position size risk reward compound savings crypto roi mortgage loan payment finance trading">
-          <h2 class="home-cat-title">📈 Finance & Trading Utilities</h2>
+          <h2 class="home-cat-title">Finance & Trading</h2>
           <div class="bento-grid">
             <div class="bento-card bento-card-feature" onclick="switchTab('tab-stock-avg')">
-              <div>
-                <div class="bento-card-header"><div class="bento-ic">📉</div><span class="bento-tag">FLAGSHIP TOOL</span></div>
-                <div class="bento-title">Stock Average Down & Break-Even</div>
-                <div class="bento-desc">New basis price, total invested, shares held & exactly how far you've DCA'd down.</div>
-              </div>
-              <div class="bento-footer">
-                <div class="bento-preview-badge">🔍 Multi-Tranche Basis</div>
-                <div class="bento-spark"><i></i><i></i><i></i><i></i><i></i></div>
-              </div>
+              <div><div class="bento-title">Stock Average Down & Break-Even</div><div class="bento-desc">Combined cost basis, total invested and how far your DCA has lowered break-even.</div></div>
+              <div class="bento-footer"><span class="bento-tag">Flagship</span><svg class="bento-arrow" viewBox="0 0 24 24"><line x1="5" y1="19" x2="19" y2="5"></line><polyline points="12 5 19 5 19 12"></polyline></svg></div>
             </div>
             <div class="bento-card" onclick="switchTab('tab-drip')">
-              <div>
-                <div class="bento-card-header"><div class="bento-ic">🪙</div><span class="bento-tag">INVESTING</span></div>
-                <div class="bento-title">Dividend DRIP Compounding Forecast</div>
-                <div class="bento-desc">10-year growth chart with contributions vs reinvested-growth split.</div>
-              </div>
-              <div class="bento-footer">
-                <div class="bento-preview-badge">🔍 Yield & Growth Chart</div>
-                <div class="bento-spark"><i></i><i></i><i></i><i></i><i></i></div>
-              </div>
+              <div><div class="bento-title">Dividend DRIP Compounding</div><div class="bento-desc">Ten-year portfolio forecast separating contributions from reinvested growth.</div></div>
+              <div class="bento-footer"><span class="bento-tag">Investing</span><svg class="bento-arrow" viewBox="0 0 24 24"><line x1="5" y1="19" x2="19" y2="5"></line><polyline points="12 5 19 5 19 12"></polyline></svg></div>
             </div>
             <div class="bento-card" onclick="switchTab('tab-position-risk')">
-              <div>
-                <div class="bento-card-header"><div class="bento-ic">🎯</div><span class="bento-tag">RISK MGT</span></div>
-                <div class="bento-title">Trading Position Size & Risk/Reward</div>
-                <div class="bento-desc">Max shares, $ risked, R:R ratio rating & potential profit at target.</div>
-              </div>
-              <div class="bento-footer">
-                <div class="bento-preview-badge">🔍 1:R Ratio & Max Shares</div>
-                <div class="bento-spark"><i></i><i></i><i></i><i></i><i></i></div>
-              </div>
+              <div><div class="bento-title">Position Size & Risk/Reward</div><div class="bento-desc">Max shares based on account risk percent, stop loss and target.</div></div>
+              <div class="bento-footer"><span class="bento-tag">Risk</span><svg class="bento-arrow" viewBox="0 0 24 24"><line x1="5" y1="19" x2="19" y2="5"></line><polyline points="12 5 19 5 19 12"></polyline></svg></div>
             </div>
             <div class="bento-card" onclick="switchTab('tab-compound-savings')">
-              <div>
-                <div class="bento-card-header"><div class="bento-ic">🌱</div><span class="bento-tag">SAVINGS</span></div>
-                <div class="bento-title">Compound Interest & Savings Growth</div>
-                <div class="bento-desc">10-year wealth chart showing exactly how much is contributions vs interest.</div>
-              </div>
-              <div class="bento-footer">
-                <div class="bento-preview-badge">🔍 Multi-Year Growth Chart</div>
-                <div class="bento-spark"><i></i><i></i><i></i><i></i><i></i></div>
-              </div>
+              <div><div class="bento-title">Compound Interest & Savings</div><div class="bento-desc">Ten-year wealth projection showing deposits versus interest earned.</div></div>
+              <div class="bento-footer"><span class="bento-tag">Savings</span><svg class="bento-arrow" viewBox="0 0 24 24"><line x1="5" y1="19" x2="19" y2="5"></line><polyline points="12 5 19 5 19 12"></polyline></svg></div>
             </div>
             <div class="bento-card" onclick="switchTab('tab-crypto-roi')">
-              <div>
-                <div class="bento-card-header"><div class="bento-ic">₿</div><span class="bento-tag">PROFIT ROI</span></div>
-                <div class="bento-title">Crypto & Stock Profit ROI</div>
-                <div class="bento-desc">Net profit after buy/sell exchange fees, ROI % & units held.</div>
-              </div>
-              <div class="bento-footer">
-                <div class="bento-preview-badge">🔍 Fee-Adjusted ROI</div>
-                <div class="bento-spark"><i></i><i></i><i></i><i></i><i></i></div>
-              </div>
+              <div><div class="bento-title">Crypto & Stock Profit ROI</div><div class="bento-desc">Net profit after exchange fees, ROI percent and units held.</div></div>
+              <div class="bento-footer"><span class="bento-tag">Profit</span><svg class="bento-arrow" viewBox="0 0 24 24"><line x1="5" y1="19" x2="19" y2="5"></line><polyline points="12 5 19 5 19 12"></polyline></svg></div>
             </div>
             <div class="bento-card" onclick="switchTab('tab-mortgage')">
-              <div>
-                <div class="bento-card-header"><div class="bento-ic">🏠</div><span class="bento-tag">NEW</span></div>
-                <div class="bento-title">Loan & Mortgage Payment</div>
-                <div class="bento-desc">Monthly P&I payment, total interest & balance amortization chart.</div>
-              </div>
-              <div class="bento-footer">
-                <div class="bento-preview-badge">🔍 Amortization · P&I</div>
-                <div class="bento-spark"><i></i><i></i><i></i><i></i><i></i></div>
-              </div>
+              <div><div class="bento-title">Loan & Mortgage Payment</div><div class="bento-desc">Monthly principal and interest with a balance amortization chart.</div></div>
+              <div class="bento-footer"><span class="bento-tag">New</span><svg class="bento-arrow" viewBox="0 0 24 24"><line x1="5" y1="19" x2="19" y2="5"></line><polyline points="12 5 19 5 19 12"></polyline></svg></div>
             </div>
           </div>
         </div>
@@ -686,7 +472,7 @@
         <div class="tool-header"><div class="tool-title-group"><h1>3D Print Cost Estimator</h1><p>Filament, power, machine wear, labor & retail markup — with cost breakdown.</p></div><button class="btn btn-secondary" onclick="resetTool('tab-3dprint', calc3DPrint)">Reset</button></div>
         <div class="calc-grid">
           <div class="card">
-            <div class="card-header"><span class="card-title">🖨️ Print Parameters</span></div>
+            <div class="card-header"><span class="card-title">Print Parameters</span></div>
             <div class="form-group-grid">
               <div class="form-group"><label class="form-label">Spool Cost</label><div class="input-wrapper"><span class="input-prefix">$</span><input type="number" id="p3d-spool-cost" class="form-control has-prefix" value="24.99" oninput="calc3DPrint()"/></div></div>
               <div class="form-group"><label class="form-label">Spool Weight</label><div class="input-wrapper"><input type="number" id="p3d-spool-weight" class="form-control has-suffix" value="1000" oninput="calc3DPrint()"/><span class="input-suffix">g</span></div></div>
@@ -700,26 +486,30 @@
               <div class="form-group"><label class="form-label">Elec Rate ($/kWh)</label><input type="number" id="p3d-elec-rate" class="form-control" value="0.16" step="0.01" oninput="calc3DPrint()"/></div>
             </div>
             <div class="form-group-grid">
+              <div class="form-group"><label class="form-label">Active Labor (mins)</label><input type="number" id="p3d-labor-min" class="form-control" value="15" oninput="calc3DPrint()"/></div>
               <div class="form-group"><label class="form-label">Labor Rate ($/hr)</label><input type="number" id="p3d-labor-rate" class="form-control" value="25.00" oninput="calc3DPrint()"/></div>
-              <div class="form-group"><label class="form-label">Wear Rate ($/hr)</label><input type="number" id="p3d-wear-rate" class="form-control" value="0.40" step="0.05" oninput="calc3DPrint()"/></div>
             </div>
-            <div class="form-group"><label class="form-label">Retail Markup %</label><input type="number" id="p3d-markup" class="form-control" value="60" oninput="calc3DPrint()"/></div>
+            <div class="form-group-grid">
+              <div class="form-group"><label class="form-label">Wear Rate ($/hr)</label><input type="number" id="p3d-wear-rate" class="form-control" value="0.40" step="0.05" oninput="calc3DPrint()"/></div>
+              <div class="form-group"><label class="form-label">Retail Markup %</label><input type="number" id="p3d-markup" class="form-control" value="60" oninput="calc3DPrint()"/></div>
+            </div>
+            <p style="font-size:0.75rem;color:var(--text-dim);">Labor = your active minutes only (setup + cleanup). Print hours are passive — billed as wear, not hourly labor.</p>
           </div>
           <div class="results-deck">
             <div class="hero-stat-card">
               <div class="stat-label">Recommended Sale Price</div>
-              <div class="stat-value-huge" id="p3d-res-price">$16.88 <span class="unit">USD</span></div>
+              <div class="stat-value-huge" id="p3d-res-price">$18.39 <span class="unit">USD</span></div>
               <div class="stat-subtext" style="margin-top:0.6rem;"><span class="rating-badge rating-mid" id="p3d-res-rating">—</span></div>
             </div>
             <div class="metrics-grid">
-              <div class="metric-card"><div class="m-label">Net Production Cost</div><div class="m-val" id="p3d-res-cost">$9.77</div></div>
+              <div class="metric-card"><div class="m-label">Net Production Cost</div><div class="m-val" id="p3d-res-cost">$11.49</div></div>
               <div class="metric-card"><div class="m-label">Filament Cost</div><div class="m-val" id="p3d-res-fil-cost">$3.12</div></div>
               <div class="metric-card"><div class="m-label">Electricity</div><div class="m-val" id="p3d-res-power-cost">$0.12</div></div>
-              <div class="metric-card"><div class="m-label">Wear + Labor</div><div class="m-val" id="p3d-res-wear-labor">$6.50</div></div>
+              <div class="metric-card"><div class="m-label">Wear + Labor</div><div class="m-val" id="p3d-res-wear-labor">$8.25</div></div>
             </div>
             <div class="mini-card">
               <div class="mini-title">Where the cost goes</div>
-              <div class="split-bar" id="p3d-breakdown-fill"><div class="split-seg" style="width:32%;background:#8b5cf6"></div><div class="split-seg" style="width:1%;background:#06b6d4"></div><div class="split-seg" style="width:67%;background:#6366f1"></div></div>
+              <div class="split-bar" id="p3d-breakdown-fill"><div class="split-seg" style="width:27%;background:#8b5cf6"></div><div class="split-seg" style="width:1%;background:#06b6d4"></div><div class="split-seg" style="width:72%;background:#6366f1"></div></div>
               <div class="legend-row">
                 <span class="legend-item"><span class="legend-swatch" style="background:#8b5cf6"></span>Filament</span>
                 <span class="legend-item"><span class="legend-swatch" style="background:#06b6d4"></span>Power</span>
@@ -1413,15 +1203,15 @@
           <div class="results-deck">
             <div class="hero-stat-card">
               <div class="stat-label">Net Profit (after fees)</div>
-              <div class="stat-value-huge" id="roi-res-profit">$498.50 <span class="unit">+49.9%</span></div>
+              <div class="stat-value-huge" id="roi-res-profit">$497.50 <span class="unit">+49.8%</span></div>
               <div class="stat-subtext" style="margin-top:0.6rem;"><span class="rating-badge rating-excellent" id="roi-res-rating">In Profit</span></div>
             </div>
             <div class="metrics-grid">
               <div class="metric-card"><div class="m-label">Gross Profit</div><div class="m-val" id="roi-res-gross-profit">$500.00</div></div>
               <div class="metric-card"><div class="m-label">Units Held</div><div class="m-val" id="roi-res-units">10.0000</div></div>
-              <div class="metric-card"><div class="m-label">Total Fees Paid</div><div class="m-val" id="roi-res-fees">$1.50</div></div>
+              <div class="metric-card"><div class="m-label">Total Fees Paid</div><div class="m-val" id="roi-res-fees">$2.50</div></div>
             </div>
-            <div class="insight-card"><span class="insight-icon">💡</span><span id="roi-insight">Fees silently eat returns. On a $1,000 trade, 0.1% buy + 0.1% sell costs $1.50 — trivial here, huge on big positions.</span></div>
+            <div class="insight-card"><span class="insight-icon">💡</span><span id="roi-insight">Gross gain $500.00 minus $2.50 in fees (0.1% buy + 0.1% sell) = net $497.50. Fees always matter.</span></div>
             <div class="btn-row"><button class="btn btn-primary" style="flex:1;" onclick="copySummaryCryptoROI(this)">Copy ROI</button><button class="btn btn-secondary" onclick="saveRun('crypto-roi')">Save Run</button></div>
           </div>
         </div>
@@ -1592,13 +1382,14 @@
       const wattage = safeNum($id('p3d-wattage').value, 0, 5000, 150);
       const elecRate = safeNum($id('p3d-elec-rate').value, 0, 10, 0.16);
       const laborRate = safeNum($id('p3d-labor-rate').value, 0, 500, 25);
+      const laborMin = safeNum($id('p3d-labor-min').value, 0, 480, 15);
       const wearRate = safeNum($id('p3d-wear-rate').value, 0, 50, 0.40);
       const markup = safeNum($id('p3d-markup').value, 0, 1000, 60);
 
       const filCost = (spoolCost / spoolWeight) * printWeight;
       const elecCost = (wattage / 1000) * hours * elecRate;
       const wearCost = hours * wearRate;
-      const laborCost = hours * laborRate;
+      const laborCost = (laborMin / 60) * laborRate;
       const baseCost = filCost + elecCost + wearCost + laborCost;
       const totalPrice = baseCost * (1 + markup / 100);
       const profit = totalPrice - baseCost;
@@ -1616,7 +1407,7 @@
       setHTML('p3d-breakdown-fill', `<div class="split-seg" style="width:${pFil}%;background:#8b5cf6"></div><div class="split-seg" style="width:${pElec}%;background:#06b6d4"></div><div class="split-seg" style="width:${pWL}%;background:#6366f1"></div>`);
 
       setRating('p3d-res-rating', margin >= 50 ? 'excellent' : (margin >= 30 ? 'good' : (margin >= 15 ? 'mid' : 'low')), `${margin.toFixed(0)}% margin`);
-      setText('p3d-insight', `You profit ${fmtUSD(profit)} per print — a ${margin.toFixed(0)}% margin. ${margin < 30 ? 'Consider raising markup or reducing print time.' : 'Healthy margin for a side-business.'}`);
+      setText('p3d-insight', `You profit ${fmtUSD(profit)} per print — a ${margin.toFixed(0)}% margin. Labor counts only your ${laborMin} min of active time (setup/cleanup). ${margin < 30 ? 'Consider raising markup or reducing print time.' : 'Healthy margin for a side-business.'}`);
     }
     function copySummary3D(btn) { copyToClipboard(`--- 3D PRINT QUOTE ---\nPrice: ${$id('p3d-res-price').innerText}\nCost: ${$id('p3d-res-cost').innerText}\nCalculated via CalcQI (https://calcqi.com)`, "Quote copied!", btn); }
 
@@ -2212,7 +2003,7 @@
       setText('roi-res-units', units.toFixed(4));
       setText('roi-res-fees', fmtUSD(totalFees));
       setRating('roi-res-rating', net >= 0 ? 'excellent' : 'low', net >= 0 ? 'In Profit' : 'At a Loss');
-      setText('roi-insight', `Gross gain ${fmtUSD(grossProfit)}, fees ${fmtUSD(totalFees)} → net ${fmtUSD(net)}. ${feeBuyPct === 0 && feeSellPct === 0 ? 'Add your exchange fee % to see the real number.' : 'Fees always matter — especially for frequent trading.'}`);
+      setText('roi-insight', `Gross gain ${fmtUSD(grossProfit)} minus ${fmtUSD(totalFees)} in fees (${feeBuyPct*100}% buy + ${feeSellPct*100}% sell) = net ${fmtUSD(net)}. ${feeBuyPct === 0 && feeSellPct === 0 ? 'Add your exchange fee % to see the real number — fees silently eat returns.' : 'Fees always matter — especially for frequent trading.'}`);
     }
     function copySummaryCryptoROI(btn) { copyToClipboard(`--- CRYPTO ROI ---\nNet Profit: ${$id('roi-res-profit').innerText}\nGross: ${$id('roi-res-gross-profit').innerText}\nFees: ${$id('roi-res-fees').innerText}\nCalculated via CalcQI (https://calcqi.com)`, "ROI copied!", btn); }
 
