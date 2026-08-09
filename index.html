@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CalcQI | 24 Guided High-Precision Calculators</title>
-  <meta name="description" content="24 free, high-precision dark-mode calculators with guided visual results for creators, makers, athletes, and investors: 3D Print Cost, NY Pizza Dough, Camera FOV, Running Pace, Mortgage, Video Bitrate, DOF Optics, FFMI, DOTS, DRIP, Crypto ROI, and more.">
+  <title>CalcQI | 32 Calculators — Everyday, Maker, Media, Fitness & Finance</title>
+  <meta name="description" content="32 free calculators for everyday life and specialists: tip split, percentage, unit converter, discount, fuel, body fat, calories burned, plus 3D print, pizza dough, video bitrate, mortgage, crypto ROI and more.">
   <meta name="author" content="CalcQI">
   <link rel="canonical" href="https://calcqi.com">
   
-  <meta property="og:title" content="CalcQI - 24 Guided High-Precision Calculators">
-  <meta property="og:description" content="24 calculators with instant visual results, ratings, gauges, charts and breakdowns across maker, media, fitness and finance.">
+  <meta property="og:title" content="CalcQI - 32 Guided High-Precision Calculators">
+  <meta property="og:description" content="32 calculators with instant visual results — from everyday tips and conversions to specialty pricing, fitness and finance tools.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://calcqi.com">
   <meta property="og:image" content="og-preview.png">
@@ -196,6 +196,10 @@
     .cat-creator .bento-tag { color: #67e8f9; }
     .cat-fitness .bento-tag { color: #6ee7b7; }
     .cat-finance .bento-tag { color: #fcd34d; }
+    .cat-everyday .bento-tag { color: #5eead4; }
+
+    .tab-panel[data-cat="everyday"] .tool-title-group h1 { color: #ccfbf1; }
+    .tab-panel[data-cat="everyday"] .card-header { border-bottom-color: rgba(45, 212, 191, 0.35); }
 
     .toast { position: fixed; bottom: 2rem; right: 2rem; background: var(--bg-card-alt); color: var(--text-main); border: 1px solid var(--accent-indigo); border-radius: var(--radius-md); padding: 0.8rem 1.25rem; font-size: 0.85rem; font-weight: 600; box-shadow: var(--shadow-md); display: flex; align-items: center; gap: 0.5rem; transform: translateY(100px); opacity: 0; transition: all 0.3s ease; z-index: 3000; }
     .toast.show { transform: translateY(0); opacity: 1; }
@@ -226,14 +230,26 @@
         <a href="#tab-home" onclick="switchTab('tab-home')" class="brand-logo">
           <div class="logo-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg></div>
           <span>Calc<span style="color: var(--accent-indigo);">QI</span></span>
-          <span class="brand-badge">★ 24 Pro Tools</span>
+          <span class="brand-badge">★ 32 Pro Tools</span>
         </a>
 
         <nav class="cat-nav-menu">
-          <button class="nav-cat-btn" onclick="switchTab('tab-home')"><span>🏠 Home Portal</span></button>
+          <button class="nav-cat-btn" onclick="switchTab('tab-home')"><span>Home</span></button>
           
           <div class="nav-cat-group">
-            <button class="nav-cat-btn"><span>🛠️ Maker & Craft</span></button>
+            <button class="nav-cat-btn"><span>Everyday</span></button>
+            <div class="dropdown-menu">
+              <button class="dropdown-item" onclick="switchTab('tab-tip-split')">Tip & Bill Split</button>
+              <button class="dropdown-item" onclick="switchTab('tab-percentage')">Percentage Calculator</button>
+              <button class="dropdown-item" onclick="switchTab('tab-units')">Unit Converter</button>
+              <button class="dropdown-item" onclick="switchTab('tab-age')">Age & Date Difference</button>
+              <button class="dropdown-item" onclick="switchTab('tab-discount')">Discount & Sale Price</button>
+              <button class="dropdown-item" onclick="switchTab('tab-fuel')">Fuel Cost & Mileage</button>
+            </div>
+          </div>
+          
+          <div class="nav-cat-group">
+            <button class="nav-cat-btn"><span>Maker & Craft</span></button>
             <div class="dropdown-menu">
               <button class="dropdown-item" onclick="switchTab('tab-3dprint')">3D Print Cost Estimator</button>
               <button class="dropdown-item" onclick="switchTab('tab-baker')">Baker's Pizza Dough Math</button>
@@ -245,7 +261,7 @@
           </div>
           
           <div class="nav-cat-group">
-            <button class="nav-cat-btn"><span>🎬 Creator & Media</span></button>
+            <button class="nav-cat-btn"><span>Creator & Media</span></button>
             <div class="dropdown-menu">
               <button class="dropdown-item" onclick="switchTab('tab-video')">Video Bitrate & Size</button>
               <button class="dropdown-item" onclick="switchTab('tab-dof')">Depth of Field & Optics</button>
@@ -257,11 +273,13 @@
           </div>
           
           <div class="nav-cat-group">
-            <button class="nav-cat-btn"><span>🏋️ Fitness & Body</span></button>
+            <button class="nav-cat-btn"><span>Fitness & Body</span></button>
             <div class="dropdown-menu">
               <button class="dropdown-item" onclick="switchTab('tab-tdee')">TDEE & Recomp Macros</button>
               <button class="dropdown-item" onclick="switchTab('tab-1rm')">1RM Strength Matrix</button>
               <button class="dropdown-item" onclick="switchTab('tab-ffmi')">FFMI Muscular Potential</button>
+              <button class="dropdown-item" onclick="switchTab('tab-body-fat')">Body Fat Percentage</button>
+              <button class="dropdown-item" onclick="switchTab('tab-calories-burned')">Calories Burned</button>
               <button class="dropdown-item" onclick="switchTab('tab-wilks-dots')">Wilks 2.0 & DOTS Score</button>
               <button class="dropdown-item" onclick="switchTab('tab-karvonen-hr')">Karvonen HR Zones</button>
               <button class="dropdown-item" onclick="switchTab('tab-running-pace')">Running Pace & Splits</button>
@@ -269,7 +287,7 @@
           </div>
           
           <div class="nav-cat-group">
-            <button class="nav-cat-btn"><span>📈 Finance & Trading</span></button>
+            <button class="nav-cat-btn"><span>Finance & Trading</span></button>
             <div class="dropdown-menu">
               <button class="dropdown-item" onclick="switchTab('tab-stock-avg')">Stock Average Down</button>
               <button class="dropdown-item" onclick="switchTab('tab-drip')">Dividend DRIP Forecast</button>
@@ -282,8 +300,16 @@
         </nav>
 
         <select class="mobile-tool-select" id="mobile-tool-selector" onchange="switchTab(this.value)">
-          <option value="tab-home" selected>🏠 Home Portal</option>
-          <optgroup label="🛠️ Maker & Craft">
+          <option value="tab-home" selected>Home</option>
+          <optgroup label="Everyday">
+            <option value="tab-tip-split">Tip & Bill Split</option>
+            <option value="tab-percentage">Percentage Calculator</option>
+            <option value="tab-units">Unit Converter</option>
+            <option value="tab-age">Age & Date Difference</option>
+            <option value="tab-discount">Discount & Sale Price</option>
+            <option value="tab-fuel">Fuel Cost & Mileage</option>
+          </optgroup>
+          <optgroup label="Maker & Craft">
             <option value="tab-3dprint">3D Print Cost Estimator</option>
             <option value="tab-baker">Baker's Pizza Dough Math</option>
             <option value="tab-ny-pizza">NY-Style Pizza Dough Recipe</option>
@@ -291,7 +317,7 @@
             <option value="tab-sourdough">Sourdough Fermentation</option>
             <option value="tab-resin-mold">Resin Mold Volume</option>
           </optgroup>
-          <optgroup label="🎬 Creator & Media">
+          <optgroup label="Creator & Media">
             <option value="tab-video">Video Bitrate & File Size</option>
             <option value="tab-dof">Depth of Field & Optics</option>
             <option value="tab-camera-fov">Camera Field of View & Crop</option>
@@ -299,15 +325,17 @@
             <option value="tab-timelapse">Timelapse Interval</option>
             <option value="tab-light-inverse">Inverse Square Light</option>
           </optgroup>
-          <optgroup label="🏋️ Fitness & Body">
+          <optgroup label="Fitness & Body">
             <option value="tab-tdee">TDEE & Recomp Macros</option>
             <option value="tab-1rm">1RM Strength Matrix</option>
             <option value="tab-ffmi">FFMI Muscle Potential</option>
+            <option value="tab-body-fat">Body Fat Percentage</option>
+            <option value="tab-calories-burned">Calories Burned</option>
             <option value="tab-wilks-dots">Wilks 2.0 & DOTS Score</option>
             <option value="tab-karvonen-hr">Karvonen HR Zones</option>
             <option value="tab-running-pace">Running Pace & Splits</option>
           </optgroup>
-          <optgroup label="📈 Finance & Trading">
+          <optgroup label="Finance & Trading">
             <option value="tab-stock-avg">Stock Average Down</option>
             <option value="tab-drip">Dividend DRIP Forecast</option>
             <option value="tab-position-risk">Position Size & Risk/Reward</option>
@@ -327,13 +355,44 @@
       <!-- HOMEPAGE PORTAL -->
       <section id="tab-home" class="tab-panel active">
         <div class="hero-portal">
-          <h1 class="hero-headline">Makers · Creators · Athletes · Investors</h1>
-          <p class="hero-sub">24 calculators with instant visual results — ratings, gauges, charts and breakdowns for real-world decisions.</p>
+          <h1 class="hero-headline">Everyday · Makers · Creators · Athletes · Investors</h1>
+          <p class="hero-sub">32 calculators with instant visual results — from tips and unit conversions to pricing, fitness and finance.</p>
 
           <div class="search-box-wrapper">
             <svg class="search-icon-svg" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-            <input type="text" id="home-search-input" class="search-input" placeholder="Search 24 calculators…" oninput="filterHomeTools(this.value)">
+            <input type="text" id="home-search-input" class="search-input" placeholder="Search 32 calculators…" oninput="filterHomeTools(this.value)">
             <span class="search-shortcut-badge">/ to search</span>
+          </div>
+        </div>
+
+        <!-- EVERYDAY ESSENTIALS -->
+        <div class="home-cat-section cat-everyday tool-card-item" data-title="tip bill split percentage percent units converter age date difference discount sale price fuel cost mileage everyday essentials">
+          <h2 class="home-cat-title">Everyday Essentials</h2>
+          <div class="bento-grid">
+            <div class="bento-card" onclick="switchTab('tab-tip-split')">
+              <div><div class="bento-title">Tip & Bill Split</div><div class="bento-desc">Tip percentage and per-person share when splitting a meal.</div></div>
+              <div class="bento-footer"><span class="bento-tag">Everyday</span><svg class="bento-arrow" viewBox="0 0 24 24"><line x1="5" y1="19" x2="19" y2="5"></line><polyline points="12 5 19 5 19 12"></polyline></svg></div>
+            </div>
+            <div class="bento-card" onclick="switchTab('tab-percentage')">
+              <div><div class="bento-title">Percentage Calculator</div><div class="bento-desc">Find X% of a value, or what percentage A is of B.</div></div>
+              <div class="bento-footer"><span class="bento-tag">Everyday</span><svg class="bento-arrow" viewBox="0 0 24 24"><line x1="5" y1="19" x2="19" y2="5"></line><polyline points="12 5 19 5 19 12"></polyline></svg></div>
+            </div>
+            <div class="bento-card" onclick="switchTab('tab-units')">
+              <div><div class="bento-title">Unit Converter</div><div class="bento-desc">Length, weight, temperature and volume — metric and imperial.</div></div>
+              <div class="bento-footer"><span class="bento-tag">Everyday</span><svg class="bento-arrow" viewBox="0 0 24 24"><line x1="5" y1="19" x2="19" y2="5"></line><polyline points="12 5 19 5 19 12"></polyline></svg></div>
+            </div>
+            <div class="bento-card" onclick="switchTab('tab-age')">
+              <div><div class="bento-title">Age & Date Difference</div><div class="bento-desc">Exact age in years, months and days between two dates.</div></div>
+              <div class="bento-footer"><span class="bento-tag">Everyday</span><svg class="bento-arrow" viewBox="0 0 24 24"><line x1="5" y1="19" x2="19" y2="5"></line><polyline points="12 5 19 5 19 12"></polyline></svg></div>
+            </div>
+            <div class="bento-card" onclick="switchTab('tab-discount')">
+              <div><div class="bento-title">Discount & Sale Price</div><div class="bento-desc">Final price after any discount percent, and dollars saved.</div></div>
+              <div class="bento-footer"><span class="bento-tag">Everyday</span><svg class="bento-arrow" viewBox="0 0 24 24"><line x1="5" y1="19" x2="19" y2="5"></line><polyline points="12 5 19 5 19 12"></polyline></svg></div>
+            </div>
+            <div class="bento-card" onclick="switchTab('tab-fuel')">
+              <div><div class="bento-title">Fuel Cost & Mileage</div><div class="bento-desc">Trip fuel cost, economy in L/100km or MPG.</div></div>
+              <div class="bento-footer"><span class="bento-tag">Everyday</span><svg class="bento-arrow" viewBox="0 0 24 24"><line x1="5" y1="19" x2="19" y2="5"></line><polyline points="12 5 19 5 19 12"></polyline></svg></div>
+            </div>
           </div>
         </div>
 
@@ -414,6 +473,14 @@
             <div class="bento-card" onclick="switchTab('tab-ffmi')">
               <div><div class="bento-title">FFMI & Muscular Potential</div><div class="bento-desc">Normalized FFMI on the natural-ceiling scale with classification.</div></div>
               <div class="bento-footer"><span class="bento-tag">Composition</span><svg class="bento-arrow" viewBox="0 0 24 24"><line x1="5" y1="19" x2="19" y2="5"></line><polyline points="12 5 19 5 19 12"></polyline></svg></div>
+            </div>
+            <div class="bento-card" onclick="switchTab('tab-body-fat')">
+              <div><div class="bento-title">Body Fat Percentage</div><div class="bento-desc">US Navy method estimate from simple body measurements.</div></div>
+              <div class="bento-footer"><span class="bento-tag">New</span><svg class="bento-arrow" viewBox="0 0 24 24"><line x1="5" y1="19" x2="19" y2="5"></line><polyline points="12 5 19 5 19 12"></polyline></svg></div>
+            </div>
+            <div class="bento-card" onclick="switchTab('tab-calories-burned')">
+              <div><div class="bento-title">Calories Burned</div><div class="bento-desc">Estimated calories burned by activity, weight and duration.</div></div>
+              <div class="bento-footer"><span class="bento-tag">New</span><svg class="bento-arrow" viewBox="0 0 24 24"><line x1="5" y1="19" x2="19" y2="5"></line><polyline points="12 5 19 5 19 12"></polyline></svg></div>
             </div>
             <div class="bento-card" onclick="switchTab('tab-wilks-dots')">
               <div><div class="bento-title">Wilks & DOTS Powerlifting Score</div><div class="bento-desc">Relative strength across weight classes with a rating from Novice to Elite.</div></div>
@@ -1257,6 +1324,233 @@
         <div class="seo-2col-grid"><div class="card"><h2 style="font-size:1rem;margin-bottom:0.5rem;">Formula</h2><div class="formula-card">M = P × r(1+r)ⁿ / ((1+r)ⁿ−1) &nbsp;·&nbsp; r = annual rate ÷ 12</div></div><div class="card"><h2 style="font-size:1rem;margin-bottom:0.5rem;">FAQs</h2><details class="faq-item"><summary class="faq-question">Should I pay extra?</summary><div class="faq-answer">Extra principal payments reduce total interest dramatically. A few hundred extra per month can save 5+ years on a 30-year loan at 6.5%.</div></details></div></div>
       </section>
 
+      <!-- 25. TIP & BILL SPLIT -->
+      <section id="tab-tip-split" class="tab-panel" data-cat="everyday">
+        <div class="tool-header"><div class="tool-title-group"><h1>Tip & Bill Split</h1><p>Tip percentage and per-person share for any meal or group bill.</p></div><button class="btn btn-secondary" onclick="resetTool('tab-tip-split', calcTipSplit)">Reset</button></div>
+        <div class="calc-grid">
+          <div class="card">
+            <div class="form-group-grid">
+              <div class="form-group"><label class="form-label">Bill Total ($)</label><input type="number" id="tip-bill" class="form-control" value="86.50" oninput="calcTipSplit()"/></div>
+              <div class="form-group"><label class="form-label">Tip %</label><input type="number" id="tip-pct" class="form-control" value="15" oninput="calcTipSplit()"/></div>
+              <div class="form-group"><label class="form-label">People</label><input type="number" id="tip-people" class="form-control" value="4" oninput="calcTipSplit()"/></div>
+            </div>
+          </div>
+          <div class="results-deck">
+            <div class="hero-stat-card">
+              <div class="stat-label">Per Person</div>
+              <div class="stat-value-huge" id="tip-res-each">$24.87 <span class="unit">USD</span></div>
+            </div>
+            <div class="metrics-grid">
+              <div class="metric-card"><div class="m-label">Tip Amount</div><div class="m-val" id="tip-res-tip">$12.98</div></div>
+              <div class="metric-card"><div class="m-label">Total with Tip</div><div class="m-val" id="tip-res-total">$99.48</div></div>
+            </div>
+            <div class="insight-card"><span id="tip-insight">A 15% tip on $86.50 adds $12.98 — bringing the total to $99.48.</span></div>
+            <div class="btn-row"><button class="btn btn-primary" style="flex:1;" onclick="copySummaryTipSplit(this)">Copy Split</button><button class="btn btn-secondary" onclick="saveRun('tip-split')">Save Run</button></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 26. PERCENTAGE -->
+      <section id="tab-percentage" class="tab-panel" data-cat="everyday">
+        <div class="tool-header"><div class="tool-title-group"><h1>Percentage Calculator</h1><p>Find X% of a value, or what percent A is of B.</p></div><button class="btn btn-secondary" onclick="resetTool('tab-percentage', calcPercentage)">Reset</button></div>
+        <div class="calc-grid">
+          <div class="card">
+            <div class="form-group-grid">
+              <div class="form-group"><label class="form-label">Value A</label><input type="number" id="pct-a" class="form-control" value="25" oninput="calcPercentage()"/></div>
+              <div class="form-group"><label class="form-label">Value B</label><input type="number" id="pct-b" class="form-control" value="200" oninput="calcPercentage()"/></div>
+            </div>
+            <p style="font-size:0.75rem;color:var(--text-dim);">Shows A as a % of B, and A% of B.</p>
+          </div>
+          <div class="results-deck">
+            <div class="hero-stat-card">
+              <div class="stat-label">A as % of B</div>
+              <div class="stat-value-huge" id="pct-res-of">12.5 <span class="unit">%</span></div>
+            </div>
+            <div class="metrics-grid">
+              <div class="metric-card"><div class="m-label">A% of B</div><div class="m-val" id="pct-res-val">50.0</div></div>
+              <div class="metric-card"><div class="m-label">B − A</div><div class="m-val" id="pct-res-diff">175.0</div></div>
+            </div>
+            <div class="insight-card"><span id="pct-insight">25 is 12.5% of 200 — and 25% of 200 is 50.</span></div>
+            <div class="btn-row"><button class="btn btn-primary" style="flex:1;" onclick="copySummaryPercentage(this)">Copy Result</button><button class="btn btn-secondary" onclick="saveRun('percentage')">Save Run</button></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 27. UNIT CONVERTER -->
+      <section id="tab-units" class="tab-panel" data-cat="everyday">
+        <div class="tool-header"><div class="tool-title-group"><h1>Unit Converter</h1><p>Length, weight, temperature and volume — metric and imperial.</p></div><button class="btn btn-secondary" onclick="resetTool('tab-units', calcUnits)">Reset</button></div>
+        <div class="calc-grid">
+          <div class="card">
+            <div class="form-group-grid">
+              <div class="form-group"><label class="form-label">Category</label><select id="units-category" class="form-control" onchange="calcUnits()">
+                <option value="length" selected>Length</option>
+                <option value="weight">Weight</option>
+                <option value="temp">Temperature</option>
+                <option value="volume">Volume</option>
+              </select></div>
+              <div class="form-group"><label class="form-label">Value</label><input type="number" id="units-value" class="form-control" value="1" oninput="calcUnits()"/></div>
+            </div>
+            <div class="form-group-grid">
+              <div class="form-group"><label class="form-label">From</label><select id="units-from" class="form-control" onchange="calcUnits()"></select></div>
+              <div class="form-group"><label class="form-label">To</label><select id="units-to" class="form-control" onchange="calcUnits()"></select></div>
+            </div>
+          </div>
+          <div class="results-deck">
+            <div class="hero-stat-card">
+              <div class="stat-label">Converted Value</div>
+              <div class="stat-value-huge" id="units-res">1.609 <span class="unit">mi</span></div>
+            </div>
+            <div class="insight-card"><span id="units-insight">1 km = 1.609344 miles.</span></div>
+            <div class="btn-row"><button class="btn btn-primary" style="flex:1;" onclick="copySummaryUnits(this)">Copy Result</button><button class="btn btn-secondary" onclick="saveRun('units')">Save Run</button></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 28. AGE & DATE -->
+      <section id="tab-age" class="tab-panel" data-cat="everyday">
+        <div class="tool-header"><div class="tool-title-group"><h1>Age & Date Difference</h1><p>Exact age in years, months and days between two dates.</p></div><button class="btn btn-secondary" onclick="resetTool('tab-age', calcAge)">Reset</button></div>
+        <div class="calc-grid">
+          <div class="card">
+            <div class="form-group-grid">
+              <div class="form-group"><label class="form-label">Birth Date</label><input type="date" id="age-birth" class="form-control" value="1995-06-15" onchange="calcAge()"/></div>
+              <div class="form-group"><label class="form-label">End Date</label><input type="date" id="age-end" class="form-control" value="2026-08-09" onchange="calcAge()"/></div>
+            </div>
+          </div>
+          <div class="results-deck">
+            <div class="hero-stat-card">
+              <div class="stat-label">Age</div>
+              <div class="stat-value-huge" id="age-res-years">31 <span class="unit">years</span></div>
+            </div>
+            <div class="metrics-grid">
+              <div class="metric-card"><div class="m-label">Months</div><div class="m-val" id="age-res-months">377</div></div>
+              <div class="metric-card"><div class="m-label">Weeks</div><div class="m-val" id="age-res-weeks">1,634</div></div>
+              <div class="metric-card"><div class="m-label">Days</div><div class="m-val" id="age-res-days">11,438</div></div>
+              <div class="metric-card"><div class="m-label">Hours</div><div class="m-val" id="age-res-hours">274,512</div></div>
+            </div>
+            <div class="insight-card"><span id="age-insight">Breakdown in years, months, and days for exact age.</span></div>
+            <div class="btn-row"><button class="btn btn-primary" style="flex:1;" onclick="copySummaryAge(this)">Copy Age</button><button class="btn btn-secondary" onclick="saveRun('age')">Save Run</button></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 29. DISCOUNT -->
+      <section id="tab-discount" class="tab-panel" data-cat="everyday">
+        <div class="tool-header"><div class="tool-title-group"><h1>Discount & Sale Price</h1><p>Final price after any discount percent, and dollars saved.</p></div><button class="btn btn-secondary" onclick="resetTool('tab-discount', calcDiscount)">Reset</button></div>
+        <div class="calc-grid">
+          <div class="card">
+            <div class="form-group-grid">
+              <div class="form-group"><label class="form-label">Original Price ($)</label><input type="number" id="disc-price" class="form-control" value="120" oninput="calcDiscount()"/></div>
+              <div class="form-group"><label class="form-label">Discount %</label><input type="number" id="disc-pct" class="form-control" value="25" oninput="calcDiscount()"/></div>
+            </div>
+          </div>
+          <div class="results-deck">
+            <div class="hero-stat-card">
+              <div class="stat-label">Sale Price</div>
+              <div class="stat-value-huge" id="disc-res-final">$90.00 <span class="unit">USD</span></div>
+            </div>
+            <div class="metrics-grid">
+              <div class="metric-card"><div class="m-label">You Save</div><div class="m-val" id="disc-res-saved">$30.00</div></div>
+              <div class="metric-card"><div class="m-label">Final / Original</div><div class="m-val" id="disc-res-ratio">75.0%</div></div>
+            </div>
+            <div class="insight-card"><span id="disc-insight">A 25% discount saves $30.00 — final price $90.00.</span></div>
+            <div class="btn-row"><button class="btn btn-primary" style="flex:1;" onclick="copySummaryDiscount(this)">Copy Price</button><button class="btn btn-secondary" onclick="saveRun('discount')">Save Run</button></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 30. FUEL -->
+      <section id="tab-fuel" class="tab-panel" data-cat="everyday">
+        <div class="tool-header"><div class="tool-title-group"><h1>Fuel Cost & Mileage</h1><p>Trip fuel cost and economy in L/100km or MPG.</p></div><button class="btn btn-secondary" onclick="resetTool('tab-fuel', calcFuel)">Reset</button></div>
+        <div class="calc-grid">
+          <div class="card">
+            <div class="form-group-grid">
+              <div class="form-group"><label class="form-label">Distance (km)</label><input type="number" id="fuel-dist" class="form-control" value="300" oninput="calcFuel()"/></div>
+              <div class="form-group"><label class="form-label">Fuel Price ($/L)</label><input type="number" id="fuel-price" class="form-control" value="1.85" step="0.05" oninput="calcFuel()"/></div>
+              <div class="form-group"><label class="form-label">Economy (L/100km)</label><input type="number" id="fuel-eco" class="form-control" value="7.5" oninput="calcFuel()"/></div>
+            </div>
+          </div>
+          <div class="results-deck">
+            <div class="hero-stat-card">
+              <div class="stat-label">Trip Fuel Cost</div>
+              <div class="stat-value-huge" id="fuel-res-cost">$41.63 <span class="unit">USD</span></div>
+            </div>
+            <div class="metrics-grid">
+              <div class="metric-card"><div class="m-label">Fuel Used</div><div class="m-val" id="fuel-res-litres">22.5 L</div></div>
+              <div class="metric-card"><div class="m-label">MPG</div><div class="m-val" id="fuel-res-mpg">31.4</div></div>
+            </div>
+            <div class="insight-card"><span id="fuel-insight">300 km at 7.5 L/100km uses 22.5 litres.</span></div>
+            <div class="btn-row"><button class="btn btn-primary" style="flex:1;" onclick="copySummaryFuel(this)">Copy Cost</button><button class="btn btn-secondary" onclick="saveRun('fuel')">Save Run</button></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 31. BODY FAT -->
+      <section id="tab-body-fat" class="tab-panel" data-cat="fitness">
+        <div class="tool-header"><div class="tool-title-group"><h1>Body Fat Percentage</h1><p>US Navy method estimate from simple body measurements.</p></div><button class="btn btn-secondary" onclick="resetTool('tab-body-fat', calcBodyFat)">Reset</button></div>
+        <div class="calc-grid">
+          <div class="card">
+            <div class="form-group"><label class="form-label">Sex</label><select id="bf-sex" class="form-control" onchange="calcBodyFat()"><option value="m" selected>Male</option><option value="f">Female</option></select></div>
+            <div class="form-group-grid">
+              <div class="form-group"><label class="form-label">Height (cm)</label><input type="number" id="bf-height" class="form-control" value="180" oninput="calcBodyFat()"/></div>
+              <div class="form-group"><label class="form-label">Weight (kg)</label><input type="number" id="bf-weight" class="form-control" value="82" oninput="calcBodyFat()"/></div>
+            </div>
+            <div class="form-group-grid">
+              <div class="form-group"><label class="form-label">Waist (cm)</label><input type="number" id="bf-waist" class="form-control" value="86" oninput="calcBodyFat()"/></div>
+              <div class="form-group" id="bf-neck-wrap"><label class="form-label">Neck (cm)</label><input type="number" id="bf-neck" class="form-control" value="38" oninput="calcBodyFat()"/></div>
+              <div class="form-group" id="bf-hip-wrap" style="display:none;"><label class="form-label">Hip (cm)</label><input type="number" id="bf-hip" class="form-control" value="96" oninput="calcBodyFat()"/></div>
+            </div>
+          </div>
+          <div class="results-deck">
+            <div class="hero-stat-card">
+              <div class="stat-label">Body Fat</div>
+              <div class="stat-value-huge" id="bf-res-pct">14.9 <span class="unit">%</span></div>
+              <div class="stat-subtext" style="margin-top:0.6rem;"><span class="rating-badge rating-good" id="bf-res-rating">Athletic</span></div>
+            </div>
+            <div class="metrics-grid">
+              <div class="metric-card"><div class="m-label">Fat Mass</div><div class="m-val" id="bf-res-fat">12.2 kg</div></div>
+              <div class="metric-card"><div class="m-label">Lean Mass</div><div class="m-val" id="bf-res-lbm">69.8 kg</div></div>
+            </div>
+            <div class="insight-card"><span id="bf-insight">US Navy method estimates body fat from circumference measurements.</span></div>
+            <div class="btn-row"><button class="btn btn-primary" style="flex:1;" onclick="copySummaryBodyFat(this)">Copy Result</button><button class="btn btn-secondary" onclick="saveRun('body-fat')">Save Run</button></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 32. CALORIES BURNED -->
+      <section id="tab-calories-burned" class="tab-panel" data-cat="fitness">
+        <div class="tool-header"><div class="tool-title-group"><h1>Calories Burned</h1><p>Estimated calories burned by activity, weight and duration.</p></div><button class="btn btn-secondary" onclick="resetTool('tab-calories-burned', calcCaloriesBurned)">Reset</button></div>
+        <div class="calc-grid">
+          <div class="card">
+            <div class="form-group"><label class="form-label">Activity</label><select id="burn-activity" class="form-control" onchange="calcCaloriesBurned()">
+              <option value="1.05" selected>Walking (5 km/h)</option>
+              <option value="1.65">Running (10 km/h)</option>
+              <option value="2.45">Running (14 km/h)</option>
+              <option value="1.35">Cycling (20 km/h)</option>
+              <option value="1.75">Swimming</option>
+              <option value="0.85">Yoga / Stretching</option>
+              <option value="2.15">Jump Rope</option>
+            </select></div>
+            <div class="form-group-grid">
+              <div class="form-group"><label class="form-label">Weight (kg)</label><input type="number" id="burn-weight" class="form-control" value="78" oninput="calcCaloriesBurned()"/></div>
+              <div class="form-group"><label class="form-label">Minutes</label><input type="number" id="burn-mins" class="form-control" value="45" oninput="calcCaloriesBurned()"/></div>
+            </div>
+          </div>
+          <div class="results-deck">
+            <div class="hero-stat-card">
+              <div class="stat-label">Calories Burned</div>
+              <div class="stat-value-huge" id="burn-res-cal">587 <span class="unit">kcal</span></div>
+              <div class="stat-subtext" style="margin-top:0.6rem;"><span class="rating-badge rating-good" id="burn-res-rating">—</span></div>
+            </div>
+            <div class="metrics-grid">
+              <div class="metric-card"><div class="m-label">Per Minute</div><div class="m-val" id="burn-res-permin">13.0 kcal</div></div>
+              <div class="metric-card"><div class="m-label">MET Level</div><div class="m-val" id="burn-res-met">9.8</div></div>
+            </div>
+            <div class="insight-card"><span id="burn-insight">MET method estimate for 78 kg over 45 minutes.</span></div>
+            <div class="btn-row"><button class="btn btn-primary" style="flex:1;" onclick="copySummaryBurn(this)">Copy Result</button><button class="btn btn-secondary" onclick="saveRun('calories-burned')">Save Run</button></div>
+          </div>
+        </div>
+      </section>
+
     </div>
   </main>
 
@@ -1279,7 +1573,7 @@
   <footer class="app-footer">
     <div class="container">
       <div class="footer-inner">
-        <div class="footer-text">&copy; <span id="footer-year">2026</span> CalcQI. 24-Tool Guided Utility Suite.</div>
+        <div class="footer-text">&copy; <span id="footer-year">2026</span> CalcQI. 32-Tool Guided Utility Suite.</div>
         <div class="footer-links">
           <a href="#tab-home" onclick="switchTab('tab-home')">Home Portal</a>
           <a href="#" onclick="openPrivacyModal(event)">Privacy Policy</a>
@@ -1340,11 +1634,19 @@
       calcFn();
     }
 
-    function switchTab(id) {
+    function showTab(id) {
       document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
       const target=document.getElementById(id); if(target) target.classList.add('active');
       window.scrollTo({top:0, behavior:'smooth'});
     }
+    function switchTab(id) {
+      if (location.hash !== '#' + id) { history.pushState(null, '', '#' + id); }
+      showTab(id);
+    }
+    window.addEventListener('hashchange', () => {
+      const id = location.hash.replace('#','') || 'tab-home';
+      showTab(document.getElementById(id) ? id : 'tab-home');
+    });
 
     function filterHomeTools(q) {
       const query = q.toLowerCase().trim();
@@ -2052,12 +2354,192 @@
     }
     function copySummaryMortgage(btn) { copyToClipboard(`--- MORTGAGE PAYMENT ---\nMonthly: ${$id('mort-res-payment').innerText}\nLoan: ${$id('mort-res-loan').innerText}\nTotal Interest: ${$id('mort-res-interest').innerText}\nTotal Paid: ${$id('mort-res-total').innerText}\nCalculated via CalcQI (https://calcqi.com)`, "Payment copied!", btn); }
 
+    /* 25. TIP & BILL SPLIT ENGINE */
+    function calcTipSplit() {
+      const bill = safeNum($id('tip-bill').value, 0, 1e6, 86.50);
+      const pct = safeNum($id('tip-pct').value, 0, 100, 15);
+      const people = safeNum($id('tip-people').value, 1, 100, 4);
+      const tip = bill * pct / 100;
+      const total = bill + tip;
+      const each = total / people;
+      setHTML('tip-res-each', `${fmtUSD(each)} <span class="unit">USD</span>`);
+      setText('tip-res-tip', fmtUSD(tip));
+      setText('tip-res-total', fmtUSD(total));
+      setText('tip-insight', `A ${pct}% tip on ${fmtUSD(bill)} adds ${fmtUSD(tip)} — split ${fmtInt(people)} ways, each person pays ${fmtUSD(each)}.`);
+    }
+    function copySummaryTipSplit(btn) { copyToClipboard(`--- TIP & BILL SPLIT ---\nPer Person: ${$id('tip-res-each').innerText}\nTip: ${$id('tip-res-tip').innerText}\nTotal: ${$id('tip-res-total').innerText}\nCalculated via CalcQI (https://calcqi.com)`, "Split copied!", btn); }
+
+    /* 26. PERCENTAGE ENGINE */
+    function calcPercentage() {
+      const a = safeNum($id('pct-a').value, 0, 1e12, 25);
+      const b = safeNum($id('pct-b').value, 0, 1e12, 200);
+      const pctOf = b > 0 ? (a / b * 100) : 0;
+      const val = a * b / 100;
+      setHTML('pct-res-of', `${pctOf.toFixed(1)} <span class="unit">%</span>`);
+      setText('pct-res-val', val.toFixed(1));
+      setText('pct-res-diff', (b - a).toFixed(1));
+      setText('pct-insight', `${a} is ${pctOf.toFixed(1)}% of ${b} — and ${a}% of ${b} is ${val.toFixed(1)}.`);
+    }
+    function copySummaryPercentage(btn) { copyToClipboard(`--- PERCENTAGE ---\nA as % of B: ${$id('pct-res-of').innerText}\nA% of B: ${$id('pct-res-val').innerText}\nCalculated via CalcQI (https://calcqi.com)`, "Result copied!", btn); }
+
+    /* 27. UNIT CONVERTER ENGINE */
+    const UNIT_TABLES = {
+      length: { km: {f:1, label:'Kilometers'}, mi: {f:0.621371, label:'Miles'}, m: {f:1000, label:'Meters'}, ft: {f:3280.84, label:'Feet'}, cm: {f:100000, label:'Centimeters'}, in: {f:39370.1, label:'Inches'} },
+      weight: { kg: {f:1, label:'Kilograms'}, lb: {f:2.20462, label:'Pounds'}, g: {f:1000, label:'Grams'}, oz: {f:35.274, label:'Ounces'}, st: {f:0.157473, label:'Stones'} },
+      temp: { c: {label:'Celsius'}, f: {label:'Fahrenheit'}, k: {label:'Kelvin'} },
+      volume: { l: {f:1, label:'Litres'}, ml: {f:1000, label:'Millilitres'}, gal: {f:0.264172, label:'US Gallons'}, floz: {f:33.814, label:'Fluid Ounces'}, cup: {f:4.22675, label:'Cups'} }
+    };
+    function populateUnits() {
+      const cat = $id('units-category').value;
+      const from = $id('units-from'), to = $id('units-to');
+      const units = UNIT_TABLES[cat] || UNIT_TABLES.length;
+      from.innerHTML = ''; to.innerHTML = '';
+      Object.keys(units).forEach(k => {
+        from.innerHTML += `<option value="${k}"${k==='km'||k==='kg'||k==='c'||k==='l'?' selected':''}>${units[k].label}</option>`;
+        to.innerHTML += `<option value="${k}"${k==='mi'||k==='lb'||k==='f'||k==='gal'?' selected':''}>${units[k].label}</option>`;
+      });
+    }
+    function calcUnits() {
+      populateUnits();
+      const cat = $id('units-category').value;
+      const val = safeNum($id('units-value').value, -1e12, 1e12, 1);
+      const fromK = $id('units-from').value, toK = $id('units-to').value;
+      const units = UNIT_TABLES[cat];
+      let result = val, resultUnit = toK;
+      if (cat === 'temp') {
+        let celsius;
+        if (fromK === 'c') celsius = val;
+        else if (fromK === 'f') celsius = (val - 32) * 5 / 9;
+        else celsius = val - 273.15;
+        if (toK === 'c') result = celsius;
+        else if (toK === 'f') result = celsius * 9 / 5 + 32;
+        else result = celsius + 273.15;
+      } else {
+        result = val * (units[toK].f / units[fromK].f);
+      }
+      setHTML('units-res', `${result.toLocaleString(undefined,{maximumFractionDigits:4})} <span class="unit">${units[resultUnit].label.toLowerCase() === units[resultUnit].label ? resultUnit : resultUnit}</span>`);
+      setText('units-insight', `${val} ${units[fromK].label} = ${result.toLocaleString(undefined,{maximumFractionDigits:4})} ${units[toK].label}.`);
+    }
+    function copySummaryUnits(btn) { copyToClipboard(`--- UNIT CONVERTER ---\nResult: ${$id('units-res').innerText}\nCalculated via CalcQI (https://calcqi.com)`, "Result copied!", btn); }
+
+    /* 28. AGE & DATE DIFFERENCE ENGINE */
+    function calcAge() {
+      const birth = new Date($id('age-birth').value);
+      const end = new Date($id('age-end').value);
+      if (isNaN(birth) || isNaN(end)) return;
+      let years = end.getFullYear() - birth.getFullYear();
+      let months = end.getMonth() - birth.getMonth();
+      let days = end.getDate() - birth.getDate();
+      if (days < 0) { months--; const prev = new Date(end.getFullYear(), end.getMonth(), 0).getDate(); days += prev; }
+      if (months < 0) { years--; months += 12; }
+      const totalDays = Math.floor((end - birth) / 86400000);
+      const totalHours = totalDays * 24;
+      setHTML('age-res-years', `${years} <span class="unit">years</span>`);
+      setText('age-res-months', fmtInt(years * 12 + months));
+      setText('age-res-weeks', fmtInt(totalDays / 7));
+      setText('age-res-days', fmtInt(totalDays));
+      setText('age-res-hours', fmtInt(totalHours));
+      setText('age-insight', `${years} years, ${months} months and ${days} days — or ${fmtInt(totalDays)} days total.`);
+    }
+    function copySummaryAge(btn) { copyToClipboard(`--- AGE & DATE ---\nAge: ${$id('age-res-years').innerText}\nDays: ${$id('age-res-days').innerText}\nCalculated via CalcQI (https://calcqi.com)`, "Age copied!", btn); }
+
+    /* 29. DISCOUNT ENGINE */
+    function calcDiscount() {
+      const price = safeNum($id('disc-price').value, 0, 1e8, 120);
+      const pct = safeNum($id('disc-pct').value, 0, 100, 25);
+      const saved = price * pct / 100;
+      const finalP = price - saved;
+      setHTML('disc-res-final', `${fmtUSD(finalP)} <span class="unit">USD</span>`);
+      setText('disc-res-saved', fmtUSD(saved));
+      setText('disc-res-ratio', `${(100 - pct).toFixed(1)}%`);
+      setText('disc-insight', `A ${pct}% discount saves ${fmtUSD(saved)} — final price ${fmtUSD(finalP)}.`);
+    }
+    function copySummaryDiscount(btn) { copyToClipboard(`--- DISCOUNT ---\nSale Price: ${$id('disc-res-final').innerText}\nYou Save: ${$id('disc-res-saved').innerText}\nCalculated via CalcQI (https://calcqi.com)`, "Price copied!", btn); }
+
+    /* 30. FUEL COST ENGINE */
+    function calcFuel() {
+      const dist = safeNum($id('fuel-dist').value, 1, 1e6, 300);
+      const price = safeNum($id('fuel-price').value, 0, 100, 1.85);
+      const eco = safeNum($id('fuel-eco').value, 0.1, 50, 7.5);
+      const litres = dist * eco / 100;
+      const cost = litres * price;
+      const mpg = 235.215 / eco;
+      setHTML('fuel-res-cost', `${fmtUSD(cost)} <span class="unit">USD</span>`);
+      setText('fuel-res-litres', `${litres.toFixed(1)} L`);
+      setText('fuel-res-mpg', mpg.toFixed(1));
+      setText('fuel-insight', `${fmtInt(dist)} km at ${eco} L/100km uses ${litres.toFixed(1)} litres — ${fmtUSD(cost)} at ${fmtUSD(price)}/L.`);
+    }
+    function copySummaryFuel(btn) { copyToClipboard(`--- FUEL COST ---\nTrip Cost: ${$id('fuel-res-cost').innerText}\nFuel Used: ${$id('fuel-res-litres').innerText}\nMPG: ${$id('fuel-res-mpg').innerText}\nCalculated via CalcQI (https://calcqi.com)`, "Cost copied!", btn); }
+
+    /* 31. BODY FAT ENGINE (US Navy) */
+    function calcBodyFat() {
+      const sex = $id('bf-sex').value;
+      const hipWrap = $id('bf-hip-wrap');
+      if (sex === 'f') { hipWrap.style.display = 'block'; } else { hipWrap.style.display = 'none'; }
+      const h = safeNum($id('bf-height').value, 100, 230, 180) * 0.393701;
+      const w = safeNum($id('bf-weight').value, 30, 300, 82);
+      const waist = safeNum($id('bf-waist').value, 40, 200, 86) * 0.393701;
+      const neck = safeNum($id('bf-neck').value, 20, 80, 38) * 0.393701;
+      const hip = sex === 'f' ? safeNum($id('bf-hip').value, 50, 200, 96) * 0.393701 : waist;
+      let bf;
+      if (sex === 'm') {
+        bf = 86.010 * Math.log10(waist - neck) - 70.041 * Math.log10(h) + 36.76;
+      } else {
+        bf = 163.205 * Math.log10(waist + hip - neck) - 97.684 * Math.log10(h) - 78.387;
+      }
+      bf = Math.max(2, Math.min(bf, 60));
+      const fatMass = w * bf / 100;
+      const lbm = w - fatMass;
+      setHTML('bf-res-pct', `${bf.toFixed(1)} <span class="unit">%</span>`);
+      setText('bf-res-fat', `${fatMass.toFixed(1)} kg`);
+      setText('bf-res-lbm', `${lbm.toFixed(1)} kg`);
+      let level, label;
+      if (sex === 'm') {
+        if (bf < 7) { level='low'; label='Essential'; }
+        else if (bf < 14) { level='excellent'; label='Athletic'; }
+        else if (bf < 18) { level='good'; label='Fitness'; }
+        else if (bf < 25) { level='mid'; label='Average'; }
+        else { level='low'; label='Above Average'; }
+      } else {
+        if (bf < 15) { level='low'; label='Essential'; }
+        else if (bf < 21) { level='excellent'; label='Athletic'; }
+        else if (bf < 26) { level='good'; label='Fitness'; }
+        else if (bf < 32) { level='mid'; label='Average'; }
+        else { level='low'; label='Above Average'; }
+      }
+      setRating('bf-res-rating', level, label);
+      setText('bf-insight', `US Navy method estimate: ${bf.toFixed(0)}% body fat for a ${sex === 'm' ? 'male' : 'female'} — classified as ${label}.`);
+    }
+    function copySummaryBodyFat(btn) { copyToClipboard(`--- BODY FAT ---\nBody Fat: ${$id('bf-res-pct').innerText}\nLean Mass: ${$id('bf-res-lbm').innerText}\nCalculated via CalcQI (https://calcqi.com)`, "Result copied!", btn); }
+
+    /* 32. CALORIES BURNED ENGINE (MET) */
+    function calcCaloriesBurned() {
+      const met = safeNum($id('burn-activity').value, 0.1, 20, 1.05);
+      const weight = safeNum($id('burn-weight').value, 20, 300, 78);
+      const mins = safeNum($id('burn-mins').value, 1, 1440, 45);
+      const cal = met * 3.5 * weight / 200 * mins;
+      setHTML('burn-res-cal', `${Math.round(cal)} <span class="unit">kcal</span>`);
+      setText('burn-res-permin', `${(cal / mins).toFixed(1)} kcal`);
+      setText('burn-res-met', met.toFixed(1));
+      let level, label;
+      if (met < 1.5) { level='low'; label='Light'; }
+      else if (met < 3) { level='mid'; label='Moderate'; }
+      else if (met < 6) { level='good'; label='Vigorous'; }
+      else { level='excellent'; label='High Intensity'; }
+      setRating('burn-res-rating', level, label);
+      setText('burn-insight', `At MET ${met.toFixed(1)}, ${weight} kg burns ~${Math.round(cal / mins)} kcal/min — ${Math.round(cal)} kcal in ${mins} minutes.`);
+    }
+    function copySummaryBurn(btn) { copyToClipboard(`--- CALORIES BURNED ---\nCalories: ${$id('burn-res-cal').innerText}\nPer Minute: ${$id('burn-res-permin').innerText}\nCalculated via CalcQI (https://calcqi.com)`, "Result copied!", btn); }
+
     window.addEventListener('load', () => {
       $id('footer-year').textContent = new Date().getFullYear();
       calc3DPrint(); calcBaker(); calcNY(); calcLaserCNC(); calcSourdough(); calcResin();
       calcVideo(); calcDOF(); calcCameraFOV(); calcNDFilter(); calcTimelapse(); calcLightInverse();
       calcTDEE(); calc1RM(); calcFFMI(); calcWilksDOTS(); calcKarvonenHR(); calcRunningPace();
       calcStockAvg(); calcDRIP(); calcPositionRisk(); calcCompoundSavings(); calcCryptoROI(); calcMortgage();
+      calcTipSplit(); calcPercentage(); calcUnits(); calcAge(); calcDiscount(); calcFuel(); calcBodyFat(); calcCaloriesBurned();
+      const initId = location.hash.replace('#','') || 'tab-home';
+      showTab(document.getElementById(initId) ? initId : 'tab-home');
     });
   </script>
 </body>
