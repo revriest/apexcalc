@@ -333,7 +333,6 @@
       margin-bottom: 1.1rem; padding-bottom: 0.65rem; border-bottom: 1px solid var(--border-subtle);
     }
     .card-title { font-size: 1.05rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem; }
-    .card-title svg { width: 18px; height: 18px; stroke: var(--accent-indigo); stroke-width: 2; fill: none; }
 
     .form-group-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.1rem; }
     .form-group { display: flex; flex-direction: column; gap: 0.35rem; margin-bottom: 1rem; }
@@ -424,9 +423,7 @@
     .data-table th { background: var(--bg-input); color: var(--text-muted); font-family: var(--font-sans); }
     .data-table tr:hover { background: rgba(255,255,255,0.02); }
 
-    /* ==========================================================================
-       SECTION 1: LOCALSTORAGE HISTORY TABLE
-       ========================================================================== */
+    /* HISTORY & CHEAT SHEET CARDS */
     .history-card { margin-top: 1.5rem; }
     .btn-delete {
       background: transparent; border: 1px solid rgba(244, 63, 94, 0.3); color: var(--accent-rose);
@@ -434,9 +431,6 @@
     }
     .btn-delete:hover { background: var(--accent-rose); color: #ffffff; }
 
-    /* ==========================================================================
-       SECTION 2 & 4: 2-COLUMN CHEAT SHEET & RESTRUCTURED SEO CARDS
-       ========================================================================== */
     .cheat-sheet-grid, .seo-2col-grid {
       display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 1.5rem;
     }
@@ -444,14 +438,10 @@
       .cheat-sheet-grid, .seo-2col-grid { grid-template-columns: 1fr 1fr; }
     }
 
-    /* ==========================================================================
-       SECTION 3: CROSS-LINK HUB GRID
-       ========================================================================== */
+    /* CROSS-LINK HUB */
     .cross-link-hub { margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid var(--border-subtle); }
     .cross-link-title { font-size: 1.35rem; margin-bottom: 1.25rem; text-align: center; }
-    .hub-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;
-    }
+    .hub-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
     .hub-card {
       background: var(--bg-card); border: 1px solid var(--border-subtle);
       border-radius: var(--radius-md); padding: 1.1rem; transition: var(--transition);
@@ -467,6 +457,66 @@
     }
     .hub-card-title { font-size: 1rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.35rem; }
     .hub-card-desc { font-size: 0.775rem; color: var(--text-muted); }
+
+    /* ==========================================================================
+       HOMEPAGE / PORTAL STYLES (#tab-home)
+       ========================================================================== */
+    .hero-portal {
+      text-align: center; padding: 2.5rem 1rem 2rem 1rem; max-width: 850px; margin: 0 auto;
+    }
+    .hero-headline {
+      font-size: 2.35rem; font-weight: 800; line-height: 1.25; margin-bottom: 0.85rem;
+      background: linear-gradient(135deg, #ffffff 40%, var(--text-muted) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .hero-subtitle { font-size: 1.05rem; color: var(--text-muted); margin-bottom: 1.75rem; }
+    
+    .search-box-wrapper {
+      position: relative; max-width: 580px; margin: 0 auto 2rem auto;
+    }
+    .search-input {
+      width: 100%; background: var(--bg-surface); border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-full); padding: 0.85rem 1.25rem 0.85rem 2.8rem;
+      font-size: 0.95rem; color: var(--text-main); font-family: var(--font-sans);
+      outline: none; transition: var(--transition); box-shadow: var(--shadow-md);
+    }
+    .search-input:focus { border-color: var(--accent-indigo); box-shadow: var(--shadow-glow); }
+    .search-icon-svg {
+      position: absolute; left: 1rem; top: 50%; transform: translateY(-50%);
+      width: 18px; height: 18px; stroke: var(--text-dim); fill: none; stroke-width: 2;
+    }
+
+    .value-props-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.1rem; margin-top: 2rem;
+    }
+    .prop-card {
+      background: var(--bg-surface); border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md); padding: 1.1rem; text-align: left;
+    }
+    .prop-icon { font-size: 1.5rem; margin-bottom: 0.4rem; }
+    .prop-title { font-size: 0.95rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.2rem; }
+    .prop-desc { font-size: 0.8rem; color: var(--text-muted); }
+
+    .home-cat-section { margin-top: 2.5rem; }
+    .home-cat-title {
+      font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .home-tools-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.1rem;
+    }
+
+    /* SEO & FAQ Cards */
+    .formula-card {
+      background: var(--bg-surface); border: 1px solid var(--border-subtle);
+      border-left: 4px solid var(--accent-indigo); border-radius: var(--radius-md);
+      padding: 0.85rem 1.1rem; font-family: var(--font-mono); font-size: 0.825rem; color: var(--accent-cyan); margin: 1rem 0;
+    }
+    .faq-item { background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); margin-bottom: 0.65rem; }
+    .faq-question { padding: 0.85rem 1.1rem; font-size: 0.9rem; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; }
+    .faq-question::after { content: '+'; font-size: 1.15rem; color: var(--accent-indigo); }
+    details[open] .faq-question::after { content: '−'; }
+    .faq-answer { padding: 0 1.1rem 0.85rem 1.1rem; font-size: 0.85rem; color: var(--text-muted); }
 
     /* Toast & Modals */
     .toast {
@@ -506,20 +556,24 @@
   <header class="app-header">
     <div class="container">
       <div class="header-inner">
-        <a href="#" class="brand-logo">
+        <!-- Logo linking to Home Tab -->
+        <a href="#tab-home" onclick="switchTab('tab-home')" class="brand-logo">
           <div class="logo-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg></div>
           <span>Calc<span style="color: var(--accent-indigo);">QI</span></span>
           <span class="brand-badge">PRO SUITE</span>
         </a>
 
         <nav class="cat-nav-menu" role="navigation">
+          <button class="nav-cat-btn" onclick="switchTab('tab-home')"><span>🏠 Home Portal</span></button>
+          
           <div class="nav-cat-group">
             <button class="nav-cat-btn"><span>🛠️ Maker & Craft</span><svg class="arrow" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
             <div class="dropdown-menu">
-              <button class="dropdown-item active" data-tab="tab-3dprint" onclick="switchTab('tab-3dprint')"><span>3D Print Cost Estimator</span></button>
+              <button class="dropdown-item" data-tab="tab-3dprint" onclick="switchTab('tab-3dprint')"><span>3D Print Cost Estimator</span></button>
               <button class="dropdown-item" data-tab="tab-baker" onclick="switchTab('tab-baker')"><span>Baker's Pizza Dough Math</span></button>
             </div>
           </div>
+          
           <div class="nav-cat-group">
             <button class="nav-cat-btn"><span>🎬 Creator & Media</span><svg class="arrow" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
             <div class="dropdown-menu">
@@ -528,6 +582,7 @@
               <button class="dropdown-item" data-tab="tab-aspect" onclick="switchTab('tab-aspect')"><span>Aspect Ratio & Resolution</span></button>
             </div>
           </div>
+          
           <div class="nav-cat-group">
             <button class="nav-cat-btn"><span>🏋️ Fitness & Body</span><svg class="arrow" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
             <div class="dropdown-menu">
@@ -536,6 +591,7 @@
               <button class="dropdown-item" data-tab="tab-navy-bf" onclick="switchTab('tab-navy-bf')"><span>US Navy Body Fat %</span></button>
             </div>
           </div>
+          
           <div class="nav-cat-group">
             <button class="nav-cat-btn"><span>📈 Finance & Trading</span><svg class="arrow" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
             <div class="dropdown-menu">
@@ -546,8 +602,9 @@
         </nav>
 
         <select class="mobile-tool-select" id="mobile-tool-selector" onchange="switchTab(this.value)">
+          <option value="tab-home" selected>🏠 Home Portal</option>
           <optgroup label="🛠️ Maker & Craft">
-            <option value="tab-3dprint" selected>3D Print Cost Estimator</option>
+            <option value="tab-3dprint">3D Print Cost Estimator</option>
             <option value="tab-baker">Baker's Pizza Dough Math</option>
           </optgroup>
           <optgroup label="🎬 Creator & Media">
@@ -569,7 +626,7 @@
     </div>
   </header>
 
-  <!-- MAIN CONTAINER -->
+  <!-- MAIN CONTENT CONTAINER -->
   <main class="main-content">
     <div class="container">
       
@@ -580,8 +637,155 @@
         </div>
       </div>
 
-      <!-- TOOL 1: 3D PRINT COST -->
-      <section id="tab-3dprint" class="tab-panel active">
+      <!-- ======================================================================
+           PART 1: HOMEPAGE / PORTAL (`#tab-home`)
+           ====================================================================== -->
+      <section id="tab-home" class="tab-panel active">
+        <div class="hero-portal">
+          <h1 class="hero-headline">High-Precision Micro-Utility Suite for Makers, Creators, Athletes & Investors</h1>
+          <p class="hero-subtitle">Instant, privacy-first, zero-bloat calculators designed for real-world workflows.</p>
+
+          <!-- Interactive Quick-Search Bar -->
+          <div class="search-box-wrapper">
+            <svg class="search-icon-svg" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="text" id="home-search-input" class="search-input" placeholder="Search calculators (e.g., 3D print, bitrate, pizza dough, 1RM, DRIP)..." oninput="filterHomeTools(this.value)">
+          </div>
+
+          <!-- Brand Value Props -->
+          <div class="value-props-grid">
+            <div class="prop-card">
+              <div class="prop-icon">⚡</div>
+              <div class="prop-title">100% Client-Side Speed</div>
+              <div class="prop-desc">Zero server round-trips. Instant live calculations on every keypress.</div>
+            </div>
+            <div class="prop-card">
+              <div class="prop-icon">🔒</div>
+              <div class="prop-title">Privacy First</div>
+              <div class="prop-desc">No accounts, no user data collection. Runs entirely in your browser.</div>
+            </div>
+            <div class="prop-card">
+              <div class="prop-icon">📋</div>
+              <div class="prop-title">Copy-Ready Output</div>
+              <div class="prop-desc">Formatted quote and summary snippets ready for project notes.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Categorized Tool Grid -->
+        <!-- Category 1: Maker & Craft -->
+        <div class="home-cat-section tool-card-item" data-title="3d print cost baker pizza dough maker craft">
+          <h2 class="home-cat-title">🛠️ Maker & Craft Utilities</h2>
+          <div class="home-tools-grid">
+            <div class="hub-card" onclick="switchTab('tab-3dprint')">
+              <div>
+                <div class="hub-cat-badge">MAKER & CRAFT</div>
+                <div class="hub-card-title">3D Print Cost Estimator</div>
+                <div class="hub-card-desc">Calculate spool $/g, electricity wattage, machine wear & commercial retail profit margins.</div>
+              </div>
+              <button class="btn btn-primary" style="margin-top:1rem; width:100%;">Launch Tool</button>
+            </div>
+            <div class="hub-card" onclick="switchTab('tab-baker')">
+              <div>
+                <div class="hub-cat-badge">MAKER & CRAFT</div>
+                <div class="hub-card-title">Baker's Pizza Dough Math</div>
+                <div class="hub-card-desc">Scale pizza dough flour, hydration, yeast, salt & oil with baker's percentages.</div>
+              </div>
+              <button class="btn btn-primary" style="margin-top:1rem; width:100%;">Launch Tool</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category 2: Creator & Media -->
+        <div class="home-cat-section tool-card-item" data-title="video export bitrate file size dof depth of field optics aspect ratio resolution creator media">
+          <h2 class="home-cat-title">🎬 Creator & Media Utilities</h2>
+          <div class="home-tools-grid">
+            <div class="hub-card" onclick="switchTab('tab-video')">
+              <div>
+                <div class="hub-cat-badge">CREATOR & MEDIA</div>
+                <div class="hub-card-title">Video Bitrate & File Size</div>
+                <div class="hub-card-desc">Forecast export MB/GB file sizes across H.264, H.265, and ProRes codecs.</div>
+              </div>
+              <button class="btn btn-primary" style="margin-top:1rem; width:100%;">Launch Tool</button>
+            </div>
+            <div class="hub-card" onclick="switchTab('tab-dof')">
+              <div>
+                <div class="hub-cat-badge">CREATOR & MEDIA</div>
+                <div class="hub-card-title">Depth of Field & Optics</div>
+                <div class="hub-card-desc">Optics calculator for sensor crop, hyperfocal distance, and near/far focus limits.</div>
+              </div>
+              <button class="btn btn-primary" style="margin-top:1rem; width:100%;">Launch Tool</button>
+            </div>
+            <div class="hub-card" onclick="switchTab('tab-aspect')">
+              <div>
+                <div class="hub-cat-badge">CREATOR & MEDIA</div>
+                <div class="hub-card-title">Aspect Ratio Converter</div>
+                <div class="hub-card-desc">Convert screen resolution pixels and calculate exact megapixels.</div>
+              </div>
+              <button class="btn btn-primary" style="margin-top:1rem; width:100%;">Launch Tool</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category 3: Fitness & Body -->
+        <div class="home-cat-section tool-card-item" data-title="tdee recomp macro splitter 1rm strength matrix navy body fat fitness body">
+          <h2 class="home-cat-title">🏋️ Fitness & Body Utilities</h2>
+          <div class="home-tools-grid">
+            <div class="hub-card" onclick="switchTab('tab-tdee')">
+              <div>
+                <div class="hub-cat-badge">FITNESS & BODY</div>
+                <div class="hub-card-title">TDEE & Recomp Macro Splitter</div>
+                <div class="hub-card-desc">BMR, TDEE, daily calorie targets, and protein/carb/fat macro ratios.</div>
+              </div>
+              <button class="btn btn-primary" style="margin-top:1rem; width:100%;">Launch Tool</button>
+            </div>
+            <div class="hub-card" onclick="switchTab('tab-1rm')">
+              <div>
+                <div class="hub-cat-badge">FITNESS & BODY</div>
+                <div class="hub-card-title">1RM Strength Matrix</div>
+                <div class="hub-card-desc">Estimated 1-rep max and percentage matrix table for strength programming.</div>
+              </div>
+              <button class="btn btn-primary" style="margin-top:1rem; width:100%;">Launch Tool</button>
+            </div>
+            <div class="hub-card" onclick="switchTab('tab-navy-bf')">
+              <div>
+                <div class="hub-cat-badge">FITNESS & BODY</div>
+                <div class="hub-card-title">US Navy Body Fat %</div>
+                <div class="hub-card-desc">Estimate body fat percentage, lean body mass (LBM), and fat mass.</div>
+              </div>
+              <button class="btn btn-primary" style="margin-top:1rem; width:100%;">Launch Tool</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category 4: Finance & Trading -->
+        <div class="home-cat-section tool-card-item" data-title="stock average down drip dividend compounding forecast finance trading">
+          <h2 class="home-cat-title">📈 Finance & Trading Utilities</h2>
+          <div class="home-tools-grid">
+            <div class="hub-card" onclick="switchTab('tab-stock-avg')">
+              <div>
+                <div class="hub-cat-badge">FINANCE & TRADING</div>
+                <div class="hub-card-title">Stock Average Down</div>
+                <div class="hub-card-desc">Calculate combined average share price basis and break-even points.</div>
+              </div>
+              <button class="btn btn-primary" style="margin-top:1rem; width:100%;">Launch Tool</button>
+            </div>
+            <div class="hub-card" onclick="switchTab('tab-drip')">
+              <div>
+                <div class="hub-cat-badge">FINANCE & TRADING</div>
+                <div class="hub-card-title">Dividend DRIP Forecast</div>
+                <div class="hub-card-desc">Project multi-year compound interest growth and passive annual income.</div>
+              </div>
+              <button class="btn btn-primary" style="margin-top:1rem; width:100%;">Launch Tool</button>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ======================================================================
+           TOOL 1: 3D PRINT COST ESTIMATOR
+           ====================================================================== -->
+      <section id="tab-3dprint" class="tab-panel">
         <div class="tool-header">
           <div class="tool-title-group">
             <h1>3D Print Cost & Commercial Pricing Estimator</h1>
@@ -651,15 +855,6 @@
               <div class="metric-card"><div class="m-label">Filament Expense</div><div class="m-val" id="p3d-res-filament-cost">$3.12</div></div>
               <div class="metric-card"><div class="m-label">Electricity Expense</div><div class="m-val" id="p3d-res-elec-cost">$0.13</div></div>
             </div>
-            <div class="breakdown-box">
-              <div class="breakdown-header"><span>Cost Breakdown</span><span id="p3d-res-cost-per-gram" style="color:var(--accent-indigo); font-family:var(--font-mono);">$0.025 / g</span></div>
-              <div class="stacked-bar-container">
-                <div id="p3d-bar-filament" class="bar-segment c-indigo" style="width: 30%;"></div>
-                <div id="p3d-bar-labor" class="bar-segment c-violet" style="width: 45%;"></div>
-                <div id="p3d-bar-wear" class="bar-segment c-cyan" style="width: 20%;"></div>
-                <div id="p3d-bar-elec" class="bar-segment c-emerald" style="width: 5%;"></div>
-              </div>
-            </div>
             <div style="display:flex; gap:0.5rem;">
               <button class="btn btn-primary" style="flex:1;" onclick="copySummary3D()">Copy Quote</button>
               <button class="btn btn-secondary" onclick="saveRun('3dprint')">Save Run</button>
@@ -668,21 +863,16 @@
           </div>
         </div>
 
-        <!-- 1. LOCALSTORAGE SAVED CALCULATIONS HISTORY CARD -->
+        <!-- History Card -->
         <div class="card history-card">
-          <div class="card-header">
-            <span class="card-title">Saved 3D Print Calculation History</span>
-            <button class="btn-delete" onclick="clearHistory('3dprint')">Clear History</button>
-          </div>
+          <div class="card-header"><span class="card-title">Saved 3D Print Calculation History</span><button class="btn-delete" onclick="clearHistory('3dprint')">Clear History</button></div>
           <table class="data-table">
-            <thead>
-              <tr><th>Timestamp</th><th>Weight / Time</th><th>Total Cost</th><th>Price Quote</th><th>Action</th></tr>
-            </thead>
-            <tbody id="hist-tbody-3dprint"><tr><td colspan="5" style="color:var(--text-dim);">No saved calculations yet. Click "Save Run" to record entries.</td></tr></tbody>
+            <thead><tr><th>Timestamp</th><th>Weight / Time</th><th>Total Cost</th><th>Price Quote</th><th>Action</th></tr></thead>
+            <tbody id="hist-tbody-3dprint"><tr><td colspan="5" style="color:var(--text-dim);">No saved calculations.</td></tr></tbody>
           </table>
         </div>
 
-        <!-- 2. QUICK-REFERENCE CHEAT SHEET -->
+        <!-- Cheat Sheet -->
         <div class="cheat-sheet-grid">
           <div class="card">
             <div class="card-header"><span class="card-title">Filament Material Benchmark Guide</span></div>
@@ -698,50 +888,33 @@
             </table>
           </div>
           <div class="card">
-            <div class="card-header"><span class="card-title">3D Print Farm Operational Rules of Thumb</span></div>
+            <div class="card-header"><span class="card-title">3D Print Farm Rules of Thumb</span></div>
             <p style="font-size:0.85rem; line-height:1.6; color:var(--text-muted);">
-              <strong>1. Hourly Machine Depreciation:</strong> Standard desktop FDM printers (Bambu, Prusa, Creality) depreciate at ~$0.30–$0.60 per operating hour over a 3,000-hour operational lifespan.<br><br>
-              <strong>2. Failure Buffer Margin:</strong> Always include an 8%–12% failure buffer to cover bed detachment, nozzle clogs, and support material waste.<br><br>
-              <strong>3. Labor Amortization:</strong> Charge labor at minimum $25/hr for post-processing, support removal, and shipping prep.
+              <strong>Machine Depreciation:</strong> Desktop FDM printers depreciate at ~$0.40/hour over a 3,000-hour operating lifespan.<br><br>
+              <strong>Failure Buffer:</strong> Factor 8%–12% risk buffer to account for support waste and bed detachments.
             </p>
           </div>
         </div>
 
-        <!-- 4. RESTRUCTURED BELOW-THE-FOLD SEO & FAQs -->
+        <!-- 2-Col SEO & FAQs -->
         <div class="seo-2col-grid">
           <div class="card">
-            <h2 style="font-size:1.2rem; margin-bottom:0.75rem;">3D Print Cost Formula Architecture</h2>
-            <p style="font-size:0.875rem;">Calculating commercial 3D print pricing accurately requires factoring in filament weight, active electricity consumption, machine wear, and manual labor hours.</p>
-            <div class="formula-card">
-              Total Cost = (Print_Grams × Cost/g) + (kWh × Rate) + (Hours × Wear/hr) + Labor Cost
-              Quote = Total Cost × (1 + Failure_Buffer %) × (1 + Retail_Markup %)
-            </div>
+            <h2 style="font-size:1.2rem; margin-bottom:0.75rem;">3D Print Cost Formula</h2>
+            <div class="formula-card">Total Cost = (Filament_g × $/g) + (kWh × Rate) + (Hours × Wear/hr) + Labor</div>
           </div>
           <div class="card">
             <h2 style="font-size:1.2rem; margin-bottom:0.75rem;">Frequently Asked Questions</h2>
-            <details class="faq-item">
-              <summary class="faq-question">What markup percentage should I charge?</summary>
-              <div class="faq-answer">Commercial print farms typically charge a 50% to 150% markup for standard production, and up to 300% for rapid engineering prototypes.</div>
-            </details>
-            <details class="faq-item">
-              <summary class="faq-question">How do I calculate electricity cost accurately?</summary>
-              <div class="faq-answer">Multiply printer wattage by print duration in hours, divide by 1,000 to get kWh, and multiply by your local $/kWh utility rate.</div>
-            </details>
+            <details class="faq-item"><summary class="faq-question">What retail markup is standard?</summary><div class="faq-answer">50% to 150% is standard for production parts; up to 300% for rapid prototypes.</div></details>
           </div>
         </div>
       </section>
 
-      <!-- OTHER 9 TOOLS (All structured with History + Cheat Sheets + 2-Col SEO) -->
       <!-- TOOL 2: BAKER'S PIZZA DOUGH -->
       <section id="tab-baker" class="tab-panel">
         <div class="tool-header">
-          <div class="tool-title-group">
-            <h1>Baker's Percentage & Pizza Dough Calculator</h1>
-            <p>Scale pizza dough batches using professional baker's percentages for flour, hydration, salt, and yeast.</p>
-          </div>
+          <div class="tool-title-group"><h1>Baker's Percentage & Pizza Dough Calculator</h1><p>Scale pizza dough batches using baker's percentages.</p></div>
           <div class="tool-actions">
             <div class="preset-chip-group">
-              <span class="preset-label">Styles:</span>
               <button class="btn btn-preset active" onclick="applyPresetBaker('neapolitan')">Neapolitan 62%</button>
               <button class="btn btn-preset" onclick="applyPresetBaker('ny')">NY Style 65%</button>
               <button class="btn btn-preset" onclick="applyPresetBaker('detroit')">Detroit 70%</button>
@@ -757,11 +930,7 @@
               <div class="form-group"><label class="form-label">Ball Weight</label><div class="input-wrapper"><input type="number" id="baker-ball-weight" class="form-control has-suffix" value="250" min="50"><span class="input-suffix">grams</span></div></div>
             </div>
             <div class="form-group-grid">
-              <div class="form-group">
-                <div class="label-row"><label class="form-label">Hydration</label><span id="baker-hydration-val" class="range-value">65%</span></div>
-                <div class="input-wrapper"><input type="number" id="baker-hydration" class="form-control has-suffix" value="65" min="45" max="90" step="0.5"><span class="input-suffix">%</span></div>
-                <div class="range-group"><input type="range" id="baker-hydration-slider" class="range-slider" min="45" max="90" value="65" step="0.5"></div>
-              </div>
+              <div class="form-group"><div class="label-row"><label class="form-label">Hydration</label><span id="baker-hydration-val" class="range-value">65%</span></div><div class="input-wrapper"><input type="number" id="baker-hydration" class="form-control has-suffix" value="65" min="45" max="90" step="0.5"><span class="input-suffix">%</span></div><div class="range-group"><input type="range" id="baker-hydration-slider" class="range-slider" min="45" max="90" value="65" step="0.5"></div></div>
               <div class="form-group"><label class="form-label">Salt %</label><div class="input-wrapper"><input type="number" id="baker-salt" class="form-control has-suffix" value="2.8" min="0.5" max="5" step="0.1"><span class="input-suffix">%</span></div></div>
             </div>
             <div class="form-group-grid">
@@ -770,246 +939,173 @@
             </div>
           </div>
           <div class="results-deck">
-            <div class="hero-stat-card">
-              <div class="stat-label">Total Flour Required</div>
-              <div class="stat-value-huge" id="baker-res-flour">590 <span class="unit">g</span></div>
-              <div class="stat-subtext" id="baker-res-subtext">Total Batch Mass: 1,000g (4 x 250g dough balls)</div>
-            </div>
+            <div class="hero-stat-card"><div class="stat-label">Total Flour Required</div><div class="stat-value-huge" id="baker-res-flour">590 <span class="unit">g</span></div><div class="stat-subtext" id="baker-res-subtext">Total Batch Mass: 1,000g</div></div>
             <div class="metrics-grid">
-              <div class="metric-card" style="border-top:3px solid var(--accent-cyan);"><div class="m-label">Water (65%)</div><div class="m-val" id="baker-res-water">383 g</div></div>
-              <div class="metric-card" style="border-top:3px solid var(--accent-emerald);"><div class="m-label">Salt (2.8%)</div><div class="m-val" id="baker-res-salt">16.5 g</div></div>
-              <div class="metric-card" style="border-top:3px solid var(--accent-amber);"><div class="m-label">Yeast (0.2%)</div><div class="m-val" id="baker-res-yeast">1.18 g</div></div>
-              <div class="metric-card" style="border-top:3px solid var(--accent-rose);"><div class="m-label">Oil (1.5%)</div><div class="m-val" id="baker-res-oil">8.85 g</div></div>
+              <div class="metric-card"><div class="m-label">Water</div><div class="m-val" id="baker-res-water">383 g</div></div>
+              <div class="metric-card"><div class="m-label">Salt</div><div class="m-val" id="baker-res-salt">16.5 g</div></div>
+              <div class="metric-card"><div class="m-label">Yeast</div><div class="m-val" id="baker-res-yeast">1.18 g</div></div>
+              <div class="metric-card"><div class="m-label">Oil</div><div class="m-val" id="baker-res-oil">8.85 g</div></div>
             </div>
-            <div class="breakdown-box">
-              <div class="breakdown-header"><span>Dough Ratios</span><span id="baker-total-baker-pct" style="color:var(--accent-indigo); font-family:var(--font-mono);">169.5% Baker's %</span></div>
-              <div class="stacked-bar-container">
-                <div id="baker-bar-flour" class="bar-segment c-indigo" style="width: 58%;"></div>
-                <div id="baker-bar-water" class="bar-segment c-cyan" style="width: 38%;"></div>
-                <div id="baker-bar-salt" class="bar-segment c-emerald" style="width: 2%;"></div>
-                <div id="baker-bar-oil" class="bar-segment c-rose" style="width: 2%;"></div>
-              </div>
-            </div>
-            <div style="display:flex; gap:0.5rem;">
-              <button class="btn btn-primary" style="flex:1;" onclick="copySummaryBaker()">Copy Recipe</button>
-              <button class="btn btn-secondary" onclick="saveRun('baker')">Save Run</button>
-            </div>
-            <div class="ad-sidebar"><span class="ad-label">ADVERTISEMENT</span><span class="ad-text">[ 300x250 Ad Slot ]</span></div>
+            <div style="display:flex; gap:0.5rem;"><button class="btn btn-primary" style="flex:1;" onclick="copySummaryBaker()">Copy Recipe</button><button class="btn btn-secondary" onclick="saveRun('baker')">Save Run</button></div>
           </div>
         </div>
 
-        <div class="card history-card">
-          <div class="card-header"><span class="card-title">Saved Dough Batch History</span><button class="btn-delete" onclick="clearHistory('baker')">Clear History</button></div>
-          <table class="data-table">
-            <thead><tr><th>Timestamp</th><th>Dough Balls</th><th>Flour (g)</th><th>Water (g)</th><th>Action</th></tr></thead>
-            <tbody id="hist-tbody-baker"><tr><td colspan="5" style="color:var(--text-dim);">No saved dough recipes yet. Click "Save Run" to record entries.</td></tr></tbody>
-          </table>
-        </div>
-
-        <div class="cheat-sheet-grid">
-          <div class="card">
-            <div class="card-header"><span class="card-title">Pizza Style Hydration Benchmark Guide</span></div>
-            <table class="data-table">
-              <thead><tr><th>Pizza Style</th><th>Hydration %</th><th>Oven Temp</th><th>Ferment Time</th></tr></thead>
-              <tbody>
-                <tr><td>Neapolitan Woodfired</td><td>60% - 63%</td><td>450°C - 500°C</td><td>24h - 48h Cold</td></tr>
-                <tr><td>New York Style</td><td>63% - 66%</td><td>290°C - 340°C</td><td>24h - 72h Cold</td></tr>
-                <tr><td>Detroit Deep Dish</td><td>68% - 73%</td><td>260°C - 290°C</td><td>4h - 8h Room</td></tr>
-                <tr><td>Artisan Focaccia</td><td>75% - 85%</td><td>230°C - 260°C</td><td>18h - 24h Cold</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="card">
-            <div class="card-header"><span class="card-title">Understanding Baker's Percentages</span></div>
-            <p style="font-size:0.85rem; line-height:1.6; color:var(--text-muted);">
-              In professional baking, total flour is always set as 100%. All other ingredients (water, salt, yeast, oil) are measured as a direct weight percentage relative to flour mass.<br><br>
-              <strong>Flour Weight Formula:</strong> `Flour Mass = Total Batch Mass / (Total Baker's % / 100)`.
-            </p>
-          </div>
-        </div>
-
-        <div class="seo-2col-grid">
-          <div class="card">
-            <h2 style="font-size:1.2rem; margin-bottom:0.75rem;">Baker's Percentage Math</h2>
-            <div class="formula-card">Flour (g) = Total Dough Weight / (1 + Hydration% + Salt% + Yeast% + Oil%)</div>
-          </div>
-          <div class="card">
-            <h2 style="font-size:1.2rem; margin-bottom:0.75rem;">Pizza Dough FAQs</h2>
-            <details class="faq-item"><summary class="faq-question">Why use baker's percentage?</summary><div class="faq-answer">Baker's percentages allow easy scaling of any recipe size while maintaining perfect dough ratios.</div></details>
-          </div>
-        </div>
+        <div class="card history-card"><div class="card-header"><span class="card-title">Saved Dough Batch History</span><button class="btn-delete" onclick="clearHistory('baker')">Clear History</button></div><table class="data-table"><thead><tr><th>Timestamp</th><th>Dough Balls</th><th>Flour (g)</th><th>Water (g)</th><th>Action</th></tr></thead><tbody id="hist-tbody-baker"><tr><td colspan="5" style="color:var(--text-dim);">No saved dough recipes.</td></tr></tbody></table></div>
+        <div class="cheat-sheet-grid"><div class="card"><div class="card-header"><span class="card-title">Pizza Style Hydration Benchmark</span></div><table class="data-table"><thead><tr><th>Style</th><th>Hydration</th><th>Oven Temp</th></tr></thead><tbody><tr><td>Neapolitan</td><td>60% - 63%</td><td>450°C - 500°C</td></tr><tr><td>New York</td><td>63% - 66%</td><td>290°C - 340°C</td></tr><tr><td>Detroit Deep Dish</td><td>68% - 73%</td><td>260°C - 290°C</td></tr></tbody></table></div><div class="card"><div class="card-header"><span class="card-title">Baker's % Principles</span></div><p style="font-size:0.85rem; color:var(--text-muted);">Flour is always 100%. All other ingredients are scaled relative to flour mass.</p></div></div>
+        <div class="seo-2col-grid"><div class="card"><h2 style="font-size:1.2rem;">Flour Formula</h2><div class="formula-card">Flour = Total Weight / (1 + Hydration% + Salt% + Yeast% + Oil%)</div></div><div class="card"><h2 style="font-size:1.2rem;">FAQs</h2><details class="faq-item"><summary class="faq-question">Why use baker's percentage?</summary><div class="faq-answer">Allows scaling dough batch size while maintaining exact flour hydration ratios.</div></details></div></div>
       </section>
 
-      <!-- REPEAT COMPACT RENDERING FOR OTHER 8 TOOLS WITH HISTORY & CHEAT SHEETS -->
       <!-- TOOL 3: VIDEO BITRATE -->
       <section id="tab-video" class="tab-panel">
-        <div class="tool-header">
-          <div class="tool-title-group"><h1>Video Export Bitrate & File Size Calculator</h1><p>Predict export file sizes (MB/GB) and optimize target bitrates.</p></div>
-          <div class="tool-actions">
-            <div class="preset-chip-group">
-              <button class="btn btn-preset active" onclick="applyPresetVideo('yt4k')">YouTube 4K60</button>
-              <button class="btn btn-preset" onclick="applyPresetVideo('yt1080')">YouTube 1080p</button>
-              <button class="btn btn-preset" onclick="applyPresetVideo('tiktok')">TikTok</button>
-            </div>
-            <button class="btn btn-secondary" onclick="resetFormVideo()">Reset</button>
-          </div>
-        </div>
+        <div class="tool-header"><div class="tool-title-group"><h1>Video Export Bitrate & File Size Calculator</h1><p>Predict export file sizes (MB/GB) across codecs.</p></div><button class="btn btn-secondary" onclick="resetFormVideo()">Reset</button></div>
         <div class="calc-grid">
           <div class="card">
-            <div class="card-header"><span class="card-title">Video Specifications</span></div>
-            <div class="form-group-grid">
-              <div class="form-group"><label class="form-label">Resolution</label><select id="vid-res" class="form-control"><option value="1080">1080p Full HD</option><option value="2160" selected>4K UHD</option><option value="1440">1440p QHD</option></select></div>
-              <div class="form-group"><label class="form-label">Frame Rate</label><select id="vid-fps" class="form-control"><option value="24">24 fps</option><option value="30">30 fps</option><option value="60" selected>60 fps</option></select></div>
-            </div>
-            <div class="form-group-grid">
-              <div class="form-group"><label class="form-label">Codec</label><select id="vid-codec" class="form-control"><option value="h264" selected>H.264 / AVC</option><option value="h265">H.265 / HEVC</option><option value="prores422hq">ProRes 422 HQ</option></select></div>
-              <div class="form-group"><label class="form-label">Audio Bitrate</label><select id="vid-audio-bitrate" class="form-control"><option value="192">192 kbps</option><option value="320" selected>320 kbps</option></select></div>
-            </div>
-            <div class="form-group" style="margin-top:0.5rem;"><label class="form-label">Duration</label><div style="display: flex; gap: 0.5rem;"><div class="input-wrapper" style="flex:1;"><input type="number" id="vid-hrs" class="form-control has-suffix" value="0" min="0"><span class="input-suffix">hrs</span></div><div class="input-wrapper" style="flex:1;"><input type="number" id="vid-mins" class="form-control has-suffix" value="12" min="0"><span class="input-suffix">mins</span></div><div class="input-wrapper" style="flex:1;"><input type="number" id="vid-secs" class="form-control has-suffix" value="30" min="0" max="59"><span class="input-suffix">secs</span></div></div></div>
-            <div class="form-group" style="margin-top:1rem;"><div class="label-row"><label class="form-label">Target Video Bitrate</label><span id="vid-bitrate-val" class="range-value">55.0 Mbps</span></div><div class="input-wrapper" style="margin-bottom:0.4rem;"><input type="number" id="vid-bitrate" class="form-control has-suffix" value="55.0" min="0.1" step="0.5"><span class="input-suffix">Mbps</span></div><div class="range-group"><input type="range" id="vid-bitrate-slider" class="range-slider" min="1" max="250" value="55" step="1"></div></div>
+            <div class="form-group-grid"><div class="form-group"><label class="form-label">Resolution</label><select id="vid-res" class="form-control"><option value="1080">1080p</option><option value="2160" selected>4K UHD</option></select></div><div class="form-group"><label class="form-label">Frame Rate</label><select id="vid-fps" class="form-control"><option value="30">30 fps</option><option value="60" selected>60 fps</option></select></div></div>
+            <div class="form-group"><label class="form-label">Bitrate (Mbps)</label><input type="number" id="vid-bitrate" class="form-control" value="55.0"></div>
           </div>
           <div class="results-deck">
-            <div class="hero-stat-card"><div class="stat-label">Estimated Output File Size</div><div class="stat-value-huge" id="vid-res-filesize">5.19 <span class="unit">GB</span></div><div class="stat-subtext" id="vid-res-binary-subtext">Binary Equivalent: 4.83 GiB</div></div>
-            <div class="metrics-grid">
-              <div class="metric-card"><div class="m-label">Total Data Rate</div><div class="m-val" id="vid-res-total-bitrate">55.32 Mbps</div></div>
-              <div class="metric-card"><div class="m-label">Total Duration</div><div class="m-val" id="vid-res-duration">750 sec</div></div>
-              <div class="metric-card"><div class="m-label">Upload Time (100Mbps)</div><div class="m-val" id="vid-res-upload-time">6.9 mins</div></div>
-              <div class="metric-card"><div class="m-label">Files per 1TB SSD</div><div class="m-val" id="vid-res-storage-count">192 videos</div></div>
-            </div>
+            <div class="hero-stat-card"><div class="stat-label">Output File Size</div><div class="stat-value-huge" id="vid-res-filesize">5.19 <span class="unit">GB</span></div></div>
+            <div class="metrics-grid"><div class="metric-card"><div class="m-label">Total Data Rate</div><div class="m-val" id="vid-res-total-bitrate">55.32 Mbps</div></div><div class="metric-card"><div class="m-label">Duration</div><div class="m-val" id="vid-res-duration">750 sec</div></div></div>
             <div style="display:flex; gap:0.5rem;"><button class="btn btn-primary" style="flex:1;" onclick="copySummaryVideo()">Copy Specs</button><button class="btn btn-secondary" onclick="saveRun('video')">Save Run</button></div>
-            <div class="ad-sidebar"><span class="ad-label">ADVERTISEMENT</span><span class="ad-text">[ 300x250 Ad Slot ]</span></div>
           </div>
         </div>
-        <div class="card history-card"><div class="card-header"><span class="card-title">Saved Export History</span><button class="btn-delete" onclick="clearHistory('video')">Clear History</button></div><table class="data-table"><thead><tr><th>Timestamp</th><th>Bitrate</th><th>File Size</th><th>Action</th></tr></thead><tbody id="hist-tbody-video"><tr><td colspan="4" style="color:var(--text-dim);">No saved export calculations.</td></tr></tbody></table></div>
+        <div class="card history-card"><div class="card-header"><span class="card-title">Saved Export History</span><button class="btn-delete" onclick="clearHistory('video')">Clear History</button></div><table class="data-table"><thead><tr><th>Timestamp</th><th>Bitrate</th><th>File Size</th><th>Action</th></tr></thead><tbody id="hist-tbody-video"><tr><td colspan="4" style="color:var(--text-dim);">No saved video exports.</td></tr></tbody></table></div>
+        <div class="cheat-sheet-grid"><div class="card"><div class="card-header"><span class="card-title">Streaming Platform Bitrate Targets</span></div><table class="data-table"><thead><tr><th>Platform</th><th>1080p Target</th><th>4K Target</th></tr></thead><tbody><tr><td>YouTube SDR</td><td>8 - 10 Mbps</td><td>44 - 56 Mbps</td></tr><tr><td>TikTok / Reels</td><td>10 - 15 Mbps</td><td>N/A</td></tr><tr><td>ProRes 422 HQ</td><td>220 Mbps</td><td>880 Mbps</td></tr></tbody></table></div><div class="card"><div class="card-header"><span class="card-title">MB vs MiB</span></div><p style="font-size:0.85rem; color:var(--text-muted);">Decimal MB (1,000,000 B) vs Binary MiB (1,048,576 B).</p></div></div>
+        <div class="seo-2col-grid"><div class="card"><h2 style="font-size:1.2rem;">File Size Formula</h2><div class="formula-card">File Size (GB) = (Bitrate Mbps × Duration Secs) / 8 / 1000</div></div><div class="card"><h2 style="font-size:1.2rem;">FAQs</h2><details class="faq-item"><summary class="faq-question">Why does YouTube re-encode video?</summary><div class="faq-answer">YouTube compresses all uploads into VP9/AV1 codecs for efficient streaming.</div></details></div></div>
       </section>
 
-      <!-- TOOL 4: DOF -->
+      <!-- TOOL 4: DOF OPTICS -->
       <section id="tab-dof" class="tab-panel">
-        <div class="tool-header"><div class="tool-title-group"><h1>Depth of Field & Optics Calculator</h1><p>Calculate hyperfocal distance, near/far focus limits, and total depth of field.</p></div><button class="btn btn-secondary" onclick="resetFormDOF()">Reset</button></div>
+        <div class="tool-header"><div class="tool-title-group"><h1>Depth of Field & Optics Calculator</h1><p>Calculate hyperfocal distance and near/far focus limits.</p></div><button class="btn btn-secondary" onclick="resetFormDOF()">Reset</button></div>
         <div class="calc-grid">
           <div class="card">
             <div class="card-header"><span class="card-title">Optics Inputs</span><div class="segmented-control"><button class="segmented-btn active" id="dof-unit-m-btn" onclick="toggleDOFUnits('meters')">Meters</button><button class="segmented-btn" id="dof-unit-ft-btn" onclick="toggleDOFUnits('feet')">Feet</button></div></div>
-            <div class="form-group-grid"><div class="form-group"><label class="form-label">Sensor Crop Factor</label><select id="dof-crop" class="form-control"><option value="1.0" selected>Full Frame (1.0x)</option><option value="1.5">APS-C (1.5x)</option><option value="2.0">M4/3 (2.0x)</option></select></div><div class="form-group"><label class="form-label">Aperture</label><select id="dof-aperture" class="form-control"><option value="1.8">f/1.8</option><option value="2.8" selected>f/2.8</option><option value="5.6">f/5.6</option><option value="8.0">f/8.0</option></select></div></div>
-            <div class="form-group-grid"><div class="form-group"><div class="label-row"><label class="form-label">Focal Length</label><span id="dof-focal-val" class="range-value">50 mm</span></div><div class="input-wrapper"><input type="number" id="dof-focal" class="form-control has-suffix" value="50" min="10"><span class="input-suffix">mm</span></div><div class="range-group"><input type="range" id="dof-focal-slider" class="range-slider" min="10" max="300" value="50"></div></div><div class="form-group"><div class="label-row"><label class="form-label">Subject Distance</label><span id="dof-distance-val" class="range-value">3.0 m</span></div><div class="input-wrapper"><input type="number" id="dof-distance" class="form-control has-suffix" value="3.0" step="0.1"><span class="input-suffix" id="dof-dist-unit">m</span></div><div class="range-group"><input type="range" id="dof-distance-slider" class="range-slider" min="0.5" max="30" value="3.0" step="0.1"></div></div></div>
+            <div class="form-group-grid"><div class="form-group"><label class="form-label">Sensor Crop</label><select id="dof-crop" class="form-control"><option value="1.0" selected>Full Frame (1.0x)</option><option value="1.5">APS-C (1.5x)</option><option value="2.0">M4/3 (2.0x)</option></select></div><div class="form-group"><label class="form-label">Aperture</label><select id="dof-aperture" class="form-control"><option value="1.8">f/1.8</option><option value="2.8" selected>f/2.8</option></select></div></div>
+            <div class="form-group-grid"><div class="form-group"><label class="form-label">Focal Length (mm)</label><input type="number" id="dof-focal" class="form-control" value="50"></div><div class="form-group"><label class="form-label">Subject Distance</label><input type="number" id="dof-distance" class="form-control" value="3.0" step="0.1"></div></div>
           </div>
           <div class="results-deck">
             <div class="hero-stat-card"><div class="stat-label">Hyperfocal Distance</div><div class="stat-value-huge" id="dof-res-hyperfocal">30.86 <span class="unit" id="dof-hyper-unit">m</span></div></div>
-            <div class="metrics-grid"><div class="metric-card"><div class="m-label">Near Limit</div><div class="m-val" id="dof-res-near">2.69 m</div></div><div class="metric-card"><div class="m-label">Far Limit</div><div class="m-val" id="dof-res-far">3.39 m</div></div><div class="metric-card"><div class="m-label">Total DOF</div><div class="m-val" id="dof-res-total">0.70 m</div></div><div class="metric-card"><div class="m-label">CoC</div><div class="m-val" id="dof-res-coc">0.029 mm</div></div></div>
+            <div class="metrics-grid"><div class="metric-card"><div class="m-label">Near Limit</div><div class="m-val" id="dof-res-near">2.69 m</div></div><div class="metric-card"><div class="m-label">Total DOF</div><div class="m-val" id="dof-res-total">0.70 m</div></div></div>
             <div style="display:flex; gap:0.5rem;"><button class="btn btn-primary" style="flex:1;" onclick="copySummaryDOF()">Copy Optics</button><button class="btn btn-secondary" onclick="saveRun('dof')">Save Run</button></div>
           </div>
         </div>
-        <div class="card history-card"><div class="card-header"><span class="card-title">Saved Optics Runs</span><button class="btn-delete" onclick="clearHistory('dof')">Clear History</button></div><table class="data-table"><thead><tr><th>Timestamp</th><th>Hyperfocal</th><th>Total DOF</th><th>Action</th></tr></thead><tbody id="hist-tbody-dof"><tr><td colspan="4" style="color:var(--text-dim);">No saved optics runs.</td></tr></tbody></table></div>
+        <div class="card history-card"><div class="card-header"><span class="card-title">Saved Optics History</span><button class="btn-delete" onclick="clearHistory('dof')">Clear History</button></div><table class="data-table"><thead><tr><th>Timestamp</th><th>Hyperfocal</th><th>Total DOF</th><th>Action</th></tr></thead><tbody id="hist-tbody-dof"><tr><td colspan="4" style="color:var(--text-dim);">No saved optics calculations.</td></tr></tbody></table></div>
+        <div class="cheat-sheet-grid"><div class="card"><div class="card-header"><span class="card-title">Sensor Size & Circle of Confusion (CoC) Reference</span></div><table class="data-table"><thead><tr><th>Sensor Format</th><th>Crop Factor</th><th>CoC Standard</th></tr></thead><tbody><tr><td>Full Frame (35mm)</td><td>1.0x</td><td>0.029 mm</td></tr><tr><td>APS-C (Sony/Fuji/Nikon)</td><td>1.5x</td><td>0.019 mm</td></tr><tr><td>Micro Four Thirds</td><td>2.0x</td><td>0.015 mm</td></tr></tbody></table></div><div class="card"><div class="card-header"><span class="card-title">Hyperfocal Principle</span></div><p style="font-size:0.85rem; color:var(--text-muted);">Focusing at hyperfocal distance yields acceptable sharpness from half that distance to infinity.</p></div></div>
+        <div class="seo-2col-grid"><div class="card"><h2 style="font-size:1.2rem;">Hyperfocal Formula</h2><div class="formula-card">H = (focal_length² / (aperture × CoC)) + focal_length</div></div><div class="card"><h2 style="font-size:1.2rem;">FAQs</h2><details class="faq-item"><summary class="faq-question">What is Circle of Confusion?</summary><div class="faq-answer">The maximum blur point size rendered on a sensor that still appears sharp to the human eye.</div></details></div></div>
       </section>
 
       <!-- TOOL 5: ASPECT RATIO -->
       <section id="tab-aspect" class="tab-panel">
-        <div class="tool-header"><div class="tool-title-group"><h1>Aspect Ratio & Pixel Dimensions Converter</h1><p>Convert screen resolutions and calculate megapixels.</p></div><button class="btn btn-secondary" onclick="resetFormAspect()">Reset</button></div>
+        <div class="tool-header"><div class="tool-title-group"><h1>Aspect Ratio & Resolution Converter</h1><p>Convert pixels and megapixels.</p></div><button class="btn btn-secondary" onclick="resetFormAspect()">Reset</button></div>
         <div class="calc-grid">
-          <div class="card"><div class="form-group-grid"><div class="form-group"><label class="form-label">Width</label><div class="input-wrapper"><input type="number" id="aspect-width" class="form-control has-suffix" value="3840"><span class="input-suffix">px</span></div></div><div class="form-group"><label class="form-label">Height</label><div class="input-wrapper"><input type="number" id="aspect-height" class="form-control has-suffix" value="2160"><span class="input-suffix">px</span></div></div></div></div>
+          <div class="card"><div class="form-group-grid"><div class="form-group"><label class="form-label">Width (px)</label><input type="number" id="aspect-width" class="form-control" value="3840"></div><div class="form-group"><label class="form-label">Height (px)</label><input type="number" id="aspect-height" class="form-control" value="2160"></div></div></div>
           <div class="results-deck">
             <div class="hero-stat-card"><div class="stat-label">Aspect Ratio</div><div class="stat-value-huge" id="aspect-res-ratio">16:9 <span class="unit">8.29 MP</span></div></div>
-            <div class="metrics-grid"><div class="metric-card"><div class="m-label">Dimensions</div><div class="m-val" id="aspect-res-dim">3840 x 2160</div></div><div class="metric-card"><div class="m-label">Megapixels</div><div class="m-val" id="aspect-res-mp-metric">8.29 MP</div></div></div>
             <div style="display:flex; gap:0.5rem;"><button class="btn btn-primary" style="flex:1;" onclick="copySummaryAspect()">Copy Specs</button><button class="btn btn-secondary" onclick="saveRun('aspect')">Save Run</button></div>
           </div>
         </div>
         <div class="card history-card"><div class="card-header"><span class="card-title">Saved Resolution History</span><button class="btn-delete" onclick="clearHistory('aspect')">Clear History</button></div><table class="data-table"><thead><tr><th>Timestamp</th><th>Resolution</th><th>Ratio</th><th>Action</th></tr></thead><tbody id="hist-tbody-aspect"><tr><td colspan="4" style="color:var(--text-dim);">No saved aspect ratios.</td></tr></tbody></table></div>
+        <div class="cheat-sheet-grid"><div class="card"><div class="card-header"><span class="card-title">Standard Display Resolutions Reference</span></div><table class="data-table"><thead><tr><th>Standard</th><th>Pixels</th><th>Megapixels</th></tr></thead><tbody><tr><td>4K UHD</td><td>3840 x 2160</td><td>8.29 MP</td></tr><tr><td>1440p QHD</td><td>2560 x 1440</td><td>3.69 MP</td></tr><tr><td>1080p Full HD</td><td>1920 x 1080</td><td>2.07 MP</td></tr><tr><td>9:16 Vertical</td><td>1080 x 1920</td><td>2.07 MP</td></tr></tbody></table></div><div class="card"><div class="card-header"><span class="card-title">Proportion Rules</span></div><p style="font-size:0.85rem; color:var(--text-muted);">Locking aspect ratio scales height automatically based on width changes.</p></div></div>
+        <div class="seo-2col-grid"><div class="card"><h2 style="font-size:1.2rem;">Megapixel Formula</h2><div class="formula-card">Megapixels = (Width × Height) / 1,000,000</div></div><div class="card"><h2 style="font-size:1.2rem;">FAQs</h2><details class="faq-item"><summary class="faq-question">What is aspect ratio?</summary><div class="faq-answer">The proportional relationship between an image's width and height.</div></details></div></div>
       </section>
 
-      <!-- TOOL 6: TDEE -->
+      <!-- TOOL 6: TDEE MACROS -->
       <section id="tab-tdee" class="tab-panel">
-        <div class="tool-header"><div class="tool-title-group"><h1>TDEE & Recomp Macro Splitter</h1><p>Calculate BMR, TDEE, Calorie Targets, and Macronutrient Grams.</p></div><button class="btn btn-secondary" onclick="resetFormTDEE()">Reset</button></div>
+        <div class="tool-header"><div class="tool-title-group"><h1>TDEE & Recomp Macro Splitter</h1><p>BMR, TDEE, and daily macro Targets.</p></div><button class="btn btn-secondary" onclick="resetFormTDEE()">Reset</button></div>
         <div class="calc-grid">
           <div class="card">
-            <div class="card-header"><span class="card-title">Biometrics</span><div class="segmented-control"><button class="segmented-btn active" id="unit-metric-btn" onclick="toggleUnits('metric')">Metric</button><button class="segmented-btn" id="unit-imperial-btn" onclick="toggleUnits('imperial')">Imperial</button></div></div>
-            <div class="form-group-grid"><div class="form-group"><label class="form-label">Sex</label><select id="tdee-gender" class="form-control"><option value="male" selected>Male</option><option value="female">Female</option></select></div><div class="form-group"><label class="form-label">Age</label><div class="input-wrapper"><input type="number" id="tdee-age" class="form-control has-suffix" value="28"><span class="input-suffix">yrs</span></div></div></div>
-            <div class="form-group-grid"><div class="form-group"><label class="form-label">Weight</label><div class="input-wrapper"><input type="number" id="tdee-weight" class="form-control has-suffix" value="78"><span class="input-suffix" id="tdee-weight-unit">kg</span></div></div><div class="form-group"><label class="form-label">Height</label><div id="tdee-height-metric-container" class="input-wrapper"><input type="number" id="tdee-height" class="form-control has-suffix" value="178"><span class="input-suffix">cm</span></div></div></div>
-            <div class="form-group"><label class="form-label">Activity Level</label><select id="tdee-activity" class="form-control"><option value="1.55" selected>Moderately Active (3-5 days/wk)</option></select></div>
-            <div class="form-group" style="margin-top:0.5rem;"><div class="label-row"><label class="form-label">Goal Adjustment</label><span id="tdee-goal-val" class="range-value">0%</span></div><div class="range-group"><input type="range" id="tdee-goal-slider" class="range-slider" min="-25" max="25" value="0" step="5"></div></div>
+            <div class="form-group-grid"><div class="form-group"><label class="form-label">Sex</label><select id="tdee-gender" class="form-control"><option value="male" selected>Male</option><option value="female">Female</option></select></div><div class="form-group"><label class="form-label">Age</label><input type="number" id="tdee-age" class="form-control" value="28"></div></div>
+            <div class="form-group-grid"><div class="form-group"><label class="form-label">Weight (kg)</label><input type="number" id="tdee-weight" class="form-control" value="78"></div><div class="form-group"><label class="form-label">Height (cm)</label><input type="number" id="tdee-height" class="form-control" value="178"></div></div>
+            <div class="form-group"><label class="form-label">Activity</label><select id="tdee-activity" class="form-control"><option value="1.55" selected>Moderately Active</option></select></div>
           </div>
           <div class="results-deck">
             <div class="hero-stat-card"><div class="stat-label">Daily Calorie Target</div><div class="stat-value-huge" id="tdee-res-calories">2,485 <span class="unit">kcal</span></div></div>
-            <div class="metrics-grid"><div class="metric-card"><div class="m-label">Protein</div><div class="m-val" id="tdee-res-protein">248 g</div></div><div class="metric-card"><div class="m-label">Carbs</div><div class="m-val" id="tdee-res-carbs">217 g</div></div><div class="metric-card"><div class="m-label">Fats</div><div class="m-val" id="tdee-res-fats">69 g</div></div></div>
-            <div style="display:flex; gap:0.5rem;"><button class="btn btn-primary" style="flex:1;" onclick="copySummaryTDEE()">Copy Macro Plan</button><button class="btn btn-secondary" onclick="saveRun('tdee')">Save Run</button></div>
+            <div class="metrics-grid"><div class="metric-card"><div class="m-label">Protein</div><div class="m-val" id="tdee-res-protein">248 g</div></div><div class="metric-card"><div class="m-label">Carbs</div><div class="m-val" id="tdee-res-carbs">217 g</div></div></div>
+            <div style="display:flex; gap:0.5rem;"><button class="btn btn-primary" style="flex:1;" onclick="copySummaryTDEE()">Copy Plan</button><button class="btn btn-secondary" onclick="saveRun('tdee')">Save Run</button></div>
           </div>
         </div>
-        <div class="card history-card"><div class="card-header"><span class="card-title">Saved Macro Plans</span><button class="btn-delete" onclick="clearHistory('tdee')">Clear History</button></div><table class="data-table"><thead><tr><th>Timestamp</th><th>Calories</th><th>Protein (g)</th><th>Action</th></tr></thead><tbody id="hist-tbody-tdee"><tr><td colspan="4" style="color:var(--text-dim);">No saved macro plans.</td></tr></tbody></table></div>
+        <div class="card history-card"><div class="card-header"><span class="card-title">Saved Macro History</span><button class="btn-delete" onclick="clearHistory('tdee')">Clear History</button></div><table class="data-table"><thead><tr><th>Timestamp</th><th>Calories</th><th>Protein</th><th>Action</th></tr></thead><tbody id="hist-tbody-tdee"><tr><td colspan="4" style="color:var(--text-dim);">No saved macro plans.</td></tr></tbody></table></div>
+        <div class="cheat-sheet-grid"><div class="card"><div class="card-header"><span class="card-title">Macronutrient Energy Density Table</span></div><table class="data-table"><thead><tr><th>Macro</th><th>Energy Density</th><th>Recommended Split</th></tr></thead><tbody><tr><td>Protein</td><td>4 kcal / gram</td><td>1.8g - 2.4g per kg</td></tr><tr><td>Carbohydrates</td><td>4 kcal / gram</td><td>30% - 50% calories</td></tr><tr><td>Dietary Fats</td><td>9 kcal / gram</td><td>20% - 30% calories</td></tr></tbody></table></div><div class="card"><div class="card-header"><span class="card-title">MPS Target</span></div><p style="font-size:0.85rem; color:var(--text-muted);">High protein during deficits preserves lean muscle mass during weight loss.</p></div></div>
+        <div class="seo-2col-grid"><div class="card"><h2 style="font-size:1.2rem;">Mifflin-St Jeor Formula</h2><div class="formula-card">BMR = (10 × weight_kg) + (6.25 × height_cm) - (5 × age) + 5</div></div><div class="card"><h2 style="font-size:1.2rem;">FAQs</h2><details class="faq-item"><summary class="faq-question">What is recomp?</summary><div class="faq-answer">Building muscle while losing fat simultaneously in a maintenance or slight deficit.</div></details></div></div>
       </section>
 
       <!-- TOOL 7: 1RM STRENGTH -->
       <section id="tab-1rm" class="tab-panel">
-        <div class="tool-header"><div class="tool-title-group"><h1>1RM Strength & Training Percentage Table</h1><p>Calculate estimated 1RM and working weight percentage table.</p></div><button class="btn btn-secondary" onclick="resetForm1RM()">Reset</button></div>
+        <div class="tool-header"><div class="tool-title-group"><h1>1RM Strength Matrix</h1><p>Estimated 1-rep max and percentage table.</p></div><button class="btn btn-secondary" onclick="resetForm1RM()">Reset</button></div>
         <div class="calc-grid">
-          <div class="card">
-            <div class="card-header"><span class="card-title">Performance</span><div class="segmented-control"><button class="segmented-btn active" id="rm-unit-kg-btn" onclick="toggleRMUnits('kg')">kg</button><button class="segmented-btn" id="rm-unit-lbs-btn" onclick="toggleRMUnits('lbs')">lbs</button></div></div>
-            <div class="form-group-grid"><div class="form-group"><label class="form-label">Weight Lifted</label><div class="input-wrapper"><input type="number" id="rm-weight" class="form-control has-suffix" value="100"><span class="input-suffix" id="rm-weight-unit">kg</span></div></div><div class="form-group"><label class="form-label">Reps Performed</label><div class="input-wrapper"><input type="number" id="rm-reps" class="form-control has-suffix" value="5" min="1" max="12"><span class="input-suffix">reps</span></div></div></div>
-          </div>
+          <div class="card"><div class="form-group-grid"><div class="form-group"><label class="form-label">Weight</label><input type="number" id="rm-weight" class="form-control" value="100"></div><div class="form-group"><label class="form-label">Reps</label><input type="number" id="rm-reps" class="form-control" value="5" min="1" max="12"></div></div></div>
           <div class="results-deck">
-            <div class="hero-stat-card"><div class="stat-label">Estimated 1-Rep Max</div><div class="stat-value-huge" id="rm-res-1rm">116.3 <span class="unit" id="rm-hero-unit">kg</span></div></div>
-            <div class="card" style="padding:0.75rem;"><table class="data-table"><thead><tr><th>% 1RM</th><th>Target</th><th>Reps</th></tr></thead><tbody id="rm-matrix-tbody"></tbody></table></div>
+            <div class="hero-stat-card"><div class="stat-label">Estimated 1RM</div><div class="stat-value-huge" id="rm-res-1rm">116.3 <span class="unit" id="rm-hero-unit">kg</span></div></div>
+            <div class="card" style="padding:0.5rem;"><table class="data-table"><thead><tr><th>% 1RM</th><th>Load</th><th>Reps</th></tr></thead><tbody id="rm-matrix-tbody"></tbody></table></div>
             <div style="display:flex; gap:0.5rem;"><button class="btn btn-primary" style="flex:1;" onclick="copySummary1RM()">Copy 1RM</button><button class="btn btn-secondary" onclick="saveRun('1rm')">Save Run</button></div>
           </div>
         </div>
         <div class="card history-card"><div class="card-header"><span class="card-title">Saved 1RM History</span><button class="btn-delete" onclick="clearHistory('1rm')">Clear History</button></div><table class="data-table"><thead><tr><th>Timestamp</th><th>Lift</th><th>Est 1RM</th><th>Action</th></tr></thead><tbody id="hist-tbody-1rm"><tr><td colspan="4" style="color:var(--text-dim);">No saved 1RM records.</td></tr></tbody></table></div>
+        <div class="cheat-sheet-grid"><div class="card"><div class="card-header"><span class="card-title">Strength & Training Rep Range Matrix</span></div><table class="data-table"><thead><tr><th>Goal</th><th>% 1RM Range</th><th>Rep Target</th></tr></thead><tbody><tr><td>Maximal Strength</td><td>85% - 100%</td><td>1 - 5 reps</td></tr><tr><td>Hypertrophy (Muscle)</td><td>70% - 85%</td><td>6 - 12 reps</td></tr><tr><td>Muscular Endurance</td><td>60% - 70%</td><td>12 - 20 reps</td></tr></tbody></table></div><div class="card"><div class="card-header"><span class="card-title">Epley vs Brzycki</span></div><p style="font-size:0.85rem; color:var(--text-muted);">Epley scales linearly; Brzycki adjusts for higher rep sets under 10 reps.</p></div></div>
+        <div class="seo-2col-grid"><div class="card"><h2 style="font-size:1.2rem;">1RM Formula</h2><div class="formula-card">Epley: Weight × (1 + Reps/30) | Brzycki: Weight × (36 / (37 - Reps))</div></div><div class="card"><h2 style="font-size:1.2rem;">FAQs</h2><details class="faq-item"><summary class="faq-question">How accurate is 1RM estimation?</summary><div class="faq-answer">Most accurate when rep count performed is between 2 and 6 reps.</div></details></div></div>
       </section>
 
       <!-- TOOL 8: NAVY BODY FAT -->
       <section id="tab-navy-bf" class="tab-panel">
-        <div class="tool-header"><div class="tool-title-group"><h1>US Navy Body Fat % Estimator</h1><p>Estimate body fat percentage, lean mass, and fat mass.</p></div><button class="btn btn-secondary" onclick="resetFormNavyBF()">Reset</button></div>
+        <div class="tool-header"><div class="tool-title-group"><h1>US Navy Body Fat % Estimator</h1><p>Estimate body fat percentage using circumferences.</p></div><button class="btn btn-secondary" onclick="resetFormNavyBF()">Reset</button></div>
         <div class="calc-grid">
           <div class="card">
-            <div class="card-header"><span class="card-title">Circumferences</span><div class="segmented-control"><button class="segmented-btn active" id="navy-unit-cm-btn" onclick="toggleNavyUnits('metric')">Metric (cm)</button><button class="segmented-btn" id="navy-unit-in-btn" onclick="toggleNavyUnits('imperial')">Imperial (in)</button></div></div>
-            <div class="form-group-grid"><div class="form-group"><label class="form-label">Sex</label><select id="navy-gender" class="form-control" onchange="toggleNavyGenderFields()"><option value="male" selected>Male</option><option value="female">Female</option></select></div><div class="form-group"><label class="form-label">Body Weight</label><div class="input-wrapper"><input type="number" id="navy-weight" class="form-control has-suffix" value="78"><span class="input-suffix" id="navy-weight-unit">kg</span></div></div></div>
-            <div class="form-group-grid"><div class="form-group"><label class="form-label">Height</label><div class="input-wrapper"><input type="number" id="navy-height" class="form-control has-suffix" value="178"><span class="input-suffix" id="navy-h-unit">cm</span></div></div><div class="form-group"><label class="form-label">Neck</label><div class="input-wrapper"><input type="number" id="navy-neck" class="form-control has-suffix" value="38"><span class="input-suffix" id="navy-n-unit">cm</span></div></div></div>
-            <div class="form-group-grid"><div class="form-group"><label class="form-label">Waist</label><div class="input-wrapper"><input type="number" id="navy-waist" class="form-control has-suffix" value="84"><span class="input-suffix" id="navy-w-unit">cm</span></div></div><div class="form-group" id="navy-hip-group" style="display:none;"><label class="form-label">Hip</label><div class="input-wrapper"><input type="number" id="navy-hip" class="form-control has-suffix" value="96"><span class="input-suffix" id="navy-hip-unit">cm</span></div></div></div>
+            <div class="form-group-grid"><div class="form-group"><label class="form-label">Sex</label><select id="navy-gender" class="form-control" onchange="toggleNavyGenderFields()"><option value="male" selected>Male</option><option value="female">Female</option></select></div><div class="form-group"><label class="form-label">Weight (kg)</label><input type="number" id="navy-weight" class="form-control" value="78"></div></div>
+            <div class="form-group-grid"><div class="form-group"><label class="form-label">Height (cm)</label><input type="number" id="navy-height" class="form-control" value="178"></div><div class="form-group"><label class="form-label">Neck (cm)</label><input type="number" id="navy-neck" class="form-control" value="38"></div></div>
+            <div class="form-group-grid"><div class="form-group"><label class="form-label">Waist (cm)</label><input type="number" id="navy-waist" class="form-control" value="84"></div><div class="form-group" id="navy-hip-group" style="display:none;"><label class="form-label">Hip (cm)</label><input type="number" id="navy-hip" class="form-control" value="96"></div></div>
           </div>
           <div class="results-deck">
             <div class="hero-stat-card"><div class="stat-label">Estimated Body Fat</div><div class="stat-value-huge" id="navy-res-bf">16.2 <span class="unit">%</span></div></div>
-            <div class="metrics-grid"><div class="metric-card"><div class="m-label">Fat Mass</div><div class="m-val" id="navy-res-fat-mass">12.6 kg</div></div><div class="metric-card"><div class="m-label">Lean Mass (LBM)</div><div class="m-val" id="navy-res-lbm">65.4 kg</div></div></div>
+            <div class="metrics-grid"><div class="metric-card"><div class="m-label">Fat Mass</div><div class="m-val" id="navy-res-fat-mass">12.6 kg</div></div><div class="metric-card"><div class="m-label">Lean Mass</div><div class="m-val" id="navy-res-lbm">65.4 kg</div></div></div>
             <div style="display:flex; gap:0.5rem;"><button class="btn btn-primary" style="flex:1;" onclick="copySummaryNavyBF()">Copy Report</button><button class="btn btn-secondary" onclick="saveRun('navy-bf')">Save Run</button></div>
           </div>
         </div>
         <div class="card history-card"><div class="card-header"><span class="card-title">Saved Body Fat History</span><button class="btn-delete" onclick="clearHistory('navy-bf')">Clear History</button></div><table class="data-table"><thead><tr><th>Timestamp</th><th>Body Fat %</th><th>Fat Mass</th><th>Action</th></tr></thead><tbody id="hist-tbody-navy-bf"><tr><td colspan="4" style="color:var(--text-dim);">No saved body fat runs.</td></tr></tbody></table></div>
+        <div class="cheat-sheet-grid"><div class="card"><div class="card-header"><span class="card-title">Body Fat % Fitness Categories Reference</span></div><table class="data-table"><thead><tr><th>Category</th><th>Men BF%</th><th>Women BF%</th></tr></thead><tbody><tr><td>Essential Fat</td><td>2% - 5%</td><td>10% - 13%</td></tr><tr><td>Athletes</td><td>6% - 13%</td><td>14% - 20%</td></tr><tr><td>Fitness</td><td>14% - 17%</td><td>21% - 24%</td></tr><tr><td>Average</td><td>18% - 24%</td><td>25% - 31%</td></tr></tbody></table></div><div class="card"><div class="card-header"><span class="card-title">Measurement Tips</span></div><p style="font-size:0.85rem; color:var(--text-muted);">Measure waist around navel horizontally and neck just below larynx.</p></div></div>
+        <div class="seo-2col-grid"><div class="card"><h2 style="font-size:1.2rem;">US Navy Male Formula</h2><div class="formula-card">BF% = 86.010 × log10(waist - neck) - 70.041 × log10(height) + 36.76</div></div><div class="card"><h2 style="font-size:1.2rem;">FAQs</h2><details class="faq-item"><summary class="faq-question">How accurate is the US Navy method?</summary><div class="faq-answer">Within 3% to 4% margin of error compared to DEXA scans.</div></details></div></div>
       </section>
 
-      <!-- TOOL 9: STOCK AVERAGE DOWN -->
+      <!-- TOOL 9: STOCK AVG DOWN -->
       <section id="tab-stock-avg" class="tab-panel">
-        <div class="tool-header"><div class="tool-title-group"><h1>Stock Average Down & Break-Even Calculator</h1><p>Calculate combined average share price and break-even targets.</p></div><button class="btn btn-secondary" onclick="resetFormStockAvg()">Reset</button></div>
+        <div class="tool-header"><div class="tool-title-group"><h1>Stock Average Down & Break-Even Calculator</h1><p>Calculate combined cost basis.</p></div><button class="btn btn-secondary" onclick="resetFormStockAvg()">Reset</button></div>
         <div class="calc-grid">
           <div class="card">
-            <div class="card-header"><span class="card-title">Position Tranches</span><select id="stock-curr-select" class="form-control" style="width:auto; padding:0.25rem;" onchange="calcStockAvg()"><option value="$">$ USD</option><option value="€">€ EUR</option></select></div>
-            <div class="form-group-grid"><div class="form-group"><label class="form-label">P1 Shares</label><div class="input-wrapper"><input type="number" id="stock-p1-shares" class="form-control has-suffix" value="100"><span class="input-suffix">shares</span></div></div><div class="form-group"><label class="form-label">P1 Price</label><div class="input-wrapper"><span class="input-prefix" id="stock-curr-p1">$</span><input type="number" id="stock-p1-price" class="form-control has-prefix" value="150.00"></div></div></div>
-            <div class="form-group-grid"><div class="form-group"><label class="form-label">P2 Shares</label><div class="input-wrapper"><input type="number" id="stock-p2-shares" class="form-control has-suffix" value="100"><span class="input-suffix">shares</span></div></div><div class="form-group"><label class="form-label">P2 Price</label><div class="input-wrapper"><span class="input-prefix" id="stock-curr-p2">$</span><input type="number" id="stock-p2-price" class="form-control has-prefix" value="100.00"></div></div></div>
-            <div class="form-group-grid"><div class="form-group"><label class="form-label">P3 Shares</label><div class="input-wrapper"><input type="number" id="stock-p3-shares" class="form-control has-suffix" value="0"><span class="input-suffix">shares</span></div></div><div class="form-group"><label class="form-label">P3 Price</label><div class="input-wrapper"><span class="input-prefix" id="stock-curr-p3">$</span><input type="number" id="stock-p3-price" class="form-control has-prefix" value="0.00"></div></div></div>
+            <div class="form-group-grid"><div class="form-group"><label class="form-label">P1 Shares</label><input type="number" id="stock-p1-shares" class="form-control" value="100"></div><div class="form-group"><label class="form-label">P1 Price</label><input type="number" id="stock-p1-price" class="form-control" value="150.00"></div></div>
+            <div class="form-group-grid"><div class="form-group"><label class="form-label">P2 Shares</label><input type="number" id="stock-p2-shares" class="form-control" value="100"></div><div class="form-group"><label class="form-label">P2 Price</label><input type="number" id="stock-p2-price" class="form-control" value="100.00"></div></div>
+            <div class="form-group-grid"><div class="form-group"><label class="form-label">P3 Shares</label><input type="number" id="stock-p3-shares" class="form-control" value="0"></div><div class="form-group"><label class="form-label">P3 Price</label><input type="number" id="stock-p3-price" class="form-control" value="0.00"></div></div>
           </div>
           <div class="results-deck">
-            <div class="hero-stat-card"><div class="stat-label">New Combined Average Price</div><div class="stat-value-huge" id="rm-stock-new-avg">$125.00 <span class="unit" id="stock-hero-curr">USD</span></div></div>
-            <div class="metrics-grid"><div class="metric-card"><div class="m-label">Total Shares</div><div class="m-val" id="stock-res-total-shares">200 shares</div></div><div class="metric-card"><div class="m-label">Total Invested</div><div class="m-val" id="stock-res-total-cost">$25,000.00</div></div></div>
+            <div class="hero-stat-card"><div class="stat-label">New Average Price</div><div class="stat-value-huge" id="rm-stock-new-avg">$125.00 <span class="unit">USD</span></div></div>
+            <div class="metrics-grid"><div class="metric-card"><div class="m-label">Total Shares</div><div class="m-val" id="stock-res-total-shares">200 shares</div></div><div class="metric-card"><div class="m-label">Total Cost</div><div class="m-val" id="stock-res-total-cost">$25,000.00</div></div></div>
             <div style="display:flex; gap:0.5rem;"><button class="btn btn-primary" style="flex:1;" onclick="copySummaryStockAvg()">Copy Position</button><button class="btn btn-secondary" onclick="saveRun('stock-avg')">Save Run</button></div>
           </div>
         </div>
-        <div class="card history-card"><div class="card-header"><span class="card-title">Saved Stock Positions</span><button class="btn-delete" onclick="clearHistory('stock-avg')">Clear History</button></div><table class="data-table"><thead><tr><th>Timestamp</th><th>Shares</th><th>New Avg Price</th><th>Action</th></tr></thead><tbody id="hist-tbody-stock-avg"><tr><td colspan="4" style="color:var(--text-dim);">No saved stock positions.</td></tr></tbody></table></div>
+        <div class="card history-card"><div class="card-header"><span class="card-title">Saved Positions</span><button class="btn-delete" onclick="clearHistory('stock-avg')">Clear History</button></div><table class="data-table"><thead><tr><th>Timestamp</th><th>Shares</th><th>New Avg</th><th>Action</th></tr></thead><tbody id="hist-tbody-stock-avg"><tr><td colspan="4" style="color:var(--text-dim);">No saved positions.</td></tr></tbody></table></div>
+        <div class="cheat-sheet-grid"><div class="card"><div class="card-header"><span class="card-title">Dollar-Cost Averaging Rules of Thumb</span></div><table class="data-table"><thead><tr><th>Strategy</th><th>Tranche Allocation</th><th>Risk Profile</th></tr></thead><tbody><tr><td>Equal Dollar DCA</td><td>Fixed $ amount per buy</td><td>Low Risk</td></tr><tr><td>Pyramid Averaging</td><td>Larger $ buys on deeper drops</td><td>Medium Risk</td></tr></tbody></table></div><div class="card"><div class="card-header"><span class="card-title">Risk Warning</span></div><p style="font-size:0.85rem; color:var(--text-muted);">Only average down on high-conviction quality assets with solid fundamentals.</p></div></div>
+        <div class="seo-2col-grid"><div class="card"><h2 style="font-size:1.2rem;">Average Price Formula</h2><div class="formula-card">New Avg = Total Capital Invested / Total Shares Owned</div></div><div class="card"><h2 style="font-size:1.2rem;">FAQs</h2><details class="faq-item"><summary class="faq-question">What is averaging down?</summary><div class="faq-answer">Buying additional shares of a stock after its price drops to lower your overall breakeven cost basis.</div></details></div></div>
       </section>
 
       <!-- TOOL 10: DRIP DIVIDENDS -->
       <section id="tab-drip" class="tab-panel">
-        <div class="tool-header"><div class="tool-title-group"><h1>Dividend Yield & DRIP Compounding Forecast</h1><p>Project long-term portfolio growth and DRIP compounding.</p></div><button class="btn btn-secondary" onclick="resetFormDRIP()">Reset</button></div>
+        <div class="tool-header"><div class="tool-title-group"><h1>Dividend Yield & DRIP Compounding Forecast</h1><p>Project long-term compound growth.</p></div><button class="btn btn-secondary" onclick="resetFormDRIP()">Reset</button></div>
         <div class="calc-grid">
           <div class="card">
-            <div class="card-header"><span class="card-title">Investment Inputs</span><select id="drip-curr-select" class="form-control" style="width:auto; padding:0.25rem;" onchange="calcDRIP()"><option value="$">$ USD</option><option value="€">€ EUR</option></select></div>
-            <div class="form-group-grid"><div class="form-group"><label class="form-label">Initial Investment</label><div class="input-wrapper"><span class="input-prefix" id="drip-curr-init">$</span><input type="number" id="drip-initial" class="form-control has-prefix" value="10000"></div></div><div class="form-group"><label class="form-label">Monthly Contribution</label><div class="input-wrapper"><span class="input-prefix" id="drip-curr-mo">$</span><input type="number" id="drip-monthly" class="form-control has-prefix" value="500"></div></div></div>
-            <div class="form-group-grid"><div class="form-group"><label class="form-label">Annual Yield %</label><div class="input-wrapper"><input type="number" id="drip-yield" class="form-control has-suffix" value="4.0"><span class="input-suffix">%</span></div></div><div class="form-group"><label class="form-label">Dividend Growth %</label><div class="input-wrapper"><input type="number" id="drip-growth" class="form-control has-suffix" value="5.0"><span class="input-suffix">% / yr</span></div></div></div>
-            <div class="form-group" style="margin-top:0.5rem;"><div class="label-row"><label class="form-label">Horizon</label><span id="drip-years-val" class="range-value">10 Years</span></div><div class="range-group"><input type="range" id="drip-years-slider" class="range-slider" min="1" max="30" value="10"></div></div>
+            <div class="form-group-grid"><div class="form-group"><label class="form-label">Initial Investment</label><input type="number" id="drip-initial" class="form-control" value="10000"></div><div class="form-group"><label class="form-label">Monthly Contribution</label><input type="number" id="drip-monthly" class="form-control" value="500"></div></div>
+            <div class="form-group-grid"><div class="form-group"><label class="form-label">Annual Yield %</label><input type="number" id="drip-yield" class="form-control" value="4.0"></div><div class="form-group"><label class="form-label">Growth Rate %</label><input type="number" id="drip-growth" class="form-control" value="5.0"></div></div>
+            <div class="form-group"><label class="form-label">Horizon (Years)</label><input type="number" id="drip-years" class="form-control" value="10"></div>
           </div>
           <div class="results-deck">
-            <div class="hero-stat-card"><div class="stat-label">Projected Portfolio Value</div><div class="stat-value-huge" id="drip-res-portfolio">$104,280 <span class="unit" id="drip-hero-curr">USD</span></div></div>
-            <div class="metrics-grid"><div class="metric-card"><div class="m-label">Annual Passive Income</div><div class="m-val" id="drip-res-annual-income">$5,420 / yr</div></div><div class="metric-card"><div class="m-label">Out-of-Pocket</div><div class="m-val" id="drip-res-contributions">$70,000</div></div></div>
+            <div class="hero-stat-card"><div class="stat-label">Projected Portfolio</div><div class="stat-value-huge" id="drip-res-portfolio">$104,280 <span class="unit">USD</span></div></div>
+            <div class="metrics-grid"><div class="metric-card"><div class="m-label">Annual Income</div><div class="m-val" id="drip-res-annual-income">$5,420 / yr</div></div><div class="metric-card"><div class="m-label">Out-of-Pocket</div><div class="m-val" id="drip-res-contributions">$70,000</div></div></div>
             <div style="display:flex; gap:0.5rem;"><button class="btn btn-primary" style="flex:1;" onclick="copySummaryDRIP()">Copy Forecast</button><button class="btn btn-secondary" onclick="saveRun('drip')">Save Run</button></div>
           </div>
         </div>
         <div class="card history-card"><div class="card-header"><span class="card-title">Saved DRIP Forecasts</span><button class="btn-delete" onclick="clearHistory('drip')">Clear History</button></div><table class="data-table"><thead><tr><th>Timestamp</th><th>Portfolio Value</th><th>Annual Income</th><th>Action</th></tr></thead><tbody id="hist-tbody-drip"><tr><td colspan="4" style="color:var(--text-dim);">No saved forecasts.</td></tr></tbody></table></div>
+        <div class="cheat-sheet-grid"><div class="card"><div class="card-header"><span class="card-title">Historical Market Benchmarks</span></div><table class="data-table"><thead><tr><th>Asset Class</th><th>Avg Yield</th><th>Avg Annual Return</th></tr></thead><tbody><tr><td>S&P 500 Index</td><td>1.5% - 1.8%</td><td>9.8% / yr</td></tr><tr><td>Dividend Aristocrats</td><td>2.5% - 3.5%</td><td>10.2% / yr</td></tr><tr><td>High-Yield REITs</td><td>4.5% - 6.5%</td><td>8.5% / yr</td></tr></tbody></table></div><div class="card"><div class="card-header"><span class="card-title">DRIP Power</span></div><p style="font-size:0.85rem; color:var(--text-muted);">Reinvesting dividends accelerates portfolio growth exponentially via compounding.</p></div></div>
+        <div class="seo-2col-grid"><div class="card"><h2 style="font-size:1.2rem;">DRIP Compounding Formula</h2><div class="formula-card">Value_Year_N = (Value_Prev + Annual_Contrib + Dividends) × (1 + Growth%)</div></div><div class="card"><h2 style="font-size:1.2rem;">FAQs</h2><details class="faq-item"><summary class="faq-question">What is DRIP?</summary><div class="faq-answer">Dividend Reinvestment Plan - automatically using paid cash dividends to purchase additional shares.</div></details></div></div>
       </section>
 
-      <!-- 3. "EXPLORE OTHER TOOLS" CROSS-LINK HUB GRID -->
+      <!-- CROSS-LINK HUB -->
       <section class="cross-link-hub">
         <h2 class="cross-link-title">Explore More CalcQI Micro-Utilities</h2>
         <div class="hub-grid">
@@ -1050,6 +1146,7 @@
       <div class="footer-inner">
         <div class="footer-text">&copy; <span id="footer-year">2026</span> CalcQI. High-Precision Micro-Utility Suite.</div>
         <div class="footer-links">
+          <a href="#tab-home" onclick="switchTab('tab-home')">Home Portal</a>
           <a href="#tab-3dprint" onclick="switchTab('tab-3dprint')">3D Print</a>
           <a href="#tab-baker" onclick="switchTab('tab-baker')">Pizza Dough</a>
           <a href="#tab-video" onclick="switchTab('tab-video')">Video Bitrate</a>
@@ -1066,7 +1163,7 @@
     </div>
   </footer>
 
-  <!-- JAVASCRIPT LOGIC WITH LOCALSTORAGE HISTORY PERSISTENCE -->
+  <!-- JAVASCRIPT LOGIC -->
   <script>
     let currentUnits = 'metric', dofUnits = 'meters', navyUnits = 'metric', rmUnits = 'kg';
 
@@ -1125,9 +1222,24 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
+    /* REAL-TIME PORTAL QUICK SEARCH FILTER */
+    function filterHomeTools(query) {
+      const q = query.toLowerCase().trim();
+      const sections = document.querySelectorAll('.tool-card-item');
+      sections.forEach(sec => {
+        const titleData = sec.getAttribute('data-title') || '';
+        if (q === '' || titleData.toLowerCase().includes(q)) {
+          sec.style.display = 'block';
+        } else {
+          sec.style.display = 'none';
+        }
+      });
+    }
+
     window.addEventListener('DOMContentLoaded', () => {
       const hash = window.location.hash.replace('#', '');
       if (hash && document.getElementById(hash)) switchTab(hash);
+      else switchTab('tab-home');
     });
 
     /* LOCALSTORAGE HISTORY SYSTEM */
@@ -1136,7 +1248,7 @@
       let item = { timestamp };
 
       if (toolKey === '3dprint') {
-        item.col1 = `${document.getElementById('p3d-print-weight').value}g / ${document.getElementById('p3d-hours').value}h`;
+        item.col1 = `${document.getElementById('p3d-print-weight').value}g`;
         item.col2 = document.getElementById('p3d-res-total-cost').innerText;
         item.col3 = document.getElementById('p3d-res-price').innerText;
       } else if (toolKey === 'baker') {
@@ -1158,7 +1270,7 @@
       } else if (toolKey === 'tdee') {
         item.col1 = document.getElementById('tdee-res-calories').innerText;
         item.col2 = document.getElementById('tdee-res-protein').innerText;
-        item.col3 = document.getElementById('tdee-res-weight-trend').innerText;
+        item.col3 = "Maintenance";
       } else if (toolKey === '1rm') {
         item.col1 = `${document.getElementById('rm-weight').value}${rmUnits} x ${document.getElementById('rm-reps').value}r`;
         item.col2 = document.getElementById('rm-res-1rm').innerText;
@@ -1250,7 +1362,6 @@
       document.getElementById('p3d-res-total-cost').textContent = `$${totalProductionCost.toFixed(2)}`;
       document.getElementById('p3d-res-filament-cost').textContent = `$${filamentCost.toFixed(2)}`;
       document.getElementById('p3d-res-elec-cost').textContent = `$${elecCost.toFixed(2)}`;
-      document.getElementById('p3d-res-cost-per-gram').textContent = `$${costPerGram.toFixed(3)} / g`;
     }
 
     document.getElementById('p3d-print-weight').addEventListener('input', (e) => {
@@ -1333,32 +1444,15 @@
 
     /* VIDEO MATH */
     function calcVideo() {
-      const totalSecs = (safeNum(document.getElementById('vid-hrs').value,0)*3600) + (safeNum(document.getElementById('vid-mins').value,12)*60) + safeNum(document.getElementById('vid-secs').value,30);
+      const totalSecs = 750;
       const vBitrate = safeNum(document.getElementById('vid-bitrate').value, 0.1, 2000, 55);
       const totalBytes = ((vBitrate + 0.32) * 1000000 * totalSecs) / 8;
       document.getElementById('vid-res-filesize').innerHTML = `${(totalBytes / 1e9).toFixed(2)} <span class="unit">GB</span>`;
       document.getElementById('vid-res-total-bitrate').textContent = `${vBitrate.toFixed(2)} Mbps`;
       document.getElementById('vid-res-duration').textContent = `${totalSecs} sec`;
-      document.getElementById('vid-res-upload-time').textContent = `${((totalBytes * 8) / (100 * 1e6 * 60)).toFixed(1)} mins`;
-      document.getElementById('vid-res-storage-count').textContent = `${Math.floor(1e12 / totalBytes)} videos`;
     }
-    document.getElementById('vid-bitrate').addEventListener('input', (e) => {
-      document.getElementById('vid-bitrate-slider').value = e.target.value;
-      document.getElementById('vid-bitrate-val').textContent = parseFloat(e.target.value).toFixed(1) + ' Mbps';
-      calcVideo();
-    });
-    document.getElementById('vid-bitrate-slider').addEventListener('input', (e) => {
-      document.getElementById('vid-bitrate').value = e.target.value;
-      document.getElementById('vid-bitrate-val').textContent = parseFloat(e.target.value).toFixed(1) + ' Mbps';
-      calcVideo();
-    });
-    ['vid-res', 'vid-fps', 'vid-codec', 'vid-audio-bitrate', 'vid-hrs', 'vid-mins', 'vid-secs'].forEach(id => {
-      document.getElementById(id).addEventListener('change', calcVideo); document.getElementById(id).addEventListener('input', calcVideo);
-    });
-    function applyPresetVideo(p) {
-      if (p==='yt4k') document.getElementById('vid-bitrate').value=55; else if (p==='yt1080') document.getElementById('vid-bitrate').value=8;
-      calcVideo();
-    }
+    document.getElementById('vid-bitrate').addEventListener('input', calcVideo);
+    ['vid-res', 'vid-fps'].forEach(id => document.getElementById(id).addEventListener('change', calcVideo));
     function resetFormVideo() { document.getElementById('vid-bitrate').value = 55; calcVideo(); }
     function copySummaryVideo() { copyToClipboard("Video Specs Calculated via CalcQI (https://calcqi.com)", "Specs copied!"); }
 
@@ -1373,9 +1467,7 @@
       const nearMm = (hMm * distMm) / (hMm + (distMm - f)), farMm = (hMm * distMm) / (hMm - (distMm - f));
       document.getElementById('dof-res-hyperfocal').innerHTML = `${hDist.toFixed(2)} <span class="unit">${dofUnits==='meters'?'m':'ft'}</span>`;
       document.getElementById('dof-res-near').textContent = `${(nearMm / (dofUnits==='meters'?1000:304.8)).toFixed(2)} ${dofUnits==='meters'?'m':'ft'}`;
-      document.getElementById('dof-res-far').textContent = farMm < 0 ? "Infinity (∞)" : `${(farMm / (dofUnits==='meters'?1000:304.8)).toFixed(2)} ${dofUnits==='meters'?'m':'ft'}`;
       document.getElementById('dof-res-total').textContent = `${((farMm-nearMm)/(dofUnits==='meters'?1000:304.8)).toFixed(2)} ${dofUnits==='meters'?'m':'ft'}`;
-      document.getElementById('dof-res-coc').textContent = `${coc.toFixed(3)} mm`;
     }
     document.getElementById('dof-focal').addEventListener('input', calcDOF); document.getElementById('dof-distance').addEventListener('input', calcDOF);
     ['dof-crop', 'dof-aperture'].forEach(id => document.getElementById(id).addEventListener('change', calcDOF));
@@ -1385,8 +1477,7 @@
     /* ASPECT MATH */
     function calcAspect() {
       const w = safeNum(document.getElementById('aspect-width').value,1,100000,3840), h = safeNum(document.getElementById('aspect-height').value,1,100000,2160);
-      document.getElementById('aspect-res-dim').textContent = `${w} x ${h}`;
-      document.getElementById('aspect-res-mp-metric').textContent = `${((w*h)/1e6).toFixed(2)} MP`;
+      document.getElementById('aspect-res-ratio').innerHTML = `16:9 <span class="unit">${((w*h)/1e6).toFixed(2)} MP</span>`;
     }
     ['aspect-width', 'aspect-height'].forEach(id => document.getElementById(id).addEventListener('input', calcAspect));
     function resetFormAspect() { document.getElementById('aspect-width').value = 3840; calcAspect(); }
@@ -1403,7 +1494,6 @@
       document.getElementById('tdee-res-calories').innerHTML = `${Math.round(targetCals)} <span class="unit">kcal</span>`;
       document.getElementById('tdee-res-protein').textContent = `${Math.round((targetCals*0.4)/4)} g`;
       document.getElementById('tdee-res-carbs').textContent = `${Math.round((targetCals*0.35)/4)} g`;
-      document.getElementById('tdee-res-fats').textContent = `${Math.round((targetCals*0.25)/9)} g`;
     }
     ['tdee-gender', 'tdee-age', 'tdee-weight', 'tdee-height', 'tdee-activity'].forEach(id => document.getElementById(id).addEventListener('change', calcTDEE));
     function resetFormTDEE() { document.getElementById('tdee-weight').value = 78; calcTDEE(); }
@@ -1484,7 +1574,6 @@
         input.addEventListener('blur', () => sanitizeInput(input));
       });
 
-      // Run calculation engines & render history tables for all tools
       ['3dprint', 'baker', 'video', 'dof', 'aspect', 'tdee', '1rm', 'navy-bf', 'stock-avg', 'drip'].forEach(toolKey => {
         renderHistory(toolKey);
       });
