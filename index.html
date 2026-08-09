@@ -403,17 +403,6 @@
     .metric-card .m-label { font-size: 0.725rem; font-weight: 600; color: var(--text-dim); margin-bottom: 0.2rem; }
     .metric-card .m-val { font-size: 1.15rem; font-weight: 700; font-family: var(--font-mono); color: var(--text-main); }
 
-    .breakdown-box { background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 1rem; }
-    .breakdown-header { display: flex; justify-content: space-between; font-size: 0.8rem; font-weight: 600; margin-bottom: 0.65rem; }
-    .stacked-bar-container { height: 12px; width: 100%; background: var(--bg-input); border-radius: var(--radius-full); display: flex; overflow: hidden; margin-bottom: 0.75rem; }
-    .bar-segment { height: 100%; transition: width 0.4s ease; }
-    .bar-segment.c-indigo { background: var(--accent-indigo); }
-    .bar-segment.c-violet { background: var(--accent-violet); }
-    .bar-segment.c-cyan { background: var(--accent-cyan); }
-    .bar-segment.c-emerald { background: var(--accent-emerald); }
-    .bar-segment.c-amber { background: var(--accent-amber); }
-    .bar-segment.c-rose { background: var(--accent-rose); }
-
     .data-table {
       width: 100%; border-collapse: collapse; font-size: 0.8rem; font-family: var(--font-mono); margin-top: 0.5rem;
     }
@@ -438,7 +427,7 @@
       .cheat-sheet-grid, .seo-2col-grid { grid-template-columns: 1fr 1fr; }
     }
 
-    /* CROSS-LINK HUB */
+    /* CROSS-LINK HUB (On tool pages) */
     .cross-link-hub { margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid var(--border-subtle); }
     .cross-link-title { font-size: 1.35rem; margin-bottom: 1.25rem; text-align: center; }
     .hub-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
@@ -459,24 +448,24 @@
     .hub-card-desc { font-size: 0.775rem; color: var(--text-muted); }
 
     /* ==========================================================================
-       HOMEPAGE / PORTAL STYLES (#tab-home)
+       ASYMMETRIC BENTO BOX PORTAL STYLES (#tab-home)
        ========================================================================== */
     .hero-portal {
-      text-align: center; padding: 2.5rem 1rem 2rem 1rem; max-width: 850px; margin: 0 auto;
+      text-align: center; padding: 2.5rem 1rem 1.5rem 1rem; max-width: 850px; margin: 0 auto;
     }
     .hero-headline {
       font-size: 2.35rem; font-weight: 800; line-height: 1.25; margin-bottom: 0.85rem;
       background: linear-gradient(135deg, #ffffff 40%, var(--text-muted) 100%);
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
-    .hero-subtitle { font-size: 1.05rem; color: var(--text-muted); margin-bottom: 1.75rem; }
+    .hero-subtitle { font-size: 1.05rem; color: var(--text-muted); margin-bottom: 1.5rem; }
     
     .search-box-wrapper {
-      position: relative; max-width: 580px; margin: 0 auto 2rem auto;
+      position: relative; max-width: 580px; margin: 0 auto 1.25rem auto;
     }
     .search-input {
       width: 100%; background: var(--bg-surface); border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-full); padding: 0.85rem 1.25rem 0.85rem 2.8rem;
+      border-radius: var(--radius-full); padding: 0.85rem 6.5rem 0.85rem 2.8rem;
       font-size: 0.95rem; color: var(--text-main); font-family: var(--font-sans);
       outline: none; transition: var(--transition); box-shadow: var(--shadow-md);
     }
@@ -485,26 +474,87 @@
       position: absolute; left: 1rem; top: 50%; transform: translateY(-50%);
       width: 18px; height: 18px; stroke: var(--text-dim); fill: none; stroke-width: 2;
     }
-
-    .value-props-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.1rem; margin-top: 2rem;
+    .search-shortcut-badge {
+      position: absolute; right: 1rem; top: 50%; transform: translateY(-50%);
+      font-size: 0.7rem; font-family: var(--font-mono); color: var(--text-dim);
+      background: var(--bg-card); border: 1px solid var(--border-subtle);
+      padding: 0.15rem 0.45rem; border-radius: var(--radius-sm); pointer-events: none;
     }
-    .prop-card {
+
+    /* Single Sleek Horizontal Pill Bar */
+    .hero-badges {
+      display: inline-flex; align-items: center; gap: 0.75rem;
       background: var(--bg-surface); border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-md); padding: 1.1rem; text-align: left;
+      padding: 0.45rem 1.25rem; border-radius: var(--radius-full);
+      font-size: 0.8rem; color: var(--text-muted); flex-wrap: wrap; justify-content: center;
     }
-    .prop-icon { font-size: 1.5rem; margin-bottom: 0.4rem; }
-    .prop-title { font-size: 0.95rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.2rem; }
-    .prop-desc { font-size: 0.8rem; color: var(--text-muted); }
+    .hero-badges span { display: flex; align-items: center; gap: 0.3rem; }
 
-    .home-cat-section { margin-top: 2.5rem; }
+    /* Bento Box Category Theme Layouts */
+    .home-cat-section { margin-top: 2.25rem; }
     .home-cat-title {
-      font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);
+      font-size: 1.2rem; font-weight: 700; margin-bottom: 0.85rem; color: var(--text-main);
       display: flex; align-items: center; gap: 0.5rem;
     }
-    .home-tools-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.1rem;
+
+    .bento-grid {
+      display: grid; grid-template-columns: repeat(1, 1fr); gap: 1rem;
     }
+    @media (min-width: 768px) {
+      .bento-grid { grid-template-columns: repeat(3, 1fr); }
+      .bento-card-feature { grid-column: span 2; }
+    }
+
+    .bento-card {
+      background: var(--bg-card); border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg); padding: 1.25rem; transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer; display: flex; flex-direction: column; justify-content: space-between;
+      position: relative; overflow: hidden;
+    }
+    .bento-card:hover {
+      transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .bento-card-header {
+      display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.65rem;
+    }
+    .bento-tag {
+      font-size: 0.675rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.08em; padding: 0.2rem 0.6rem; border-radius: var(--radius-full);
+    }
+    .bento-arrow {
+      width: 18px; height: 18px; stroke: var(--text-dim); stroke-width: 2; fill: none;
+      transition: transform 0.2s ease, stroke 0.2s ease;
+    }
+    .bento-card:hover .bento-arrow {
+      transform: translate(3px, -3px); stroke: var(--text-main);
+    }
+
+    .bento-title {
+      font-size: 1.1rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.35rem;
+    }
+    .bento-card-feature .bento-title { font-size: 1.3rem; }
+    .bento-desc { font-size: 0.825rem; color: var(--text-muted); line-height: 1.5; }
+
+    .bento-preview-badge {
+      display: inline-flex; align-items: center; gap: 0.35rem; margin-top: 0.85rem;
+      font-size: 0.725rem; font-family: var(--font-mono); color: var(--text-dim);
+      background: var(--bg-surface); padding: 0.25rem 0.6rem; border-radius: var(--radius-sm);
+      border: 1px solid var(--border-subtle); width: fit-content;
+    }
+
+    /* Category Accent Themes */
+    .cat-maker .bento-tag { background: rgba(99, 102, 241, 0.15); color: var(--accent-indigo); border: 1px solid rgba(99, 102, 241, 0.3); }
+    .cat-maker .bento-card:hover { border-color: var(--accent-indigo); box-shadow: 0 0 25px rgba(99, 102, 241, 0.2); }
+
+    .cat-creator .bento-tag { background: rgba(6, 182, 212, 0.15); color: var(--accent-cyan); border: 1px solid rgba(6, 182, 212, 0.3); }
+    .cat-creator .bento-card:hover { border-color: var(--accent-cyan); box-shadow: 0 0 25px rgba(6, 182, 212, 0.2); }
+
+    .cat-fitness .bento-tag { background: rgba(16, 185, 129, 0.15); color: var(--accent-emerald); border: 1px solid rgba(16, 185, 129, 0.3); }
+    .cat-fitness .bento-card:hover { border-color: var(--accent-emerald); box-shadow: 0 0 25px rgba(16, 185, 129, 0.2); }
+
+    .cat-finance .bento-tag { background: rgba(245, 158, 11, 0.15); color: var(--accent-amber); border: 1px solid rgba(245, 158, 11, 0.3); }
+    .cat-finance .bento-card:hover { border-color: var(--accent-amber); box-shadow: 0 0 25px rgba(245, 158, 11, 0.2); }
 
     /* SEO & FAQ Cards */
     .formula-card {
@@ -556,7 +606,6 @@
   <header class="app-header">
     <div class="container">
       <div class="header-inner">
-        <!-- Logo linking to Home Tab -->
         <a href="#tab-home" onclick="switchTab('tab-home')" class="brand-logo">
           <div class="logo-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg></div>
           <span>Calc<span style="color: var(--accent-indigo);">QI</span></span>
@@ -638,153 +687,186 @@
       </div>
 
       <!-- ======================================================================
-           PART 1: HOMEPAGE / PORTAL (`#tab-home`)
+           REDESIGNED ASYMMETRIC "BENTO BOX" PORTAL (`#tab-home`)
            ====================================================================== -->
       <section id="tab-home" class="tab-panel active">
         <div class="hero-portal">
           <h1 class="hero-headline">High-Precision Micro-Utility Suite for Makers, Creators, Athletes & Investors</h1>
           <p class="hero-subtitle">Instant, privacy-first, zero-bloat calculators designed for real-world workflows.</p>
 
-          <!-- Interactive Quick-Search Bar -->
+          <!-- Interactive Search Input with Keyboard Shortcut Badge -->
           <div class="search-box-wrapper">
             <svg class="search-icon-svg" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-            <input type="text" id="home-search-input" class="search-input" placeholder="Search calculators (e.g., 3D print, bitrate, pizza dough, 1RM, DRIP)..." oninput="filterHomeTools(this.value)">
+            <input type="text" id="home-search-input" class="search-input" placeholder="Search calculators (e.g., 3D print, bitrate, dough, 1RM, DRIP)..." oninput="filterHomeTools(this.value)">
+            <span class="search-shortcut-badge">[ Press / to search ]</span>
           </div>
 
-          <!-- Brand Value Props -->
-          <div class="value-props-grid">
-            <div class="prop-card">
-              <div class="prop-icon">⚡</div>
-              <div class="prop-title">100% Client-Side Speed</div>
-              <div class="prop-desc">Zero server round-trips. Instant live calculations on every keypress.</div>
-            </div>
-            <div class="prop-card">
-              <div class="prop-icon">🔒</div>
-              <div class="prop-title">Privacy First</div>
-              <div class="prop-desc">No accounts, no user data collection. Runs entirely in your browser.</div>
-            </div>
-            <div class="prop-card">
-              <div class="prop-icon">📋</div>
-              <div class="prop-title">Copy-Ready Output</div>
-              <div class="prop-desc">Formatted quote and summary snippets ready for project notes.</div>
-            </div>
+          <!-- Sleek Horizontal Pill Bar -->
+          <div class="hero-badges">
+            <span>⚡ Zero Server Latency</span> • 
+            <span>🔒 100% Client-Side Privacy</span> • 
+            <span>📋 Markdown Copy</span>
           </div>
         </div>
 
-        <!-- Categorized Tool Grid -->
-        <!-- Category 1: Maker & Craft -->
-        <div class="home-cat-section tool-card-item" data-title="3d print cost baker pizza dough maker craft">
+        <!-- BENTO BOX CATEGORY SECTIONS -->
+
+        <!-- Category 1: Maker & Craft (Indigo Accent) -->
+        <div class="home-cat-section cat-maker tool-card-item" data-title="3d print cost baker pizza dough maker craft">
           <h2 class="home-cat-title">🛠️ Maker & Craft Utilities</h2>
-          <div class="home-tools-grid">
-            <div class="hub-card" onclick="switchTab('tab-3dprint')">
+          <div class="bento-grid">
+            <!-- Flagship Feature Card (2 Columns Wide) -->
+            <div class="bento-card bento-card-feature" onclick="switchTab('tab-3dprint')">
               <div>
-                <div class="hub-cat-badge">MAKER & CRAFT</div>
-                <div class="hub-card-title">3D Print Cost Estimator</div>
-                <div class="hub-card-desc">Calculate spool $/g, electricity wattage, machine wear & commercial retail profit margins.</div>
+                <div class="bento-card-header">
+                  <span class="bento-tag">FLAGSHIP TOOL</span>
+                  <svg class="bento-arrow" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                </div>
+                <div class="bento-title">3D Print Cost & Pricing Estimator</div>
+                <div class="bento-desc">Calculate exact spool $/g, power wattage, machine wear, prep labor & commercial retail markup margins.</div>
               </div>
-              <button class="btn btn-primary" style="margin-top:1rem; width:100%;">Launch Tool</button>
+              <div class="bento-preview-badge">🔍 Spec Preview: Filament, Power & Labor Amortization</div>
             </div>
-            <div class="hub-card" onclick="switchTab('tab-baker')">
+
+            <!-- Secondary Compact Card -->
+            <div class="bento-card" onclick="switchTab('tab-baker')">
               <div>
-                <div class="hub-cat-badge">MAKER & CRAFT</div>
-                <div class="hub-card-title">Baker's Pizza Dough Math</div>
-                <div class="hub-card-desc">Scale pizza dough flour, hydration, yeast, salt & oil with baker's percentages.</div>
+                <div class="bento-card-header">
+                  <span class="bento-tag">DOUGH MATH</span>
+                  <svg class="bento-arrow" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                </div>
+                <div class="bento-title">Baker's Pizza Dough Math</div>
+                <div class="bento-desc">Scale pizza dough flour, hydration %, yeast & salt instantly.</div>
               </div>
-              <button class="btn btn-primary" style="margin-top:1rem; width:100%;">Launch Tool</button>
+              <div class="bento-preview-badge">🔍 Hydration & Yeast Ratios</div>
             </div>
           </div>
         </div>
 
-        <!-- Category 2: Creator & Media -->
-        <div class="home-cat-section tool-card-item" data-title="video export bitrate file size dof depth of field optics aspect ratio resolution creator media">
+        <!-- Category 2: Creator & Media (Cyan Accent) -->
+        <div class="home-cat-section cat-creator tool-card-item" data-title="video export bitrate file size dof depth of field optics aspect ratio resolution creator media">
           <h2 class="home-cat-title">🎬 Creator & Media Utilities</h2>
-          <div class="home-tools-grid">
-            <div class="hub-card" onclick="switchTab('tab-video')">
+          <div class="bento-grid">
+            <!-- Flagship Feature Card (2 Columns Wide) -->
+            <div class="bento-card bento-card-feature" onclick="switchTab('tab-video')">
               <div>
-                <div class="hub-cat-badge">CREATOR & MEDIA</div>
-                <div class="hub-card-title">Video Bitrate & File Size</div>
-                <div class="hub-card-desc">Forecast export MB/GB file sizes across H.264, H.265, and ProRes codecs.</div>
+                <div class="bento-card-header">
+                  <span class="bento-tag">FLAGSHIP TOOL</span>
+                  <svg class="bento-arrow" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                </div>
+                <div class="bento-title">Video Export Bitrate & File Size Forecast</div>
+                <div class="bento-desc">Forecast export MB/GB file sizes across H.264, H.265, and ProRes codecs with quality gauge meters.</div>
               </div>
-              <button class="btn btn-primary" style="margin-top:1rem; width:100%;">Launch Tool</button>
+              <div class="bento-preview-badge">🔍 Spec Preview: 4K, 1080p, ProRes & Bitrate Density</div>
             </div>
-            <div class="hub-card" onclick="switchTab('tab-dof')">
+
+            <!-- Secondary Compact Cards -->
+            <div class="bento-card" onclick="switchTab('tab-dof')">
               <div>
-                <div class="hub-cat-badge">CREATOR & MEDIA</div>
-                <div class="hub-card-title">Depth of Field & Optics</div>
-                <div class="hub-card-desc">Optics calculator for sensor crop, hyperfocal distance, and near/far focus limits.</div>
+                <div class="bento-card-header">
+                  <span class="bento-tag">OPTICS</span>
+                  <svg class="bento-arrow" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                </div>
+                <div class="bento-title">Depth of Field & Optics</div>
+                <div class="bento-desc">Calculate hyperfocal distance & focus limits.</div>
               </div>
-              <button class="btn btn-primary" style="margin-top:1rem; width:100%;">Launch Tool</button>
+              <div class="bento-preview-badge">🔍 Crop Factor & CoC</div>
             </div>
-            <div class="hub-card" onclick="switchTab('tab-aspect')">
+
+            <div class="bento-card" onclick="switchTab('tab-aspect')">
               <div>
-                <div class="hub-cat-badge">CREATOR & MEDIA</div>
-                <div class="hub-card-title">Aspect Ratio Converter</div>
-                <div class="hub-card-desc">Convert screen resolution pixels and calculate exact megapixels.</div>
+                <div class="bento-card-header">
+                  <span class="bento-tag">DISPLAY</span>
+                  <svg class="bento-arrow" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                </div>
+                <div class="bento-title">Aspect Ratio Converter</div>
+                <div class="bento-desc">Convert resolution pixels & megapixels.</div>
               </div>
-              <button class="btn btn-primary" style="margin-top:1rem; width:100%;">Launch Tool</button>
+              <div class="bento-preview-badge">🔍 16:9, 9:16 & 21:9</div>
             </div>
           </div>
         </div>
 
-        <!-- Category 3: Fitness & Body -->
-        <div class="home-cat-section tool-card-item" data-title="tdee recomp macro splitter 1rm strength matrix navy body fat fitness body">
+        <!-- Category 3: Fitness & Body (Emerald Accent) -->
+        <div class="home-cat-section cat-fitness tool-card-item" data-title="tdee recomp macro splitter 1rm strength matrix navy body fat fitness body">
           <h2 class="home-cat-title">🏋️ Fitness & Body Utilities</h2>
-          <div class="home-tools-grid">
-            <div class="hub-card" onclick="switchTab('tab-tdee')">
+          <div class="bento-grid">
+            <!-- Flagship Feature Card (2 Columns Wide) -->
+            <div class="bento-card bento-card-feature" onclick="switchTab('tab-tdee')">
               <div>
-                <div class="hub-cat-badge">FITNESS & BODY</div>
-                <div class="hub-card-title">TDEE & Recomp Macro Splitter</div>
-                <div class="hub-card-desc">BMR, TDEE, daily calorie targets, and protein/carb/fat macro ratios.</div>
+                <div class="bento-card-header">
+                  <span class="bento-tag">FLAGSHIP TOOL</span>
+                  <svg class="bento-arrow" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                </div>
+                <div class="bento-title">TDEE & Recomp Macro Splitter</div>
+                <div class="bento-desc">Calculate BMR, TDEE, surplus/deficit calorie targets, and high-protein macronutrient splits.</div>
               </div>
-              <button class="btn btn-primary" style="margin-top:1rem; width:100%;">Launch Tool</button>
+              <div class="bento-preview-badge">🔍 Spec Preview: Mifflin-St Jeor & Protein Synthesis Ratios</div>
             </div>
-            <div class="hub-card" onclick="switchTab('tab-1rm')">
+
+            <!-- Secondary Compact Cards -->
+            <div class="bento-card" onclick="switchTab('tab-1rm')">
               <div>
-                <div class="hub-cat-badge">FITNESS & BODY</div>
-                <div class="hub-card-title">1RM Strength Matrix</div>
-                <div class="hub-card-desc">Estimated 1-rep max and percentage matrix table for strength programming.</div>
+                <div class="bento-card-header">
+                  <span class="bento-tag">STRENGTH</span>
+                  <svg class="bento-arrow" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                </div>
+                <div class="bento-title">1RM Strength Matrix</div>
+                <div class="bento-desc">Estimated 1-rep max & percentage tables.</div>
               </div>
-              <button class="btn btn-primary" style="margin-top:1rem; width:100%;">Launch Tool</button>
+              <div class="bento-preview-badge">🔍 Epley & Brzycki Avg</div>
             </div>
-            <div class="hub-card" onclick="switchTab('tab-navy-bf')">
+
+            <div class="bento-card" onclick="switchTab('tab-navy-bf')">
               <div>
-                <div class="hub-cat-badge">FITNESS & BODY</div>
-                <div class="hub-card-title">US Navy Body Fat %</div>
-                <div class="hub-card-desc">Estimate body fat percentage, lean body mass (LBM), and fat mass.</div>
+                <div class="bento-card-header">
+                  <span class="bento-tag">COMPOSITION</span>
+                  <svg class="bento-arrow" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                </div>
+                <div class="bento-title">US Navy Body Fat %</div>
+                <div class="bento-desc">Circumference-based fat mass & LBM.</div>
               </div>
-              <button class="btn btn-primary" style="margin-top:1rem; width:100%;">Launch Tool</button>
+              <div class="bento-preview-badge">🔍 Navy Algorithmic Model</div>
             </div>
           </div>
         </div>
 
-        <!-- Category 4: Finance & Trading -->
-        <div class="home-cat-section tool-card-item" data-title="stock average down drip dividend compounding forecast finance trading">
+        <!-- Category 4: Finance & Trading (Amber Accent) -->
+        <div class="home-cat-section cat-finance tool-card-item" data-title="stock average down drip dividend compounding forecast finance trading">
           <h2 class="home-cat-title">📈 Finance & Trading Utilities</h2>
-          <div class="home-tools-grid">
-            <div class="hub-card" onclick="switchTab('tab-stock-avg')">
+          <div class="bento-grid">
+            <!-- Flagship Feature Card (2 Columns Wide) -->
+            <div class="bento-card bento-card-feature" onclick="switchTab('tab-stock-avg')">
               <div>
-                <div class="hub-cat-badge">FINANCE & TRADING</div>
-                <div class="hub-card-title">Stock Average Down</div>
-                <div class="hub-card-desc">Calculate combined average share price basis and break-even points.</div>
+                <div class="bento-card-header">
+                  <span class="bento-tag">FLAGSHIP TOOL</span>
+                  <svg class="bento-arrow" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                </div>
+                <div class="bento-title">Stock Average Down & Break-Even</div>
+                <div class="bento-desc">Calculate combined average share price basis, total capital invested, and percentage cost reductions.</div>
               </div>
-              <button class="btn btn-primary" style="margin-top:1rem; width:100%;">Launch Tool</button>
+              <div class="bento-preview-badge">🔍 Spec Preview: Multi-Tranche Cost Basis & Break-Even</div>
             </div>
-            <div class="hub-card" onclick="switchTab('tab-drip')">
+
+            <!-- Secondary Compact Card -->
+            <div class="bento-card" onclick="switchTab('tab-drip')">
               <div>
-                <div class="hub-cat-badge">FINANCE & TRADING</div>
-                <div class="hub-card-title">Dividend DRIP Forecast</div>
-                <div class="hub-card-desc">Project multi-year compound interest growth and passive annual income.</div>
+                <div class="bento-card-header">
+                  <span class="bento-tag">INVESTING</span>
+                  <svg class="bento-arrow" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                </div>
+                <div class="bento-title">Dividend DRIP Forecast</div>
+                <div class="bento-desc">Compound interest growth & annual income.</div>
               </div>
-              <button class="btn btn-primary" style="margin-top:1rem; width:100%;">Launch Tool</button>
+              <div class="bento-preview-badge">🔍 Yield & Growth Forecast</div>
             </div>
           </div>
         </div>
 
       </section>
 
-      <!-- ======================================================================
-           TOOL 1: 3D PRINT COST ESTIMATOR
-           ====================================================================== -->
+      <!-- CALCULATOR TOOLS (All structured with History + Cheat Sheets + 2-Col SEO) -->
+      <!-- TOOL 1: 3D PRINT COST ESTIMATOR -->
       <section id="tab-3dprint" class="tab-panel">
         <div class="tool-header">
           <div class="tool-title-group">
@@ -863,7 +945,6 @@
           </div>
         </div>
 
-        <!-- History Card -->
         <div class="card history-card">
           <div class="card-header"><span class="card-title">Saved 3D Print Calculation History</span><button class="btn-delete" onclick="clearHistory('3dprint')">Clear History</button></div>
           <table class="data-table">
@@ -872,7 +953,6 @@
           </table>
         </div>
 
-        <!-- Cheat Sheet -->
         <div class="cheat-sheet-grid">
           <div class="card">
             <div class="card-header"><span class="card-title">Filament Material Benchmark Guide</span></div>
@@ -896,7 +976,6 @@
           </div>
         </div>
 
-        <!-- 2-Col SEO & FAQs -->
         <div class="seo-2col-grid">
           <div class="card">
             <h2 style="font-size:1.2rem; margin-bottom:0.75rem;">3D Print Cost Formula</h2>
@@ -1065,7 +1144,7 @@
         <div class="seo-2col-grid"><div class="card"><h2 style="font-size:1.2rem;">US Navy Male Formula</h2><div class="formula-card">BF% = 86.010 × log10(waist - neck) - 70.041 × log10(height) + 36.76</div></div><div class="card"><h2 style="font-size:1.2rem;">FAQs</h2><details class="faq-item"><summary class="faq-question">How accurate is the US Navy method?</summary><div class="faq-answer">Within 3% to 4% margin of error compared to DEXA scans.</div></details></div></div>
       </section>
 
-      <!-- TOOL 9: STOCK AVG DOWN -->
+      <!-- TOOL 9: STOCK AVG -->
       <section id="tab-stock-avg" class="tab-panel">
         <div class="tool-header"><div class="tool-title-group"><h1>Stock Average Down & Break-Even Calculator</h1><p>Calculate combined cost basis.</p></div><button class="btn btn-secondary" onclick="resetFormStockAvg()">Reset</button></div>
         <div class="calc-grid">
@@ -1105,7 +1184,7 @@
         <div class="seo-2col-grid"><div class="card"><h2 style="font-size:1.2rem;">DRIP Compounding Formula</h2><div class="formula-card">Value_Year_N = (Value_Prev + Annual_Contrib + Dividends) × (1 + Growth%)</div></div><div class="card"><h2 style="font-size:1.2rem;">FAQs</h2><details class="faq-item"><summary class="faq-question">What is DRIP?</summary><div class="faq-answer">Dividend Reinvestment Plan - automatically using paid cash dividends to purchase additional shares.</div></details></div></div>
       </section>
 
-      <!-- CROSS-LINK HUB -->
+      <!-- CROSS-LINK HUB (On individual tool pages) -->
       <section class="cross-link-hub">
         <h2 class="cross-link-title">Explore More CalcQI Micro-Utilities</h2>
         <div class="hub-grid">
@@ -1235,6 +1314,18 @@
         }
       });
     }
+
+    // Press '/' keyboard shortcut to focus search input
+    window.addEventListener('keydown', (e) => {
+      if (e.key === '/' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'SELECT' && document.activeElement.tagName !== 'TEXTAREA') {
+        const searchInput = document.getElementById('home-search-input');
+        if (searchInput) {
+          e.preventDefault();
+          switchTab('tab-home');
+          searchInput.focus();
+        }
+      }
+    });
 
     window.addEventListener('DOMContentLoaded', () => {
       const hash = window.location.hash.replace('#', '');
