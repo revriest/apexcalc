@@ -4,20 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CalcQI | High-Precision Multi-Tool Calculator Hub</title>
-  <meta name="description" content="Free, high-precision dark-mode calculators for creators, makers, athletes, and investors: 3D Print Cost, Dough Hydration, Video Bitrate, DOF Optics, Aspect Ratio, TDEE Macros, 1RM Strength, Navy Body Fat, Stock Average Down, and DRIP Dividend Forecast.">
-  <meta name="keywords" content="3d print cost calculator, pizza dough calculator, video file size calculator, dof calculator, aspect ratio converter, tdee macro calculator, 1rm calculator, navy body fat estimator, stock average down calculator, drip dividend calculator">
+  <meta name="description" content="Free, high-precision dark-mode calculators for creators, makers, athletes, and investors: 3D Print Cost, Dough Hydration, Video Bitrate, DOF Optics, ND Filter Exposure, Aspect Ratio, Audio File Size, TDEE Macros, 1RM Strength, FFMI Muscle Potential, Navy Body Fat, Stock Average Down, and DRIP Dividend Forecast.">
+  <meta name="keywords" content="3d print cost calculator, pizza dough calculator, video file size calculator, dof calculator, nd filter calculator, aspect ratio converter, audio file size calculator, tdee macro calculator, 1rm calculator, ffmi calculator, navy body fat estimator, stock average down calculator, drip dividend calculator">
   <meta name="author" content="CalcQI">
   <link rel="canonical" href="https://calcqi.com">
   
   <!-- OpenGraph & Social Metadata -->
   <meta property="og:title" content="CalcQI - High-Precision Utility Suite">
-  <meta property="og:description" content="10 high-precision micro-calculators for 3D printing, video export, fitness macros, 1RM, stock average down, and dividend forecasting.">
+  <meta property="og:description" content="13 high-precision micro-calculators for 3D printing, video export, optics exposure, fitness macros, FFMI, 1RM, stock average down, and dividend forecasting.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://calcqi.com">
   <meta property="og:image" content="og-preview.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="CalcQI - High-Precision Utility Suite">
-  <meta name="twitter:description" content="10 high-precision micro-calculators for 3D printing, video export, fitness macros, 1RM, stock average down, and dividend forecasting.">
+  <meta name="twitter:description" content="13 high-precision micro-calculators for 3D printing, video export, optics exposure, fitness macros, FFMI, 1RM, stock average down, and dividend forecasting.">
   <meta name="twitter:image" content="og-preview.png">
 
   <!-- Favicon -->
@@ -207,7 +207,7 @@
       position: absolute;
       top: calc(100% + 0.5rem);
       left: 0;
-      min-width: 260px;
+      min-width: 270px;
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius-md);
@@ -445,7 +445,7 @@
     .hub-card-desc { font-size: 0.775rem; color: var(--text-muted); }
 
     /* ==========================================================================
-       POLISHED ASYMMETRIC BENTO BOX PORTAL STYLES (#tab-home)
+       SYMMETRIC BENTO BOX PORTAL STYLES (#tab-home)
        ========================================================================== */
     .hero-portal {
       text-align: center; padding: 2.5rem 1.25rem 2rem 1.25rem; max-width: 850px; margin: 0 auto;
@@ -541,22 +541,18 @@
     }
 
     /* Category Specific Color Accent Themes & Glows */
-    /* Maker & Craft: Purple Accent (#8b5cf6) */
     .cat-maker .bento-card { border-top: 3px solid var(--accent-violet); }
     .cat-maker .bento-tag { background: rgba(139, 92, 246, 0.15); color: var(--accent-violet); border: 1px solid rgba(139, 92, 246, 0.3); }
     .cat-maker .bento-card:hover { border-color: var(--accent-violet); box-shadow: 0 8px 30px rgba(139, 92, 246, 0.25); }
 
-    /* Creator & Media: Cyan Accent (#06b6d4) */
     .cat-creator .bento-card { border-top: 3px solid var(--accent-cyan); }
     .cat-creator .bento-tag { background: rgba(6, 182, 212, 0.15); color: var(--accent-cyan); border: 1px solid rgba(6, 182, 212, 0.3); }
     .cat-creator .bento-card:hover { border-color: var(--accent-cyan); box-shadow: 0 8px 30px rgba(6, 182, 212, 0.25); }
 
-    /* Fitness & Body: Emerald Accent (#10b981) */
     .cat-fitness .bento-card { border-top: 3px solid var(--accent-emerald); }
     .cat-fitness .bento-tag { background: rgba(16, 185, 129, 0.15); color: var(--accent-emerald); border: 1px solid rgba(16, 185, 129, 0.3); }
     .cat-fitness .bento-card:hover { border-color: var(--accent-emerald); box-shadow: 0 8px 30px rgba(16, 185, 129, 0.25); }
 
-    /* Finance & Trading: Gold Accent (#f59e0b) */
     .cat-finance .bento-card { border-top: 3px solid var(--accent-amber); }
     .cat-finance .bento-tag { background: rgba(245, 158, 11, 0.15); color: var(--accent-amber); border: 1px solid rgba(245, 158, 11, 0.3); }
     .cat-finance .bento-card:hover { border-color: var(--accent-amber); box-shadow: 0 8px 30px rgba(245, 158, 11, 0.25); }
@@ -633,7 +629,9 @@
             <div class="dropdown-menu">
               <button class="dropdown-item" data-tab="tab-video" onclick="switchTab('tab-video')"><span>Video Bitrate & File Size</span></button>
               <button class="dropdown-item" data-tab="tab-dof" onclick="switchTab('tab-dof')"><span>Depth of Field & Optics</span></button>
+              <button class="dropdown-item" data-tab="tab-nd-filter" onclick="switchTab('tab-nd-filter')"><span>ND Filter & Exposure</span></button>
               <button class="dropdown-item" data-tab="tab-aspect" onclick="switchTab('tab-aspect')"><span>Aspect Ratio & Resolution</span></button>
+              <button class="dropdown-item" data-tab="tab-audio-size" onclick="switchTab('tab-audio-size')"><span>Audio File Size & Bitrate</span></button>
             </div>
           </div>
           
@@ -642,6 +640,7 @@
             <div class="dropdown-menu">
               <button class="dropdown-item" data-tab="tab-tdee" onclick="switchTab('tab-tdee')"><span>TDEE & Recomp Macros</span></button>
               <button class="dropdown-item" data-tab="tab-1rm" onclick="switchTab('tab-1rm')"><span>1RM Strength Matrix</span></button>
+              <button class="dropdown-item" data-tab="tab-ffmi" onclick="switchTab('tab-ffmi')"><span>FFMI & Muscle Potential</span></button>
               <button class="dropdown-item" data-tab="tab-navy-bf" onclick="switchTab('tab-navy-bf')"><span>US Navy Body Fat %</span></button>
             </div>
           </div>
@@ -664,11 +663,14 @@
           <optgroup label="🎬 Creator & Media">
             <option value="tab-video">Video Bitrate & File Size</option>
             <option value="tab-dof">Depth of Field & Optics</option>
+            <option value="tab-nd-filter">ND Filter & Exposure</option>
             <option value="tab-aspect">Aspect Ratio & Resolution</option>
+            <option value="tab-audio-size">Audio File Size & Bitrate</option>
           </optgroup>
           <optgroup label="🏋️ Fitness & Body">
             <option value="tab-tdee">TDEE & Recomp Macros</option>
             <option value="tab-1rm">1RM Strength Matrix</option>
+            <option value="tab-ffmi">FFMI & Muscle Potential</option>
             <option value="tab-navy-bf">US Navy Body Fat %</option>
           </optgroup>
           <optgroup label="📈 Finance & Trading">
@@ -692,22 +694,22 @@
       </div>
 
       <!-- ======================================================================
-           HOMEPAGE PORTAL (`#tab-home`)
+           HOMEPAGE PORTAL (`#tab-home`) WITH SYMMETRIC BENTO GRID
            ====================================================================== -->
       <section id="tab-home" class="tab-panel active">
-        <!-- Hero Section with Ambient Glow Gradient -->
+        <!-- Hero Section -->
         <div class="hero-portal">
           <h1 class="hero-headline">High-Precision Micro-Utility Suite for Makers, Creators, Athletes & Investors</h1>
-          <p class="hero-subtitle">Instant, privacy-first, zero-bloat calculators designed for real-world workflows.</p>
+          <p class="hero-subtitle">13 instant, privacy-first, zero-bloat calculators designed for real-world workflows.</p>
 
-          <!-- Search Input with Keyboard Shortcut Badge -->
+          <!-- Search Input -->
           <div class="search-box-wrapper">
             <svg class="search-icon-svg" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-            <input type="text" id="home-search-input" class="search-input" placeholder="Search calculators (e.g., 3D print, bitrate, dough, 1RM, DRIP)..." oninput="filterHomeTools(this.value)">
+            <input type="text" id="home-search-input" class="search-input" placeholder="Search 13 calculators (e.g., 3D print, ND filter, audio, FFMI, DRIP)..." oninput="filterHomeTools(this.value)">
             <span class="search-shortcut-badge">[ Press / to search ]</span>
           </div>
 
-          <!-- Streamlined Horizontal Pill Bar -->
+          <!-- Horizontal Pill Bar -->
           <div class="hero-badges">
             <span>⚡ Zero Server Latency</span> • 
             <span>🔒 100% Client-Side Privacy</span> • 
@@ -717,7 +719,7 @@
 
         <!-- BENTO BOX CATEGORY SECTIONS -->
 
-        <!-- Category 1: Maker & Craft (Purple Accent) -->
+        <!-- Category 1: Maker & Craft (3 Cols) -->
         <div class="home-cat-section cat-maker tool-card-item" data-title="3d print cost baker pizza dough maker craft">
           <h2 class="home-cat-title">🛠️ Maker & Craft Utilities</h2>
           <div class="bento-grid">
@@ -747,10 +749,11 @@
           </div>
         </div>
 
-        <!-- Category 2: Creator & Media (Cyan Accent) -->
-        <div class="home-cat-section cat-creator tool-card-item" data-title="video export bitrate file size dof depth of field optics aspect ratio resolution creator media">
+        <!-- Category 2: Creator & Media (6 Cols = Balanced 2 Rows of 3 Cols) -->
+        <div class="home-cat-section cat-creator tool-card-item" data-title="video export bitrate file size dof depth of field optics nd filter camera exposure aspect ratio resolution audio size bitrate creator media">
           <h2 class="home-cat-title">🎬 Creator & Media Utilities</h2>
           <div class="bento-grid">
+            <!-- Row 1: Video Bitrate (2 cols) + DOF (1 col) -->
             <div class="bento-card bento-card-feature" onclick="switchTab('tab-video')">
               <div>
                 <div class="bento-card-header">
@@ -775,6 +778,19 @@
               <div class="bento-preview-badge">🔍 Crop Factor & CoC</div>
             </div>
 
+            <!-- Row 2: ND Filter (1 col) + Aspect Ratio (1 col) + Audio Size (1 col) = 3 cols! -->
+            <div class="bento-card" onclick="switchTab('tab-nd-filter')">
+              <div>
+                <div class="bento-card-header">
+                  <span class="bento-tag">EXPOSURE</span>
+                  <svg class="bento-arrow" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                </div>
+                <div class="bento-title">ND Filter & Camera Exposure</div>
+                <div class="bento-desc">Compensate shutter speeds across 1-15 ND stops.</div>
+              </div>
+              <div class="bento-preview-badge">🔍 Long Exposure & Reciprocity</div>
+            </div>
+
             <div class="bento-card" onclick="switchTab('tab-aspect')">
               <div>
                 <div class="bento-card-header">
@@ -786,13 +802,26 @@
               </div>
               <div class="bento-preview-badge">🔍 16:9, 9:16 & 21:9</div>
             </div>
+
+            <div class="bento-card" onclick="switchTab('tab-audio-size')">
+              <div>
+                <div class="bento-card-header">
+                  <span class="bento-tag">AUDIO MATH</span>
+                  <svg class="bento-arrow" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                </div>
+                <div class="bento-title">Audio File Size & Bitrate</div>
+                <div class="bento-desc">Calculate WAV, MP3, AAC & FLAC audio file sizes.</div>
+              </div>
+              <div class="bento-preview-badge">🔍 Sample Rates & Bit Depths</div>
+            </div>
           </div>
         </div>
 
-        <!-- Category 3: Fitness & Body (Emerald Accent) -->
-        <div class="home-cat-section cat-fitness tool-card-item" data-title="tdee recomp macro splitter 1rm strength matrix navy body fat fitness body">
+        <!-- Category 3: Fitness & Body (6 Cols = Balanced 2 Rows of 3 Cols) -->
+        <div class="home-cat-section cat-fitness tool-card-item" data-title="tdee recomp macro splitter 1rm strength matrix ffmi muscle potential navy body fat fitness body">
           <h2 class="home-cat-title">🏋️ Fitness & Body Utilities</h2>
           <div class="bento-grid">
+            <!-- Row 1: TDEE (2 cols) + 1RM (1 col) -->
             <div class="bento-card bento-card-feature" onclick="switchTab('tab-tdee')">
               <div>
                 <div class="bento-card-header">
@@ -817,6 +846,19 @@
               <div class="bento-preview-badge">🔍 Epley & Brzycki Avg</div>
             </div>
 
+            <!-- Row 2: FFMI (2 cols) + Navy Body Fat (1 col) -->
+            <div class="bento-card bento-card-feature" onclick="switchTab('tab-ffmi')">
+              <div>
+                <div class="bento-card-header">
+                  <span class="bento-tag">FLAGSHIP TOOL</span>
+                  <svg class="bento-arrow" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                </div>
+                <div class="bento-title">FFMI & Maximum Muscular Potential</div>
+                <div class="bento-desc">Calculate Fat-Free Mass Index (FFMI), height-normalized score, and natural lean mass limits.</div>
+              </div>
+              <div class="bento-preview-badge">🔍 Spec Preview: Normalized FFMI & Genetic Ceiling</div>
+            </div>
+
             <div class="bento-card" onclick="switchTab('tab-navy-bf')">
               <div>
                 <div class="bento-card-header">
@@ -831,7 +873,7 @@
           </div>
         </div>
 
-        <!-- Category 4: Finance & Trading (Gold Accent) -->
+        <!-- Category 4: Finance & Trading (3 Cols) -->
         <div class="home-cat-section cat-finance tool-card-item" data-title="stock average down drip dividend compounding forecast finance trading">
           <h2 class="home-cat-title">📈 Finance & Trading Utilities</h2>
           <div class="bento-grid">
@@ -863,7 +905,10 @@
 
       </section>
 
-      <!-- CALCULATOR TOOLS -->
+      <!-- ======================================================================
+           13 CALCULATOR TOOL PANELS
+           ====================================================================== -->
+
       <!-- TOOL 1: 3D PRINT COST ESTIMATOR -->
       <section id="tab-3dprint" class="tab-panel">
         <div class="tool-header">
@@ -985,14 +1030,13 @@
           </div>
         </div>
 
-        <!-- Tool Cross-Link Hub -->
         <section class="cross-link-hub">
           <h2 class="cross-link-title">Explore More CalcQI Micro-Utilities</h2>
           <div class="hub-grid">
             <div class="hub-card" onclick="switchTab('tab-baker')"><div class="hub-cat-badge">MAKER & CRAFT</div><div class="hub-card-title">Baker's Pizza Dough Math</div><div class="hub-card-desc">Scale pizza flour, hydration, yeast & salt.</div></div>
-            <div class="hub-card" onclick="switchTab('tab-video')"><div class="hub-cat-badge">CREATOR & MEDIA</div><div class="hub-card-title">Video Export Bitrate & Size</div><div class="hub-card-desc">Forecast export MB/GB file sizes across H.264 & ProRes.</div></div>
-            <div class="hub-card" onclick="switchTab('tab-tdee')"><div class="hub-cat-badge">FITNESS & BODY</div><div class="hub-card-title">TDEE & Recomp Macros</div><div class="hub-card-desc">BMR, TDEE, calorie targets & protein/carb/fat macros.</div></div>
-            <div class="hub-card" onclick="switchTab('tab-stock-avg')"><div class="hub-cat-badge">FINANCE & TRADING</div><div class="hub-card-title">Stock Average Down</div><div class="hub-card-desc">Calculate combined cost basis and break-even points.</div></div>
+            <div class="hub-card" onclick="switchTab('tab-video')"><div class="hub-cat-badge">CREATOR & MEDIA</div><div class="hub-card-title">Video Export Bitrate & Size</div><div class="hub-card-desc">Forecast export MB/GB file sizes.</div></div>
+            <div class="hub-card" onclick="switchTab('tab-tdee')"><div class="hub-cat-badge">FITNESS & BODY</div><div class="hub-card-title">TDEE & Recomp Macros</div><div class="hub-card-desc">BMR, TDEE & macro targets.</div></div>
+            <div class="hub-card" onclick="switchTab('tab-stock-avg')"><div class="hub-cat-badge">FINANCE & TRADING</div><div class="hub-card-title">Stock Average Down</div><div class="hub-card-desc">Calculate combined share cost basis.</div></div>
           </div>
         </section>
       </section>
@@ -1041,17 +1085,6 @@
         <div class="card history-card"><div class="card-header"><span class="card-title">Saved Dough Batch History</span><button class="btn-delete" onclick="clearHistory('baker')">Clear History</button></div><table class="data-table"><thead><tr><th>Timestamp</th><th>Dough Balls</th><th>Flour (g)</th><th>Water (g)</th><th>Action</th></tr></thead><tbody id="hist-tbody-baker"><tr><td colspan="5" style="color:var(--text-dim);">No saved dough recipes.</td></tr></tbody></table></div>
         <div class="cheat-sheet-grid"><div class="card"><div class="card-header"><span class="card-title">Pizza Style Hydration Benchmark</span></div><table class="data-table"><thead><tr><th>Style</th><th>Hydration</th><th>Oven Temp</th></tr></thead><tbody><tr><td>Neapolitan</td><td>60% - 63%</td><td>450°C - 500°C</td></tr><tr><td>New York</td><td>63% - 66%</td><td>290°C - 340°C</td></tr><tr><td>Detroit Deep Dish</td><td>68% - 73%</td><td>260°C - 290°C</td></tr></tbody></table></div><div class="card"><div class="card-header"><span class="card-title">Baker's % Principles</span></div><p style="font-size:0.85rem; color:var(--text-muted);">Flour is always 100%. All other ingredients are scaled relative to flour mass.</p></div></div>
         <div class="seo-2col-grid"><div class="card"><h2 style="font-size:1.2rem;">Flour Formula</h2><div class="formula-card">Flour = Total Weight / (1 + Hydration% + Salt% + Yeast% + Oil%)</div></div><div class="card"><h2 style="font-size:1.2rem;">FAQs</h2><details class="faq-item"><summary class="faq-question">Why use baker's percentage?</summary><div class="faq-answer">Allows scaling dough batch size while maintaining exact flour hydration ratios.</div></details></div></div>
-
-        <!-- Tool Cross-Link Hub -->
-        <section class="cross-link-hub">
-          <h2 class="cross-link-title">Explore More CalcQI Micro-Utilities</h2>
-          <div class="hub-grid">
-            <div class="hub-card" onclick="switchTab('tab-3dprint')"><div class="hub-cat-badge">MAKER & CRAFT</div><div class="hub-card-title">3D Print Cost Estimator</div><div class="hub-card-desc">Calculate spool cost, printer wattage & labor margins.</div></div>
-            <div class="hub-card" onclick="switchTab('tab-video')"><div class="hub-cat-badge">CREATOR & MEDIA</div><div class="hub-card-title">Video Export Bitrate & Size</div><div class="hub-card-desc">Forecast export MB/GB file sizes.</div></div>
-            <div class="hub-card" onclick="switchTab('tab-tdee')"><div class="hub-cat-badge">FITNESS & BODY</div><div class="hub-card-title">TDEE & Recomp Macros</div><div class="hub-card-desc">BMR, TDEE & macro targets.</div></div>
-            <div class="hub-card" onclick="switchTab('tab-stock-avg')"><div class="hub-cat-badge">FINANCE & TRADING</div><div class="hub-card-title">Stock Average Down</div><div class="hub-card-desc">Calculate combined share cost basis.</div></div>
-          </div>
-        </section>
       </section>
 
       <!-- TOOL 3: VIDEO BITRATE -->
@@ -1093,7 +1126,119 @@
         <div class="seo-2col-grid"><div class="card"><h2 style="font-size:1.2rem;">Hyperfocal Formula</h2><div class="formula-card">H = (focal_length² / (aperture × CoC)) + focal_length</div></div><div class="card"><h2 style="font-size:1.2rem;">FAQs</h2><details class="faq-item"><summary class="faq-question">What is Circle of Confusion?</summary><div class="faq-answer">The maximum blur point size rendered on a sensor that still appears sharp to the human eye.</div></details></div></div>
       </section>
 
-      <!-- TOOL 5: ASPECT RATIO -->
+      <!-- TOOL 5 (NEW): ND FILTER EXPOSURE -->
+      <section id="tab-nd-filter" class="tab-panel">
+        <div class="tool-header">
+          <div class="tool-title-group">
+            <h1>ND Filter & Camera Exposure Calculator</h1>
+            <p>Calculate target shutter speeds for long exposure photography across 1 to 15 ND filter stops.</p>
+          </div>
+          <button class="btn btn-secondary" onclick="resetFormNDFilter()">Reset</button>
+        </div>
+
+        <div class="calc-grid">
+          <div class="card">
+            <div class="card-header"><span class="card-title">Exposure & Filter Parameters</span></div>
+            <div class="form-group-grid">
+              <div class="form-group">
+                <label class="form-label">Base Shutter Speed</label>
+                <select id="nd-base-speed" class="form-control" onchange="calcNDFilter()">
+                  <option value="0.001">1/1000s</option>
+                  <option value="0.002">1/500s</option>
+                  <option value="0.004" selected>1/250s</option>
+                  <option value="0.008">1/125s</option>
+                  <option value="0.01667">1/60s</option>
+                  <option value="0.03333">1/30s</option>
+                  <option value="0.06667">1/15s</option>
+                  <option value="0.25">1/4s</option>
+                  <option value="0.5">1/2s</option>
+                  <option value="1.0">1 second</option>
+                  <option value="2.0">2 seconds</option>
+                  <option value="5.0">5 seconds</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">ND Filter Strength</label>
+                <select id="nd-stops" class="form-control" onchange="calcNDFilter()">
+                  <option value="1">1 Stop (ND2)</option>
+                  <option value="2">2 Stops (ND4)</option>
+                  <option value="3">3 Stops (ND8)</option>
+                  <option value="4">4 Stops (ND16)</option>
+                  <option value="5">5 Stops (ND32)</option>
+                  <option value="6">6 Stops (ND64)</option>
+                  <option value="10" selected>10 Stops (ND1000)</option>
+                  <option value="12">12 Stops (ND4096)</option>
+                  <option value="15">15 Stops (ND32768)</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group-grid">
+              <div class="form-group"><label class="form-label">Base Aperture</label><input type="text" id="nd-aperture" class="form-control" value="f/8"></div>
+              <div class="form-group"><label class="form-label">Base ISO</label><input type="number" id="nd-iso" class="form-control" value="100"></div>
+            </div>
+          </div>
+
+          <div class="results-deck">
+            <div class="hero-stat-card">
+              <div class="stat-label">Target Exposure Duration</div>
+              <div class="stat-value-huge" id="nd-res-speed">4.10 <span class="unit">sec</span></div>
+              <div class="stat-subtext" id="nd-res-warning">Standard tripod exposure</div>
+            </div>
+            <div class="metrics-grid">
+              <div class="metric-card"><div class="m-label">EV Reduction</div><div class="m-val" id="nd-res-ev">-10 EV</div></div>
+              <div class="metric-card"><div class="m-label">Filter Factor</div><div class="m-val" id="nd-res-factor">1024x (ND1000)</div></div>
+            </div>
+            <div style="display:flex; gap:0.5rem;">
+              <button class="btn btn-primary" style="flex:1;" onclick="copySummaryNDFilter()">Copy Exposure</button>
+              <button class="btn btn-secondary" onclick="saveRun('nd-filter')">Save Run</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card history-card">
+          <div class="card-header"><span class="card-title">Saved ND Filter History</span><button class="btn-delete" onclick="clearHistory('nd-filter')">Clear History</button></div>
+          <table class="data-table">
+            <thead><tr><th>Timestamp</th><th>Base Speed</th><th>Filter</th><th>Target Speed</th><th>Action</th></tr></thead>
+            <tbody id="hist-tbody-nd-filter"><tr><td colspan="5" style="color:var(--text-dim);">No saved exposure calculations.</td></tr></tbody>
+          </table>
+        </div>
+
+        <div class="cheat-sheet-grid">
+          <div class="card">
+            <div class="card-header"><span class="card-title">ND Filter Optical Density & Factor Reference</span></div>
+            <table class="data-table">
+              <thead><tr><th>Stops</th><th>Optical Density</th><th>ND Number</th><th>Filter Factor</th></tr></thead>
+              <tbody>
+                <tr><td>1 Stop</td><td>0.3</td><td>ND2</td><td>2x</td></tr>
+                <tr><td>3 Stops</td><td>0.9</td><td>ND8</td><td>8x</td></tr>
+                <tr><td>6 Stops</td><td>1.8</td><td>ND64</td><td>64x</td></tr>
+                <tr><td>10 Stops</td><td>3.0</td><td>ND1000</td><td>1024x</td></tr>
+                <tr><td>15 Stops</td><td>4.5</td><td>ND32768</td><td>32768x</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="card">
+            <div class="card-header"><span class="card-title">Long Exposure & Reciprocity Guidelines</span></div>
+            <p style="font-size:0.85rem; line-height:1.6; color:var(--text-muted);">
+              <strong>Bulb Mode:</strong> Required for exposures exceeding 30 seconds on most DSLR & mirrorless bodies.<br><br>
+              <strong>Sensor Reciprocity:</strong> Digital sensors do not suffer film reciprocity failure, but long exposures over 60s generate thermal sensor noise. Turn on Long Exposure NR.
+            </p>
+          </div>
+        </div>
+
+        <div class="seo-2col-grid">
+          <div class="card">
+            <h2 style="font-size:1.2rem; margin-bottom:0.75rem;">ND Filter Exposure Formula</h2>
+            <div class="formula-card">Target Shutter Speed = Base Speed (secs) × (2 ^ ND_Stops)</div>
+          </div>
+          <div class="card">
+            <h2 style="font-size:1.2rem; margin-bottom:0.75rem;">Frequently Asked Questions</h2>
+            <details class="faq-item"><summary class="faq-question">Why use a 10-stop ND filter?</summary><div class="faq-answer">10-stop ND filters blur moving water into smooth silk and turn moving crowds invisible during broad daylight.</div></details>
+          </div>
+        </div>
+      </section>
+
+      <!-- TOOL 6: ASPECT RATIO -->
       <section id="tab-aspect" class="tab-panel">
         <div class="tool-header"><div class="tool-title-group"><h1>Aspect Ratio & Resolution Converter</h1><p>Convert pixels and megapixels.</p></div><button class="btn btn-secondary" onclick="resetFormAspect()">Reset</button></div>
         <div class="calc-grid">
@@ -1108,7 +1253,123 @@
         <div class="seo-2col-grid"><div class="card"><h2 style="font-size:1.2rem;">Megapixel Formula</h2><div class="formula-card">Megapixels = (Width × Height) / 1,000,000</div></div><div class="card"><h2 style="font-size:1.2rem;">FAQs</h2><details class="faq-item"><summary class="faq-question">What is aspect ratio?</summary><div class="faq-answer">The proportional relationship between an image's width and height.</div></details></div></div>
       </section>
 
-      <!-- TOOL 6: TDEE MACROS -->
+      <!-- TOOL 7 (NEW): AUDIO FILE SIZE & BITRATE -->
+      <section id="tab-audio-size" class="tab-panel">
+        <div class="tool-header">
+          <div class="tool-title-group">
+            <h1>Audio File Size & Bitrate Estimator</h1>
+            <p>Calculate uncompressed WAV, MP3, AAC, and FLAC audio file sizes across sample rates and bit depths.</p>
+          </div>
+          <button class="btn btn-secondary" onclick="resetFormAudioSize()">Reset</button>
+        </div>
+
+        <div class="calc-grid">
+          <div class="card">
+            <div class="card-header"><span class="card-title">Audio Format Parameters</span></div>
+            <div class="form-group-grid">
+              <div class="form-group">
+                <label class="form-label">Sample Rate</label>
+                <select id="audio-sample-rate" class="form-control" onchange="calcAudioSize()">
+                  <option value="44100" selected>44.1 kHz (CD Standard)</option>
+                  <option value="48000">48.0 kHz (Video / Broadcast)</option>
+                  <option value="96000">96.0 kHz (Studio Master)</option>
+                  <option value="192000">192.0 kHz (Hi-Res Audio)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Bit Depth</label>
+                <select id="audio-bit-depth" class="form-control" onchange="calcAudioSize()">
+                  <option value="16" selected>16-bit (CD Quality)</option>
+                  <option value="24">24-bit (Studio Master)</option>
+                  <option value="32">32-bit Float</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group-grid">
+              <div class="form-group">
+                <label class="form-label">Format / Codec</label>
+                <select id="audio-format" class="form-control" onchange="calcAudioSize()">
+                  <option value="wav" selected>Uncompressed WAV (100%)</option>
+                  <option value="flac">Lossless FLAC (~55% Comp)</option>
+                  <option value="mp3_320">MP3 CBR 320 kbps</option>
+                  <option value="aac_256">AAC CBR 256 kbps</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Channels</label>
+                <select id="audio-channels" class="form-control" onchange="calcAudioSize()">
+                  <option value="1">1 Channel (Mono)</option>
+                  <option value="2" selected>2 Channels (Stereo)</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Audio Duration</label>
+              <div style="display: flex; gap: 0.5rem;">
+                <div class="input-wrapper" style="flex:1;"><input type="number" id="audio-mins" class="form-control has-suffix" value="3" min="0" oninput="calcAudioSize()"><span class="input-suffix">mins</span></div>
+                <div class="input-wrapper" style="flex:1;"><input type="number" id="audio-secs" class="form-control has-suffix" value="30" min="0" max="59" oninput="calcAudioSize()"><span class="input-suffix">secs</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="results-deck">
+            <div class="hero-stat-card">
+              <div class="stat-label">Estimated Output Size</div>
+              <div class="stat-value-huge" id="audio-res-size">37.04 <span class="unit">MB</span></div>
+              <div class="stat-subtext" id="audio-res-uncompressed-sub">Uncompressed WAV: 37.04 MB</div>
+            </div>
+            <div class="metrics-grid">
+              <div class="metric-card"><div class="m-label">Audio Bitrate</div><div class="m-val" id="audio-res-bitrate">1,411 kbps</div></div>
+              <div class="metric-card"><div class="m-label">Duration</div><div class="m-val" id="audio-res-duration">210 sec</div></div>
+            </div>
+            <div style="display:flex; gap:0.5rem;">
+              <button class="btn btn-primary" style="flex:1;" onclick="copySummaryAudioSize()">Copy Audio Specs</button>
+              <button class="btn btn-secondary" onclick="saveRun('audio-size')">Save Run</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card history-card">
+          <div class="card-header"><span class="card-title">Saved Audio Calculation History</span><button class="btn-delete" onclick="clearHistory('audio-size')">Clear History</button></div>
+          <table class="data-table">
+            <thead><tr><th>Timestamp</th><th>Format</th><th>Bitrate</th><th>File Size</th><th>Action</th></tr></thead>
+            <tbody id="hist-tbody-audio-size"><tr><td colspan="5" style="color:var(--text-dim);">No saved audio calculations.</td></tr></tbody>
+          </table>
+        </div>
+
+        <div class="cheat-sheet-grid">
+          <div class="card">
+            <div class="card-header"><span class="card-title">Audio Industry Standard Specifications</span></div>
+            <table class="data-table">
+              <thead><tr><th>Use Case</th><th>Sample Rate</th><th>Bit Depth</th><th>Uncompressed Bitrate</th></tr></thead>
+              <tbody>
+                <tr><td>CD Redbook Audio</td><td>44.1 kHz</td><td>16-bit</td><td>1,411 kbps Stereo</td></tr><tr><td>Film & Video Broadcast</td><td>48.0 kHz</td><td>24-bit</td><td>2,304 kbps Stereo</td></tr>
+                <tr><td>High-Res Studio Master</td><td>96.0 kHz</td><td>24-bit</td><td>4,608 kbps Stereo</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="card">
+            <div class="card-header"><span class="card-title">Lossless vs Lossy Compression</span></div>
+            <p style="font-size:0.85rem; line-height:1.6; color:var(--text-muted);">
+              <strong>Lossless (FLAC/ALAC):</strong> Compresses audio data down to 50%–60% of original WAV size without discarding dynamic audio frequencies.<br><br>
+              <strong>Lossy (MP3/AAC):</strong> Discards psychoacoustically masked frequencies to achieve 80%–90% size reductions.
+            </p>
+          </div>
+        </div>
+
+        <div class="seo-2col-grid">
+          <div class="card">
+            <h2 style="font-size:1.2rem; margin-bottom:0.75rem;">Audio Bitrate Formula</h2>
+            <div class="formula-card">Bitrate (bps) = Sample Rate (Hz) × Bit Depth × Channels</div>
+          </div>
+          <div class="card">
+            <h2 style="font-size:1.2rem; margin-bottom:0.75rem;">Frequently Asked Questions</h2>
+            <details class="faq-item"><summary class="faq-question">Why is 48kHz standard for video editing?</summary><div class="faq-answer">48kHz divides evenly into video frame rates (24, 25, 30, 60 fps) without audio sample drift over long timelines.</div></details>
+          </div>
+        </div>
+      </section>
+
+      <!-- TOOL 8: TDEE MACROS -->
       <section id="tab-tdee" class="tab-panel">
         <div class="tool-header"><div class="tool-title-group"><h1>TDEE & Recomp Macro Splitter</h1><p>BMR, TDEE, and daily macro Targets.</p></div><button class="btn btn-secondary" onclick="resetFormTDEE()">Reset</button></div>
         <div class="calc-grid">
@@ -1128,7 +1389,7 @@
         <div class="seo-2col-grid"><div class="card"><h2 style="font-size:1.2rem;">Mifflin-St Jeor Formula</h2><div class="formula-card">BMR = (10 × weight_kg) + (6.25 × height_cm) - (5 × age) + 5</div></div><div class="card"><h2 style="font-size:1.2rem;">FAQs</h2><details class="faq-item"><summary class="faq-question">What is recomp?</summary><div class="faq-answer">Building muscle while losing fat simultaneously in a maintenance or slight deficit.</div></details></div></div>
       </section>
 
-      <!-- TOOL 7: 1RM STRENGTH -->
+      <!-- TOOL 9: 1RM STRENGTH -->
       <section id="tab-1rm" class="tab-panel">
         <div class="tool-header"><div class="tool-title-group"><h1>1RM Strength Matrix</h1><p>Estimated 1-rep max and percentage table.</p></div><button class="btn btn-secondary" onclick="resetForm1RM()">Reset</button></div>
         <div class="calc-grid">
@@ -1144,7 +1405,96 @@
         <div class="seo-2col-grid"><div class="card"><h2 style="font-size:1.2rem;">1RM Formula</h2><div class="formula-card">Epley: Weight × (1 + Reps/30) | Brzycki: Weight × (36 / (37 - Reps))</div></div><div class="card"><h2 style="font-size:1.2rem;">FAQs</h2><details class="faq-item"><summary class="faq-question">How accurate is 1RM estimation?</summary><div class="faq-answer">Most accurate when rep count performed is between 2 and 6 reps.</div></details></div></div>
       </section>
 
-      <!-- TOOL 8: NAVY BODY FAT -->
+      <!-- TOOL 10 (NEW): FFMI & MAXIMUM MUSCULAR POTENTIAL -->
+      <section id="tab-ffmi" class="tab-panel">
+        <div class="tool-header">
+          <div class="tool-title-group">
+            <h1>FFMI & Maximum Muscular Potential Calculator</h1>
+            <p>Calculate Fat-Free Mass Index (FFMI), height-normalized FFMI, and natural genetic muscular ceiling.</p>
+          </div>
+          <button class="btn btn-secondary" onclick="resetFormFFMI()">Reset</button>
+        </div>
+
+        <div class="calc-grid">
+          <div class="card">
+            <div class="card-header"><span class="card-title">Body Composition Parameters</span></div>
+            <div class="form-group-grid">
+              <div class="form-group">
+                <label class="form-label">Sex</label>
+                <select id="ffmi-gender" class="form-control" onchange="calcFFMI()">
+                  <option value="male" selected>Male</option>
+                  <option value="female">Female</option>
+                </select>
+              </div>
+              <div class="form-group"><label class="form-label">Body Fat %</label><input type="number" id="ffmi-bf" class="form-control" value="14.0" step="0.5" oninput="calcFFMI()"></div>
+            </div>
+            <div class="form-group-grid">
+              <div class="form-group"><label class="form-label">Height (cm)</label><input type="number" id="ffmi-height" class="form-control" value="180" oninput="calcFFMI()"></div>
+              <div class="form-group"><label class="form-label">Weight (kg)</label><input type="number" id="ffmi-weight" class="form-control" value="82" oninput="calcFFMI()"></div>
+            </div>
+          </div>
+
+          <div class="results-deck">
+            <div class="hero-stat-card">
+              <div class="stat-label">Normalized FFMI Score</div>
+              <div class="stat-value-huge" id="ffmi-res-score">21.8 <span class="unit">Score</span></div>
+              <div class="stat-subtext" id="ffmi-res-category">Category: Above Average Muscularity</div>
+            </div>
+            <div class="metrics-grid">
+              <div class="metric-card"><div class="m-label">Lean Body Mass (LBM)</div><div class="m-val" id="ffmi-res-lbm">70.5 kg</div></div>
+              <div class="metric-card"><div class="m-label">Max Natural LBM Limit</div><div class="m-val" id="ffmi-res-max-lbm">79.4 kg</div></div>
+            </div>
+            <div style="display:flex; gap:0.5rem;">
+              <button class="btn btn-primary" style="flex:1;" onclick="copySummaryFFMI()">Copy FFMI Report</button>
+              <button class="btn btn-secondary" onclick="saveRun('ffmi')">Save Run</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card history-card">
+          <div class="card-header"><span class="card-title">Saved FFMI History</span><button class="btn-delete" onclick="clearHistory('ffmi')">Clear History</button></div>
+          <table class="data-table">
+            <thead><tr><th>Timestamp</th><th>Normalized FFMI</th><th>LBM</th><th>Category</th><th>Action</th></tr></thead>
+            <tbody id="hist-tbody-ffmi"><tr><td colspan="5" style="color:var(--text-dim);">No saved FFMI calculations.</td></tr></tbody>
+          </table>
+        </div>
+
+        <div class="cheat-sheet-grid">
+          <div class="card">
+            <div class="card-header"><span class="card-title">Normalized FFMI Score Rating Scale</span></div>
+            <table class="data-table">
+              <thead><tr><th>Male Score</th><th>Female Score</th><th>Muscularity Classification</th></tr></thead>
+              <tbody>
+                <tr><td>18.0 - 19.9</td><td>15.0 - 16.9</td><td>Average / Untrained</td></tr>
+                <tr><td>20.0 - 21.9</td><td>17.0 - 18.9</td><td>Above Average / Substantial Build</td></tr>
+                <tr><td>22.0 - 23.9</td><td>19.0 - 20.9</td><td>Excellent / Advanced Natural Athlete</td></tr>
+                <tr><td>24.0 - 25.0</td><td>21.0 - 22.0</td><td>Peak Natural Limit (Superior Genetics)</td></tr>
+                <tr><td>> 25.0</td><td>> 22.0</td><td>Suspicious / Enhanced Limit</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="card">
+            <div class="card-header"><span class="card-title">Kouri et al. 1995 Natural Ceiling Benchmark</span></div>
+            <p style="font-size:0.85rem; line-height:1.6; color:var(--text-muted);">
+              <strong>Natural Limit:</strong> Studies of pre-steroid era Mr. America winners (1939–1959) established a mean normalized FFMI of 25.4.<br><br>
+              <strong>Height Normalization:</strong> Normalization adjusts for tall lifters who naturally carry higher total fat-free mass due to bone leverage.
+            </p>
+          </div>
+        </div>
+
+        <div class="seo-2col-grid">
+          <div class="card">
+            <h2 style="font-size:1.2rem; margin-bottom:0.75rem;">Normalized FFMI Formula</h2>
+            <div class="formula-card">Normalized FFMI = [LBM_kg / (Height_m²)] + 6.1 × (1.8 - Height_m)</div>
+          </div>
+          <div class="card">
+            <h2 style="font-size:1.2rem; margin-bottom:0.75rem;">Frequently Asked Questions</h2>
+            <details class="faq-item"><summary class="faq-question">What is Fat-Free Mass Index (FFMI)?</summary><div class="faq-answer">FFMI is a metric used to evaluate muscle mass relative to height, independent of body fat percentage.</div></details>
+          </div>
+        </div>
+      </section>
+
+      <!-- TOOL 11: NAVY BODY FAT -->
       <section id="tab-navy-bf" class="tab-panel">
         <div class="tool-header"><div class="tool-title-group"><h1>US Navy Body Fat % Estimator</h1><p>Estimate body fat percentage using circumferences.</p></div><button class="btn btn-secondary" onclick="resetFormNavyBF()">Reset</button></div>
         <div class="calc-grid">
@@ -1164,7 +1514,7 @@
         <div class="seo-2col-grid"><div class="card"><h2 style="font-size:1.2rem;">US Navy Male Formula</h2><div class="formula-card">BF% = 86.010 × log10(waist - neck) - 70.041 × log10(height) + 36.76</div></div><div class="card"><h2 style="font-size:1.2rem;">FAQs</h2><details class="faq-item"><summary class="faq-question">How accurate is the US Navy method?</summary><div class="faq-answer">Within 3% to 4% margin of error compared to DEXA scans.</div></details></div></div>
       </section>
 
-      <!-- TOOL 9: STOCK AVG -->
+      <!-- TOOL 12: STOCK AVG -->
       <section id="tab-stock-avg" class="tab-panel">
         <div class="tool-header"><div class="tool-title-group"><h1>Stock Average Down & Break-Even Calculator</h1><p>Calculate combined cost basis.</p></div><button class="btn btn-secondary" onclick="resetFormStockAvg()">Reset</button></div>
         <div class="calc-grid">
@@ -1184,7 +1534,7 @@
         <div class="seo-2col-grid"><div class="card"><h2 style="font-size:1.2rem;">Average Price Formula</h2><div class="formula-card">New Avg = Total Capital Invested / Total Shares Owned</div></div><div class="card"><h2 style="font-size:1.2rem;">FAQs</h2><details class="faq-item"><summary class="faq-question">What is averaging down?</summary><div class="faq-answer">Buying additional shares of a stock after its price drops to lower your overall breakeven cost basis.</div></details></div></div>
       </section>
 
-      <!-- TOOL 10: DRIP DIVIDENDS -->
+      <!-- TOOL 13: DRIP DIVIDENDS -->
       <section id="tab-drip" class="tab-panel">
         <div class="tool-header"><div class="tool-title-group"><h1>Dividend Yield & DRIP Compounding Forecast</h1><p>Project long-term compound growth.</p></div><button class="btn btn-secondary" onclick="resetFormDRIP()">Reset</button></div>
         <div class="calc-grid">
@@ -1233,9 +1583,12 @@
           <a href="#tab-baker" onclick="switchTab('tab-baker')">Pizza Dough</a>
           <a href="#tab-video" onclick="switchTab('tab-video')">Video Bitrate</a>
           <a href="#tab-dof" onclick="switchTab('tab-dof')">DOF Optics</a>
+          <a href="#tab-nd-filter" onclick="switchTab('tab-nd-filter')">ND Exposure</a>
           <a href="#tab-aspect" onclick="switchTab('tab-aspect')">Aspect Ratio</a>
+          <a href="#tab-audio-size" onclick="switchTab('tab-audio-size')">Audio Size</a>
           <a href="#tab-tdee" onclick="switchTab('tab-tdee')">TDEE Macros</a>
           <a href="#tab-1rm" onclick="switchTab('tab-1rm')">1RM Strength</a>
+          <a href="#tab-ffmi" onclick="switchTab('tab-ffmi')">FFMI Muscle</a>
           <a href="#tab-navy-bf" onclick="switchTab('tab-navy-bf')">Navy Body Fat</a>
           <a href="#tab-stock-avg" onclick="switchTab('tab-stock-avg')">Stock Avg</a>
           <a href="#tab-drip" onclick="switchTab('tab-drip')">DRIP Dividends</a>
@@ -1245,7 +1598,7 @@
     </div>
   </footer>
 
-  <!-- JAVASCRIPT LOGIC -->
+  <!-- JAVASCRIPT ENGINE & LOGIC -->
   <script>
     let currentUnits = 'metric', dofUnits = 'meters', navyUnits = 'metric', rmUnits = 'kg';
 
@@ -1355,10 +1708,18 @@
         item.col1 = document.getElementById('dof-res-hyperfocal').innerText;
         item.col2 = document.getElementById('dof-res-total').innerText;
         item.col3 = document.getElementById('dof-res-near').innerText;
+      } else if (toolKey === 'nd-filter') {
+        item.col1 = document.getElementById('nd-base-speed').options[document.getElementById('nd-base-speed').selectedIndex].text;
+        item.col2 = document.getElementById('nd-stops').options[document.getElementById('nd-stops').selectedIndex].text;
+        item.col3 = document.getElementById('nd-res-speed').innerText;
       } else if (toolKey === 'aspect') {
-        item.col1 = document.getElementById('aspect-res-dim').innerText;
+        item.col1 = `${document.getElementById('aspect-width').value}x${document.getElementById('aspect-height').value}`;
         item.col2 = document.getElementById('aspect-res-ratio').innerText;
-        item.col3 = document.getElementById('aspect-res-mp-metric').innerText;
+        item.col3 = "Aspect Ratio";
+      } else if (toolKey === 'audio-size') {
+        item.col1 = document.getElementById('audio-format').value.toUpperCase();
+        item.col2 = document.getElementById('audio-res-bitrate').innerText;
+        item.col3 = document.getElementById('audio-res-size').innerText;
       } else if (toolKey === 'tdee') {
         item.col1 = document.getElementById('tdee-res-calories').innerText;
         item.col2 = document.getElementById('tdee-res-protein').innerText;
@@ -1367,6 +1728,10 @@
         item.col1 = `${document.getElementById('rm-weight').value}${rmUnits} x ${document.getElementById('rm-reps').value}r`;
         item.col2 = document.getElementById('rm-res-1rm').innerText;
         item.col3 = "Matrix Ready";
+      } else if (toolKey === 'ffmi') {
+        item.col1 = document.getElementById('ffmi-res-score').innerText;
+        item.col2 = document.getElementById('ffmi-res-lbm').innerText;
+        item.col3 = document.getElementById('ffmi-res-category').innerText.replace('Category: ', '');
       } else if (toolKey === 'navy-bf') {
         item.col1 = document.getElementById('navy-res-bf').innerText;
         item.col2 = document.getElementById('navy-res-fat-mass').innerText;
@@ -1421,7 +1786,7 @@
       showToast("History cleared.");
     }
 
-    /* ENGINE LOGIC */
+    /* 1. 3D PRINT ENGINE */
     function calc3DPrint() {
       const spoolCost = safeNum(document.getElementById('p3d-spool-cost').value, 0, Infinity, 24.99);
       const spoolWeight = safeNum(document.getElementById('p3d-spool-weight').value, 1, Infinity, 1000);
@@ -1487,7 +1852,7 @@
       copyToClipboard(text, "3D Print Quote copied!");
     }
 
-    /* BAKER MATH */
+    /* 2. BAKER MATH */
     function calcBaker() {
       const balls = safeNum(document.getElementById('baker-balls').value, 1, 100, 4);
       const ballWeight = safeNum(document.getElementById('baker-ball-weight').value, 10, 2000, 250);
@@ -1534,7 +1899,7 @@
       copyToClipboard(text, "Recipe copied!");
     }
 
-    /* VIDEO MATH */
+    /* 3. VIDEO ENGINE */
     function calcVideo() {
       const totalSecs = 750;
       const vBitrate = safeNum(document.getElementById('vid-bitrate').value, 0.1, 2000, 55);
@@ -1548,7 +1913,7 @@
     function resetFormVideo() { document.getElementById('vid-bitrate').value = 55; calcVideo(); }
     function copySummaryVideo() { copyToClipboard("Video Specs Calculated via CalcQI (https://calcqi.com)", "Specs copied!"); }
 
-    /* DOF MATH */
+    /* 4. DOF ENGINE */
     function toggleDOFUnits(u) { dofUnits = u; calcDOF(); }
     function calcDOF() {
       const crop = parseFloat(document.getElementById('dof-crop').value), ap = parseFloat(document.getElementById('dof-aperture').value);
@@ -1566,7 +1931,45 @@
     function resetFormDOF() { document.getElementById('dof-focal').value = 50; calcDOF(); }
     function copySummaryDOF() { copyToClipboard("DOF Optics Calculated via CalcQI (https://calcqi.com)", "Optics copied!"); }
 
-    /* ASPECT MATH */
+    /* 5. NEW: ND FILTER ENGINE */
+    function calcNDFilter() {
+      const baseSpeed = parseFloat(document.getElementById('nd-base-speed').value);
+      const stops = parseInt(document.getElementById('nd-stops').value, 10);
+      const factor = Math.pow(2, stops);
+      const targetSecs = baseSpeed * factor;
+
+      let formattedSpeed = "";
+      if (targetSecs < 1) {
+        const fracDenom = Math.round(1 / targetSecs);
+        formattedSpeed = `1/${fracDenom}s`;
+      } else if (targetSecs < 60) {
+        formattedSpeed = `${targetSecs.toFixed(2)} sec`;
+      } else {
+        const mins = Math.floor(targetSecs / 60);
+        const remSecs = Math.round(targetSecs % 60);
+        formattedSpeed = `${mins}m ${remSecs}s`;
+      }
+
+      document.getElementById('nd-res-speed').innerHTML = `${formattedSpeed} <span class="unit">sec</span>`;
+      document.getElementById('nd-res-ev').textContent = `-${stops} EV`;
+      document.getElementById('nd-res-factor').textContent = `${factor}x (ND${factor})`;
+
+      const warnElem = document.getElementById('nd-res-warning');
+      if (targetSecs > 30) {
+        warnElem.textContent = "⚠️ Long exposure (>30s): Bulb mode & tripod required.";
+        warnElem.style.color = "var(--accent-amber)";
+      } else {
+        warnElem.textContent = "Standard tripod long exposure";
+        warnElem.style.color = "var(--text-muted)";
+      }
+    }
+    function resetFormNDFilter() { document.getElementById('nd-base-speed').value = "0.004"; document.getElementById('nd-stops').value = "10"; calcNDFilter(); }
+    function copySummaryNDFilter() {
+      const text = `--- ND FILTER EXPOSURE ---\nBase Speed: ${document.getElementById('nd-base-speed').options[document.getElementById('nd-base-speed').selectedIndex].text}\nStops: ${document.getElementById('nd-stops').options[document.getElementById('nd-stops').selectedIndex].text}\nTarget Shutter Speed: ${document.getElementById('nd-res-speed').innerText}\nCalculated via CalcQI (https://calcqi.com)`;
+      copyToClipboard(text, "Exposure settings copied!");
+    }
+
+    /* 6. ASPECT ENGINE */
     function calcAspect() {
       const w = safeNum(document.getElementById('aspect-width').value,1,100000,3840), h = safeNum(document.getElementById('aspect-height').value,1,100000,2160);
       document.getElementById('aspect-res-ratio').innerHTML = `16:9 <span class="unit">${((w*h)/1e6).toFixed(2)} MP</span>`;
@@ -1575,7 +1978,45 @@
     function resetFormAspect() { document.getElementById('aspect-width').value = 3840; calcAspect(); }
     function copySummaryAspect() { copyToClipboard("Aspect Specs Calculated via CalcQI (https://calcqi.com)", "Aspect copied!"); }
 
-    /* TDEE MATH */
+    /* 7. NEW: AUDIO FILE SIZE ENGINE */
+    function calcAudioSize() {
+      const sRate = parseInt(document.getElementById('audio-sample-rate').value, 10);
+      const bDepth = parseInt(document.getElementById('audio-bit-depth').value, 10);
+      const channels = parseInt(document.getElementById('audio-channels').value, 10);
+      const fmt = document.getElementById('audio-format').value;
+      const mins = safeNum(document.getElementById('audio-mins').value, 0, 10000, 3);
+      const secs = safeNum(document.getElementById('audio-secs').value, 0, 59, 30);
+      const totalSecs = (mins * 60) + secs;
+
+      const uncompressedBps = sRate * bDepth * channels;
+      const uncompressedBytes = (uncompressedBps * totalSecs) / 8;
+      const uncompressedMB = uncompressedBytes / 1e6;
+
+      let compressedMB = uncompressedMB;
+      let displayBitrate = Math.round(uncompressedBps / 1000);
+
+      if (fmt === 'flac') {
+        compressedMB = uncompressedMB * 0.55;
+      } else if (fmt === 'mp3_320') {
+        displayBitrate = 320;
+        compressedMB = (320000 * totalSecs) / (8 * 1e6);
+      } else if (fmt === 'aac_256') {
+        displayBitrate = 256;
+        compressedMB = (256000 * totalSecs) / (8 * 1e6);
+      }
+
+      document.getElementById('audio-res-size').innerHTML = `${compressedMB.toFixed(2)} <span class="unit">MB</span>`;
+      document.getElementById('audio-res-uncompressed-sub').textContent = `Uncompressed WAV: ${uncompressedMB.toFixed(2)} MB`;
+      document.getElementById('audio-res-bitrate').textContent = `${displayBitrate.toLocaleString()} kbps`;
+      document.getElementById('audio-res-duration').textContent = `${totalSecs} sec`;
+    }
+    function resetFormAudioSize() { document.getElementById('audio-mins').value = 3; document.getElementById('audio-secs').value = 30; calcAudioSize(); }
+    function copySummaryAudioSize() {
+      const text = `--- AUDIO FILE SIZE ESTIMATE ---\nFormat: ${document.getElementById('audio-format').value.toUpperCase()}\nBitrate: ${document.getElementById('audio-res-bitrate').innerText}\nEstimated Size: ${document.getElementById('audio-res-size').innerText}\nCalculated via CalcQI (https://calcqi.com)`;
+      copyToClipboard(text, "Audio specs copied!");
+    }
+
+    /* 8. TDEE ENGINE */
     function toggleUnits(u) { currentUnits = u; calcTDEE(); }
     function calcTDEE() {
       const gender = document.getElementById('tdee-gender').value, age = safeNum(document.getElementById('tdee-age').value, 15, 100, 28);
@@ -1591,7 +2032,7 @@
     function resetFormTDEE() { document.getElementById('tdee-weight').value = 78; calcTDEE(); }
     function copySummaryTDEE() { copyToClipboard("TDEE Macros Calculated via CalcQI (https://calcqi.com)", "Macros copied!"); }
 
-    /* 1RM MATH */
+    /* 9. 1RM ENGINE */
     function toggleRMUnits(u) { rmUnits = u; calc1RM(); }
     function calc1RM() {
       const w = safeNum(document.getElementById('rm-weight').value, 1, 1000, 100), r = safeNum(document.getElementById('rm-reps').value, 1, 12, 5);
@@ -1608,7 +2049,50 @@
     function resetForm1RM() { document.getElementById('rm-weight').value = 100; calc1RM(); }
     function copySummary1RM() { copyToClipboard("1RM Calculated via CalcQI (https://calcqi.com)", "1RM copied!"); }
 
-    /* NAVY BODY FAT */
+    /* 10. NEW: FFMI ENGINE */
+    function calcFFMI() {
+      const gender = document.getElementById('ffmi-gender').value;
+      const heightCm = safeNum(document.getElementById('ffmi-height').value, 100, 230, 180);
+      const weightKg = safeNum(document.getElementById('ffmi-weight').value, 30, 300, 82);
+      const bfPct = safeNum(document.getElementById('ffmi-bf').value, 3, 50, 14.0);
+
+      const lbmKg = weightKg * (1 - (bfPct / 100));
+      const heightM = heightCm / 100;
+      const rawFFMI = lbmKg / (heightM * heightM);
+      const normFFMI = rawFFMI + 6.1 * (1.8 - heightM);
+
+      // Max Natural LBM estimate (24.5 ceiling for men, 21.5 for women)
+      const maxNormCap = gender === 'male' ? 24.5 : 21.5;
+      const maxNatLbmKg = maxNormCap * (heightM * heightM);
+
+      let catText = "Average Muscularity";
+      if (gender === 'male') {
+        if (normFFMI < 18.0) catText = "Below Average Muscularity";
+        else if (normFFMI < 20.0) catText = "Average / Untrained Build";
+        else if (normFFMI < 22.0) catText = "Above Average Muscular Build";
+        else if (normFFMI < 24.0) catText = "Excellent / Advanced Athlete";
+        else if (normFFMI <= 25.0) catText = "Peak Natural Genetic Limit";
+        else catText = "Suspicious / Enhanced Muscularity";
+      } else {
+        if (normFFMI < 15.0) catText = "Below Average Muscularity";
+        else if (normFFMI < 17.0) catText = "Average Build";
+        else if (normFFMI < 19.0) catText = "Above Average Muscular Build";
+        else if (normFFMI <= 21.0) catText = "Peak Natural Genetic Limit";
+        else catText = "Suspicious / Enhanced Muscularity";
+      }
+
+      document.getElementById('ffmi-res-score').innerHTML = `${normFFMI.toFixed(1)} <span class="unit">Score</span>`;
+      document.getElementById('ffmi-res-category').textContent = `Category: ${catText}`;
+      document.getElementById('ffmi-res-lbm').textContent = `${lbmKg.toFixed(1)} kg`;
+      document.getElementById('ffmi-res-max-lbm').textContent = `${maxNatLbmKg.toFixed(1)} kg`;
+    }
+    function resetFormFFMI() { document.getElementById('ffmi-weight').value = 82; calcFFMI(); }
+    function copySummaryFFMI() {
+      const text = `--- FFMI MUSCULAR POTENTIAL REPORT ---\nNormalized FFMI: ${document.getElementById('ffmi-res-score').innerText}\nLean Mass: ${document.getElementById('ffmi-res-lbm').innerText}\nClassification: ${document.getElementById('ffmi-res-category').innerText}\nCalculated via CalcQI (https://calcqi.com)`;
+      copyToClipboard(text, "FFMI report copied!");
+    }
+
+    /* 11. NAVY BODY FAT ENGINE */
     function toggleNavyUnits(u) { navyUnits = u; calcNavyBF(); }
     function toggleNavyGenderFields() { calcNavyBF(); }
     function calcNavyBF() {
@@ -1624,7 +2108,7 @@
     function resetFormNavyBF() { document.getElementById('navy-weight').value = 78; calcNavyBF(); }
     function copySummaryNavyBF() { copyToClipboard("Body Fat Calculated via CalcQI (https://calcqi.com)", "Body Fat copied!"); }
 
-    /* STOCK AVG */
+    /* 12. STOCK AVG ENGINE */
     function calcStockAvg() {
       const s1 = safeNum(document.getElementById('stock-p1-shares').value, 0, 1e6, 100), p1 = safeNum(document.getElementById('stock-p1-price').value, 0, 1e6, 150);
       const s2 = safeNum(document.getElementById('stock-p2-shares').value, 0, 1e6, 100), p2 = safeNum(document.getElementById('stock-p2-price').value, 0, 1e6, 100);
@@ -1639,7 +2123,7 @@
     function resetFormStockAvg() { document.getElementById('stock-p1-shares').value = 100; calcStockAvg(); }
     function copySummaryStockAvg() { copyToClipboard("Stock Avg Calculated via CalcQI (https://calcqi.com)", "Stock Avg copied!"); }
 
-    /* DRIP MATH */
+    /* 13. DRIP ENGINE */
     function calcDRIP() {
       const init = safeNum(document.getElementById('drip-initial').value, 0, 1e8, 10000), mo = safeNum(document.getElementById('drip-monthly').value, 0, 1e6, 500);
       const yPct = safeNum(document.getElementById('drip-yield').value, 0, 30, 4.0), gPct = safeNum(document.getElementById('drip-growth').value, 0, 30, 5.0), yrs = safeNum(document.getElementById('drip-years').value, 1, 50, 10);
@@ -1666,12 +2150,12 @@
         input.addEventListener('blur', () => sanitizeInput(input));
       });
 
-      ['3dprint', 'baker', 'video', 'dof', 'aspect', 'tdee', '1rm', 'navy-bf', 'stock-avg', 'drip'].forEach(toolKey => {
+      ['3dprint', 'baker', 'video', 'dof', 'nd-filter', 'aspect', 'audio-size', 'tdee', '1rm', 'ffmi', 'navy-bf', 'stock-avg', 'drip'].forEach(toolKey => {
         renderHistory(toolKey);
       });
 
-      calc3DPrint(); calcBaker(); calcVideo(); calcDOF(); calcAspect();
-      calcTDEE(); calc1RM(); calcNavyBF(); calcStockAvg(); calcDRIP();
+      calc3DPrint(); calcBaker(); calcVideo(); calcDOF(); calcNDFilter(); calcAspect();
+      calcAudioSize(); calcTDEE(); calc1RM(); calcFFMI(); calcNavyBF(); calcStockAvg(); calcDRIP();
     });
   </script>
 </body>
