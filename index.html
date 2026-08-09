@@ -114,9 +114,7 @@
       padding: 0 1.25rem;
     }
 
-    /* ==========================================================================
-       HEADER & DROPDOWN NAVIGATION
-       ========================================================================== */
+    /* HEADER & NAVIGATION */
     .app-header {
       position: sticky;
       top: 0;
@@ -244,7 +242,6 @@
     }
     .dropdown-item:hover { color: #ffffff; background: var(--bg-surface); }
     .dropdown-item.active { color: #ffffff; background: linear-gradient(135deg, var(--accent-indigo), var(--accent-violet)); }
-    .dropdown-item svg { width: 16px; height: 16px; stroke: currentColor; stroke-width: 2; fill: none; }
 
     .mobile-tool-select {
       display: none;
@@ -427,7 +424,7 @@
       .cheat-sheet-grid, .seo-2col-grid { grid-template-columns: 1fr 1fr; }
     }
 
-    /* CROSS-LINK HUB (On tool pages) */
+    /* CROSS-LINK HUB (Only on tool pages) */
     .cross-link-hub { margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid var(--border-subtle); }
     .cross-link-title { font-size: 1.35rem; margin-bottom: 1.25rem; text-align: center; }
     .hub-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
@@ -448,10 +445,12 @@
     .hub-card-desc { font-size: 0.775rem; color: var(--text-muted); }
 
     /* ==========================================================================
-       ASYMMETRIC BENTO BOX PORTAL STYLES (#tab-home)
+       POLISHED ASYMMETRIC BENTO BOX PORTAL STYLES (#tab-home)
        ========================================================================== */
     .hero-portal {
-      text-align: center; padding: 2.5rem 1rem 1.5rem 1rem; max-width: 850px; margin: 0 auto;
+      text-align: center; padding: 2.5rem 1.25rem 2rem 1.25rem; max-width: 850px; margin: 0 auto;
+      background: radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.18) 0%, transparent 70%);
+      border-radius: var(--radius-lg);
     }
     .hero-headline {
       font-size: 2.35rem; font-weight: 800; line-height: 1.25; margin-bottom: 0.85rem;
@@ -481,7 +480,6 @@
       padding: 0.15rem 0.45rem; border-radius: var(--radius-sm); pointer-events: none;
     }
 
-    /* Single Sleek Horizontal Pill Bar */
     .hero-badges {
       display: inline-flex; align-items: center; gap: 0.75rem;
       background: var(--bg-surface); border: 1px solid var(--border-subtle);
@@ -490,7 +488,6 @@
     }
     .hero-badges span { display: flex; align-items: center; gap: 0.3rem; }
 
-    /* Bento Box Category Theme Layouts */
     .home-cat-section { margin-top: 2.25rem; }
     .home-cat-title {
       font-size: 1.2rem; font-weight: 700; margin-bottom: 0.85rem; color: var(--text-main);
@@ -512,7 +509,7 @@
       position: relative; overflow: hidden;
     }
     .bento-card:hover {
-      transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+      transform: translateY(-3px);
     }
 
     .bento-card-header {
@@ -543,18 +540,26 @@
       border: 1px solid var(--border-subtle); width: fit-content;
     }
 
-    /* Category Accent Themes */
-    .cat-maker .bento-tag { background: rgba(99, 102, 241, 0.15); color: var(--accent-indigo); border: 1px solid rgba(99, 102, 241, 0.3); }
-    .cat-maker .bento-card:hover { border-color: var(--accent-indigo); box-shadow: 0 0 25px rgba(99, 102, 241, 0.2); }
+    /* Category Specific Color Accent Themes & Glows */
+    /* Maker & Craft: Purple Accent (#8b5cf6) */
+    .cat-maker .bento-card { border-top: 3px solid var(--accent-violet); }
+    .cat-maker .bento-tag { background: rgba(139, 92, 246, 0.15); color: var(--accent-violet); border: 1px solid rgba(139, 92, 246, 0.3); }
+    .cat-maker .bento-card:hover { border-color: var(--accent-violet); box-shadow: 0 8px 30px rgba(139, 92, 246, 0.25); }
 
+    /* Creator & Media: Cyan Accent (#06b6d4) */
+    .cat-creator .bento-card { border-top: 3px solid var(--accent-cyan); }
     .cat-creator .bento-tag { background: rgba(6, 182, 212, 0.15); color: var(--accent-cyan); border: 1px solid rgba(6, 182, 212, 0.3); }
-    .cat-creator .bento-card:hover { border-color: var(--accent-cyan); box-shadow: 0 0 25px rgba(6, 182, 212, 0.2); }
+    .cat-creator .bento-card:hover { border-color: var(--accent-cyan); box-shadow: 0 8px 30px rgba(6, 182, 212, 0.25); }
 
+    /* Fitness & Body: Emerald Accent (#10b981) */
+    .cat-fitness .bento-card { border-top: 3px solid var(--accent-emerald); }
     .cat-fitness .bento-tag { background: rgba(16, 185, 129, 0.15); color: var(--accent-emerald); border: 1px solid rgba(16, 185, 129, 0.3); }
-    .cat-fitness .bento-card:hover { border-color: var(--accent-emerald); box-shadow: 0 0 25px rgba(16, 185, 129, 0.2); }
+    .cat-fitness .bento-card:hover { border-color: var(--accent-emerald); box-shadow: 0 8px 30px rgba(16, 185, 129, 0.25); }
 
+    /* Finance & Trading: Gold Accent (#f59e0b) */
+    .cat-finance .bento-card { border-top: 3px solid var(--accent-amber); }
     .cat-finance .bento-tag { background: rgba(245, 158, 11, 0.15); color: var(--accent-amber); border: 1px solid rgba(245, 158, 11, 0.3); }
-    .cat-finance .bento-card:hover { border-color: var(--accent-amber); box-shadow: 0 0 25px rgba(245, 158, 11, 0.2); }
+    .cat-finance .bento-card:hover { border-color: var(--accent-amber); box-shadow: 0 8px 30px rgba(245, 158, 11, 0.25); }
 
     /* SEO & FAQ Cards */
     .formula-card {
@@ -687,21 +692,22 @@
       </div>
 
       <!-- ======================================================================
-           REDESIGNED ASYMMETRIC "BENTO BOX" PORTAL (`#tab-home`)
+           HOMEPAGE PORTAL (`#tab-home`)
            ====================================================================== -->
       <section id="tab-home" class="tab-panel active">
+        <!-- Hero Section with Ambient Glow Gradient -->
         <div class="hero-portal">
           <h1 class="hero-headline">High-Precision Micro-Utility Suite for Makers, Creators, Athletes & Investors</h1>
           <p class="hero-subtitle">Instant, privacy-first, zero-bloat calculators designed for real-world workflows.</p>
 
-          <!-- Interactive Search Input with Keyboard Shortcut Badge -->
+          <!-- Search Input with Keyboard Shortcut Badge -->
           <div class="search-box-wrapper">
             <svg class="search-icon-svg" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
             <input type="text" id="home-search-input" class="search-input" placeholder="Search calculators (e.g., 3D print, bitrate, dough, 1RM, DRIP)..." oninput="filterHomeTools(this.value)">
             <span class="search-shortcut-badge">[ Press / to search ]</span>
           </div>
 
-          <!-- Sleek Horizontal Pill Bar -->
+          <!-- Streamlined Horizontal Pill Bar -->
           <div class="hero-badges">
             <span>⚡ Zero Server Latency</span> • 
             <span>🔒 100% Client-Side Privacy</span> • 
@@ -711,11 +717,10 @@
 
         <!-- BENTO BOX CATEGORY SECTIONS -->
 
-        <!-- Category 1: Maker & Craft (Indigo Accent) -->
+        <!-- Category 1: Maker & Craft (Purple Accent) -->
         <div class="home-cat-section cat-maker tool-card-item" data-title="3d print cost baker pizza dough maker craft">
           <h2 class="home-cat-title">🛠️ Maker & Craft Utilities</h2>
           <div class="bento-grid">
-            <!-- Flagship Feature Card (2 Columns Wide) -->
             <div class="bento-card bento-card-feature" onclick="switchTab('tab-3dprint')">
               <div>
                 <div class="bento-card-header">
@@ -728,7 +733,6 @@
               <div class="bento-preview-badge">🔍 Spec Preview: Filament, Power & Labor Amortization</div>
             </div>
 
-            <!-- Secondary Compact Card -->
             <div class="bento-card" onclick="switchTab('tab-baker')">
               <div>
                 <div class="bento-card-header">
@@ -747,7 +751,6 @@
         <div class="home-cat-section cat-creator tool-card-item" data-title="video export bitrate file size dof depth of field optics aspect ratio resolution creator media">
           <h2 class="home-cat-title">🎬 Creator & Media Utilities</h2>
           <div class="bento-grid">
-            <!-- Flagship Feature Card (2 Columns Wide) -->
             <div class="bento-card bento-card-feature" onclick="switchTab('tab-video')">
               <div>
                 <div class="bento-card-header">
@@ -760,7 +763,6 @@
               <div class="bento-preview-badge">🔍 Spec Preview: 4K, 1080p, ProRes & Bitrate Density</div>
             </div>
 
-            <!-- Secondary Compact Cards -->
             <div class="bento-card" onclick="switchTab('tab-dof')">
               <div>
                 <div class="bento-card-header">
@@ -791,7 +793,6 @@
         <div class="home-cat-section cat-fitness tool-card-item" data-title="tdee recomp macro splitter 1rm strength matrix navy body fat fitness body">
           <h2 class="home-cat-title">🏋️ Fitness & Body Utilities</h2>
           <div class="bento-grid">
-            <!-- Flagship Feature Card (2 Columns Wide) -->
             <div class="bento-card bento-card-feature" onclick="switchTab('tab-tdee')">
               <div>
                 <div class="bento-card-header">
@@ -804,7 +805,6 @@
               <div class="bento-preview-badge">🔍 Spec Preview: Mifflin-St Jeor & Protein Synthesis Ratios</div>
             </div>
 
-            <!-- Secondary Compact Cards -->
             <div class="bento-card" onclick="switchTab('tab-1rm')">
               <div>
                 <div class="bento-card-header">
@@ -831,11 +831,10 @@
           </div>
         </div>
 
-        <!-- Category 4: Finance & Trading (Amber Accent) -->
+        <!-- Category 4: Finance & Trading (Gold Accent) -->
         <div class="home-cat-section cat-finance tool-card-item" data-title="stock average down drip dividend compounding forecast finance trading">
           <h2 class="home-cat-title">📈 Finance & Trading Utilities</h2>
           <div class="bento-grid">
-            <!-- Flagship Feature Card (2 Columns Wide) -->
             <div class="bento-card bento-card-feature" onclick="switchTab('tab-stock-avg')">
               <div>
                 <div class="bento-card-header">
@@ -848,7 +847,6 @@
               <div class="bento-preview-badge">🔍 Spec Preview: Multi-Tranche Cost Basis & Break-Even</div>
             </div>
 
-            <!-- Secondary Compact Card -->
             <div class="bento-card" onclick="switchTab('tab-drip')">
               <div>
                 <div class="bento-card-header">
@@ -865,7 +863,7 @@
 
       </section>
 
-      <!-- CALCULATOR TOOLS (All structured with History + Cheat Sheets + 2-Col SEO) -->
+      <!-- CALCULATOR TOOLS -->
       <!-- TOOL 1: 3D PRINT COST ESTIMATOR -->
       <section id="tab-3dprint" class="tab-panel">
         <div class="tool-header">
@@ -986,6 +984,17 @@
             <details class="faq-item"><summary class="faq-question">What retail markup is standard?</summary><div class="faq-answer">50% to 150% is standard for production parts; up to 300% for rapid prototypes.</div></details>
           </div>
         </div>
+
+        <!-- Tool Cross-Link Hub -->
+        <section class="cross-link-hub">
+          <h2 class="cross-link-title">Explore More CalcQI Micro-Utilities</h2>
+          <div class="hub-grid">
+            <div class="hub-card" onclick="switchTab('tab-baker')"><div class="hub-cat-badge">MAKER & CRAFT</div><div class="hub-card-title">Baker's Pizza Dough Math</div><div class="hub-card-desc">Scale pizza flour, hydration, yeast & salt.</div></div>
+            <div class="hub-card" onclick="switchTab('tab-video')"><div class="hub-cat-badge">CREATOR & MEDIA</div><div class="hub-card-title">Video Export Bitrate & Size</div><div class="hub-card-desc">Forecast export MB/GB file sizes across H.264 & ProRes.</div></div>
+            <div class="hub-card" onclick="switchTab('tab-tdee')"><div class="hub-cat-badge">FITNESS & BODY</div><div class="hub-card-title">TDEE & Recomp Macros</div><div class="hub-card-desc">BMR, TDEE, calorie targets & protein/carb/fat macros.</div></div>
+            <div class="hub-card" onclick="switchTab('tab-stock-avg')"><div class="hub-cat-badge">FINANCE & TRADING</div><div class="hub-card-title">Stock Average Down</div><div class="hub-card-desc">Calculate combined cost basis and break-even points.</div></div>
+          </div>
+        </section>
       </section>
 
       <!-- TOOL 2: BAKER'S PIZZA DOUGH -->
@@ -1032,6 +1041,17 @@
         <div class="card history-card"><div class="card-header"><span class="card-title">Saved Dough Batch History</span><button class="btn-delete" onclick="clearHistory('baker')">Clear History</button></div><table class="data-table"><thead><tr><th>Timestamp</th><th>Dough Balls</th><th>Flour (g)</th><th>Water (g)</th><th>Action</th></tr></thead><tbody id="hist-tbody-baker"><tr><td colspan="5" style="color:var(--text-dim);">No saved dough recipes.</td></tr></tbody></table></div>
         <div class="cheat-sheet-grid"><div class="card"><div class="card-header"><span class="card-title">Pizza Style Hydration Benchmark</span></div><table class="data-table"><thead><tr><th>Style</th><th>Hydration</th><th>Oven Temp</th></tr></thead><tbody><tr><td>Neapolitan</td><td>60% - 63%</td><td>450°C - 500°C</td></tr><tr><td>New York</td><td>63% - 66%</td><td>290°C - 340°C</td></tr><tr><td>Detroit Deep Dish</td><td>68% - 73%</td><td>260°C - 290°C</td></tr></tbody></table></div><div class="card"><div class="card-header"><span class="card-title">Baker's % Principles</span></div><p style="font-size:0.85rem; color:var(--text-muted);">Flour is always 100%. All other ingredients are scaled relative to flour mass.</p></div></div>
         <div class="seo-2col-grid"><div class="card"><h2 style="font-size:1.2rem;">Flour Formula</h2><div class="formula-card">Flour = Total Weight / (1 + Hydration% + Salt% + Yeast% + Oil%)</div></div><div class="card"><h2 style="font-size:1.2rem;">FAQs</h2><details class="faq-item"><summary class="faq-question">Why use baker's percentage?</summary><div class="faq-answer">Allows scaling dough batch size while maintaining exact flour hydration ratios.</div></details></div></div>
+
+        <!-- Tool Cross-Link Hub -->
+        <section class="cross-link-hub">
+          <h2 class="cross-link-title">Explore More CalcQI Micro-Utilities</h2>
+          <div class="hub-grid">
+            <div class="hub-card" onclick="switchTab('tab-3dprint')"><div class="hub-cat-badge">MAKER & CRAFT</div><div class="hub-card-title">3D Print Cost Estimator</div><div class="hub-card-desc">Calculate spool cost, printer wattage & labor margins.</div></div>
+            <div class="hub-card" onclick="switchTab('tab-video')"><div class="hub-cat-badge">CREATOR & MEDIA</div><div class="hub-card-title">Video Export Bitrate & Size</div><div class="hub-card-desc">Forecast export MB/GB file sizes.</div></div>
+            <div class="hub-card" onclick="switchTab('tab-tdee')"><div class="hub-cat-badge">FITNESS & BODY</div><div class="hub-card-title">TDEE & Recomp Macros</div><div class="hub-card-desc">BMR, TDEE & macro targets.</div></div>
+            <div class="hub-card" onclick="switchTab('tab-stock-avg')"><div class="hub-cat-badge">FINANCE & TRADING</div><div class="hub-card-title">Stock Average Down</div><div class="hub-card-desc">Calculate combined share cost basis.</div></div>
+          </div>
+        </section>
       </section>
 
       <!-- TOOL 3: VIDEO BITRATE -->
@@ -1184,23 +1204,6 @@
         <div class="seo-2col-grid"><div class="card"><h2 style="font-size:1.2rem;">DRIP Compounding Formula</h2><div class="formula-card">Value_Year_N = (Value_Prev + Annual_Contrib + Dividends) × (1 + Growth%)</div></div><div class="card"><h2 style="font-size:1.2rem;">FAQs</h2><details class="faq-item"><summary class="faq-question">What is DRIP?</summary><div class="faq-answer">Dividend Reinvestment Plan - automatically using paid cash dividends to purchase additional shares.</div></details></div></div>
       </section>
 
-      <!-- CROSS-LINK HUB (On individual tool pages) -->
-      <section class="cross-link-hub">
-        <h2 class="cross-link-title">Explore More CalcQI Micro-Utilities</h2>
-        <div class="hub-grid">
-          <div class="hub-card" onclick="switchTab('tab-3dprint')"><div class="hub-cat-badge">MAKER & CRAFT</div><div class="hub-card-title">3D Print Cost Estimator</div><div class="hub-card-desc">Calculate spool cost, printer wattage, wear & labor profit margins.</div></div>
-          <div class="hub-card" onclick="switchTab('tab-baker')"><div class="hub-cat-badge">MAKER & CRAFT</div><div class="hub-card-title">Baker's Pizza Dough Math</div><div class="hub-card-desc">Scale pizza flour, hydration, yeast & salt with baker's percentages.</div></div>
-          <div class="hub-card" onclick="switchTab('tab-video')"><div class="hub-cat-badge">CREATOR & MEDIA</div><div class="hub-card-title">Video Export Bitrate & Size</div><div class="hub-card-desc">Forecast export MB/GB file sizes across H.264, H.265 & ProRes.</div></div>
-          <div class="hub-card" onclick="switchTab('tab-dof')"><div class="hub-cat-badge">CREATOR & MEDIA</div><div class="hub-card-title">Depth of Field & Hyperfocal</div><div class="hub-card-desc">Optics calculator for sensor crop, hyperfocal distance & focus limits.</div></div>
-          <div class="hub-card" onclick="switchTab('tab-aspect')"><div class="hub-cat-badge">CREATOR & MEDIA</div><div class="hub-card-title">Aspect Ratio Converter</div><div class="hub-card-desc">Convert screen resolution pixels and calculate exact megapixels.</div></div>
-          <div class="hub-card" onclick="switchTab('tab-tdee')"><div class="hub-cat-badge">FITNESS & BODY</div><div class="hub-card-title">TDEE & Recomp Macros</div><div class="hub-card-desc">BMR, TDEE, daily calorie target and protein/carb/fat macro ratios.</div></div>
-          <div class="hub-card" onclick="switchTab('tab-1rm')"><div class="hub-cat-badge">FITNESS & BODY</div><div class="hub-card-title">1RM Strength Matrix</div><div class="hub-card-desc">Estimated 1-rep max and percentage matrix table for lifting.</div></div>
-          <div class="hub-card" onclick="switchTab('tab-navy-bf')"><div class="hub-cat-badge">FITNESS & BODY</div><div class="hub-card-title">US Navy Body Fat %</div><div class="hub-card-desc">Estimate body fat percentage, lean body mass (LBM) & fat mass.</div></div>
-          <div class="hub-card" onclick="switchTab('tab-stock-avg')"><div class="hub-cat-badge">FINANCE & TRADING</div><div class="hub-card-title">Stock Average Down</div><div class="hub-card-desc">Calculate combined average share price basis and break-even points.</div></div>
-          <div class="hub-card" onclick="switchTab('tab-drip')"><div class="hub-cat-badge">FINANCE & TRADING</div><div class="hub-card-title">Dividend DRIP Forecast</div><div class="hub-card-desc">Project multi-year compound interest growth and passive annual income.</div></div>
-        </div>
-      </section>
-
     </div>
   </main>
 
@@ -1301,7 +1304,6 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    /* REAL-TIME PORTAL QUICK SEARCH FILTER */
     function filterHomeTools(query) {
       const q = query.toLowerCase().trim();
       const sections = document.querySelectorAll('.tool-card-item');
@@ -1315,7 +1317,6 @@
       });
     }
 
-    // Press '/' keyboard shortcut to focus search input
     window.addEventListener('keydown', (e) => {
       if (e.key === '/' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'SELECT' && document.activeElement.tagName !== 'TEXTAREA') {
         const searchInput = document.getElementById('home-search-input');
