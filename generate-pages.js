@@ -349,6 +349,32 @@ function buildHomepage() {
   // 3. Home section must be visible — strip the SPA-only "tab-panel" (display:none) class
   home = home.replace('id="tab-home" class="tab-panel active"', 'id="tab-home" class="calc-page"');
 
+  // 3b. Suggest-a-Calculator + Contact sections (mailto-based, no backend)
+  const suggestHtml = `
+        <div class="home-cat-section">
+          <h2 class="home-cat-title">Suggest a Calculator</h2>
+          <p class="suggest-sub">Need a calculator we don't have? Pitch it and we'll build it — just tap a suggestion below and your email app opens with it pre-filled.</p>
+          <div class="suggest-pills">
+            <button class="suggest-pill" onclick="suggestCalc('BMI & Body Composition')">BMI & Body Composition</button>
+            <button class="suggest-pill" onclick="suggestCalc('Salary After Tax')">Salary After Tax</button>
+            <button class="suggest-pill" onclick="suggestCalc('SIP / Investment Returns')">SIP / Investment Returns</button>
+            <button class="suggest-pill" onclick="suggestCalc('Voltage Drop')">Voltage Drop</button>
+            <button class="suggest-pill" onclick="suggestCalc('Cooking Measurement Converter')">Cooking Measurement Converter</button>
+            <button class="suggest-pill" onclick="suggestCalc('Boiling Point at Altitude')">Boiling Point at Altitude</button>
+          </div>
+        </div>
+
+        <div class="home-cat-section">
+          <h2 class="home-cat-title">Contact</h2>
+          <div class="contact-card">
+            <div class="contact-title">Have a question, bug report, or idea?</div>
+            <div class="contact-desc">We read everything. Email us at <a class="contact-mail" href="mailto:contact@calcqi.com">contact@calcqi.com</a> — usually replies within 24–48h.</div>
+            <a class="btn btn-secondary contact-btn" href="mailto:contact@calcqi.com">Email CalcQI</a>
+          </div>
+        </div>
+`;
+  home = home.replace('      </section>\n\n      \n    </div>\n  </main>', '      </section>\n\n' + suggestHtml + '\n    </div>\n  </main>');
+
   // 4. Replace the full engine script with a slim homepage script
   //    (the old load handler would crash since calculator inputs no longer exist)
   const slimScript = `    function $id(e){return document.getElementById(e)}
@@ -361,11 +387,46 @@ function buildHomepage() {
     window.addEventListener('load',()=>{$id('footer-year').textContent=new Date().getFullYear()});`;
   home = home.replace(/<script>[\s\S]*?<\/script>\s*<\/body>/, `<script>\n${slimScript}\n  </script>\n</body>`);
 
+  // 4b. Suggest/Contact CSS (insert before the toast rule)
+  const suggestCss = `
+    .suggest-sub { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1rem; max-width: 620px; }
+    .suggest-pills { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+    .suggest-pill { background: var(--bg-surface); border: 1px solid var(--border-subtle); color: var(--text-muted); padding: 0.5rem 0.95rem; font-size: 0.82rem; font-weight: 600; border-radius: var(--radius-full); cursor: pointer; transition: var(--transition); }
+    .suggest-pill:hover { color: var(--text-main); border-color: var(--accent-indigo); background: var(--bg-card-alt); }
+    .contact-card { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.5rem; max-width: 620px; }
+    .contact-title { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .contact-desc { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1rem; }
+    .contact-mail { color: var(--accent-indigo); font-weight: 600; }
+    .contact-btn { margin-top: 0.25rem; }
+`;
+  home = home.replace('    .toast { position: fixed;', suggestCss + '\n    .toast { position: fixed;');
+
+  // 4c. Suggest helper JS
+  home = home.replace(
+    '    function filterHomeTools(q){',
+    `    function suggestCalc(name){const subject='Calculator request: '+encodeURIComponent(name);const body='Hi CalcQI,\\n\\nI'd love a calculator for: '+encodeURIComponent(name)+'\\n\\nAdditional details:\\n\\nThanks!';window.location.href='mailto:contact@calcqi.com?subject='+subject+'&body='+body;}
+    function filterHomeTools(q){`
+  );
+
+  // 4d. Footer contact link
+  home = home.replace(
+    '          <a href="#" onclick="openPrivacyModal(event)">Privacy Policy</a>',
+    '          <a href="#" onclick="openPrivacyModal(event)">Privacy Policy</a>\n          <a href="mailto:contact@calcqi.com">Contact</a>'
+  );
+
   // 5. Homepage meta
   home = home.replace('<title>CalcQI | 32 Calculators — Everyday, Maker, Media, Fitness & Finance</title>',
     '<title>CalcQI — 32 Free Calculators | Everyday, Maker, Media, Fitness & Finance</title>');
   home = home.replace(
     '<meta name="description" content="32 free calculators for everyday life and specialists: tip split, percentage, unit converter, discount, fuel, body fat, calories burned, plus 3D print, pizza dough, video bitrate, mortgage, crypto ROI and more.">',
+    '<meta name="description" content="CalcQI — 32 free online calculators with instant visual results. Tools for everyday essentials, makers and creators, fitness and body, and finance and trading. No sign-up, works on any device.">'
+  );
+
+  // 5b. Existing title/desc replacements (no-op if already applied; kept for idempotency)
+  home = home.replace('<title>CalcQI — 32 Free Calculators | Everyday, Maker, Media, Fitness & Finance</title>',
+    '<title>CalcQI — 32 Free Calculators | Everyday, Maker, Media, Fitness & Finance</title>');
+  home = home.replace(
+    '<meta name="description" content="CalcQI — 32 free online calculators with instant visual results. Tools for everyday essentials, makers and creators, fitness and body, and finance and trading. No sign-up, works on any device.">',
     '<meta name="description" content="CalcQI — 32 free online calculators with instant visual results. Tools for everyday essentials, makers and creators, fitness and body, and finance and trading. No sign-up, works on any device.">'
   );
   // Canonical root stays https://calcqi.com
