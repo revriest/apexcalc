@@ -27,11 +27,14 @@
 ## Key Decisions & Protected Rules
 1. **Google Analytics:** `G-Z2JPD2K1ER` is in the `<head>` of **all 33 pages** (homepage + every calculator) — **never remove it** from any page.
 2. **Theme toggle:** every page has a sun/moon button in the header (`#themeToggle` calling `toggleTheme()`). Choice persists via `localStorage['calcqi-theme']` (`"light"` / `"dark"`), applied early in `<head>` to avoid flash. Light theme = `html[data-theme="light"]` CSS variable overrides injected after the `:root` block. Dark is the default.
-3. **Homepage layout:** hero → search → 3 Popular cards (Percentage, TDEE, Mortgage) → tabbed "All 32" (Everyday default) → Suggest a Calculator (6 mailto pills) → Contact card.
-4. **Suggest/Contact:** uses `mailto:contact@calcqi.com` (user chose the mailto/email-app approach over an in-page form). The `suggestCalc()` JS helper pre-fills subject + body.
-5. **SEO per tool:** every calculator is its own page with unique title/description/canonical + JSON-LD WebApplication. No `#tab-` hash URLs remain anywhere.
-6. **Design direction:** the user repeatedly asked to remove "AI-generated" aesthetics (emoji tiles, gradient blobs, glow effects, sparklines). Current style = restrained slate surfaces (dark default + light option), flat buttons, subtle borders, typography-led. Respect this when making visual changes.
-7. **All calculators share a design pattern:** input card → results deck (hero stat + rating badge + gauges/split-bars/charts + insight card) → FAQ / Did-you-know / Formula cards underneath.
+3. **Mobile nav:** phone/tablet (≤900px) shows a hamburger button (`#mobileNavBtn`, `toggleMobileNav()`) that slides in a styled right-side drawer (`#mobileNavPanel` + overlay) matching the dark slate UI, with per-category colour accent headers. The drawer's category links are **generated at runtime from the desktop `.cat-nav-menu`** — no duplicated link lists. The old native `<select class="mobile-tool-select">` was removed (2026-08-10).
+4. **Homepage layout:** hero → search → 3 Popular cards (Percentage, TDEE, Mortgage) → tabbed "All 32" (Everyday default) → Suggest a Calculator (6 mailto pills) → Contact card.
+5. **Suggest/Contact:** uses `mailto:contact@calcqi.com` (user chose the mailto/email-app approach over an in-page form). The `suggestCalc()` JS helper pre-fills subject + body.
+6. **SEO per tool:** every calculator is its own page with unique title/description/canonical + JSON-LD WebApplication. No `#tab-` hash URLs remain anywhere.
+7. **Design direction:** the user repeatedly asked to remove "AI-generated" aesthetics (emoji tiles, gradient blobs, glow effects, sparklines). Current style = restrained slate surfaces (dark default + light option), flat buttons, subtle borders, typography-led. Respect this when making visual changes. Category accents: Everyday = teal, Maker = violet, Creator = cyan, Fitness = emerald, Finance = amber.
+8. **All calculators share a design pattern:** input card → results deck (hero stat + rating badge + gauges/split-bars/charts + insight card) → FAQ / Did-you-know / Formula cards underneath.
+9. **SEO rich data (added 2026-08-10):** every calculator page now has **FAQPage JSON-LD** generated from its on-page FAQ `<details>` blocks (rich-result/accordion eligibility), plus a **"Related calculations"** card linking to 3 tools from the same category (internal linking; auto-derived from the page's own nav so links stay accurate). Schema now per page = `WebApplication` + `FAQPage`.
+10. **SEO context (2026-08-10):** site is indexed (`site:calcqi.com` returns results) but brand-new, so head terms (e.g. "mortgage payment calculator") are not winnable yet — realistic path is brand/long-tail queries + Google Search Console (`calcqi.com`, submit `sitemap.xml`) + backlinks. Do not expect page-1 head-term rankings on a fresh domain.
 
 ## Standing TODOs / Open Items
 - [ ] Delete stray `Popular` file in project root
@@ -39,6 +42,8 @@
 - [ ] Optional: replace `mailto:` Suggest/Contact with an in-page form (needs a Formspree or similar endpoint from the user)
 - [ ] Suggested future calculators the user pitched as pills: BMI & Body Composition, Salary After Tax, SIP / Investment Returns, Voltage Drop, Cooking Measurement Converter, Boiling Point at Altitude
 - [ ] Homepage featured "Popular" picks are swappable anytime (currently Percentage, TDEE, Mortgage)
+- [ ] **Google Search Console:** verify `calcqi.com`, submit `https://calcqi.com/sitemap.xml`, request indexing for all 33 pages (biggest non-code SEO lever; do this soon)
+- [ ] Optionally add a few more FAQs per tool page — more FAQPage entities = more rich-result surface
 
 ## How to Continue in a New Chat
 1. Say: **"Read `PROJECT_SUMMARY.md` first."**

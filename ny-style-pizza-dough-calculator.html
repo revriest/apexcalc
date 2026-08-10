@@ -14,7 +14,7 @@
   (function () {
     try {
       var saved = localStorage.getItem('calcqi-theme');
-      if (saved === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      if (saved === 'dark') { document.documentElement.removeAttribute('data-theme'); } else { document.documentElement.setAttribute('data-theme', 'light'); }
     } catch (e) {}
     window.toggleTheme = function () {
       var root = document.documentElement;
@@ -41,7 +41,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://calcqi.com/ny-style-pizza-dough-calculator.html">
   <meta property="og:site_name" content="CalcQI">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%236366f1%22/><text y=%22.85em%22 x=%22.1em%22 font-size=%2265%22 font-weight=%22bold%22 fill=%22white%22>CQ</text></svg>">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230b0f19'/><rect x='2' y='2' width='96' height='96' rx='20' fill='none' stroke='%236366f1' stroke-width='4'/><text x='50%' y='64%' font-family='sans-serif' font-weight='900' font-size='48' fill='%236366f1' text-anchor='middle'>CQ</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -121,8 +121,11 @@
     .dropdown-item { display: flex; align-items: center; gap: 0.6rem; padding: 0.5rem 0.75rem; font-size: 0.8rem; font-weight: 600; color: var(--text-muted); border-radius: var(--radius-sm); cursor: pointer; transition: var(--transition); width: 100%; border: none; background: transparent; text-align: left; }
     .dropdown-item:hover { color: #ffffff; background: var(--bg-surface); }
     .dropdown-item.active { color: #ffffff; background: linear-gradient(135deg, var(--accent-indigo), var(--accent-violet)); }
-    .mobile-tool-select { display: none; width: 100%; background: var(--bg-input); color: var(--text-main); border: 1px solid var(--border-subtle); padding: 0.5rem 0.75rem; border-radius: var(--radius-md); font-size: 0.85rem; }
-    @media (max-width: 900px) { .cat-nav-menu { display: none; } .mobile-tool-select { display: block; } }
+    .mobile-nav-btn { display: none; align-items: center; justify-content: center; width: 38px; height: 38px; padding: 0; background: var(--bg-surface); border: 1px solid var(--border-subtle); color: var(--text-muted); border-radius: var(--radius-md); cursor: pointer; transition: var(--transition); flex-shrink: 0; line-height: 1; }
+    .mobile-nav-btn:hover { color: var(--text-main); border-color: var(--accent-indigo); background: var(--bg-card-alt); }
+    .mobile-nav-btn svg { width: 18px; height: 18px; }
+    @media (max-width: 900px) { .cat-nav-menu { display: none; } .mobile-nav-btn { display: inline-flex; } }
+
 
     .main-content { flex: 1; padding: 1.25rem 0 3rem 0; }
     .tab-panel { display: none; opacity: 0; transform: translateY(8px); transition: all 0.3s ease; }
@@ -283,7 +286,41 @@
     .modal-close-btn:hover { color: #ffffff; border-color: var(--accent-rose); }
     .modal-body { font-size: 0.85rem; color: var(--text-muted); line-height: 1.7; }
   
-  </style>
+  
+    /* Mobile drawer nav */
+    .mobile-nav-overlay { position: fixed; inset: 0; background: rgba(2, 6, 23, 0.6); backdrop-filter: blur(3px); opacity: 0; visibility: hidden; transition: opacity 0.25s ease, visibility 0.25s ease; z-index: 1500; }
+    .mobile-nav-overlay.show { opacity: 1; visibility: visible; }
+    .mobile-nav-panel { position: fixed; top: 0; right: 0; bottom: 0; width: min(360px, 92vw); background: var(--bg-card); border-left: 1px solid var(--border-subtle); box-shadow: var(--shadow-md); transform: translateX(100%); transition: transform 0.3s ease; z-index: 1600; display: flex; flex-direction: column; }
+    .mobile-nav-panel.open { transform: translateX(0); }
+    .mobile-nav-head { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.25rem; border-bottom: 1px solid var(--border-subtle); }
+    .mobile-nav-brand { display: flex; align-items: center; gap: 0.6rem; font-weight: 800; font-size: 1.1rem; color: var(--text-main); }
+    .mobile-nav-close { background: var(--bg-surface); border: 1px solid var(--border-subtle); color: var(--text-muted); width: 32px; height: 32px; border-radius: var(--radius-sm); cursor: pointer; font-size: 1.15rem; line-height: 1; display: inline-flex; align-items: center; justify-content: center; transition: var(--transition); }
+    .mobile-nav-close:hover { color: #ffffff; border-color: var(--accent-rose); }
+    .mobile-nav-body { flex: 1; overflow-y: auto; padding: 0.9rem 1rem 2rem; -webkit-overflow-scrolling: touch; }
+    .mobile-nav-home { margin-bottom: 0.9rem; background: var(--bg-surface); border: 1px solid var(--border-subtle); justify-content: center; }
+    .mobile-nav-home:hover { color: var(--text-main); border-color: var(--accent-indigo); }
+    .mobile-nav-home-icon { width: 15px; height: 15px; margin-right: 0.5rem; flex-shrink: 0; }
+    .mobile-nav-cat { margin-bottom: 1rem; }
+    .mobile-nav-cat-head { display: flex; align-items: center; gap: 0.5rem; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.4rem; padding-left: 0.35rem; }
+    .mobile-nav-cat-head::before { content: ''; width: 4px; height: 14px; border-radius: 2px; background: currentColor; }
+    .cat-mobile-everyday .mobile-nav-cat-head { color: #2dd4bf; }
+    .cat-mobile-maker .mobile-nav-cat-head { color: #a5b4fc; }
+    .cat-mobile-creator .mobile-nav-cat-head { color: #67e8f9; }
+    .cat-mobile-fitness .mobile-nav-cat-head { color: #6ee7b7; }
+    .cat-mobile-finance .mobile-nav-cat-head { color: #fcd34d; }
+    .mobile-nav-links { display: grid; gap: 0.25rem; }
+    .mobile-nav-link { display: flex; align-items: center; padding: 0.6rem 0.75rem; font-size: 0.85rem; font-weight: 600; color: var(--text-muted); border-radius: var(--radius-md); transition: var(--transition); }
+    .mobile-nav-link:hover { color: var(--text-main); background: var(--bg-surface); border-left: 2px solid var(--accent-indigo); }
+    .mobile-nav-link.active { color: var(--text-main); background: var(--bg-card-alt); border-left: 2px solid var(--accent-indigo); }
+    html[data-theme="light"] .mobile-nav-close:hover { color: #111827; }
+    html[data-theme="light"] .cat-mobile-everyday .mobile-nav-cat-head { color: #0d9488; }
+    html[data-theme="light"] .cat-mobile-maker .mobile-nav-cat-head { color: #6d28d9; }
+    html[data-theme="light"] .cat-mobile-creator .mobile-nav-cat-head { color: #0e7490; }
+    html[data-theme="light"] .cat-mobile-fitness .mobile-nav-cat-head { color: #047857; }
+    html[data-theme="light"] .cat-mobile-finance .mobile-nav-cat-head { color: #b45309; }
+
+</style>
+  <script src="facts.js"></script>
   <script type="application/ld+json">{
     "@context": "https://schema.org",
     "@type": "WebApplication",
@@ -294,6 +331,15 @@
     "browserRequirements": "Requires JavaScript",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
   }</script>
+  <script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What flour should I use?", "acceptedAnswer": { "@type": "Answer", "text": "High-gluten flour (e.g. King Arthur Sir Lancelot or a 13–14% protein bread flour) gives NY pizza its signature chew." } },
+      { "@type": "Question", "name": "Why cold ferment?", "acceptedAnswer": { "@type": "Answer", "text": "24–72 hours in the fridge slows fermentation — more flavor, better browning, easier stretching." } }
+    ]
+  }</script>
+
 </head>
 <body>
 
@@ -377,59 +423,30 @@
         <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
       </button>
 
-        <select class="mobile-tool-select" onchange="location.href=this.value">
-          <option value="index.html">Home</option>
+                <button class="mobile-nav-btn" id="mobileNavBtn" onclick="toggleMobileNav(event)" aria-label="Open menu" aria-expanded="false" title="Menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
 
-          <optgroup label="Everyday">
-            <option value="tip-bill-split-calculator.html">Tip & Bill Split Calculator</option>
-            <option value="percentage-calculator.html">Percentage Calculator</option>
-            <option value="unit-converter.html">Unit Converter</option>
-            <option value="age-date-difference-calculator.html">Age & Date Difference Calculator</option>
-            <option value="discount-sale-price-calculator.html">Discount & Sale Price Calculator</option>
-            <option value="fuel-cost-calculator.html">Fuel Cost & Mileage Calculator</option>
-          </optgroup>
-          
-          <optgroup label="Maker & Craft">
-            <option value="3d-print-cost-calculator.html">3D Print Cost Calculator</option>
-            <option value="pizza-dough-calculator.html">Baker's Pizza Dough Calculator</option>
-            <option value="ny-style-pizza-dough-calculator.html">NY-Style Pizza Dough Calculator</option>
-            <option value="cnc-laser-cutting-cost-calculator.html">CNC & Laser Cutting Cost Calculator</option>
-            <option value="sourdough-levain-calculator.html">Sourdough Levain Calculator</option>
-            <option value="resin-casting-volume-calculator.html">Resin Casting Volume Calculator</option>
-          </optgroup>
-          
-          <optgroup label="Creator & Media">
-            <option value="video-bitrate-file-size-calculator.html">Video Bitrate & File Size Calculator</option>
-            <option value="depth-of-field-calculator.html">Depth of Field Calculator</option>
-            <option value="camera-field-of-view-calculator.html">Camera Field of View Calculator</option>
-            <option value="nd-filter-exposure-calculator.html">ND Filter Exposure Calculator</option>
-            <option value="timelapse-interval-calculator.html">Timelapse Interval Calculator</option>
-            <option value="light-falloff-inverse-square-calculator.html">Light Falloff Calculator</option>
-          </optgroup>
-          
-          <optgroup label="Fitness & Body">
-            <option value="tdee-macro-calculator.html">TDEE & Macro Calculator</option>
-            <option value="one-rep-max-calculator.html">One Rep Max Calculator</option>
-            <option value="ffmi-muscular-potential-calculator.html">FFMI & Muscular Potential Calculator</option>
-            <option value="body-fat-percentage-calculator.html">Body Fat Percentage Calculator</option>
-            <option value="calories-burned-calculator.html">Calories Burned Calculator</option>
-            <option value="wilks-dots-powerlifting-calculator.html">DOTS Powerlifting Score Calculator</option>
-            <option value="karvonen-heart-rate-zone-calculator.html">Karvonen Heart Rate Zone Calculator</option>
-            <option value="running-pace-calculator.html">Running Pace Calculator</option>
-          </optgroup>
-          
-          <optgroup label="Finance & Trading">
-            <option value="stock-average-down-calculator.html">Stock Average Down Calculator</option>
-            <option value="dividend-drip-calculator.html">Dividend DRIP Calculator</option>
-            <option value="position-size-risk-calculator.html">Position Size & Risk Calculator</option>
-            <option value="compound-interest-calculator.html">Compound Interest Calculator</option>
-            <option value="crypto-roi-calculator.html">Crypto ROI Calculator</option>
-            <option value="mortgage-payment-calculator.html">Mortgage Payment Calculator</option>
-          </optgroup>
-        </select>
       </div>
     </div>
   </header>
+  <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+  <div class="mobile-nav-panel" id="mobileNavPanel" role="dialog" aria-modal="true" aria-label="Site menu">
+    <div class="mobile-nav-head">
+      <div class="mobile-nav-brand">
+        <span>Calc<span style="color: var(--accent-indigo);">QI</span></span>
+        <span class="brand-badge">32 Tools</span>
+      </div>
+      <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">&times;</button>
+    </div>
+    <div class="mobile-nav-body">
+      <a class="mobile-nav-link mobile-nav-home" href="index.html">
+        <svg class="mobile-nav-home-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+        Home
+      </a>
+    </div>
+  </div>
+
 
   <main class="main-content">
     <div class="container">
@@ -479,7 +496,8 @@
           <div class="card"><h2 style="font-size:1rem;margin-bottom:0.5rem;">NY Formula</h2><div class="formula-card">Total = Flour×(1 + Hyd% + Salt% + Oil% + Sugar% + Yeast%) &nbsp;·&nbsp; Ball: 12"=250g · 14"=340g · 16"=400g</div></div>
           <div class="card"><h2 style="font-size:1rem;margin-bottom:0.5rem;">FAQs</h2><details class="faq-item"><summary class="faq-question">What flour should I use?</summary><div class="faq-answer">High-gluten flour (e.g. King Arthur Sir Lancelot or a 13–14% protein bread flour) gives NY pizza its signature chew.</div></details><details class="faq-item"><summary class="faq-question">Why cold ferment?</summary><div class="faq-answer">24–72 hours in the fridge slows fermentation — more flavor, better browning, easier stretching.</div></details></div>
         </div>
-      </section>
+      <div class="card" style="margin-top:1.5rem;"><h2 style="font-size:1rem;margin-bottom:0.5rem;">Related calculations</h2><div style="display:grid;gap:0.4rem;"><a style="font-size:0.85rem;font-weight:600;" href="3d-print-cost-calculator.html">3D Print Cost Calculator →</a><a style="font-size:0.85rem;font-weight:600;" href="pizza-dough-calculator.html">Baker's Pizza Dough Calculator →</a><a style="font-size:0.85rem;font-weight:600;" href="cnc-laser-cutting-cost-calculator.html">CNC &amp; Laser Cutting Cost Calculator →</a></div></div>
+</section>
     </div>
   </main>
 
@@ -1430,6 +1448,138 @@
 
     window.addEventListener('load', () => { $id('footer-year').textContent = new Date().getFullYear(); calcNY(); });
 
+  </script>
+
+<script>
+  (function () {
+    function buildMobileNav() {
+      var panel = document.getElementById('mobileNavPanel');
+      if (!panel || panel.querySelector('.mobile-nav-cat')) return;
+      var body = panel.querySelector('.mobile-nav-body');
+      var catClasses = ['cat-mobile-everyday', 'cat-mobile-maker', 'cat-mobile-creator', 'cat-mobile-fitness', 'cat-mobile-finance'];
+      var catIdx = 0;
+      document.querySelectorAll('.cat-nav-menu > .nav-cat-group').forEach(function (group) {
+        var btn = group.querySelector('.nav-cat-btn');
+        if (!btn) return;
+        var section = document.createElement('div');
+        section.className = 'mobile-nav-cat ' + (catClasses[catIdx] || '');
+        catIdx++;
+        var head = document.createElement('div');
+        head.className = 'mobile-nav-cat-head';
+        head.textContent = btn.textContent.trim();
+        section.appendChild(head);
+        var list = document.createElement('div');
+        list.className = 'mobile-nav-links';
+        group.querySelectorAll('.dropdown-item').forEach(function (item) {
+          var a = document.createElement('a');
+          a.className = 'mobile-nav-link';
+          a.textContent = item.textContent;
+          var href = item.getAttribute('href');
+          if (href) {
+            a.href = href;
+          } else {
+            var m = (item.getAttribute('onclick') || '').match(/'([^']+)'/);
+            a.href = m ? m[1] : '#';
+          }
+          list.appendChild(a);
+        });
+        section.appendChild(list);
+        body.appendChild(section);
+      });
+      var current = location.pathname.split('/').pop() || 'index.html';
+      panel.querySelectorAll('.mobile-nav-link').forEach(function (l) {
+        if (l.getAttribute('href') === current) l.classList.add('active');
+      });
+    }
+    function setNav(open) {
+      var panel = document.getElementById('mobileNavPanel');
+      var overlay = document.getElementById('mobileNavOverlay');
+      var btn = document.getElementById('mobileNavBtn');
+      if (!panel) return;
+      panel.classList.toggle('open', open);
+      if (overlay) overlay.classList.toggle('show', open);
+      if (btn) btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      document.body.style.overflow = open ? 'hidden' : '';
+    }
+    window.toggleMobileNav = function (e) {
+      if (e) e.stopPropagation();
+      var panel = document.getElementById('mobileNavPanel');
+      setNav(panel ? !panel.classList.contains('open') : false);
+    };
+    buildMobileNav();
+    var overlay = document.getElementById('mobileNavOverlay');
+    var close = document.getElementById('mobileNavClose');
+    if (overlay) overlay.addEventListener('click', function () { setNav(false); });
+    if (close) close.addEventListener('click', function () { setNav(false); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') setNav(false);
+    });
+  })();
+</script>
+
+  <script>
+  (function () {
+    function applyFact() {
+      var el = document.querySelector('.fun-fact-text');
+      var pool = (window.CALCQI_FACTS || {})[location.pathname.split('/').pop()];
+      if (!el || !pool || !pool.length) return;
+      var dayIndex = Math.floor(Date.now() / 86400000) % pool.length;
+      var idx = dayIndex;
+      var state = window.__calcqiFactState;
+      if (state && state.pool === pool && state.day === dayIndex) {
+        idx = state.idx; // keep a user-shuffled pick for the same day
+      } else {
+        window.__calcqiFactState = { pool: pool, day: dayIndex, idx: dayIndex };
+      }
+      el.textContent = pool[idx];
+      if (!window.__calcqiFactBtn) {
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'btn btn-secondary';
+        btn.style.cssText = 'padding:0.3rem 0.7rem;font-size:0.72rem;margin-top:0.6rem;';
+        btn.textContent = 'Another fact';
+        btn.addEventListener('click', function () {
+          var s = window.__calcqiFactState;
+          if (!s) return;
+          s.idx = (s.idx + 1) % s.pool.length;
+          var e = document.querySelector('.fun-fact-text');
+          if (e) e.textContent = s.pool[s.idx];
+        });
+        var card = el.closest('.fun-fact-card');
+        if (card) {
+          card.appendChild(btn);
+          window.__calcqiFactBtn = btn;
+        }
+      }
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', applyFact);
+    } else {
+      applyFact();
+    }
+  })();
+  </script>
+  <script>
+  /* Google Ads conversion prep.
+     Paste your Ads conversion ID into CALCQI_AW below when ready, e.g. 'AW-123456789'.
+     Leave empty ("") to keep Ads events disabled — the GA4 copy events still fire. */
+  window.CALCQI_AW = '';
+  function trackCalcConversion(label) {
+    var id = window.CALCQI_AW;
+    if (!id) return;
+    try {
+      gtag('config', id, { send_page_view: false });
+      gtag('event', 'conversion', { send_to: label ? id + '/' + label : id });
+    } catch (e) {}
+  }
+  document.addEventListener('click', function (e) {
+    var t = e.target;
+    var btn = t && t.closest ? t.closest('button.btn-primary, .btn-primary') : null;
+    if (!btn) return;
+    var page = location.pathname.split('/').pop().replace('.html', '');
+    try { gtag('event', 'copy_result', { tool: page }); } catch (e) {}
+    trackCalcConversion();
+  });
   </script>
 </body>
 </html>
