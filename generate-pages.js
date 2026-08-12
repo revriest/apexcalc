@@ -250,7 +250,9 @@ function buildPage(c) {
   <meta property="og:type" content="website">
   <meta property="og:url" content="${SITE}/${c.slug}.html">
   <meta property="og:site_name" content="CalcQI">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%236366f1%22/><text y=%22.85em%22 x=%22.1em%22 font-size=%2265%22 font-weight=%22bold%22 fill=%22white%22>CQ</text></svg>">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%236366f1%22/><path d=%22M33.2 1.4L33.2 1.4Q20.2 1.4 12.6-5.9Q5-13.1 5-26.6L5-26.6L5-43.4Q5-56.9 12.6-64.2Q20.2-71.4 33.2-71.4L33.2-71.4Q46.1-71.4 53.2-64.4Q60.2-57.3 60.2-45L60.2-45L60.2-44.4L47.2-44.4L47.2-45.4Q47.2-51.6 43.8-55.6Q40.3-59.6 33.2-59.6L33.2-59.6Q26.2-59.6 22.2-55.3Q18.2-51 18.2-43.6L18.2-43.6L18.2-26.4Q18.2-19.1 22.2-14.8Q26.2-10.4 33.2-10.4L33.2-10.4Q40.3-10.4 43.8-14.5Q47.2-18.5 47.2-24.6L47.2-24.6L47.2-26.4L60.2-26.4L60.2-25Q60.2-12.7 53.2-5.7Q46.1 1.4 33.2 1.4ZM113.3 18L102.8 18Q97.9 18 94.9 15.0Q91.8 11.9 91.8 6.8L91.8 6.8L91.8 0.9Q83-0.5 77.2-5.9L77.2-5.9Q69.4-13.1 69.4-26.6L69.4-26.6L69.4-43.4Q69.4-56.9 77.2-64.2Q85-71.4 98.2-71.4Q111.4-71.4 119.2-64.2Q127-56.9 127-43.4L127-43.4L127-26.6Q127-13.1 119.2-5.9L119.2-5.9Q113.4-0.5 104.6 0.9L104.6 0.9L104.6 4.8Q104.6 7.8 107.4 7.8L107.4 7.8L113.3 7.8L113.3 18ZM98.2-10.4L98.2-10.4Q105.6-10.4 109.7-14.7Q113.8-19 113.8-26.2L113.8-26.2L113.8-43.8Q113.8-51 109.7-55.3Q105.6-59.6 98.2-59.6L98.2-59.6Q90.9-59.6 86.8-55.3Q82.6-51 82.6-43.8L82.6-43.8L82.6-26.2Q82.6-19 86.8-14.7Q90.9-10.4 98.2-10.4Z%22 fill=%22white%22 transform=%22translate(2.39 69.26) scale(0.7213)%22/></svg>">
+  <link rel="icon" type="image/png" sizes="512x512" href="favicon.png">
+  <link rel="apple-touch-icon" sizes="512x512" href="favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -265,7 +267,7 @@ ${STYLE}
     <div class="container">
       <div class="header-inner">
         <a href="index.html" class="brand-logo">
-          <div class="logo-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg></div>
+          <div class="logo-icon"><img src="calcqi-icon-clean.png" alt="CalcQI" width="100%" height="100%"></div>
           <span>Calc<span style="color: var(--accent-indigo);">QI</span></span>
           <span class="brand-badge">★ 32 Pro Tools</span>
         </a>

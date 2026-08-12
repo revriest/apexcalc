@@ -41,7 +41,9 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://calcqi.com/percentage-calculator.html">
   <meta property="og:site_name" content="CalcQI">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230b0f19'/><rect x='2' y='2' width='96' height='96' rx='20' fill='none' stroke='%236366f1' stroke-width='4'/><text x='50%' y='64%' font-family='sans-serif' font-weight='900' font-size='48' fill='%236366f1' text-anchor='middle'>CQ</text></svg>">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%236366f1'/><path d='M33.2 1.4L33.2 1.4Q20.2 1.4 12.6-5.9Q5-13.1 5-26.6L5-26.6L5-43.4Q5-56.9 12.6-64.2Q20.2-71.4 33.2-71.4L33.2-71.4Q46.1-71.4 53.2-64.4Q60.2-57.3 60.2-45L60.2-45L60.2-44.4L47.2-44.4L47.2-45.4Q47.2-51.6 43.8-55.6Q40.3-59.6 33.2-59.6L33.2-59.6Q26.2-59.6 22.2-55.3Q18.2-51 18.2-43.6L18.2-43.6L18.2-26.4Q18.2-19.1 22.2-14.8Q26.2-10.4 33.2-10.4L33.2-10.4Q40.3-10.4 43.8-14.5Q47.2-18.5 47.2-24.6L47.2-24.6L47.2-26.4L60.2-26.4L60.2-25Q60.2-12.7 53.2-5.7Q46.1 1.4 33.2 1.4ZM113.3 18L102.8 18Q97.9 18 94.9 15.0Q91.8 11.9 91.8 6.8L91.8 6.8L91.8 0.9Q83-0.5 77.2-5.9L77.2-5.9Q69.4-13.1 69.4-26.6L69.4-26.6L69.4-43.4Q69.4-56.9 77.2-64.2Q85-71.4 98.2-71.4Q111.4-71.4 119.2-64.2Q127-56.9 127-43.4L127-43.4L127-26.6Q127-13.1 119.2-5.9L119.2-5.9Q113.4-0.5 104.6 0.9L104.6 0.9L104.6 4.8Q104.6 7.8 107.4 7.8L107.4 7.8L113.3 7.8L113.3 18ZM98.2-10.4L98.2-10.4Q105.6-10.4 109.7-14.7Q113.8-19 113.8-26.2L113.8-26.2L113.8-43.8Q113.8-51 109.7-55.3Q105.6-59.6 98.2-59.6L98.2-59.6Q90.9-59.6 86.8-55.3Q82.6-51 82.6-43.8L82.6-43.8L82.6-26.2Q82.6-19 86.8-14.7Q90.9-10.4 98.2-10.4Z' fill='white' transform='translate(2.39 69.26) scale(0.7213)'/></svg>">
+  <link rel="icon" type="image/png" sizes="512x512" href="favicon.png">
+  <link rel="apple-touch-icon" sizes="512x512" href="favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -105,11 +107,11 @@
     input[type=number] { -moz-appearance: textfield; }
     select.form-control { appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%2364748b'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 0.8rem center; padding-right: 2rem; cursor: pointer; }
 
-    .app-header { position: sticky; top: 0; z-index: 100; background: rgba(11, 14, 20, 0.85); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border-subtle); padding: 0.75rem 0; }
+    .app-header { position: sticky; top: 0; z-index: 100; background: rgba(11, 14, 20, 0.85); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border-subtle); padding: 1.05rem 0; }
     .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 1.25rem; }
-    .brand-logo { display: flex; align-items: center; gap: 0.75rem; font-weight: 800; font-size: 1.35rem; color: var(--text-main); }
-    .logo-icon { width: 38px; height: 38px; background: var(--accent-indigo); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; }
-    .logo-icon svg { width: 22px; height: 22px; fill: #ffffff; }
+    .brand-logo { display: flex; align-items: center; gap: 0.9rem; font-weight: 800; font-size: 1.55rem; color: var(--text-main); }
+    .logo-icon { width: 58px; height: 58px; background: transparent; border-radius: 15px; overflow: hidden; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+    .logo-icon img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .brand-badge { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; background: rgba(110, 139, 255, 0.15); color: var(--accent-indigo); border: 1px solid rgba(110, 139, 255, 0.3); padding: 0.15rem 0.45rem; border-radius: var(--radius-full); white-space: nowrap; }
     
     .cat-nav-menu { display: flex; align-items: center; gap: 0.5rem; }
@@ -347,7 +349,7 @@
     <div class="container">
       <div class="header-inner">
         <a href="index.html" class="brand-logo">
-          <div class="logo-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg></div>
+          <div class="logo-icon"><img src="calcqi-icon-clean.png" alt="CalcQI" width="100%" height="100%"></div>
           <span>Calc<span style="color: var(--accent-indigo);">QI</span></span>
           <span class="brand-badge">★ 32 Pro Tools</span>
         </a>
