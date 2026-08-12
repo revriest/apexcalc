@@ -888,7 +888,7 @@
     function openPrivacyModal(e){if(e)e.preventDefault();$id('privacy-modal').classList.add('show')}
     function closePrivacyModal(){$id('privacy-modal').classList.remove('show')}
     $id('privacy-modal').addEventListener('click',function(e){if(e.target===this)closePrivacyModal()})
-    var CALCQI_FORM_ENDPOINT='https://formsubmit.co/contact@calcqi.com';
+    var CALCQI_FORM_ENDPOINT='https://formsubmit.co/ajax/contact@calcqi.com';
     function fillSuggestion(name){
       var idea=$id('suggest-idea');
       if(idea){ idea.value=name; idea.focus(); }
@@ -918,10 +918,13 @@
         return r.json().then(function(j){ return {ok:r.ok, j:j}; }).catch(function(){ return {ok:r.ok, j:null}; });
       }).then(function(res){
         btn.disabled=false; btn.textContent=btn.dataset.origLabel||'Send';
-        if(res.ok && res.j && res.j.success){
+        if(res.ok && res.j && (res.j.success === 'true' || res.j.success === true)){
           status.className='form-status ok';
           status.textContent='Thanks — your message was sent! We\'ll get back to you soon.';
           form.reset();
+        } else if(res.j && res.j.message){
+          status.className='form-status err';
+          status.textContent=res.j.message;
         } else {
           status.className='form-status err';
           status.textContent='That didn\'t go through. Please try again, or email contact@calcqi.com.';
